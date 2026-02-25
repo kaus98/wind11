@@ -195,13 +195,16 @@ function ResumeIcon({ className }: { className?: string }) {
 }
 
 function App() {
-  const taskbarReservedHeight = 76
   const [startOpen, setStartOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [startQuery, setStartQuery] = useState('')
   const [activeId, setActiveId] = useState<AppId>('about')
   const [now, setNow] = useState(() => new Date())
   const [viewport, setViewport] = useState(() => ({ width: window.innerWidth, height: window.innerHeight }))
+
+  const taskbarReservedHeight = viewport.width < 700 ? 118 : 76
+  const windowInset = viewport.width < 480 ? 6 : 8
+  const forceFullscreenWindows = viewport.width < 640
 
   const [positions, setPositions] = useState<Record<AppId, WindowPos>>({
     about: { x: 160, y: 70 },
@@ -249,8 +252,8 @@ function App() {
   })
 
   const [windows, setWindows] = useState<Record<AppId, AppWindow>>({
-    about: { id: 'about', title: 'About', isOpen: true, isMinimized: false, isMaximized: false },
-    projects: { id: 'projects', title: 'Projects', isOpen: true, isMinimized: false, isMaximized: false },
+    about: { id: 'about', title: 'About', isOpen: false, isMinimized: false, isMaximized: false },
+    projects: { id: 'projects', title: 'Projects', isOpen: false, isMinimized: false, isMaximized: false },
     blogs: { id: 'blogs', title: 'Blogs', isOpen: false, isMinimized: false, isMaximized: false },
     jobs: { id: 'jobs', title: 'Jobs', isOpen: false, isMinimized: false, isMaximized: false },
     contact: { id: 'contact', title: 'Contact', isOpen: false, isMinimized: false, isMaximized: false },
@@ -267,11 +270,13 @@ function App() {
       const minWidth = nextViewport.width < 640 ? 300 : 420
       const minHeight = nextViewport.width < 640 ? 220 : 280
 
+      const nextTaskbarReservedHeight = nextViewport.width < 700 ? 118 : 76
+
       const nextSizes = { ...sizes }
       let sizesChanged = false
       ;(Object.keys(sizes) as AppId[]).forEach((id) => {
         const maxWidth = Math.max(minWidth, nextViewport.width - 12)
-        const maxHeight = Math.max(minHeight, nextViewport.height - taskbarReservedHeight - 12)
+        const maxHeight = Math.max(minHeight, nextViewport.height - nextTaskbarReservedHeight - 12)
         const width = Math.min(Math.max(minWidth, sizes[id].width), maxWidth)
         const height = Math.min(Math.max(minHeight, sizes[id].height), maxHeight)
 
@@ -290,7 +295,7 @@ function App() {
       ;(Object.keys(positions) as AppId[]).forEach((id) => {
         const size = nextSizes[id]
         const maxX = Math.max(0, nextViewport.width - size.width)
-        const maxY = Math.max(0, nextViewport.height - size.height - taskbarReservedHeight)
+        const maxY = Math.max(0, nextViewport.height - size.height - nextTaskbarReservedHeight)
         const x = Math.min(Math.max(0, positions[id].x), maxX)
         const y = Math.min(Math.max(0, positions[id].y), maxY)
 
@@ -309,7 +314,7 @@ function App() {
 
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
-  }, [positions, sizes, taskbarReservedHeight])
+  }, [positions, sizes])
 
   useEffect(() => {
     window.localStorage.setItem('w11-muted', String(muted))
@@ -785,6 +790,7 @@ function App() {
             const size = sizes[id]
             const isMaximized = windows[id].isMaximized
             const maximizedHeight = Math.max(220, viewport.height - taskbarReservedHeight)
+            const fullscreenHeight = Math.max(220, viewport.height - taskbarReservedHeight - windowInset * 2)
 
             return (
               <section
@@ -793,7 +799,15 @@ function App() {
                 style={
                   isMaximized
                     ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight }
-                    : { zIndex, left: pos.x, top: pos.y, width: size.width, height: size.height }
+                    : forceFullscreenWindows
+                      ? {
+                          zIndex,
+                          left: windowInset,
+                          top: windowInset,
+                          width: Math.max(0, viewport.width - windowInset * 2),
+                          height: fullscreenHeight,
+                        }
+                      : { zIndex, left: pos.x, top: pos.y, width: size.width, height: size.height }
                 }
                 ref={(el) => {
                   windowRefs.current[id] = el
@@ -1277,6 +1291,14 @@ function App() {
               </button>
             ))}
             {filteredAllOptions.length === 0 && <div className="start-empty">No options found.</div>}
+          </div>
+
+          <div className="start-social" aria-label="Social links">
+            {socialLinks.map(({ key, label, href, Icon }) => (
+              <a key={key} className="start-social-link" href={href} target="_blank" rel="noreferrer" aria-label={label} title={label}>
+                <Icon className="start-social-icon" />
+              </a>
+            ))}
           </div>
 
           <div className="start-userbar">

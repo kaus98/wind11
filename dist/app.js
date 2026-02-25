@@ -12569,13 +12569,15 @@ function ResumeIcon({ className }) {
   ] });
 }
 function App() {
-  const taskbarReservedHeight = 76;
   const [startOpen, setStartOpen] = reactExports.useState(false);
   const [query, setQuery] = reactExports.useState("");
   const [startQuery, setStartQuery] = reactExports.useState("");
   const [activeId, setActiveId] = reactExports.useState("about");
   const [now, setNow] = reactExports.useState(() => /* @__PURE__ */ new Date());
   const [viewport, setViewport] = reactExports.useState(() => ({ width: window.innerWidth, height: window.innerHeight }));
+  const taskbarReservedHeight = viewport.width < 700 ? 118 : 76;
+  const windowInset = viewport.width < 480 ? 6 : 8;
+  const forceFullscreenWindows = viewport.width < 640;
   const [positions, setPositions] = reactExports.useState({
     about: { x: 160, y: 70 },
     projects: { x: 210, y: 110 },
@@ -12620,8 +12622,8 @@ function App() {
     return raw === "light" ? "light" : "dark";
   });
   const [windows, setWindows] = reactExports.useState({
-    about: { id: "about", title: "About", isOpen: true, isMinimized: false, isMaximized: false },
-    projects: { id: "projects", title: "Projects", isOpen: true, isMinimized: false, isMaximized: false },
+    about: { id: "about", title: "About", isOpen: false, isMinimized: false, isMaximized: false },
+    projects: { id: "projects", title: "Projects", isOpen: false, isMinimized: false, isMaximized: false },
     blogs: { id: "blogs", title: "Blogs", isOpen: false, isMinimized: false, isMaximized: false },
     jobs: { id: "jobs", title: "Jobs", isOpen: false, isMinimized: false, isMaximized: false },
     contact: { id: "contact", title: "Contact", isOpen: false, isMinimized: false, isMaximized: false }
@@ -12635,11 +12637,12 @@ function App() {
       const nextViewport = { width: window.innerWidth, height: window.innerHeight };
       const minWidth = nextViewport.width < 640 ? 300 : 420;
       const minHeight = nextViewport.width < 640 ? 220 : 280;
+      const nextTaskbarReservedHeight = nextViewport.width < 700 ? 118 : 76;
       const nextSizes = { ...sizes };
       let sizesChanged = false;
       Object.keys(sizes).forEach((id) => {
         const maxWidth = Math.max(minWidth, nextViewport.width - 12);
-        const maxHeight = Math.max(minHeight, nextViewport.height - taskbarReservedHeight - 12);
+        const maxHeight = Math.max(minHeight, nextViewport.height - nextTaskbarReservedHeight - 12);
         const width = Math.min(Math.max(minWidth, sizes[id].width), maxWidth);
         const height = Math.min(Math.max(minHeight, sizes[id].height), maxHeight);
         if (width !== sizes[id].width || height !== sizes[id].height) {
@@ -12655,7 +12658,7 @@ function App() {
       Object.keys(positions).forEach((id) => {
         const size = nextSizes[id];
         const maxX = Math.max(0, nextViewport.width - size.width);
-        const maxY = Math.max(0, nextViewport.height - size.height - taskbarReservedHeight);
+        const maxY = Math.max(0, nextViewport.height - size.height - nextTaskbarReservedHeight);
         const x = Math.min(Math.max(0, positions[id].x), maxX);
         const y = Math.min(Math.max(0, positions[id].y), maxY);
         if (x !== positions[id].x || y !== positions[id].y) {
@@ -12670,7 +12673,7 @@ function App() {
     }
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, [positions, sizes, taskbarReservedHeight]);
+  }, [positions, sizes]);
   reactExports.useEffect(() => {
     window.localStorage.setItem("w11-muted", String(muted));
   }, [muted]);
@@ -13043,11 +13046,18 @@ function App() {
           const size = sizes[id];
           const isMaximized = windows[id].isMaximized;
           const maximizedHeight = Math.max(220, viewport.height - taskbarReservedHeight);
+          const fullscreenHeight = Math.max(220, viewport.height - taskbarReservedHeight - windowInset * 2);
           return /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "section",
             {
               className: isActive ? isMaximized ? "window active maximized" : "window active" : isMaximized ? "window maximized" : "window",
-              style: isMaximized ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight } : { zIndex, left: pos.x, top: pos.y, width: size.width, height: size.height },
+              style: isMaximized ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight } : forceFullscreenWindows ? {
+                zIndex,
+                left: windowInset,
+                top: windowInset,
+                width: Math.max(0, viewport.width - windowInset * 2),
+                height: fullscreenHeight
+              } : { zIndex, left: pos.x, top: pos.y, width: size.width, height: size.height },
               ref: (el) => {
                 windowRefs.current[id] = el;
               },
@@ -13342,6 +13352,7 @@ function App() {
         ] }, option.key)),
         filteredAllOptions.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-empty", children: "No options found." })
       ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-social", "aria-label": "Social links", children: socialLinks.map(({ key, label, href, Icon }) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "start-social-link", href, target: "_blank", rel: "noreferrer", "aria-label": label, title: label, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "start-social-icon" }) }, key)) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-userbar", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-user", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-avatar", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "start-avatar-img", src: AVATAR_ICON_URL, alt: "" }) }),
