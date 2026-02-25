@@ -1,0 +1,27 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#081225"/>
+      <stop offset="1" stop-color="#0C1834"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1450 260) rotate(140) scale(860 560)">
+      <stop stop-color="#43C9FF" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#43C9FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="220" y1="790" x2="950" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#44E6C5"/>
+      <stop offset="1" stop-color="#57A9FF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+
+  <circle cx="1500" cy="250" r="260" fill="#4A79FF" fill-opacity="0.08"/>
+  <circle cx="1360" cy="680" r="180" fill="#40E5C8" fill-opacity="0.08"/>
+
+  <text x="220" y="650" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="92" font-weight="700">KAUSTUBH</text>
+  <text x="220" y="716" fill="#BFD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="500">Data Scientist • Data Engineer</text>
+  <text x="220" y="760" fill="#9FC4FF" font-family="Segoe UI, Arial, sans-serif" font-size="28">NLP | Big Data | Cloud</text>
+  <rect x="220" y="784" width="730" height="6" rx="3" fill="url(#line)"/>
+</svg>
