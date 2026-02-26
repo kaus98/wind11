@@ -896,6 +896,10 @@
   background: linear-gradient(135deg, rgba(0, 176, 255, 0.78), rgba(0, 255, 170, 0.58));
 }
 
+.app-icon.timeline {
+  background: linear-gradient(135deg, rgba(0, 224, 255, 0.82), rgba(125, 0, 255, 0.62));
+}
+
 .app-icon.contact {
   background: linear-gradient(135deg, rgba(255, 120, 0, 0.75), rgba(255, 0, 140, 0.55));
 }
@@ -1293,6 +1297,31 @@
   color: rgba(118, 221, 118, 0.94);
 }
 
+.w11.neon .settings-select option {
+  background: #1a0a2a;
+  color: #00ffff;
+}
+
+.w11.sunset .settings-select option {
+  background: #402010;
+  color: #fff8e1;
+}
+
+.w11.monochrome .settings-select option {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.w11.dracula .settings-select option {
+  background: #282a36;
+  color: #f8f8f2;
+}
+
+.w11.oceanic .settings-select option {
+  background: #004060;
+  color: #caf0f8;
+}
+
 .cards {
   margin-top: 12px;
   display: grid;
@@ -1519,6 +1548,101 @@
   gap: 12px;
 }
 
+.timeline-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.timeline-rich {
+  position: relative;
+  padding-left: 22px;
+}
+
+.timeline-rich::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  transform: none;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(90, 185, 255, 0.7), rgba(164, 115, 255, 0.55));
+  border-radius: 999px;
+}
+
+.timeline-item {
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.timeline-rich .timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -18px;
+  top: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(178, 225, 255, 0.8);
+  background: rgba(104, 183, 255, 0.72);
+  box-shadow: 0 0 0 3px rgba(84, 132, 255, 0.22);
+}
+
+.timeline-item:hover {
+  transform: translateX(2px);
+  border-color: rgba(188, 220, 255, 0.26);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.timeline-date {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.74;
+}
+
+.timeline-title {
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+.timeline-desc {
+  margin: 8px 0 0;
+  font-size: 13px;
+  opacity: 0.84;
+}
+
+.availability-card {
+  margin-top: 12px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  padding: 12px;
+}
+
+.availability-title {
+  margin: 0;
+  font-size: 14px;
+}
+
+.availability-status {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.availability-meta {
+  margin: 6px 0 0;
+  font-size: 12px;
+  opacity: 0.78;
+}
+
 .job-card {
   padding-bottom: 12px;
 }
@@ -1622,6 +1746,10 @@
 
 .tb-btn .app-icon.blogs {
   background: linear-gradient(145deg, rgba(72, 206, 255, 0.90), rgba(72, 255, 198, 0.66));
+}
+
+.tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(82, 212, 255, 0.9), rgba(144, 116, 255, 0.64));
 }
 
 .tb-btn .app-icon.contact {
@@ -1816,6 +1944,7 @@
 
 .start {
   position: fixed;
+  z-index: 50;
   left: 50%;
   transform: translateX(-50%);
   bottom: 76px;
@@ -2073,6 +2202,26 @@
   color: #5bff5b;
 }
 
+.start-theme-btn.theme-neon .start-theme-swatch {
+  color: #ff00ff;
+}
+
+.start-theme-btn.theme-sunset .start-theme-swatch {
+  color: #ff6b35;
+}
+
+.start-theme-btn.theme-monochrome .start-theme-swatch {
+  color: #ffffff;
+}
+
+.start-theme-btn.theme-dracula .start-theme-swatch {
+  color: #bd93f9;
+}
+
+.start-theme-btn.theme-oceanic .start-theme-swatch {
+  color: #00b4d8;
+}
+
 .start-userbar {
   margin-top: 12px;
   padding: 12px 16px;
@@ -2138,6 +2287,57 @@
   background: rgba(255, 255, 255, 0.12);
 }
 
+.start-user-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.start-power-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.start-power-item {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.start-power-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.start-power-item.shutdown {
+  color: rgba(255, 118, 118, 0.95);
+}
+
+.start-power-item.shutdown:hover {
+  background: rgba(255, 88, 88, 0.2);
+}
+
+.start-power-item-icon {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  display: block;
+}
+
+.start-power-item-icon.shutdown-icon {
+  width: 16px;
+  height: 16px;
+  fill: rgba(255, 118, 118, 0.98);
+}
+
 .toast {
   position: fixed;
   left: 50%;
@@ -2196,6 +2396,30 @@
 .toast-btn.primary {
   background: rgba(255, 255, 255, 0.14);
   border-color: rgba(255, 255, 255, 0.20);
+}
+
+.sleep-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sleep-wake-btn {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.sleep-wake-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
 }
 
 @media (max-width: 1100px) {
@@ -2442,6 +2666,10 @@
     justify-content: space-between;
   }
 
+  .start-user-actions {
+    margin-left: auto;
+  }
+
   .toast {
     bottom: 112px;
     width: calc(100vw - 10px);
@@ -2540,6 +2768,16 @@
     grid-template-columns: 1fr;
   }
 
+  .start-user-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .start-power-item {
+    width: 32px;
+    height: 32px;
+  }
+
   .toast {
     width: calc(100vw - 8px);
     bottom: calc(112px + env(safe-area-inset-bottom, 0px));
@@ -2568,4 +2806,860 @@
   .toast {
     background: rgba(20, 26, 40, 0.94);
   }
+}
+
+/* Neon Theme */
+.w11.neon {
+  color: rgba(238, 255, 255, 0.98);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.28);
+}
+
+.w11.neon .wallpaper {
+  background-image:
+    radial-gradient(900px 560px at 18% 10%, rgba(255, 0, 224, 0.34), rgba(255, 0, 224, 0)),
+    radial-gradient(820px 500px at 84% 84%, rgba(0, 244, 255, 0.32), rgba(0, 244, 255, 0)),
+    radial-gradient(620px 320px at 50% 100%, rgba(120, 0, 255, 0.24), rgba(120, 0, 255, 0)),
+    linear-gradient(145deg, #04000c 0%, #190033 54%, #05020f 100%);
+}
+
+.w11.neon .window,
+.w11.neon .taskbar,
+.w11.neon .start,
+.w11.neon .social-rail,
+.w11.neon .wcard,
+.w11.neon .chip,
+.w11.neon .toast,
+.w11.neon .start-item,
+.w11.neon .start-all-options,
+.w11.neon .start-theme,
+.w11.neon .start-social,
+.w11.neon .search,
+.w11.neon .start-search-wrap {
+  border-color: rgba(255, 66, 238, 0.46);
+  background: rgba(18, 5, 34, 0.8);
+  box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.08), inset 0 0 22px rgba(255, 0, 224, 0.1);
+}
+
+.w11.neon .window-titlebar,
+.w11.neon .start-top,
+.w11.neon .start-userbar {
+  border-color: rgba(255, 106, 244, 0.38);
+  background: rgba(25, 7, 44, 0.82);
+}
+
+.w11.neon .window.active,
+.w11.neon .tb-btn.active,
+.w11.neon .tray-btn.active,
+.w11.neon .start-theme-btn.active {
+  border-color: rgba(255, 172, 248, 0.68);
+  background: rgba(210, 52, 255, 0.45);
+  box-shadow: 0 0 18px rgba(255, 0, 224, 0.32), 0 0 28px rgba(0, 244, 255, 0.22);
+}
+
+.w11.neon .icon,
+.w11.neon .tray-svg,
+.w11.neon .win-svg,
+.w11.neon .social-rail-icon,
+.w11.neon .start-social-icon,
+.w11.neon .search-icon::before,
+.w11.neon .start-theme-icon {
+  fill: rgba(190, 255, 255, 1);
+  color: rgba(190, 255, 255, 1);
+  filter: drop-shadow(0 0 6px rgba(0, 244, 255, 0.62));
+}
+
+.w11.neon .app-icon {
+  border-color: rgba(255, 106, 244, 0.5);
+  box-shadow:
+    0 12px 26px rgba(8, 2, 20, 0.72),
+    0 0 14px rgba(255, 0, 224, 0.34),
+    inset 0 0 12px rgba(0, 244, 255, 0.2);
+}
+
+.w11.neon .tb-btn .app-icon {
+  box-shadow: 0 8px 18px rgba(7, 3, 15, 0.58), 0 0 10px rgba(255, 0, 224, 0.26), inset 0 0 10px rgba(0, 244, 255, 0.18);
+}
+
+.w11.neon .app-icon.about {
+  background: linear-gradient(145deg, rgba(255, 80, 224, 0.92), rgba(137, 55, 255, 0.66));
+}
+
+.w11.neon .app-icon.projects {
+  background: linear-gradient(145deg, rgba(106, 129, 255, 0.9), rgba(0, 234, 255, 0.62));
+}
+
+.w11.neon .app-icon.gallery {
+  background: linear-gradient(145deg, rgba(0, 246, 255, 0.9), rgba(84, 113, 255, 0.62));
+}
+
+.w11.neon .app-icon.blogs {
+  background: linear-gradient(145deg, rgba(223, 104, 255, 0.88), rgba(86, 235, 255, 0.62));
+}
+
+.w11.neon .app-icon.jobs {
+  background: linear-gradient(145deg, rgba(142, 125, 255, 0.88), rgba(255, 96, 201, 0.6));
+}
+
+.w11.neon .app-icon.contact {
+  background: linear-gradient(145deg, rgba(255, 93, 164, 0.9), rgba(112, 229, 255, 0.62));
+}
+
+.w11.neon .app-icon.settings {
+  background: linear-gradient(145deg, rgba(196, 119, 255, 0.88), rgba(96, 244, 255, 0.62));
+}
+
+.w11.neon .gallery-thumb-icon {
+  border: 1px solid rgba(255, 106, 244, 0.42);
+  box-shadow: 0 8px 20px rgba(22, 6, 38, 0.58), 0 0 16px rgba(0, 244, 255, 0.18);
+}
+
+.w11.neon .gallery-lightbox {
+  background: radial-gradient(circle at top, rgba(255, 0, 224, 0.36), rgba(7, 2, 14, 0.93));
+}
+
+.w11.neon .gallery-lightbox-card {
+  border-color: rgba(255, 106, 244, 0.42);
+  background: linear-gradient(180deg, rgba(32, 7, 50, 0.97), rgba(12, 5, 24, 0.98));
+  box-shadow: 0 0 24px rgba(255, 0, 224, 0.2);
+}
+
+.w11.neon .gallery-lightbox-header,
+.w11.neon .gallery-lightbox-body,
+.w11.neon .gallery-lightbox-stage,
+.w11.neon .gallery-lightbox-close-floating {
+  border-color: rgba(255, 130, 246, 0.34);
+  background: rgba(28, 8, 52, 0.7);
+}
+
+.w11.neon .gallery-lightbox-close-floating:hover {
+  background: rgba(210, 52, 255, 0.46);
+  box-shadow: 0 0 12px rgba(0, 244, 255, 0.28);
+}
+
+.w11.neon .settings-select {
+  border-color: rgba(255, 106, 244, 0.46);
+  background: rgba(24, 7, 42, 0.88);
+  color: rgba(232, 255, 255, 0.98);
+}
+
+.w11.neon .settings-select:focus-visible {
+  outline-color: rgba(0, 244, 255, 0.7);
+}
+
+/* Sunset Theme */
+.w11.sunset {
+  color: rgba(255, 242, 220, 0.96);
+}
+
+.w11.sunset .wallpaper {
+  background-image:
+    radial-gradient(860px 540px at 84% 14%, rgba(255, 210, 120, 0.4), rgba(255, 210, 120, 0)),
+    linear-gradient(150deg, #5a1d08 0%, #8a3110 42%, #cf5419 74%, #f1903b 100%);
+}
+
+.w11.sunset .window,
+.w11.sunset .taskbar,
+.w11.sunset .start,
+.w11.sunset .social-rail,
+.w11.sunset .wcard,
+.w11.sunset .chip,
+.w11.sunset .toast,
+.w11.sunset .start-item,
+.w11.sunset .start-all-options,
+.w11.sunset .start-theme,
+.w11.sunset .start-social,
+.w11.sunset .search,
+.w11.sunset .start-search-wrap {
+  border-color: rgba(255, 172, 109, 0.3);
+  background: rgba(84, 33, 16, 0.76);
+}
+
+.w11.sunset .window-titlebar,
+.w11.sunset .start-top,
+.w11.sunset .start-userbar {
+  border-color: rgba(255, 186, 122, 0.26);
+  background: rgba(108, 40, 18, 0.72);
+}
+
+.w11.sunset .window.active,
+.w11.sunset .tb-btn.active,
+.w11.sunset .tray-btn.active,
+.w11.sunset .start-theme-btn.active {
+  border-color: rgba(255, 204, 147, 0.46);
+  background: rgba(255, 130, 70, 0.3);
+}
+
+.w11.sunset .icon,
+.w11.sunset .tray-svg,
+.w11.sunset .win-svg,
+.w11.sunset .social-rail-icon,
+.w11.sunset .start-social-icon,
+.w11.sunset .search-icon::before,
+.w11.sunset .start-theme-icon {
+  fill: rgba(255, 236, 194, 0.96);
+  color: rgba(255, 236, 194, 0.96);
+}
+
+.w11.sunset .app-icon {
+  border-color: rgba(255, 174, 108, 0.38);
+  box-shadow: 0 10px 22px rgba(52, 21, 10, 0.46), inset 0 0 10px rgba(255, 196, 126, 0.12);
+}
+
+.w11.sunset .tb-btn .app-icon {
+  box-shadow: 0 8px 18px rgba(42, 16, 8, 0.42), inset 0 0 8px rgba(255, 202, 131, 0.1);
+}
+
+.w11.sunset .app-icon.about {
+  background: linear-gradient(145deg, rgba(255, 168, 91, 0.92), rgba(255, 109, 70, 0.66));
+}
+
+.w11.sunset .app-icon.projects {
+  background: linear-gradient(145deg, rgba(255, 191, 108, 0.9), rgba(238, 110, 68, 0.62));
+}
+
+.w11.sunset .app-icon.gallery {
+  background: linear-gradient(145deg, rgba(255, 209, 116, 0.9), rgba(255, 146, 74, 0.62));
+}
+
+.w11.sunset .app-icon.blogs {
+  background: linear-gradient(145deg, rgba(255, 183, 98, 0.9), rgba(231, 96, 63, 0.62));
+}
+
+.w11.sunset .app-icon.jobs {
+  background: linear-gradient(145deg, rgba(255, 198, 110, 0.9), rgba(250, 118, 74, 0.62));
+}
+
+.w11.sunset .app-icon.contact {
+  background: linear-gradient(145deg, rgba(255, 158, 91, 0.9), rgba(224, 86, 60, 0.62));
+}
+
+.w11.sunset .app-icon.settings {
+  background: linear-gradient(145deg, rgba(255, 191, 116, 0.9), rgba(243, 103, 66, 0.62));
+}
+
+.w11.sunset .gallery-thumb-icon {
+  border: 1px solid rgba(255, 174, 108, 0.34);
+  box-shadow: 0 8px 20px rgba(60, 21, 10, 0.52);
+}
+
+.w11.sunset .gallery-lightbox {
+  background: radial-gradient(circle at top, rgba(255, 180, 108, 0.34), rgba(36, 10, 4, 0.9));
+}
+
+.w11.sunset .gallery-lightbox-card {
+  border-color: rgba(255, 174, 108, 0.3);
+  background: linear-gradient(180deg, rgba(96, 34, 15, 0.94), rgba(52, 21, 10, 0.96));
+}
+
+.w11.sunset .gallery-lightbox-header,
+.w11.sunset .gallery-lightbox-body,
+.w11.sunset .gallery-lightbox-stage,
+.w11.sunset .gallery-lightbox-close-floating {
+  border-color: rgba(255, 186, 122, 0.24);
+  background: rgba(108, 40, 18, 0.52);
+}
+
+.w11.sunset .gallery-lightbox-close-floating:hover {
+  background: rgba(255, 130, 70, 0.34);
+}
+
+.w11.sunset .settings-select {
+  border-color: rgba(255, 174, 108, 0.36);
+  background: rgba(98, 36, 16, 0.82);
+  color: rgba(255, 242, 220, 0.96);
+}
+
+.w11.sunset .settings-select:focus-visible {
+  outline-color: rgba(255, 200, 132, 0.48);
+}
+
+/* Monochrome Theme */
+.w11.monochrome {
+  color: rgba(241, 241, 241, 0.95);
+}
+
+.w11.monochrome .wallpaper {
+  background-image: none;
+  background-color: #1f1f1f;
+}
+
+.w11.monochrome .window,
+.w11.monochrome .taskbar,
+.w11.monochrome .start,
+.w11.monochrome .social-rail,
+.w11.monochrome .wcard,
+.w11.monochrome .chip,
+.w11.monochrome .toast,
+.w11.monochrome .start-item,
+.w11.monochrome .start-all-options,
+.w11.monochrome .start-theme,
+.w11.monochrome .start-social,
+.w11.monochrome .search,
+.w11.monochrome .start-search-wrap {
+  border-color: rgba(240, 240, 240, 0.2);
+  background: #1f1f1f;
+}
+
+.w11.monochrome .window-titlebar,
+.w11.monochrome .start-top,
+.w11.monochrome .start-userbar {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: #1f1f1f;
+}
+
+.w11.monochrome .window.active,
+.w11.monochrome .tb-btn.active,
+.w11.monochrome .tray-btn.active,
+.w11.monochrome .start-theme-btn.active {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: #1f1f1f;
+}
+
+.w11.monochrome .app-icon,
+.w11.monochrome .app-icon.about,
+.w11.monochrome .app-icon.projects,
+.w11.monochrome .app-icon.gallery,
+.w11.monochrome .app-icon.blogs,
+.w11.monochrome .app-icon.jobs,
+.w11.monochrome .app-icon.contact,
+.w11.monochrome .app-icon.settings {
+  background: #1f1f1f;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: none;
+}
+
+.w11.monochrome .tb-btn .app-icon {
+  box-shadow: none;
+}
+
+.w11.monochrome .gallery-thumb-icon {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: none;
+}
+
+.w11.monochrome .gallery-lightbox {
+  background: #1f1f1f;
+}
+
+.w11.monochrome .gallery-lightbox-card {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: #1f1f1f;
+  box-shadow: none;
+}
+
+.w11.monochrome .gallery-lightbox-header,
+.w11.monochrome .gallery-lightbox-body,
+.w11.monochrome .gallery-lightbox-stage,
+.w11.monochrome .gallery-lightbox-close-floating {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: #1f1f1f;
+}
+
+.w11.monochrome .gallery-lightbox-close-floating:hover {
+  background: #1f1f1f;
+}
+
+.w11.monochrome .icon,
+.w11.monochrome .tray-svg,
+.w11.monochrome .win-svg,
+.w11.monochrome .social-rail-icon,
+.w11.monochrome .start-social-icon,
+.w11.monochrome .search-icon::before,
+.w11.monochrome .start-theme-icon {
+  fill: rgba(242, 242, 242, 0.95);
+  color: rgba(242, 242, 242, 0.95);
+}
+
+.w11.monochrome .settings-select {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(22, 22, 22, 0.84);
+  color: rgba(241, 241, 241, 0.95);
+}
+
+.w11.monochrome .settings-select:focus-visible {
+  outline-color: rgba(255, 255, 255, 0.42);
+}
+
+/* Dracula Theme */
+.w11.dracula {
+  color: rgba(241, 241, 255, 0.96);
+}
+
+.w11.dracula .wallpaper {
+  background-image:
+    radial-gradient(900px 540px at 14% 16%, rgba(189, 147, 249, 0.26), rgba(189, 147, 249, 0)),
+    radial-gradient(760px 420px at 82% 88%, rgba(255, 121, 198, 0.2), rgba(255, 121, 198, 0)),
+    linear-gradient(148deg, #181923 0%, #232533 50%, #2b2d3f 100%);
+}
+
+.w11.dracula .window,
+.w11.dracula .taskbar,
+.w11.dracula .start,
+.w11.dracula .social-rail,
+.w11.dracula .wcard,
+.w11.dracula .chip,
+.w11.dracula .toast,
+.w11.dracula .start-item,
+.w11.dracula .start-all-options,
+.w11.dracula .start-theme,
+.w11.dracula .start-social,
+.w11.dracula .search,
+.w11.dracula .start-search-wrap {
+  border-color: rgba(189, 147, 249, 0.3);
+  background: rgba(36, 38, 53, 0.76);
+}
+
+.w11.dracula .window-titlebar,
+.w11.dracula .start-top,
+.w11.dracula .start-userbar {
+  border-color: rgba(196, 160, 255, 0.24);
+  background: rgba(45, 47, 66, 0.72);
+}
+
+.w11.dracula .window.active,
+.w11.dracula .tb-btn.active,
+.w11.dracula .tray-btn.active,
+.w11.dracula .start-theme-btn.active {
+  border-color: rgba(212, 181, 255, 0.42);
+  background: rgba(189, 147, 249, 0.3);
+}
+
+.w11.dracula .icon,
+.w11.dracula .tray-svg,
+.w11.dracula .win-svg,
+.w11.dracula .social-rail-icon,
+.w11.dracula .start-social-icon,
+.w11.dracula .search-icon::before,
+.w11.dracula .start-theme-icon {
+  fill: rgba(245, 239, 255, 0.95);
+  color: rgba(245, 239, 255, 0.95);
+}
+
+.w11.dracula .app-icon {
+  border-color: rgba(189, 147, 249, 0.38);
+  box-shadow: 0 10px 22px rgba(17, 17, 28, 0.52), inset 0 0 10px rgba(255, 121, 198, 0.1);
+}
+
+.w11.dracula .tb-btn .app-icon {
+  box-shadow: 0 8px 18px rgba(14, 14, 22, 0.5), inset 0 0 8px rgba(255, 121, 198, 0.08);
+}
+
+.w11.dracula .app-icon.about {
+  background: linear-gradient(145deg, rgba(189, 147, 249, 0.9), rgba(139, 233, 253, 0.62));
+}
+
+.w11.dracula .app-icon.projects {
+  background: linear-gradient(145deg, rgba(255, 121, 198, 0.88), rgba(189, 147, 249, 0.62));
+}
+
+.w11.dracula .app-icon.gallery {
+  background: linear-gradient(145deg, rgba(139, 233, 253, 0.88), rgba(80, 250, 123, 0.6));
+}
+
+.w11.dracula .app-icon.blogs {
+  background: linear-gradient(145deg, rgba(255, 184, 108, 0.88), rgba(255, 121, 198, 0.6));
+}
+
+.w11.dracula .app-icon.jobs {
+  background: linear-gradient(145deg, rgba(189, 147, 249, 0.9), rgba(255, 184, 108, 0.6));
+}
+
+.w11.dracula .app-icon.contact {
+  background: linear-gradient(145deg, rgba(255, 85, 85, 0.86), rgba(255, 121, 198, 0.6));
+}
+
+.w11.dracula .app-icon.settings {
+  background: linear-gradient(145deg, rgba(139, 233, 253, 0.86), rgba(189, 147, 249, 0.6));
+}
+
+.w11.dracula .gallery-thumb-icon {
+  border: 1px solid rgba(189, 147, 249, 0.34);
+  box-shadow: 0 8px 20px rgba(19, 20, 30, 0.54);
+}
+
+.w11.dracula .gallery-lightbox {
+  background: radial-gradient(circle at top, rgba(189, 147, 249, 0.26), rgba(14, 15, 23, 0.92));
+}
+
+.w11.dracula .gallery-lightbox-card {
+  border-color: rgba(189, 147, 249, 0.28);
+  background: linear-gradient(180deg, rgba(42, 44, 60, 0.96), rgba(30, 31, 44, 0.97));
+}
+
+.w11.dracula .gallery-lightbox-header,
+.w11.dracula .gallery-lightbox-body,
+.w11.dracula .gallery-lightbox-stage,
+.w11.dracula .gallery-lightbox-close-floating {
+  border-color: rgba(196, 160, 255, 0.22);
+  background: rgba(45, 47, 66, 0.56);
+}
+
+.w11.dracula .gallery-lightbox-close-floating:hover {
+  background: rgba(189, 147, 249, 0.34);
+}
+
+.w11.dracula .settings-select {
+  border-color: rgba(189, 147, 249, 0.36);
+  background: rgba(40, 42, 58, 0.84);
+  color: rgba(241, 241, 255, 0.96);
+}
+
+.w11.dracula .settings-select:focus-visible {
+  outline-color: rgba(255, 121, 198, 0.5);
+}
+
+/* Oceanic Theme */
+.w11.oceanic {
+  color: rgba(215, 246, 255, 0.95);
+}
+
+.w11.oceanic .wallpaper {
+  background-image:
+    radial-gradient(860px 560px at 18% 12%, rgba(0, 180, 216, 0.26), rgba(0, 180, 216, 0)),
+    radial-gradient(760px 430px at 82% 88%, rgba(144, 224, 239, 0.24), rgba(144, 224, 239, 0)),
+    linear-gradient(145deg, #03223b 0%, #014569 52%, #022b44 100%);
+}
+
+.w11.oceanic .window,
+.w11.oceanic .taskbar,
+.w11.oceanic .start,
+.w11.oceanic .social-rail,
+.w11.oceanic .wcard,
+.w11.oceanic .chip,
+.w11.oceanic .toast,
+.w11.oceanic .start-item,
+.w11.oceanic .start-all-options,
+.w11.oceanic .start-theme,
+.w11.oceanic .start-social,
+.w11.oceanic .search,
+.w11.oceanic .start-search-wrap {
+  border-color: rgba(78, 208, 236, 0.3);
+  background: rgba(4, 46, 70, 0.76);
+}
+
+.w11.oceanic .window-titlebar,
+.w11.oceanic .start-top,
+.w11.oceanic .start-userbar {
+  border-color: rgba(106, 221, 244, 0.24);
+  background: rgba(6, 60, 91, 0.72);
+}
+
+.w11.oceanic .window.active,
+.w11.oceanic .tb-btn.active,
+.w11.oceanic .tray-btn.active,
+.w11.oceanic .start-theme-btn.active {
+  border-color: rgba(141, 233, 251, 0.44);
+  background: rgba(25, 164, 209, 0.3);
+}
+
+.w11.oceanic .icon,
+.w11.oceanic .tray-svg,
+.w11.oceanic .win-svg,
+.w11.oceanic .social-rail-icon,
+.w11.oceanic .start-social-icon,
+.w11.oceanic .search-icon::before,
+.w11.oceanic .start-theme-icon {
+  fill: rgba(214, 246, 255, 0.96);
+  color: rgba(214, 246, 255, 0.96);
+}
+
+.w11.oceanic .app-icon {
+  border-color: rgba(76, 206, 235, 0.38);
+  box-shadow: 0 10px 22px rgba(3, 24, 38, 0.52), inset 0 0 10px rgba(144, 224, 239, 0.1);
+}
+
+.w11.oceanic .tb-btn .app-icon {
+  box-shadow: 0 8px 18px rgba(2, 20, 32, 0.48), inset 0 0 8px rgba(144, 224, 239, 0.08);
+}
+
+.w11.oceanic .app-icon.about {
+  background: linear-gradient(145deg, rgba(0, 180, 216, 0.9), rgba(72, 202, 228, 0.62));
+}
+
+.w11.oceanic .app-icon.projects {
+  background: linear-gradient(145deg, rgba(2, 138, 181, 0.9), rgba(0, 180, 216, 0.62));
+}
+
+.w11.oceanic .app-icon.gallery {
+  background: linear-gradient(145deg, rgba(72, 202, 228, 0.88), rgba(144, 224, 239, 0.6));
+}
+
+.w11.oceanic .app-icon.blogs {
+  background: linear-gradient(145deg, rgba(0, 119, 182, 0.9), rgba(72, 202, 228, 0.6));
+}
+
+.w11.oceanic .app-icon.jobs {
+  background: linear-gradient(145deg, rgba(3, 76, 140, 0.9), rgba(0, 180, 216, 0.6));
+}
+
+.w11.oceanic .app-icon.contact {
+  background: linear-gradient(145deg, rgba(0, 95, 152, 0.9), rgba(144, 224, 239, 0.6));
+}
+
+.w11.oceanic .app-icon.settings {
+  background: linear-gradient(145deg, rgba(0, 180, 216, 0.88), rgba(3, 119, 182, 0.6));
+}
+
+.w11.oceanic .gallery-thumb-icon {
+  border: 1px solid rgba(76, 206, 235, 0.34);
+  box-shadow: 0 8px 20px rgba(2, 24, 38, 0.54);
+}
+
+.w11.oceanic .gallery-lightbox {
+  background: radial-gradient(circle at top, rgba(76, 206, 235, 0.24), rgba(4, 18, 28, 0.92));
+}
+
+.w11.oceanic .gallery-lightbox-card {
+  border-color: rgba(76, 206, 235, 0.28);
+  background: linear-gradient(180deg, rgba(7, 58, 88, 0.95), rgba(5, 38, 60, 0.97));
+}
+
+.w11.oceanic .gallery-lightbox-header,
+.w11.oceanic .gallery-lightbox-body,
+.w11.oceanic .gallery-lightbox-stage,
+.w11.oceanic .gallery-lightbox-close-floating {
+  border-color: rgba(106, 221, 244, 0.22);
+  background: rgba(6, 60, 91, 0.56);
+}
+
+.w11.oceanic .gallery-lightbox-close-floating:hover {
+  background: rgba(25, 164, 209, 0.34);
+}
+
+.w11.oceanic .settings-select {
+  border-color: rgba(76, 206, 235, 0.36);
+  background: rgba(4, 55, 84, 0.84);
+  color: rgba(215, 246, 255, 0.95);
+}
+
+.w11.oceanic .settings-select:focus-visible {
+  outline-color: rgba(144, 224, 239, 0.5);
+}
+
+/* Timeline Theme Alignment */
+.w11.light .app-icon.timeline,
+.w11.light .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(79, 167, 242, 0.9), rgba(131, 195, 255, 0.66));
+}
+
+.w11.light .timeline-item {
+  border-color: rgba(18, 96, 154, 0.16);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.w11.light .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(53, 139, 206, 0.64), rgba(94, 172, 234, 0.48));
+}
+
+.w11.light .timeline-rich .timeline-item::before {
+  border-color: rgba(68, 153, 219, 0.72);
+  background: rgba(92, 174, 235, 0.7);
+  box-shadow: 0 0 0 3px rgba(72, 153, 217, 0.2);
+}
+
+.w11.aurora .app-icon.timeline,
+.w11.aurora .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(88, 232, 255, 0.9), rgba(138, 151, 255, 0.64));
+}
+
+.w11.aurora .timeline-item,
+.w11.glass .timeline-item,
+.w11.retro .timeline-item,
+.w11.solar .timeline-item,
+.w11.matrix .timeline-item,
+.w11.neon .timeline-item,
+.w11.sunset .timeline-item,
+.w11.monochrome .timeline-item,
+.w11.dracula .timeline-item,
+.w11.oceanic .timeline-item {
+  border-color: inherit;
+}
+
+.w11.aurora .timeline-item {
+  background: rgba(22, 40, 68, 0.48);
+}
+
+.w11.aurora .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(120, 234, 255, 0.7), rgba(148, 138, 255, 0.52));
+}
+
+.w11.aurora .timeline-rich .timeline-item::before {
+  border-color: rgba(129, 232, 255, 0.74);
+  background: rgba(112, 222, 255, 0.74);
+}
+
+.w11.glass .app-icon.timeline,
+.w11.glass .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(176, 212, 255, 0.88), rgba(154, 238, 255, 0.6));
+}
+
+.w11.glass .timeline-item {
+  border-color: rgba(221, 236, 255, 0.24);
+  background: rgba(226, 238, 255, 0.14);
+}
+
+.w11.glass .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(178, 216, 255, 0.64), rgba(155, 205, 255, 0.48));
+}
+
+.w11.glass .timeline-rich .timeline-item::before {
+  border-color: rgba(222, 239, 255, 0.74);
+  background: rgba(189, 223, 255, 0.72);
+}
+
+.w11.retro .app-icon.timeline,
+.w11.retro .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(255, 178, 88, 0.9), rgba(255, 128, 92, 0.62));
+}
+
+.w11.retro .timeline-item {
+  border-color: rgba(255, 187, 116, 0.24);
+  background: rgba(84, 44, 25, 0.5);
+}
+
+.w11.retro .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(255, 177, 82, 0.66), rgba(255, 123, 86, 0.5));
+}
+
+.w11.retro .timeline-rich .timeline-item::before {
+  border-color: rgba(255, 198, 132, 0.76);
+  background: rgba(255, 168, 98, 0.72);
+}
+
+.w11.solar .app-icon.timeline,
+.w11.solar .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(255, 206, 102, 0.92), rgba(245, 168, 86, 0.62));
+}
+
+.w11.solar .timeline-item {
+  border-color: rgba(190, 133, 21, 0.26);
+  background: rgba(255, 239, 197, 0.64);
+}
+
+.w11.solar .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(224, 166, 48, 0.62), rgba(255, 200, 84, 0.5));
+}
+
+.w11.solar .timeline-rich .timeline-item::before {
+  border-color: rgba(196, 139, 32, 0.72);
+  background: rgba(245, 179, 64, 0.7);
+}
+
+.w11.matrix .app-icon.timeline,
+.w11.matrix .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(0, 66, 0, 0.94), rgba(0, 16, 0, 0.98));
+}
+
+.w11.matrix .timeline-item {
+  border-color: rgba(89, 255, 89, 0.3);
+  background: rgba(0, 22, 0, 0.76);
+}
+
+.w11.matrix .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(88, 255, 88, 0.7), rgba(55, 185, 55, 0.5));
+}
+
+.w11.matrix .timeline-rich .timeline-item::before {
+  border-color: rgba(102, 255, 102, 0.82);
+  background: rgba(66, 214, 66, 0.72);
+  box-shadow: 0 0 0 3px rgba(26, 143, 26, 0.26);
+}
+
+.w11.neon .app-icon.timeline,
+.w11.neon .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(0, 246, 255, 0.9), rgba(196, 119, 255, 0.62));
+}
+
+.w11.neon .timeline-item {
+  border-color: rgba(255, 130, 246, 0.34);
+  background: rgba(28, 8, 52, 0.7);
+  box-shadow: 0 0 12px rgba(255, 0, 224, 0.16);
+}
+
+.w11.neon .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(0, 244, 255, 0.74), rgba(255, 0, 224, 0.58));
+}
+
+.w11.neon .timeline-rich .timeline-item::before {
+  border-color: rgba(190, 255, 255, 0.9);
+  background: rgba(138, 245, 255, 0.76);
+  box-shadow: 0 0 0 3px rgba(255, 0, 224, 0.22);
+}
+
+.w11.sunset .app-icon.timeline,
+.w11.sunset .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(255, 206, 122, 0.9), rgba(236, 97, 62, 0.62));
+}
+
+.w11.sunset .timeline-item {
+  border-color: rgba(255, 186, 122, 0.24);
+  background: rgba(108, 40, 18, 0.52);
+}
+
+.w11.sunset .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(255, 186, 122, 0.7), rgba(235, 102, 64, 0.54));
+}
+
+.w11.sunset .timeline-rich .timeline-item::before {
+  border-color: rgba(255, 213, 168, 0.82);
+  background: rgba(255, 164, 108, 0.74);
+}
+
+.w11.monochrome .app-icon.timeline,
+.w11.monochrome .tb-btn .app-icon.timeline {
+  background: #1f1f1f;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.w11.monochrome .timeline-item {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: #1f1f1f;
+}
+
+.w11.monochrome .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(198, 198, 198, 0.6), rgba(140, 140, 140, 0.46));
+}
+
+.w11.monochrome .timeline-rich .timeline-item::before {
+  border-color: rgba(228, 228, 228, 0.78);
+  background: rgba(180, 180, 180, 0.72);
+  box-shadow: none;
+}
+
+.w11.dracula .app-icon.timeline,
+.w11.dracula .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(189, 147, 249, 0.9), rgba(139, 233, 253, 0.62));
+}
+
+.w11.dracula .timeline-item {
+  border-color: rgba(196, 160, 255, 0.22);
+  background: rgba(45, 47, 66, 0.56);
+}
+
+.w11.dracula .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(189, 147, 249, 0.68), rgba(255, 121, 198, 0.5));
+}
+
+.w11.dracula .timeline-rich .timeline-item::before {
+  border-color: rgba(222, 202, 255, 0.82);
+  background: rgba(185, 150, 247, 0.74);
+}
+
+.w11.oceanic .app-icon.timeline,
+.w11.oceanic .tb-btn .app-icon.timeline {
+  background: linear-gradient(145deg, rgba(72, 202, 228, 0.9), rgba(0, 119, 182, 0.62));
+}
+
+.w11.oceanic .timeline-item {
+  border-color: rgba(106, 221, 244, 0.22);
+  background: rgba(6, 60, 91, 0.56);
+}
+
+.w11.oceanic .timeline-rich::before {
+  background: linear-gradient(180deg, rgba(76, 206, 235, 0.68), rgba(0, 147, 191, 0.5));
+}
+
+.w11.oceanic .timeline-rich .timeline-item::before {
+  border-color: rgba(172, 239, 255, 0.84);
+  background: rgba(107, 219, 242, 0.72);
 }

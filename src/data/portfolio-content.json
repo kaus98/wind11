@@ -78,6 +78,12 @@
   "contact": {
     "email": "kaus.pathak@gmail.com",
     "phone": "+91 91490 42316",
+    "availability": {
+      "status": "Open to full-time and consulting opportunities",
+      "from": "Available from March 2026",
+      "timezone": "IST (UTC+05:30)",
+      "updated": "Feb 2026"
+    },
     "links": [
       { "label": "Linktree", "href": "https://www.linktr.ee/kaus98" },
       { "label": "GitHub", "href": "https://github.com/terminate9298" },
@@ -92,6 +98,80 @@
       "Graphic Designer for Aurora cultural festival at ABV-IIITM Gwalior"
     ]
   },
+  "timeline": [
+    {
+      "title": "Built AI-UI Project",
+      "date": "2026",
+      "description": "Developed AI-UI to unify interactions across OpenAI-compatible APIs with a single interface.",
+      "sortOrder": 10
+    },
+    {
+      "title": "SDE-2, Data Engineering @ Dell India",
+      "date": "2022 - Present",
+      "description": "Scaling ETL, model-serving APIs, streaming systems, and observability pipelines across enterprise workloads.",
+      "sortOrder": 9
+    },
+    {
+      "title": "Published Springer NLP Research",
+      "date": "2022",
+      "description": "Published work on Fourier alternatives in Transformer architectures.",
+      "sortOrder": 8
+    },
+    {
+      "title": "Built COVID-19 India Forecasting Project",
+      "date": "2021",
+      "description": "Implemented epidemiological and time-series forecasting models with rich analytics visualizations.",
+      "sortOrder": 7.5
+    },
+    {
+      "title": "Data Engineering Intern @ Rakuten India",
+      "date": "Jul 2021 - Dec 2021",
+      "description": "Built data discovery and transfer workflows using NLP search, Airflow, and storage integrations.",
+      "sortOrder": 7
+    },
+    {
+      "title": "Data Science Engineering Intern @ Lambdatest",
+      "date": "May 2021 - Jul 2021",
+      "description": "Worked on forecasting, anomaly detection, and business analytics dashboards.",
+      "sortOrder": 6
+    },
+    {
+      "title": "NLP Engineer Intern @ Dolhinchat",
+      "date": "Feb 2021 - Apr 2021",
+      "description": "Delivered chatbot systems and integrations across web and social channels.",
+      "sortOrder": 5
+    },
+    {
+      "title": "Computer Vision Intern @ Eminenture",
+      "date": "2020",
+      "description": "Built OCR and contextual matching pipelines for document-heavy workflows.",
+      "sortOrder": 4
+    },
+    {
+      "title": "Developer Intern @ Vaidik Technologies",
+      "date": "Sep 2019 - Oct 2019",
+      "description": "Contributed to NLP interfaces and full-stack blog platform workflows.",
+      "sortOrder": 3
+    },
+    {
+      "title": "Web Developer Intern @ Shaastra Automations",
+      "date": "Aug 2018 - Nov 2018",
+      "description": "Built dynamic full-stack web pages and UI implementation modules.",
+      "sortOrder": 2
+    },
+    {
+      "title": "M.Tech (Dual Degree), ABV-IIITM Gwalior",
+      "date": "2017 - 2022",
+      "description": "Completed Information Technology dual-degree program with GPA 7.7.",
+      "sortOrder": 1
+    },
+    {
+      "title": "Passed 12th (Intermediate)",
+      "date": "2016",
+      "description": "Completed Intermediate in PCM with Computer from ST. Mary College, Etawah.",
+      "sortOrder": 0
+    }
+  ],
   "jobs": [
     {
       "company": "Dell India",

@@ -24,6 +24,12 @@ export type PortfolioData = {
   contact: {
     email: string
     phone: string
+    availability: {
+      status: string
+      from: string
+      timezone: string
+      updated: string
+    }
     links: Array<{
       label: string
       href: string
@@ -31,6 +37,12 @@ export type PortfolioData = {
     }>
     responsibilities: string[]
   }
+  timeline: Array<{
+    title: string
+    date: string
+    description: string
+    sortOrder: number
+  }>
   jobs: Array<{
     company: string
     role: string

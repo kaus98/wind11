@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
 import { portfolioData } from './data/portfolioData'
 
-type AppId = 'about' | 'projects' | 'gallery' | 'blogs' | 'jobs' | 'contact' | 'settings'
+type AppId = 'about' | 'projects' | 'gallery' | 'blogs' | 'jobs' | 'timeline' | 'contact' | 'settings'
 
 const galleryImageModules = import.meta.glob(['/public/gallery/*.{png,jpg,jpeg,webp,gif,avif,svg}', '/public/gallery/*.{PNG,JPG,JPEG,WEBP,GIF,AVIF,SVG}'], {
   eager: true,
@@ -22,6 +22,11 @@ const themeOptions = [
   { id: 'retro', label: 'Retro' },
   { id: 'solar', label: 'Solar' },
   { id: 'matrix', label: 'Matrix' },
+  { id: 'neon', label: 'Neon' },
+  { id: 'sunset', label: 'Sunset' },
+  { id: 'monochrome', label: 'Monochrome' },
+  { id: 'dracula', label: 'Dracula' },
+  { id: 'oceanic', label: 'Oceanic' },
 ] as const
 
 type ThemeName = (typeof themeOptions)[number]['id']
@@ -51,6 +56,40 @@ function JobsIcon({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <path d="M8 4.5A2.5 2.5 0 0 1 10.5 2h3A2.5 2.5 0 0 1 16 4.5V6h3.2A2.8 2.8 0 0 1 22 8.8v9.4a2.8 2.8 0 0 1-2.8 2.8H4.8A2.8 2.8 0 0 1 2 18.2V8.8A2.8 2.8 0 0 1 4.8 6H8V4.5Zm2.5-.5a.5.5 0 0 0-.5.5V6h4V4.5a.5.5 0 0 0-.5-.5h-3Z" />
       <path d="M2 12.1h7.5v1.1a1.4 1.4 0 0 0 1.4 1.4h2.2a1.4 1.4 0 0 0 1.4-1.4v-1.1H22v-1.8h-7.5V11a.4.4 0 0 1-.4.4h-2.2a.4.4 0 0 1-.4-.4v-.7H2v1.8Z" />
+    </svg>
+  )
+}
+
+function TimelineIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2a1 1 0 0 1 1 1v8.7l5.2 3a1 1 0 1 1-1 1.8l-5.7-3.3a1 1 0 0 1-.5-.9V3a1 1 0 0 1 1-1Z" />
+      <path d="M12 5a7 7 0 1 0 7 7 1 1 0 1 1 2 0A9 9 0 1 1 12 3a1 1 0 0 1 0 2Z" />
+    </svg>
+  )
+}
+
+function RestartIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M11.9 4.2a7.8 7.8 0 0 1 6.8 4l1-1a1 1 0 0 1 1.4 1.4l-2.8 2.8a1 1 0 0 1-1.4 0L14 8.6A1 1 0 0 1 15.4 7l.9.9A5.8 5.8 0 1 0 17.7 12a1 1 0 1 1 2 0 7.8 7.8 0 1 1-7.8-7.8Z" />
+    </svg>
+  )
+}
+
+function SleepIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15.9 3.1a1 1 0 0 1 .6 1.7A6.7 6.7 0 1 0 19.2 15a1 1 0 0 1 1.5 1.1A8.7 8.7 0 1 1 14.8 2.7a1 1 0 0 1 1.1.4Z" />
+    </svg>
+  )
+}
+
+function ShutdownIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M11 2.5a1 1 0 0 1 2 0v6.8a1 1 0 1 1-2 0V2.5Z" />
+      <path d="M7.4 4.2A1 1 0 0 1 8 6a6 6 0 1 0 8 0 1 1 0 0 1 1-1.8 8 8 0 1 1-10 0 1 1 0 0 1 .4-.1Z" />
     </svg>
   )
 }
@@ -260,6 +299,7 @@ function App() {
     gallery: { x: 230, y: 110 },
     blogs: { x: 220, y: 100 },
     jobs: { x: 240, y: 130 },
+    timeline: { x: 250, y: 120 },
     contact: { x: 240, y: 140 },
     settings: { x: 260, y: 90 },
   })
@@ -271,6 +311,7 @@ function App() {
     gallery: { width: 920, height: 560 },
     blogs: { width: 860, height: 540 },
     jobs: { width: 860, height: 560 },
+    timeline: { width: 860, height: 560 },
     contact: { width: 620, height: 440 },
     settings: { width: 540, height: 420 },
   })
@@ -280,6 +321,7 @@ function App() {
     gallery: null,
     blogs: null,
     jobs: null,
+    timeline: null,
     contact: null,
     settings: null,
   })
@@ -289,6 +331,7 @@ function App() {
     gallery: false,
     blogs: false,
     jobs: false,
+    timeline: false,
     contact: false,
     settings: false,
   })
@@ -299,6 +342,7 @@ function App() {
     gallery: null,
     blogs: null,
     jobs: null,
+    timeline: null,
     contact: null,
     settings: null,
   })
@@ -312,6 +356,7 @@ function App() {
   const [audioError, setAudioError] = useState(false)
   const [soundToastOpen, setSoundToastOpen] = useState(false)
   const [soundToastText, setSoundToastText] = useState<string>('')
+  const [isSleeping, setIsSleeping] = useState(false)
   const [activeGalleryPhoto, setActiveGalleryPhoto] = useState<{ src: string; filename: string; displayName: string } | null>(null)
   const [isGalleryLightboxOpen, setIsGalleryLightboxOpen] = useState(false)
   const [theme, setTheme] = useState<ThemeName>(() => {
@@ -325,6 +370,7 @@ function App() {
     gallery: { id: 'gallery', title: 'Gallery', isOpen: false, isMinimized: false, isMaximized: false },
     blogs: { id: 'blogs', title: 'Blogs', isOpen: false, isMinimized: false, isMaximized: false },
     jobs: { id: 'jobs', title: 'Jobs', isOpen: false, isMinimized: false, isMaximized: false },
+    timeline: { id: 'timeline', title: 'Timeline', isOpen: false, isMinimized: false, isMaximized: false },
     contact: { id: 'contact', title: 'Contact', isOpen: false, isMinimized: false, isMaximized: false },
     settings: { id: 'settings', title: 'Settings', isOpen: false, isMinimized: false, isMaximized: false },
   })
@@ -586,6 +632,7 @@ function App() {
       { key: 'gallery', label: 'Gallery', description: 'Photos loaded from /public/gallery', type: 'app' as const, appId: 'gallery' as const },
       { key: 'blogs', label: 'Blogs', description: 'Posts from kaus98.github.io', type: 'app' as const, appId: 'blogs' as const },
       { key: 'jobs', label: 'Jobs', description: 'Experience and internships', type: 'app' as const, appId: 'jobs' as const },
+      { key: 'timeline', label: 'Timeline', description: 'Career milestones and dated journey', type: 'app' as const, appId: 'timeline' as const },
       { key: 'contact', label: 'Contact', description: 'Email, phone and social links', type: 'app' as const, appId: 'contact' as const },
       { key: 'settings', label: 'Settings', description: 'Theme, sound and time controls', type: 'app' as const, appId: 'settings' as const },
       { key: 'resume', label: 'Resume', description: 'Download PDF resume', type: 'resume' as const },
@@ -616,6 +663,8 @@ function App() {
 
   const about = portfolioData.about
   const contact = portfolioData.contact
+  const availability = contact.availability
+  const timelineItems = [...portfolioData.timeline].sort((a, b) => b.sortOrder - a.sortOrder)
   const technologyChips = about.technologies
   const programmingChips = about.programming
   const userName = about.name
@@ -763,6 +812,23 @@ function App() {
     closeStartMenu()
   }
 
+  function runPowerAction(action: 'restart' | 'sleep' | 'shutdown') {
+    closeStartMenu()
+
+    if (action === 'restart') {
+      window.location.reload()
+      return
+    }
+
+    if (action === 'sleep') {
+      setIsSleeping(true)
+      return
+    }
+
+    window.close()
+    window.location.href = 'about:blank'
+  }
+
   function toggleMinimize(id: AppId) {
     setWindows((prev) => ({
       ...prev,
@@ -849,6 +915,20 @@ function App() {
   return (
     <div className={drag || resize ? `w11 ${theme} dragging` : `w11 ${theme}`}>
       <div className="wallpaper" aria-hidden="true" />
+      {isSleeping && (
+        <div className="sleep-overlay" role="dialog" aria-label="Sleep mode" onClick={() => setIsSleeping(false)}>
+          <button
+            className="sleep-wake-btn"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              setIsSleeping(false)
+            }}
+          >
+            Wake screen
+          </button>
+        </div>
+      )}
       <audio
         ref={audioRef}
         src="./audio/background.mp3"
@@ -911,6 +991,12 @@ function App() {
               <JobsIcon className="icon" />
             </span>
             <span className="desktop-icon-label">Jobs</span>
+          </button>
+          <button className="desktop-icon" type="button" onClick={() => openApp('timeline')}>
+            <span className="app-icon timeline" aria-hidden="true">
+              <TimelineIcon className="icon" />
+            </span>
+            <span className="desktop-icon-label">Timeline</span>
           </button>
           <button className="desktop-icon" type="button" onClick={() => openApp('contact')}>
             <span className="app-icon contact" aria-hidden="true">
@@ -1015,6 +1101,8 @@ function App() {
                               ? 'app-icon small blogs'
                             : id === 'jobs'
                               ? 'app-icon small projects'
+                            : id === 'timeline'
+                              ? 'app-icon small timeline'
                             : id === 'settings'
                               ? 'app-icon small settings'
                             : 'app-icon small contact'
@@ -1031,6 +1119,8 @@ function App() {
                         <BlogsIcon className="icon" />
                       ) : id === 'jobs' ? (
                         <JobsIcon className="icon" />
+                      ) : id === 'timeline' ? (
+                        <TimelineIcon className="icon" />
                       ) : id === 'settings' ? (
                         <SettingsIcon className="icon" />
                       ) : (
@@ -1063,6 +1153,9 @@ function App() {
                       <h1 className="big-title">{about.name}</h1>
                       <p className="muted">{about.rolesLine}</p>
                       <p className="muted">{about.location}</p>
+                      <p className="muted">
+                        {availability.status} · {availability.from}
+                      </p>
                       {about.summaryParagraphs.map((paragraph) => (
                         <p key={paragraph}>{paragraph}</p>
                       ))}
@@ -1107,6 +1200,22 @@ function App() {
                           <li key={achievement}>{achievement}</li>
                         ))}
                       </ul>
+                    </div>
+                  )}
+
+                  {id === 'timeline' && (
+                    <div className="panel full-panel">
+                      <h2 className="section-heading">Timeline</h2>
+                      <p className="muted">A dated snapshot of my career and learning journey.</p>
+                      <div className="timeline-list timeline-rich">
+                        {timelineItems.map((item) => (
+                          <article key={`${item.date}-${item.title}`} className="timeline-item">
+                            <p className="timeline-date">{item.date}</p>
+                            <h3 className="timeline-title">{item.title}</h3>
+                            <p className="timeline-desc">{item.description}</p>
+                          </article>
+                        ))}
+                      </div>
                     </div>
                   )}
 
@@ -1272,6 +1381,14 @@ function App() {
                   {id === 'contact' && (
                     <div className="panel full-panel">
                       <h2 className="section-heading">Contact</h2>
+                      <div className="availability-card">
+                        <h3 className="availability-title">Availability</h3>
+                        <p className="availability-status">{availability.status}</p>
+                        <p className="availability-meta">
+                          {availability.from} · {availability.timezone}
+                        </p>
+                        <p className="availability-meta">Updated: {availability.updated}</p>
+                      </div>
                       <p>
                         Email:
                         <span className="inline-space" />
@@ -1517,6 +1634,8 @@ function App() {
                           ? 'app-icon small blogs'
                         : option.key === 'jobs'
                           ? 'app-icon small projects'
+                        : option.key === 'timeline'
+                          ? 'app-icon small timeline'
                         : option.key === 'contact'
                           ? 'app-icon small contact'
                         : option.key === 'settings'
@@ -1535,6 +1654,8 @@ function App() {
                     <BlogsIcon className="icon" />
                   ) : option.key === 'jobs' ? (
                     <JobsIcon className="icon" />
+                  ) : option.key === 'timeline' ? (
+                    <TimelineIcon className="icon" />
                   ) : option.key === 'contact' ? (
                     <ContactIcon className="icon" />
                   ) : option.key === 'settings' ? (
@@ -1595,9 +1716,19 @@ function App() {
                 <div className="start-user-role">Data Scientist</div>
               </div>
             </div>
-            <a className="start-resume-link" href="./Kaustubh_Pathak_Resume.pdf" download>
-              Resume
-            </a>
+            <div className="start-user-actions">
+              <div className="start-power-row" aria-label="Power actions">
+                <button className="start-power-item" type="button" aria-label="Restart" title="Restart" onClick={() => runPowerAction('restart')}>
+                  <RestartIcon className="start-power-item-icon" />
+                </button>
+                <button className="start-power-item" type="button" aria-label="Sleep" title="Sleep" onClick={() => runPowerAction('sleep')}>
+                  <SleepIcon className="start-power-item-icon" />
+                </button>
+                <button className="start-power-item shutdown" type="button" aria-label="Shutdown" title="Shutdown" onClick={() => runPowerAction('shutdown')}>
+                  <ShutdownIcon className="start-power-item-icon shutdown-icon" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
