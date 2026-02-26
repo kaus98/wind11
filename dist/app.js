@@ -12478,11 +12478,21 @@ function requireClient() {
   return client.exports;
 }
 var clientExports = requireClient();
+const __vite_glob_0_0 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 01.59.30.jpeg", import.meta.url).href;
+const __vite_glob_0_1 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 02.00.40.jpeg", import.meta.url).href;
+const __vite_glob_0_2 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 02.02.05.jpeg", import.meta.url).href;
+const __vite_glob_0_3 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 02.02.06.jpeg", import.meta.url).href;
 const portfolioJson = '{\n  "about": {\n    "name": "Kaustubh Pathak",\n    "rolesLine": "Data Scientist · Data Engineer · NLP Enthusiast",\n    "location": "Etawah, UP",\n    "summaryParagraphs": [\n      "Data Scientist with 3+ years of experience building data-driven solutions to improve efficiency, accuracy, and utility of internal data processing. Experienced in deep learning, predictive modeling, forecasting and data mining, with strong backend engineering skills in Python/Flask/Django and modern data stacks.",\n      "Active in open-source communities and comfortable across backend and frontend technologies including JavaScript, Socket.IO, AJAX and jQuery, with hands-on operations experience both in collaborative teams and as an individual contributor."\n    ],\n    "technologies": [\n      "Python",\n      "PySpark",\n      "Scikit-learn",\n      "Flask",\n      "Django",\n      "FastAPI",\n      "Rasa",\n      "PyTorch",\n      "Transformers",\n      "Sentence Transformers",\n      "Keras",\n      "XGBoost",\n      "Spark / Scala",\n      "Airflow",\n      "Delta Lake / Iceberg",\n      "Databricks",\n      "HDInsight",\n      "Azure EventHub",\n      "DBFS / Blob Storage",\n      "Kafka",\n      "Hadoop",\n      "MinIO / HDFS",\n      "Telegraf",\n      "Argo Workflows",\n      "Grafana / Superset",\n      "Plotly / Folium",\n      "MySQL",\n      "PostgreSQL",\n      "MongoDB",\n      "Elasticsearch",\n      "Docker",\n      "AWS",\n      "Google Cloud",\n      "Linux",\n      "Kubernetes",\n      "AngularJS + Spring Boot",\n      "Golang",\n      "YOLOv5",\n      "ARIMA / Prophet"\n    ],\n    "programming": [\n      "Python",\n      "IPython",\n      "JavaScript",\n      "TypeScript",\n      "Scala",\n      "Go",\n      "Java",\n      "SQL",\n      "MATLAB",\n      "PHP",\n      "HTML/CSS",\n      "C/C++"\n    ],\n    "education": [\n      "ABV-IIITM Gwalior (2017 - 2022) — M.Tech (Dual Degree) in Information Technology, GPA 7.7",\n      "ST. Mary College, Etawah (2016) — Intermediate in PCM with Computer, GPA 8.8/10"\n    ],\n    "interests": ["Open Source", "Automation", "Data Engineering", "Cloud Computing", "NLP", "Music", "Coffee"],\n    "achievements": ["Published research in Springer NLP conference (2023)", "Kaggle Expert profile (@terminate9298)"]\n  },\n  "socialLinks": [\n    { "key": "instagram", "label": "Instagram", "href": "https://www.instagram.com/kaus98/" },\n    { "key": "github", "label": "GitHub", "href": "https://github.com/terminate9298" },\n    { "key": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/in/kaus98" },\n    { "key": "kaggle", "label": "Kaggle", "href": "https://www.kaggle.com/terminate9298" }\n  ],\n  "contact": {\n    "email": "kaus.pathak@gmail.com",\n    "phone": "+91 91490 42316",\n    "links": [\n      { "label": "Linktree", "href": "https://www.linktr.ee/kaus98" },\n      { "label": "GitHub", "href": "https://github.com/terminate9298" },\n      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/kaus98" },\n      { "label": "Kaggle", "href": "https://www.kaggle.com/terminate9298" },\n      { "label": "Medium", "href": "https://medium.com/@kaus.pathak" },\n      { "label": "Resume PDF", "href": "./Kaustubh_Pathak_Resume.pdf", "download": true }\n    ],\n    "responsibilities": [\n      "Currently SDE-2 @ Dell India",\n      "Developer Position in E-Cell since 2018-2022",\n      "Graphic Designer for Aurora cultural festival at ABV-IIITM Gwalior"\n    ]\n  },\n  "jobs": [\n    {\n      "company": "Dell India",\n      "role": "Data Engineering (SDE-2)",\n      "employmentType": "full-time",\n      "sortOrder": 7,\n      "highlights": [\n        "Built and deployed PySpark/Scala ETL pipelines in medallion architecture (Delta/Iceberg) handling 100M+ rows/day.",\n        "Built FastAPI-based NBA endpoints to serve data science models (XGBoost/Scikit-learn) with user-friendly outputs.",\n        "Worked on AngularJS + Spring Boot admin portal for sales role and client management workflows.",\n        "Implemented Golang remediation platform for remote server login and script execution to speed up debugging.",\n        "Built custom pipelines with Argo Workflows (Kubernetes) and Apache Airflow (non-Kubernetes).",\n        "Implemented Telegraf input/output plugins (Redfish, SNMP Trap, Message Bus, HTTP) for 10M+ requests/day.",\n        "Developed TCP/UDP Kubernetes ingestion pipeline, benchmarked Telegraf scalability, and contributed to testing + CI/CD.",\n        "Automated streaming services with Docker, Kubernetes, Azure, Spark and Scala.",\n        "Maintained Spark jobs (Java/Scala) and ETL pipelines across EventHub, DBFS and Blob Storage."\n      ]\n    },\n    {\n      "company": "Rakuten India",\n      "role": "Data Engineering Intern",\n      "employmentType": "internship",\n      "sortOrder": 6,\n      "period": "Jul 2021 - Dec 2021",\n      "highlights": [\n        "Built a Wrangler tool for database/table discovery using both non-contextual and NLP contextual search.",\n        "Implemented components with HyperLogLog and Bloom Filters using Java and Python.",\n        "Created multi-threaded and multi-process SFTP to MinIO/HDFS transfer pipelines with Airflow.",\n        "Handled DataOps workflows for transfer, filtering and analysis over SFTP, MinIO, HDFS, MySQL and streaming data."\n      ]\n    },\n    {\n      "company": "Lambdatest",\n      "role": "Data Science Engineering Intern",\n      "employmentType": "internship",\n      "sortOrder": 5,\n      "period": "May 2021 - Jul 2021",\n      "highlights": [\n        "Developed forecasting models to predict localized server demand and reduce infrastructure cost.",\n        "Built ETL pipelines from MySQL and S3 for Sumologic, Grafana and Superset dashboards on millions of rows.",\n        "Automated anomaly detection pipelines and alerting workflows for operational logs.",\n        "Created custom analytics dashboards for sales and business teams using Flask, Plotly, Pandas and MySQL."\n      ]\n    },\n    {\n      "company": "Eminenture",\n      "role": "Computer Vision Intern",\n      "employmentType": "internship",\n      "sortOrder": 4,\n      "highlights": [\n        "Built OCR pipelines to extract structured data from PDFs and reduce manual processing effort.",\n        "Scraped large datasets from multiple sources including news sites, ticketing portals and social platforms.",\n        "Applied Siamese and Transformer-based sentence embeddings for contextual matching in real-time systems."\n      ]\n    },\n    {\n      "company": "Dolhinchat",\n      "role": "NLP Engineer & Chatbot Developer Intern",\n      "employmentType": "internship",\n      "sortOrder": 3,\n      "period": "Feb 2021 - Apr 2021",\n      "highlights": [\n        "Designed domain-specific chatbot assistants in a cross-functional NLP team.",\n        "Integrated chatbots with management dashboards, CRMs and social platforms.",\n        "Built middleware to reduce Rasa model size and lower hosting footprint.",\n        "Built chatbot integrations across Web, Facebook, WhatsApp and Slack channels; also delivered a YOLOv5 pothole localization prototype."\n      ]\n    },\n    {\n      "company": "Vaidik Technologies Private Limited",\n      "role": "Developer Intern",\n      "employmentType": "internship",\n      "sortOrder": 2,\n      "period": "Sep 2019 - Oct 2019",\n      "highlights": [\n        "Built NLP interfaces for news discovery and article recommendation.",\n        "Contributed to Django + Firebase full-stack blog platform and deployment workflows."\n      ]\n    },\n    {\n      "company": "Shaastra Automations",\n      "role": "Web Developer Intern",\n      "employmentType": "internship",\n      "sortOrder": 1,\n      "period": "Aug 2018 - Nov 2018",\n      "highlights": [\n        "Worked as a full-stack developer building dynamic multi-page websites.",\n        "Contributed to company website development and UI implementation."\n      ]\n    }\n  ],\n  "blogs": [\n    {\n      "title": "Unified Interface for AI Api",\n      "date": "Jan 31, 2026",\n      "summary": "Unify interactions across OpenAI-compatible providers with one consistent API layer.",\n      "link": "https://kaus98.github.io/2026/01/31/unified-interface-for-ai-api/"\n    },\n    {\n      "title": "Nano Banana Gemini Viral Prompts",\n      "date": "Sep 15, 2025",\n      "summary": "Prompt ideas and usage notes for Nano Banana Gemini for social-media-ready outputs.",\n      "link": "https://kaus98.github.io/2025/09/15/banana-prompts/"\n    },\n    {\n      "title": "Visualize Activation Function available to use in Pytorch",\n      "date": "Jan 13, 2025",\n      "summary": "Practical notes on activation functions and visualization patterns for deep learning workflows.",\n      "link": "https://kaus98.github.io/2025/01/13/activation-functions/"\n    },\n    {\n      "title": "Data Warehousing Notes",\n      "date": "Jan 8, 2023",\n      "summary": "Concise notes on warehousing fundamentals, analytical workloads, and architecture concepts.",\n      "link": "https://kaus98.github.io/2023/01/08/data-warehouse-quick-notes/"\n    },\n    {\n      "title": "Deploying Apache Spark, Jupyter Lab with support for Scala/Python",\n      "date": "Aug 15, 2022",\n      "summary": "Dockerized setup guide for Spark + Scala/Python + Jupyter Lab workflows.",\n      "link": "https://kaus98.github.io/2022/08/15/docker-spark/"\n    },\n    {\n      "title": "Recreating the New York Times Covid-19 Spiral Graph",\n      "date": "Jan 15, 2022",\n      "summary": "Python visualization walkthrough for reproducing the NYT COVID spiral graph style.",\n      "link": "https://kaus98.github.io/2022/01/15/spiral-graph-python/"\n    },\n    {\n      "title": "Elastic Quick Start Notes and Keywords Explained",\n      "date": "Jan 13, 2022",\n      "summary": "Beginner-friendly Elasticsearch primer covering key concepts and practical terminology.",\n      "link": "https://kaus98.github.io/2022/01/13/elasticsearch-quick-notes/"\n    }\n  ],\n  "projects": [\n    {\n      "title": "Fourier Transform in NLP",\n      "subtitle": "Research Paper / MTP Project",\n      "description": "Studied Fourier Transform alternatives in Transformer architectures and hybrid Fourier + Multi-Head Attention approaches under Dr. Anuraj Singh; published in Springer NLP conference 2023.",\n      "github": ""\n    },\n    {\n      "title": "AI-UI",\n      "subtitle": "UI Build with AI",\n      "description": "Interact with OpenAI-compatible APIs using native Node.js fetch across OpenAI, Groq, Nvidia, and local LLM endpoints.",\n      "github": "https://github.com/kaus98/AI-UI"\n    },\n    {\n      "title": "COVID-19 India",\n      "subtitle": "Visualizations, Predictions & Forecasting",\n      "description": "Built epidemic and time-series forecasting pipelines using SIR/SIRD/SEIRD/SEIHRD, SARIMAX, ARIMA, Prophet, Theta and Holts models.",\n      "github": "https://github.com/terminate9298/corona-visualization-and-prediction"\n    },\n    {\n      "title": "Multitask Learning",\n      "subtitle": "BTP Project",\n      "description": "Created MultiT, a PyTorch-based library to train deep learning models on multiple datasets using multitask learning concepts.",\n      "github": ""\n    },\n    {\n      "title": "Movie Recommendation System",\n      "subtitle": "BTP Project",\n      "description": "Implemented content-based, collaborative, embedding and RNN-based recommendation strategies for personalized movie suggestions.",\n      "website": "https://rec-movies.herokuapp.com/",\n      "github": ""\n    },\n    {\n      "title": "Song Lyrics Generator",\n      "subtitle": "NLP Solo Project",\n      "description": "Generated lyrics with LSTMs, Seq2Seq, Transformers and BERT. Also built async lyric scraping pipelines with proxy/header pooling.",\n      "github": "https://colab.research.google.com/drive/1QOUCiAXzQEeO8gQ0Mw5iYj1kmaJ-brFj?usp=sharing"\n    }\n  ],\n  "certifications": [\n    "NLP With Deep Learning (Stanford Online)",\n    "Deep Learning Nanodegree Program (Udacity)",\n    "Introduction To Deep Learning (Udemy)",\n    "Complete A-Z Of Machine Learning (Udemy)",\n    "Introduction To Machine Learning By Andrew Ng (Coursera)",\n    "OpenCV With Python For Image And Video Analysis (LinkedIn)",\n    "Automate The Boring Stuff With Python (Al Sweigart)",\n    "Full Stack Web Developer Bootcamp (Udemy)"\n  ]\n}\n';
 function parsePortfolioData() {
   return JSON.parse(portfolioJson);
 }
 const portfolioData = parsePortfolioData();
+const galleryImageModules = /* @__PURE__ */ Object.assign({
+  "/public/gallery/WhatsApp Image 2026-02-26 at 01.59.30.jpeg": __vite_glob_0_0,
+  "/public/gallery/WhatsApp Image 2026-02-26 at 02.00.40.jpeg": __vite_glob_0_1,
+  "/public/gallery/WhatsApp Image 2026-02-26 at 02.02.05.jpeg": __vite_glob_0_2,
+  "/public/gallery/WhatsApp Image 2026-02-26 at 02.02.06.jpeg": __vite_glob_0_3
+});
 const AVATAR_ICON_URL = "https://kaus98.github.io/img/avatar-hux-home.jpg?cache-bust=1772011888911";
 function isExternalLink(href) {
   return /^https?:\/\//.test(href);
@@ -12549,6 +12559,12 @@ function ProjectsIcon({ className }) {
 function ContactIcon({ className }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M20 6H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2Zm0 2v.4l-8 5-8-5V8h16Zm0 8H4V9.7l7.5 4.7c.3.2.7.2 1 0L20 9.7V16Z" }) });
 }
+function GalleryIcon({ className }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M4.2 4h15.6A2.2 2.2 0 0 1 22 6.2v11.6a2.2 2.2 0 0 1-2.2 2.2H4.2A2.2 2.2 0 0 1 2 17.8V6.2A2.2 2.2 0 0 1 4.2 4Zm0 2a.2.2 0 0 0-.2.2v11.6c0 .1.1.2.2.2h15.6a.2.2 0 0 0 .2-.2V6.2a.2.2 0 0 0-.2-.2H4.2Z" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M7.3 10.5a1.9 1.9 0 1 1 1.9-1.9 1.9 1.9 0 0 1-1.9 1.9Zm0-2a.1.1 0 1 0 .1.1.1.1 0 0 0-.1-.1Zm12.2 7.5H4.5a1 1 0 0 1-.8-1.6l3.6-5a1 1 0 0 1 1.4-.2l2.2 1.6 2.3-3a1 1 0 0 1 1.5-.1l5.6 5.8a1 1 0 0 1-.8 1.7Z" })
+  ] });
+}
 function SpeakerOnIcon({ className }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M11 4 6.8 7.6H3a1 1 0 0 0-1 1v6.8a1 1 0 0 0 1 1h3.8L11 20V4Z" }),
@@ -12581,6 +12597,7 @@ function App() {
   const [positions, setPositions] = reactExports.useState({
     about: { x: 160, y: 70 },
     projects: { x: 210, y: 110 },
+    gallery: { x: 230, y: 110 },
     blogs: { x: 220, y: 100 },
     jobs: { x: 240, y: 130 },
     contact: { x: 240, y: 140 }
@@ -12590,6 +12607,7 @@ function App() {
   const [sizes, setSizes] = reactExports.useState({
     about: { width: 840, height: 520 },
     projects: { width: 840, height: 520 },
+    gallery: { width: 920, height: 560 },
     blogs: { width: 860, height: 540 },
     jobs: { width: 860, height: 560 },
     contact: { width: 620, height: 440 }
@@ -12597,6 +12615,7 @@ function App() {
   const [restoreBounds, setRestoreBounds] = reactExports.useState({
     about: null,
     projects: null,
+    gallery: null,
     blogs: null,
     jobs: null,
     contact: null
@@ -12604,6 +12623,7 @@ function App() {
   const windowRefs = reactExports.useRef({
     about: null,
     projects: null,
+    gallery: null,
     blogs: null,
     jobs: null,
     contact: null
@@ -12617,6 +12637,7 @@ function App() {
   const [audioError, setAudioError] = reactExports.useState(false);
   const [soundToastOpen, setSoundToastOpen] = reactExports.useState(false);
   const [soundToastText, setSoundToastText] = reactExports.useState("");
+  const [activeGalleryPhoto, setActiveGalleryPhoto] = reactExports.useState(null);
   const [theme, setTheme] = reactExports.useState(() => {
     const raw = window.localStorage.getItem("w11-theme");
     return raw === "light" ? "light" : "dark";
@@ -12624,6 +12645,7 @@ function App() {
   const [windows, setWindows] = reactExports.useState({
     about: { id: "about", title: "About", isOpen: false, isMinimized: false, isMaximized: false },
     projects: { id: "projects", title: "Projects", isOpen: false, isMinimized: false, isMaximized: false },
+    gallery: { id: "gallery", title: "Gallery", isOpen: false, isMinimized: false, isMaximized: false },
     blogs: { id: "blogs", title: "Blogs", isOpen: false, isMinimized: false, isMaximized: false },
     jobs: { id: "jobs", title: "Jobs", isOpen: false, isMinimized: false, isMaximized: false },
     contact: { id: "contact", title: "Contact", isOpen: false, isMinimized: false, isMaximized: false }
@@ -12795,6 +12817,7 @@ function App() {
     () => [
       { id: "about", label: "About" },
       { id: "projects", label: "Projects" },
+      { id: "gallery", label: "Gallery" },
       { id: "blogs", label: "Blogs" },
       { id: "jobs", label: "Jobs" },
       { id: "contact", label: "Contact" }
@@ -12805,6 +12828,7 @@ function App() {
     () => [
       { key: "about", label: "About", description: "Profile, education and skills", type: "app", appId: "about" },
       { key: "projects", label: "Projects", description: "AI, NLP and data engineering work", type: "app", appId: "projects" },
+      { key: "gallery", label: "Gallery", description: "Photos loaded from /public/gallery", type: "app", appId: "gallery" },
       { key: "blogs", label: "Blogs", description: "Posts from kaus98.github.io", type: "app", appId: "blogs" },
       { key: "jobs", label: "Jobs", description: "Experience and internships", type: "app", appId: "jobs" },
       { key: "contact", label: "Contact", description: "Email, phone and social links", type: "app", appId: "contact" },
@@ -12845,6 +12869,18 @@ function App() {
     ...link,
     Icon: socialIconMap[link.key]
   }));
+  const galleryPhotos = reactExports.useMemo(
+    () => Object.entries(galleryImageModules).map(([filePath, src]) => {
+      const filename = filePath.split("/").pop() ?? filePath;
+      const displayName = filename.replace(/\.[^/.]+$/, "").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+      return {
+        src: src.replace("/public", ""),
+        filename,
+        displayName: displayName || filename
+      };
+    }).sort((a, b) => a.filename.localeCompare(b.filename, void 0, { numeric: true, sensitivity: "base" })),
+    []
+  );
   const jobExperiences = portfolioData.jobs;
   const blogPosts = portfolioData.blogs;
   const searchedJobs = jobExperiences.filter((job) => {
@@ -13022,6 +13058,10 @@ function App() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon projects", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Projects" })
         ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("gallery"), children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon gallery", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Gallery" })
+        ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("blogs"), children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon blogs", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Blogs" })
@@ -13092,9 +13132,9 @@ function App() {
                         /* @__PURE__ */ jsxRuntimeExports.jsx(
                           "span",
                           {
-                            className: id === "about" ? "app-icon small about" : id === "projects" ? "app-icon small projects" : id === "blogs" ? "app-icon small blogs" : id === "jobs" ? "app-icon small projects" : "app-icon small contact",
+                            className: id === "about" ? "app-icon small about" : id === "projects" ? "app-icon small projects" : id === "gallery" ? "app-icon small gallery" : id === "blogs" ? "app-icon small blogs" : id === "jobs" ? "app-icon small projects" : "app-icon small contact",
                             "aria-hidden": "true",
-                            children: id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
+                            children: id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : id === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
                           }
                         ),
                         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: w.title })
@@ -13137,6 +13177,40 @@ function App() {
                     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "chips", children: about.interests.map((interest) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip", children: interest }, interest)) }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Achievements" }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: about.achievements.map((achievement) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: achievement }, achievement)) })
+                  ] }),
+                  id === "gallery" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Gallery" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Take a peek into my life, one chaotic screenshot at a time." }),
+                    galleryPhotos.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-grid", children: galleryPhotos.map((photo) => /* @__PURE__ */ jsxRuntimeExports.jsx("figure", { className: "gallery-item", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        className: "gallery-thumb gallery-thumb-icon",
+                        type: "button",
+                        onClick: () => setActiveGalleryPhoto(photo),
+                        "aria-label": `Open ${photo.displayName}`,
+                        title: photo.displayName,
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "gallery-image gallery-image-icon", src: photo.src, alt: photo.displayName, loading: "lazy" })
+                      }
+                    ) }, photo.src)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No photos found yet in /public/gallery." }),
+                    activeGalleryPhoto && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox", role: "dialog", "aria-modal": "true", onClick: () => setActiveGalleryPhoto(null), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-card", onClick: (e) => e.stopPropagation(), children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-header", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "button",
+                          {
+                            className: "gallery-lightbox-close-floating",
+                            type: "button",
+                            "aria-label": "Close image",
+                            onClick: () => setActiveGalleryPhoto(null),
+                            children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-close-glyph", "aria-hidden": "true", children: "×" })
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-meta", children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-label", children: "Image Preview" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-name", title: activeGalleryPhoto.displayName, children: activeGalleryPhoto.displayName })
+                        ] })
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-body", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-stage", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "gallery-lightbox-image", src: activeGalleryPhoto.src, alt: activeGalleryPhoto.displayName }) }) })
+                    ] }) })
                   ] }),
                   id === "blogs" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Blogs" }),
@@ -13326,9 +13400,9 @@ function App() {
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "span",
             {
-              className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : a.id === "blogs" ? "app-icon blogs" : a.id === "jobs" ? "app-icon projects" : "app-icon contact",
+              className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : a.id === "gallery" ? "app-icon gallery" : a.id === "blogs" ? "app-icon blogs" : a.id === "jobs" ? "app-icon projects" : "app-icon contact",
               "aria-hidden": "true",
-              children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : a.id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : a.id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
+              children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : a.id === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : a.id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : a.id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
             }
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-label", children: a.label })
@@ -13340,9 +13414,9 @@ function App() {
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "span",
             {
-              className: option.key === "about" ? "app-icon small about" : option.key === "projects" ? "app-icon small projects" : option.key === "blogs" ? "app-icon small blogs" : option.key === "jobs" ? "app-icon small projects" : option.key === "contact" ? "app-icon small contact" : "app-icon small about",
+              className: option.key === "about" ? "app-icon small about" : option.key === "projects" ? "app-icon small projects" : option.key === "gallery" ? "app-icon small gallery" : option.key === "blogs" ? "app-icon small blogs" : option.key === "jobs" ? "app-icon small projects" : option.key === "contact" ? "app-icon small contact" : "app-icon small about",
               "aria-hidden": "true",
-              children: option.key === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : option.key === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : option.key === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : option.key === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : option.key === "contact" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) : option.key === "theme" ? theme === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "icon" }) : option.key === "resume" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "icon" }) : muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "icon" })
+              children: option.key === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : option.key === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : option.key === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : option.key === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : option.key === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : option.key === "contact" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) : option.key === "theme" ? theme === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "icon" }) : option.key === "resume" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "icon" }) : muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "icon" })
             }
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "start-option-copy", children: [

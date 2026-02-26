@@ -2,7 +2,13 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
 import { portfolioData } from './data/portfolioData'
 
-type AppId = 'about' | 'projects' | 'blogs' | 'jobs' | 'contact'
+type AppId = 'about' | 'projects' | 'gallery' | 'blogs' | 'jobs' | 'contact'
+
+const galleryImageModules = import.meta.glob(['/public/gallery/*.{png,jpg,jpeg,webp,gif,avif,svg}', '/public/gallery/*.{PNG,JPG,JPEG,WEBP,GIF,AVIF,SVG}'], {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>
 
 const AVATAR_ICON_URL = 'https://kaus98.github.io/img/avatar-hux-home.jpg?cache-bust=1772011888911'
 
@@ -166,6 +172,15 @@ function ContactIcon({ className }: { className?: string }) {
   )
 }
 
+function GalleryIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4.2 4h15.6A2.2 2.2 0 0 1 22 6.2v11.6a2.2 2.2 0 0 1-2.2 2.2H4.2A2.2 2.2 0 0 1 2 17.8V6.2A2.2 2.2 0 0 1 4.2 4Zm0 2a.2.2 0 0 0-.2.2v11.6c0 .1.1.2.2.2h15.6a.2.2 0 0 0 .2-.2V6.2a.2.2 0 0 0-.2-.2H4.2Z" />
+      <path d="M7.3 10.5a1.9 1.9 0 1 1 1.9-1.9 1.9 1.9 0 0 1-1.9 1.9Zm0-2a.1.1 0 1 0 .1.1.1.1 0 0 0-.1-.1Zm12.2 7.5H4.5a1 1 0 0 1-.8-1.6l3.6-5a1 1 0 0 1 1.4-.2l2.2 1.6 2.3-3a1 1 0 0 1 1.5-.1l5.6 5.8a1 1 0 0 1-.8 1.7Z" />
+    </svg>
+  )
+}
+
 function SpeakerOnIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -209,6 +224,7 @@ function App() {
   const [positions, setPositions] = useState<Record<AppId, WindowPos>>({
     about: { x: 160, y: 70 },
     projects: { x: 210, y: 110 },
+    gallery: { x: 230, y: 110 },
     blogs: { x: 220, y: 100 },
     jobs: { x: 240, y: 130 },
     contact: { x: 240, y: 140 },
@@ -218,6 +234,7 @@ function App() {
   const [sizes, setSizes] = useState<Record<AppId, WindowSize>>({
     about: { width: 840, height: 520 },
     projects: { width: 840, height: 520 },
+    gallery: { width: 920, height: 560 },
     blogs: { width: 860, height: 540 },
     jobs: { width: 860, height: 560 },
     contact: { width: 620, height: 440 },
@@ -225,6 +242,7 @@ function App() {
   const [restoreBounds, setRestoreBounds] = useState<Record<AppId, WindowBounds | null>>({
     about: null,
     projects: null,
+    gallery: null,
     blogs: null,
     jobs: null,
     contact: null,
@@ -232,6 +250,7 @@ function App() {
   const windowRefs = useRef<Record<AppId, HTMLElement | null>>({
     about: null,
     projects: null,
+    gallery: null,
     blogs: null,
     jobs: null,
     contact: null,
@@ -246,6 +265,7 @@ function App() {
   const [audioError, setAudioError] = useState(false)
   const [soundToastOpen, setSoundToastOpen] = useState(false)
   const [soundToastText, setSoundToastText] = useState<string>('')
+  const [activeGalleryPhoto, setActiveGalleryPhoto] = useState<{ src: string; filename: string; displayName: string } | null>(null)
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const raw = window.localStorage.getItem('w11-theme')
     return raw === 'light' ? 'light' : 'dark'
@@ -254,6 +274,7 @@ function App() {
   const [windows, setWindows] = useState<Record<AppId, AppWindow>>({
     about: { id: 'about', title: 'About', isOpen: false, isMinimized: false, isMaximized: false },
     projects: { id: 'projects', title: 'Projects', isOpen: false, isMinimized: false, isMaximized: false },
+    gallery: { id: 'gallery', title: 'Gallery', isOpen: false, isMinimized: false, isMaximized: false },
     blogs: { id: 'blogs', title: 'Blogs', isOpen: false, isMinimized: false, isMaximized: false },
     jobs: { id: 'jobs', title: 'Jobs', isOpen: false, isMinimized: false, isMaximized: false },
     contact: { id: 'contact', title: 'Contact', isOpen: false, isMinimized: false, isMaximized: false },
@@ -470,6 +491,7 @@ function App() {
       [
         { id: 'about' as const, label: 'About' },
         { id: 'projects' as const, label: 'Projects' },
+        { id: 'gallery' as const, label: 'Gallery' },
         { id: 'blogs' as const, label: 'Blogs' },
         { id: 'jobs' as const, label: 'Jobs' },
         { id: 'contact' as const, label: 'Contact' },
@@ -481,6 +503,7 @@ function App() {
     () => [
       { key: 'about', label: 'About', description: 'Profile, education and skills', type: 'app' as const, appId: 'about' as const },
       { key: 'projects', label: 'Projects', description: 'AI, NLP and data engineering work', type: 'app' as const, appId: 'projects' as const },
+      { key: 'gallery', label: 'Gallery', description: 'Photos loaded from /public/gallery', type: 'app' as const, appId: 'gallery' as const },
       { key: 'blogs', label: 'Blogs', description: 'Posts from kaus98.github.io', type: 'app' as const, appId: 'blogs' as const },
       { key: 'jobs', label: 'Jobs', description: 'Experience and internships', type: 'app' as const, appId: 'jobs' as const },
       { key: 'contact', label: 'Contact', description: 'Email, phone and social links', type: 'app' as const, appId: 'contact' as const },
@@ -527,6 +550,26 @@ function App() {
     ...link,
     Icon: socialIconMap[link.key],
   }))
+
+  const galleryPhotos = useMemo(
+    () =>
+      Object.entries(galleryImageModules)
+        .map(([filePath, src]) => {
+          const filename = filePath.split('/').pop() ?? filePath
+          const displayName = filename
+            .replace(/\.[^/.]+$/, '')
+            .replace(/[_-]+/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+          return {
+            src: src.replace('/public', ''),
+            filename,
+            displayName: displayName || filename,
+          }
+        })
+        .sort((a, b) => a.filename.localeCompare(b.filename, undefined, { numeric: true, sensitivity: 'base' })),
+    [],
+  )
 
   const jobExperiences = portfolioData.jobs
   const blogPosts = portfolioData.blogs
@@ -751,6 +794,12 @@ function App() {
             </span>
             <span className="desktop-icon-label">Projects</span>
           </button>
+          <button className="desktop-icon" type="button" onClick={() => openApp('gallery')}>
+            <span className="app-icon gallery" aria-hidden="true">
+              <GalleryIcon className="icon" />
+            </span>
+            <span className="desktop-icon-label">Gallery</span>
+          </button>
           <button className="desktop-icon" type="button" onClick={() => openApp('blogs')}>
             <span className="app-icon blogs" aria-hidden="true">
               <BlogsIcon className="icon" />
@@ -846,6 +895,8 @@ function App() {
                           ? 'app-icon small about'
                           : id === 'projects'
                             ? 'app-icon small projects'
+                            : id === 'gallery'
+                              ? 'app-icon small gallery'
                             : id === 'blogs'
                               ? 'app-icon small blogs'
                             : id === 'jobs'
@@ -858,6 +909,8 @@ function App() {
                         <AboutIcon className="icon" />
                       ) : id === 'projects' ? (
                         <ProjectsIcon className="icon" />
+                      ) : id === 'gallery' ? (
+                        <GalleryIcon className="icon" />
                       ) : id === 'blogs' ? (
                         <BlogsIcon className="icon" />
                       ) : id === 'jobs' ? (
@@ -936,6 +989,62 @@ function App() {
                           <li key={achievement}>{achievement}</li>
                         ))}
                       </ul>
+                    </div>
+                  )}
+
+                  {id === 'gallery' && (
+                    <div className="panel cards-panel">
+                      <h2 className="section-heading">Gallery</h2>
+                      <p className="muted">Take a peek into my life, one chaotic screenshot at a time.</p>
+                      {galleryPhotos.length > 0 ? (
+                        <div className="gallery-grid">
+                          {galleryPhotos.map((photo) => (
+                            <figure key={photo.src} className="gallery-item">
+                              <button
+                                className="gallery-thumb gallery-thumb-icon"
+                                type="button"
+                                onClick={() => setActiveGalleryPhoto(photo)}
+                                aria-label={`Open ${photo.displayName}`}
+                                title={photo.displayName}
+                              >
+                                <img className="gallery-image gallery-image-icon" src={photo.src} alt={photo.displayName} loading="lazy" />
+                              </button>
+                            </figure>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="muted">No photos found yet in /public/gallery.</p>
+                      )}
+
+                      {activeGalleryPhoto && (
+                        <div className="gallery-lightbox" role="dialog" aria-modal="true" onClick={() => setActiveGalleryPhoto(null)}>
+                          <div className="gallery-lightbox-card" onClick={(e) => e.stopPropagation()}>
+                            <div className="gallery-lightbox-header">
+                              <button
+                                className="gallery-lightbox-close-floating"
+                                type="button"
+                                aria-label="Close image"
+                                onClick={() => setActiveGalleryPhoto(null)}
+                              >
+                                <span className="gallery-lightbox-close-glyph" aria-hidden="true">
+                                  ×
+                                </span>
+                              </button>
+                              <div className="gallery-lightbox-meta">
+                                <span className="gallery-lightbox-label">Image Preview</span>
+                                <span className="gallery-lightbox-name" title={activeGalleryPhoto.displayName}>
+                                  {activeGalleryPhoto.displayName}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="gallery-lightbox-body">
+                              <div className="gallery-lightbox-stage">
+                                <img className="gallery-lightbox-image" src={activeGalleryPhoto.src} alt={activeGalleryPhoto.displayName} />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
 
@@ -1219,6 +1328,8 @@ function App() {
                       ? 'app-icon about'
                       : a.id === 'projects'
                         ? 'app-icon projects'
+                        : a.id === 'gallery'
+                          ? 'app-icon gallery'
                         : a.id === 'blogs'
                           ? 'app-icon blogs'
                         : a.id === 'jobs'
@@ -1231,6 +1342,8 @@ function App() {
                     <AboutIcon className="icon" />
                   ) : a.id === 'projects' ? (
                     <ProjectsIcon className="icon" />
+                  ) : a.id === 'gallery' ? (
+                    <GalleryIcon className="icon" />
                   ) : a.id === 'blogs' ? (
                     <BlogsIcon className="icon" />
                   ) : a.id === 'jobs' ? (
@@ -1254,6 +1367,8 @@ function App() {
                       ? 'app-icon small about'
                       : option.key === 'projects'
                         ? 'app-icon small projects'
+                        : option.key === 'gallery'
+                          ? 'app-icon small gallery'
                         : option.key === 'blogs'
                           ? 'app-icon small blogs'
                         : option.key === 'jobs'
@@ -1268,6 +1383,8 @@ function App() {
                     <AboutIcon className="icon" />
                   ) : option.key === 'projects' ? (
                     <ProjectsIcon className="icon" />
+                  ) : option.key === 'gallery' ? (
+                    <GalleryIcon className="icon" />
                   ) : option.key === 'blogs' ? (
                     <BlogsIcon className="icon" />
                   ) : option.key === 'jobs' ? (

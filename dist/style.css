@@ -400,6 +400,10 @@ button:focus-visible {
   background: linear-gradient(135deg, rgba(125, 0, 255, 0.75), rgba(0, 120, 212, 0.65));
 }
 
+.app-icon.gallery {
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.78), rgba(0, 255, 145, 0.55));
+}
+
 .app-icon.blogs {
   background: linear-gradient(135deg, rgba(0, 176, 255, 0.78), rgba(0, 255, 170, 0.58));
 }
@@ -642,6 +646,177 @@ button:focus-visible {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 12px;
+}
+
+.gallery-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 10px;
+}
+
+.gallery-item {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-thumb {
+  width: 56px;
+  height: 56px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.gallery-thumb-icon {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+.gallery-thumb-icon:hover {
+  transform: translateY(-1px);
+}
+
+.gallery-image {
+  display: block;
+}
+
+.gallery-image-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  opacity: 0.78;
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: radial-gradient(circle at top, rgba(40, 60, 92, 0.35), rgba(3, 7, 14, 0.9));
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.gallery-lightbox-card {
+  width: min(1040px, calc(100vw - 32px));
+  height: 80%;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(180deg, rgba(19, 27, 43, 0.96), rgba(9, 14, 24, 0.97));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  padding: 12px;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.gallery-lightbox-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 4px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gallery-lightbox-close-floating {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(8, 13, 22, 0.68);
+  color: inherit;
+  border-radius: 9px;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gallery-lightbox-close-floating:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.gallery-lightbox-close-glyph {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.gallery-lightbox-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.gallery-lightbox-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.68;
+}
+
+.gallery-lightbox-body {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(1, 4, 10, 0.45);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.gallery-lightbox-stage {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gallery-lightbox-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.gallery-lightbox-name {
+  font-size: 12px;
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .wcard {
@@ -1420,6 +1595,30 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+    gap: 8px;
+  }
+
+  .gallery-lightbox {
+    padding: 10px;
+  }
+
+  .gallery-lightbox-card {
+    width: 100%;
+    height: 80%;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .gallery-lightbox-body {
+    padding: 8px;
+  }
+
+  .gallery-lightbox-stage {
+    padding: 8px;
+  }
+
   .chip {
     font-size: 12px;
     padding: 6px 9px;
@@ -1515,6 +1714,11 @@ button:focus-visible {
   .window-content {
     padding: 10px;
     padding-bottom: 14px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+    gap: 8px;
   }
 
   .taskbar {

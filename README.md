@@ -12,7 +12,7 @@ The UI mimics a Windows 11 environment with draggable app windows, taskbar/start
   - Start menu
   - Taskbar + tray actions
   - Search panel
-  - Multiple app windows (About, Projects, Blogs, Jobs, Contact)
+  - Multiple app windows (About, Projects, Gallery, Blogs, Jobs, Contact)
 - Draggable, minimizable, maximizable windows
 - Light/Dark theme toggle with localStorage persistence
 - Sound control with user-gesture enable support
@@ -125,6 +125,22 @@ The app reads this file as raw JSON (`?raw`) and parses it via:
 3. Run `npm run dev` or `npm run build`
 
 > Keep JSON valid (quotes, commas, brackets) or parsing will fail at runtime/build time.
+
+---
+
+## Gallery Photos (Single Folder)
+
+The Gallery app auto-loads images from a single folder:
+
+- `public/gallery/`
+
+### How to add photos
+
+1. Paste image files into `public/gallery/`
+2. Supported formats: `png`, `jpg`, `jpeg`, `webp`, `gif`, `avif`, `svg`
+3. Refresh the app (or keep dev server running and it will update)
+
+If no files are present, the Gallery window shows an empty state message.
 
 ---
 
