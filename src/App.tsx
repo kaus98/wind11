@@ -11,6 +11,23 @@ const galleryImageModules = import.meta.glob(['/public/gallery/*.{png,jpg,jpeg,w
 }) as Record<string, string>
 
 const AVATAR_ICON_URL = 'https://kaus98.github.io/img/avatar-hux-home.jpg?cache-bust=1772011888911'
+const GALLERY_LIGHTBOX_TRANSITION_MS = 260
+const WINDOW_PANEL_TRANSITION_MS = 240
+
+const themeOptions = [
+  { id: 'dark', label: 'Dark' },
+  { id: 'light', label: 'Light' },
+  { id: 'aurora', label: 'Aurora' },
+  { id: 'glass', label: 'Glass' },
+  { id: 'retro', label: 'Retro' },
+  { id: 'solar', label: 'Solar' },
+] as const
+
+type ThemeName = (typeof themeOptions)[number]['id']
+
+function isThemeName(value: string | null): value is ThemeName {
+  return themeOptions.some((theme) => theme.id === value)
+}
 
 type AppWindow = {
   id: AppId
@@ -151,7 +168,9 @@ function WindowsIcon({ className }: { className?: string }) {
 
 function AboutIcon({ className }: { className?: string }) {
   return (
-    <img className={className ? `${className} avatar-photo-icon` : 'avatar-photo-icon'} src={AVATAR_ICON_URL} alt="" aria-hidden="true" />
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3.2a4.2 4.2 0 1 1-4.2 4.2A4.2 4.2 0 0 1 12 3.2Zm0 10.4c4.2 0 7.6 2.3 7.6 5.1a1 1 0 0 1-1 1H5.4a1 1 0 0 1-1-1c0-2.8 3.4-5.1 7.6-5.1Zm0 2c-2.9 0-5.2 1.3-5.6 2.5h11.2c-.4-1.2-2.7-2.5-5.6-2.5Z" />
+    </svg>
   )
 }
 
@@ -247,6 +266,15 @@ function App() {
     jobs: null,
     contact: null,
   })
+  const [closingWindows, setClosingWindows] = useState<Record<AppId, boolean>>({
+    about: false,
+    projects: false,
+    gallery: false,
+    blogs: false,
+    jobs: false,
+    contact: false,
+  })
+  const closeWindowTimeouts = useRef<Partial<Record<AppId, number>>>({})
   const windowRefs = useRef<Record<AppId, HTMLElement | null>>({
     about: null,
     projects: null,
@@ -266,9 +294,10 @@ function App() {
   const [soundToastOpen, setSoundToastOpen] = useState(false)
   const [soundToastText, setSoundToastText] = useState<string>('')
   const [activeGalleryPhoto, setActiveGalleryPhoto] = useState<{ src: string; filename: string; displayName: string } | null>(null)
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+  const [isGalleryLightboxOpen, setIsGalleryLightboxOpen] = useState(false)
+  const [theme, setTheme] = useState<ThemeName>(() => {
     const raw = window.localStorage.getItem('w11-theme')
-    return raw === 'light' ? 'light' : 'dark'
+    return isThemeName(raw) ? raw : 'dark'
   })
 
   const [windows, setWindows] = useState<Record<AppId, AppWindow>>({
@@ -338,6 +367,32 @@ function App() {
   }, [positions, sizes])
 
   useEffect(() => {
+    if (!activeGalleryPhoto) return
+    const frame = window.requestAnimationFrame(() => setIsGalleryLightboxOpen(true))
+    return () => window.cancelAnimationFrame(frame)
+  }, [activeGalleryPhoto])
+
+  useEffect(() => {
+    if (!activeGalleryPhoto || isGalleryLightboxOpen) return
+    const timeout = window.setTimeout(() => {
+      setActiveGalleryPhoto(null)
+    }, GALLERY_LIGHTBOX_TRANSITION_MS)
+
+    return () => window.clearTimeout(timeout)
+  }, [activeGalleryPhoto, isGalleryLightboxOpen])
+
+  useEffect(
+    () => () => {
+      Object.values(closeWindowTimeouts.current).forEach((timeoutId) => {
+        if (typeof timeoutId === 'number') {
+          window.clearTimeout(timeoutId)
+        }
+      })
+    },
+    [],
+  )
+
+  useEffect(() => {
     window.localStorage.setItem('w11-muted', String(muted))
   }, [muted])
 
@@ -382,7 +437,15 @@ function App() {
   }
 
   function toggleTheme() {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+    setTheme((prev) => {
+      const currentIndex = themeOptions.findIndex((themeOption) => themeOption.id === prev)
+      const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % themeOptions.length
+      return themeOptions[nextIndex].id
+    })
+  }
+
+  function applyTheme(nextTheme: ThemeName) {
+    setTheme(nextTheme)
   }
 
   function closeStartMenu() {
@@ -510,8 +573,8 @@ function App() {
       { key: 'resume', label: 'Resume', description: 'Download PDF resume', type: 'resume' as const },
       {
         key: 'theme',
-        label: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
-        description: 'Theme appearance toggle',
+        label: `Cycle theme (${themeOptions.find((themeOption) => themeOption.id === theme)?.label ?? 'Dark'})`,
+        description: 'Rotate between visual styles',
         type: 'theme' as const,
       },
       {
@@ -618,6 +681,13 @@ function App() {
   }
 
   function openApp(id: AppId) {
+    const closeTimeoutId = closeWindowTimeouts.current[id]
+    if (typeof closeTimeoutId === 'number') {
+      window.clearTimeout(closeTimeoutId)
+      delete closeWindowTimeouts.current[id]
+    }
+
+    setClosingWindows((prev) => ({ ...prev, [id]: false }))
     setWindows((prev) => ({
       ...prev,
       [id]: { ...prev[id], isOpen: true, isMinimized: false },
@@ -725,11 +795,23 @@ function App() {
   }
 
   function closeApp(id: AppId) {
-    setWindows((prev) => ({
-      ...prev,
-      [id]: { ...prev[id], isOpen: false, isMinimized: false, isMaximized: false },
-    }))
-    setActiveId('about')
+    if (closingWindows[id]) return
+
+    const closeTimeoutId = closeWindowTimeouts.current[id]
+    if (typeof closeTimeoutId === 'number') {
+      window.clearTimeout(closeTimeoutId)
+    }
+
+    setClosingWindows((prev) => ({ ...prev, [id]: true }))
+    closeWindowTimeouts.current[id] = window.setTimeout(() => {
+      setWindows((prev) => ({
+        ...prev,
+        [id]: { ...prev[id], isOpen: false, isMinimized: false, isMaximized: false },
+      }))
+      setClosingWindows((prev) => ({ ...prev, [id]: false }))
+      setActiveId((prev) => (prev === id ? 'about' : prev))
+      delete closeWindowTimeouts.current[id]
+    }, WINDOW_PANEL_TRANSITION_MS)
   }
 
   const visibleWindowIds = (Object.keys(windows) as AppId[]).filter(
@@ -838,13 +920,21 @@ function App() {
             const pos = positions[id]
             const size = sizes[id]
             const isMaximized = windows[id].isMaximized
+            const windowClassName = [
+              'window',
+              isActive ? 'active' : '',
+              isMaximized ? 'maximized' : '',
+              closingWindows[id] ? 'window-exit' : 'window-enter',
+            ]
+              .filter(Boolean)
+              .join(' ')
             const maximizedHeight = Math.max(220, viewport.height - taskbarReservedHeight)
             const fullscreenHeight = Math.max(220, viewport.height - taskbarReservedHeight - windowInset * 2)
 
             return (
               <section
                 key={id}
-                className={isActive ? (isMaximized ? 'window active maximized' : 'window active') : isMaximized ? 'window maximized' : 'window'}
+                className={windowClassName}
                 style={
                   isMaximized
                     ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight }
@@ -1003,7 +1093,10 @@ function App() {
                               <button
                                 className="gallery-thumb gallery-thumb-icon"
                                 type="button"
-                                onClick={() => setActiveGalleryPhoto(photo)}
+                                onClick={() => {
+                                  setIsGalleryLightboxOpen(false)
+                                  setActiveGalleryPhoto(photo)
+                                }}
                                 aria-label={`Open ${photo.displayName}`}
                                 title={photo.displayName}
                               >
@@ -1017,14 +1110,19 @@ function App() {
                       )}
 
                       {activeGalleryPhoto && (
-                        <div className="gallery-lightbox" role="dialog" aria-modal="true" onClick={() => setActiveGalleryPhoto(null)}>
+                        <div
+                          className={`gallery-lightbox ${isGalleryLightboxOpen ? 'is-open' : 'is-closing'}`}
+                          role="dialog"
+                          aria-modal="true"
+                          onClick={() => setIsGalleryLightboxOpen(false)}
+                        >
                           <div className="gallery-lightbox-card" onClick={(e) => e.stopPropagation()}>
                             <div className="gallery-lightbox-header">
                               <button
                                 className="gallery-lightbox-close-floating"
                                 type="button"
                                 aria-label="Close image"
-                                onClick={() => setActiveGalleryPhoto(null)}
+                                onClick={() => setIsGalleryLightboxOpen(false)}
                               >
                                 <span className="gallery-lightbox-close-glyph" aria-hidden="true">
                                   ×
@@ -1392,7 +1490,7 @@ function App() {
                   ) : option.key === 'contact' ? (
                     <ContactIcon className="icon" />
                   ) : option.key === 'theme' ? (
-                    theme === 'dark' ? <SunIcon className="icon" /> : <MoonIcon className="icon" />
+                    theme === 'light' ? <SunIcon className="icon" /> : <MoonIcon className="icon" />
                   ) : option.key === 'resume' ? (
                     <ResumeIcon className="icon" />
                   ) : muted ? (
@@ -1415,6 +1513,27 @@ function App() {
               <a key={key} className="start-social-link" href={href} target="_blank" rel="noreferrer" aria-label={label} title={label}>
                 <Icon className="start-social-icon" />
               </a>
+            ))}
+          </div>
+
+          <div className="start-theme" aria-label="Theme switcher">
+            {themeOptions.map((themeOption) => (
+              <button
+                key={themeOption.id}
+                className={theme === themeOption.id ? `start-theme-btn active theme-${themeOption.id}` : `start-theme-btn theme-${themeOption.id}`}
+                type="button"
+                onClick={() => applyTheme(themeOption.id)}
+                aria-pressed={theme === themeOption.id}
+              >
+                {themeOption.id === 'light' ? (
+                  <SunIcon className="start-theme-icon" />
+                ) : themeOption.id === 'dark' ? (
+                  <MoonIcon className="start-theme-icon" />
+                ) : (
+                  <span className="start-theme-swatch" aria-hidden="true" />
+                )}
+                {themeOption.label}
+              </button>
             ))}
           </div>
 
@@ -1523,10 +1642,10 @@ function App() {
               <button
                 className="tray-btn"
                 type="button"
-                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                aria-label="Switch theme"
                 onClick={toggleTheme}
               >
-                {theme === 'dark' ? <SunIcon className="tray-svg" /> : <MoonIcon className="tray-svg" />}
+                {theme === 'light' ? <SunIcon className="tray-svg" /> : <MoonIcon className="tray-svg" />}
               </button>
               <button
                 className={muted ? 'tray-btn' : 'tray-btn active'}

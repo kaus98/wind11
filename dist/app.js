@@ -12494,6 +12494,19 @@ const galleryImageModules = /* @__PURE__ */ Object.assign({
   "/public/gallery/WhatsApp Image 2026-02-26 at 02.02.06.jpeg": __vite_glob_0_3
 });
 const AVATAR_ICON_URL = "https://kaus98.github.io/img/avatar-hux-home.jpg?cache-bust=1772011888911";
+const GALLERY_LIGHTBOX_TRANSITION_MS = 260;
+const WINDOW_PANEL_TRANSITION_MS = 240;
+const themeOptions = [
+  { id: "dark", label: "Dark" },
+  { id: "light", label: "Light" },
+  { id: "aurora", label: "Aurora" },
+  { id: "glass", label: "Glass" },
+  { id: "retro", label: "Retro" },
+  { id: "solar", label: "Solar" }
+];
+function isThemeName(value) {
+  return themeOptions.some((theme) => theme.id === value);
+}
 function isExternalLink(href) {
   return /^https?:\/\//.test(href);
 }
@@ -12548,7 +12561,7 @@ function WindowsIcon({ className }) {
   ] });
 }
 function AboutIcon({ className }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: className ? `${className} avatar-photo-icon` : "avatar-photo-icon", src: AVATAR_ICON_URL, alt: "", "aria-hidden": "true" });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M12 3.2a4.2 4.2 0 1 1-4.2 4.2A4.2 4.2 0 0 1 12 3.2Zm0 10.4c4.2 0 7.6 2.3 7.6 5.1a1 1 0 0 1-1 1H5.4a1 1 0 0 1-1-1c0-2.8 3.4-5.1 7.6-5.1Zm0 2c-2.9 0-5.2 1.3-5.6 2.5h11.2c-.4-1.2-2.7-2.5-5.6-2.5Z" }) });
 }
 function ProjectsIcon({ className }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: [
@@ -12620,6 +12633,15 @@ function App() {
     jobs: null,
     contact: null
   });
+  const [closingWindows, setClosingWindows] = reactExports.useState({
+    about: false,
+    projects: false,
+    gallery: false,
+    blogs: false,
+    jobs: false,
+    contact: false
+  });
+  const closeWindowTimeouts = reactExports.useRef({});
   const windowRefs = reactExports.useRef({
     about: null,
     projects: null,
@@ -12638,9 +12660,10 @@ function App() {
   const [soundToastOpen, setSoundToastOpen] = reactExports.useState(false);
   const [soundToastText, setSoundToastText] = reactExports.useState("");
   const [activeGalleryPhoto, setActiveGalleryPhoto] = reactExports.useState(null);
+  const [isGalleryLightboxOpen, setIsGalleryLightboxOpen] = reactExports.useState(false);
   const [theme, setTheme] = reactExports.useState(() => {
     const raw = window.localStorage.getItem("w11-theme");
-    return raw === "light" ? "light" : "dark";
+    return isThemeName(raw) ? raw : "dark";
   });
   const [windows, setWindows] = reactExports.useState({
     about: { id: "about", title: "About", isOpen: false, isMinimized: false, isMaximized: false },
@@ -12697,6 +12720,28 @@ function App() {
     return () => window.removeEventListener("resize", onResize);
   }, [positions, sizes]);
   reactExports.useEffect(() => {
+    if (!activeGalleryPhoto) return;
+    const frame = window.requestAnimationFrame(() => setIsGalleryLightboxOpen(true));
+    return () => window.cancelAnimationFrame(frame);
+  }, [activeGalleryPhoto]);
+  reactExports.useEffect(() => {
+    if (!activeGalleryPhoto || isGalleryLightboxOpen) return;
+    const timeout = window.setTimeout(() => {
+      setActiveGalleryPhoto(null);
+    }, GALLERY_LIGHTBOX_TRANSITION_MS);
+    return () => window.clearTimeout(timeout);
+  }, [activeGalleryPhoto, isGalleryLightboxOpen]);
+  reactExports.useEffect(
+    () => () => {
+      Object.values(closeWindowTimeouts.current).forEach((timeoutId) => {
+        if (typeof timeoutId === "number") {
+          window.clearTimeout(timeoutId);
+        }
+      });
+    },
+    []
+  );
+  reactExports.useEffect(() => {
     window.localStorage.setItem("w11-muted", String(muted));
   }, [muted]);
   reactExports.useEffect(() => {
@@ -12734,7 +12779,14 @@ function App() {
     }
   }
   function toggleTheme() {
-    setTheme((prev) => prev === "dark" ? "light" : "dark");
+    setTheme((prev) => {
+      const currentIndex = themeOptions.findIndex((themeOption) => themeOption.id === prev);
+      const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % themeOptions.length;
+      return themeOptions[nextIndex].id;
+    });
+  }
+  function applyTheme(nextTheme) {
+    setTheme(nextTheme);
   }
   function closeStartMenu() {
     setStartOpen(false);
@@ -12835,8 +12887,8 @@ function App() {
       { key: "resume", label: "Resume", description: "Download PDF resume", type: "resume" },
       {
         key: "theme",
-        label: theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
-        description: "Theme appearance toggle",
+        label: `Cycle theme (${themeOptions.find((themeOption) => themeOption.id === theme)?.label ?? "Dark"})`,
+        description: "Rotate between visual styles",
         type: "theme"
       },
       {
@@ -12912,6 +12964,12 @@ function App() {
     height: Math.max(240, Math.min(500, viewport.height - taskbarReservedHeight - 16))
   };
   function openApp(id) {
+    const closeTimeoutId = closeWindowTimeouts.current[id];
+    if (typeof closeTimeoutId === "number") {
+      window.clearTimeout(closeTimeoutId);
+      delete closeWindowTimeouts.current[id];
+    }
+    setClosingWindows((prev) => ({ ...prev, [id]: false }));
     setWindows((prev) => ({
       ...prev,
       [id]: { ...prev[id], isOpen: true, isMinimized: false }
@@ -13002,11 +13060,21 @@ function App() {
     setActiveId(id);
   }
   function closeApp(id) {
-    setWindows((prev) => ({
-      ...prev,
-      [id]: { ...prev[id], isOpen: false, isMinimized: false, isMaximized: false }
-    }));
-    setActiveId("about");
+    if (closingWindows[id]) return;
+    const closeTimeoutId = closeWindowTimeouts.current[id];
+    if (typeof closeTimeoutId === "number") {
+      window.clearTimeout(closeTimeoutId);
+    }
+    setClosingWindows((prev) => ({ ...prev, [id]: true }));
+    closeWindowTimeouts.current[id] = window.setTimeout(() => {
+      setWindows((prev) => ({
+        ...prev,
+        [id]: { ...prev[id], isOpen: false, isMinimized: false, isMaximized: false }
+      }));
+      setClosingWindows((prev) => ({ ...prev, [id]: false }));
+      setActiveId((prev) => prev === id ? "about" : prev);
+      delete closeWindowTimeouts.current[id];
+    }, WINDOW_PANEL_TRANSITION_MS);
   }
   const visibleWindowIds = Object.keys(windows).filter(
     (id) => windows[id].isOpen && !windows[id].isMinimized
@@ -13085,12 +13153,18 @@ function App() {
           const pos = positions[id];
           const size = sizes[id];
           const isMaximized = windows[id].isMaximized;
+          const windowClassName = [
+            "window",
+            isActive ? "active" : "",
+            isMaximized ? "maximized" : "",
+            closingWindows[id] ? "window-exit" : "window-enter"
+          ].filter(Boolean).join(" ");
           const maximizedHeight = Math.max(220, viewport.height - taskbarReservedHeight);
           const fullscreenHeight = Math.max(220, viewport.height - taskbarReservedHeight - windowInset * 2);
           return /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "section",
             {
-              className: isActive ? isMaximized ? "window active maximized" : "window active" : isMaximized ? "window maximized" : "window",
+              className: windowClassName,
               style: isMaximized ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight } : forceFullscreenWindows ? {
                 zIndex,
                 left: windowInset,
@@ -13186,31 +13260,43 @@ function App() {
                       {
                         className: "gallery-thumb gallery-thumb-icon",
                         type: "button",
-                        onClick: () => setActiveGalleryPhoto(photo),
+                        onClick: () => {
+                          setIsGalleryLightboxOpen(false);
+                          setActiveGalleryPhoto(photo);
+                        },
                         "aria-label": `Open ${photo.displayName}`,
                         title: photo.displayName,
                         children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "gallery-image gallery-image-icon", src: photo.src, alt: photo.displayName, loading: "lazy" })
                       }
                     ) }, photo.src)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No photos found yet in /public/gallery." }),
-                    activeGalleryPhoto && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox", role: "dialog", "aria-modal": "true", onClick: () => setActiveGalleryPhoto(null), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-card", onClick: (e) => e.stopPropagation(), children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-header", children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(
-                          "button",
-                          {
-                            className: "gallery-lightbox-close-floating",
-                            type: "button",
-                            "aria-label": "Close image",
-                            onClick: () => setActiveGalleryPhoto(null),
-                            children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-close-glyph", "aria-hidden": "true", children: "×" })
-                          }
-                        ),
-                        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-meta", children: [
-                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-label", children: "Image Preview" }),
-                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-name", title: activeGalleryPhoto.displayName, children: activeGalleryPhoto.displayName })
+                    activeGalleryPhoto && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "div",
+                      {
+                        className: `gallery-lightbox ${isGalleryLightboxOpen ? "is-open" : "is-closing"}`,
+                        role: "dialog",
+                        "aria-modal": "true",
+                        onClick: () => setIsGalleryLightboxOpen(false),
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-card", onClick: (e) => e.stopPropagation(), children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-header", children: [
+                            /* @__PURE__ */ jsxRuntimeExports.jsx(
+                              "button",
+                              {
+                                className: "gallery-lightbox-close-floating",
+                                type: "button",
+                                "aria-label": "Close image",
+                                onClick: () => setIsGalleryLightboxOpen(false),
+                                children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-close-glyph", "aria-hidden": "true", children: "×" })
+                              }
+                            ),
+                            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-meta", children: [
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-label", children: "Image Preview" }),
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-name", title: activeGalleryPhoto.displayName, children: activeGalleryPhoto.displayName })
+                            ] })
+                          ] }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-body", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-stage", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "gallery-lightbox-image", src: activeGalleryPhoto.src, alt: activeGalleryPhoto.displayName }) }) })
                         ] })
-                      ] }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-body", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-stage", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "gallery-lightbox-image", src: activeGalleryPhoto.src, alt: activeGalleryPhoto.displayName }) }) })
-                    ] }) })
+                      }
+                    )
                   ] }),
                   id === "blogs" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Blogs" }),
@@ -13416,7 +13502,7 @@ function App() {
             {
               className: option.key === "about" ? "app-icon small about" : option.key === "projects" ? "app-icon small projects" : option.key === "gallery" ? "app-icon small gallery" : option.key === "blogs" ? "app-icon small blogs" : option.key === "jobs" ? "app-icon small projects" : option.key === "contact" ? "app-icon small contact" : "app-icon small about",
               "aria-hidden": "true",
-              children: option.key === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : option.key === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : option.key === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : option.key === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : option.key === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : option.key === "contact" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) : option.key === "theme" ? theme === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "icon" }) : option.key === "resume" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "icon" }) : muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "icon" })
+              children: option.key === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : option.key === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : option.key === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : option.key === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : option.key === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : option.key === "contact" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) : option.key === "theme" ? theme === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "icon" }) : option.key === "resume" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "icon" }) : muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "icon" })
             }
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "start-option-copy", children: [
@@ -13427,6 +13513,20 @@ function App() {
         filteredAllOptions.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-empty", children: "No options found." })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-social", "aria-label": "Social links", children: socialLinks.map(({ key, label, href, Icon }) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "start-social-link", href, target: "_blank", rel: "noreferrer", "aria-label": label, title: label, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "start-social-icon" }) }, key)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-theme", "aria-label": "Theme switcher", children: themeOptions.map((themeOption) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          className: theme === themeOption.id ? `start-theme-btn active theme-${themeOption.id}` : `start-theme-btn theme-${themeOption.id}`,
+          type: "button",
+          onClick: () => applyTheme(themeOption.id),
+          "aria-pressed": theme === themeOption.id,
+          children: [
+            themeOption.id === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "start-theme-icon" }) : themeOption.id === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "start-theme-icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-theme-swatch", "aria-hidden": "true" }),
+            themeOption.label
+          ]
+        },
+        themeOption.id
+      )) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-userbar", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-user", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-avatar", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "start-avatar-img", src: AVATAR_ICON_URL, alt: "" }) }),
@@ -13500,9 +13600,9 @@ function App() {
             {
               className: "tray-btn",
               type: "button",
-              "aria-label": theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+              "aria-label": "Switch theme",
               onClick: toggleTheme,
-              children: theme === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "tray-svg" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "tray-svg" })
+              children: theme === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "tray-svg" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "tray-svg" })
             }
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
