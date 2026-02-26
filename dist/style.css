@@ -17,6 +17,11 @@ html,
 body,
 #root {
   height: 100%;
+  min-height: 100%;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -32,6 +37,8 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
   background-color: transparent;
   color: inherit;
   scroll-behavior: smooth;
@@ -81,6 +88,8 @@ button:focus-visible {
 .w11 {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
   overflow: hidden;
   color: rgba(255, 255, 255, 0.92);
 }
@@ -176,6 +185,7 @@ button:focus-visible {
 .w11.light .taskbar {
   border-color: rgba(16, 86, 145, 0.30);
   background: rgba(255, 255, 255, 0.90);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
   backdrop-filter: blur(20px) saturate(150%);
   box-shadow: 0 12px 46px rgba(28, 88, 143, 0.26);
 }
@@ -392,6 +402,7 @@ button:focus-visible {
 .w11.glass .social-rail {
   border-color: rgba(193, 220, 255, 0.30);
   background: rgba(227, 236, 255, 0.16);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   backdrop-filter: blur(24px) saturate(180%);
 }
 
@@ -686,11 +697,161 @@ button:focus-visible {
   background: rgba(255, 239, 197, 0.64);
 }
 
+.w11.matrix {
+  color: rgba(133, 255, 133, 0.92);
+}
+
+.w11.matrix .wallpaper {
+  background-image: radial-gradient(900px 520px at 50% -10%, rgba(20, 86, 20, 0.34), rgba(0, 0, 0, 0)),
+    linear-gradient(180deg, #000000 0%, #010301 54%, #000000 100%);
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.w11.matrix .wallpaper::after {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.72));
+}
+
+.w11.matrix .taskbar,
+.w11.matrix .start,
+.w11.matrix .window,
+.w11.matrix .social-rail,
+.w11.matrix .wcard,
+.w11.matrix .chip,
+.w11.matrix .toast,
+.w11.matrix .start-resume-link,
+.w11.matrix .start-item,
+.w11.matrix .start-all-options,
+.w11.matrix .start-theme,
+.w11.matrix .start-social,
+.w11.matrix .search,
+.w11.matrix .start-search-wrap {
+  border-color: rgba(76, 255, 76, 0.30);
+  background: rgba(0, 8, 0, 0.72);
+}
+
+.w11.matrix .window-titlebar,
+.w11.matrix .start-top,
+.w11.matrix .start-userbar {
+  border-color: rgba(72, 245, 72, 0.25);
+  background: rgba(0, 16, 0, 0.72);
+}
+
+.w11.matrix .window.active {
+  border-color: rgba(95, 255, 95, 0.42);
+  box-shadow: 0 30px 74px rgba(0, 80, 0, 0.36);
+}
+
+.w11.matrix .tb-btn.active,
+.w11.matrix .tray-btn.active,
+.w11.matrix .start-theme-btn.active,
+.w11.matrix .start-option:hover,
+.w11.matrix .desktop-icon:hover,
+.w11.matrix .social-rail-link:hover,
+.w11.matrix .start-social-link:hover {
+  border-color: rgba(92, 255, 92, 0.36);
+  background: rgba(0, 32, 0, 0.78);
+}
+
+.w11.matrix .start-theme-btn,
+.w11.matrix .tb-btn,
+.w11.matrix .tray-btn,
+.w11.matrix .clock,
+.w11.matrix .win-btn {
+  border-color: rgba(72, 255, 72, 0.2);
+}
+
+.w11.matrix .search-input::placeholder,
+.w11.matrix .start-search-input::placeholder,
+.w11.matrix .muted,
+.w11.matrix .start-option-desc,
+.w11.matrix .clock-date,
+.w11.matrix .clock-time,
+.w11.matrix .job-meta,
+.w11.matrix .start-title.subtle {
+  color: rgba(118, 221, 118, 0.86);
+  opacity: 1;
+}
+
+.w11.matrix .icon,
+.w11.matrix .tray-svg,
+.w11.matrix .win-svg,
+.w11.matrix .social-rail-icon,
+.w11.matrix .start-social-icon,
+.w11.matrix .search-icon::before,
+.w11.matrix .start-theme-icon {
+  fill: rgba(91, 255, 91, 0.94);
+  color: rgba(91, 255, 91, 0.94);
+}
+
+.w11.matrix .app-icon {
+  border-color: rgba(83, 255, 83, 0.36);
+  background: linear-gradient(145deg, rgba(0, 40, 0, 0.9), rgba(0, 18, 0, 0.95));
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(0, 255, 80, 0.16);
+}
+
+.w11.matrix .tb-btn .app-icon {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(0, 255, 80, 0.14);
+}
+
+.w11.matrix .app-icon.about,
+.w11.matrix .app-icon.projects,
+.w11.matrix .app-icon.gallery,
+.w11.matrix .app-icon.blogs,
+.w11.matrix .app-icon.contact {
+  background: linear-gradient(145deg, rgba(0, 52, 0, 0.94), rgba(0, 14, 0, 0.98));
+}
+
+.w11.matrix .gallery-thumb-icon {
+  border: 1px solid rgba(89, 255, 89, 0.34);
+  box-shadow: 0 8px 18px rgba(0, 40, 0, 0.5);
+}
+
+.w11.matrix .gallery-lightbox {
+  background: radial-gradient(circle at top, rgba(0, 90, 0, 0.25), rgba(0, 0, 0, 0.94));
+}
+
+.w11.matrix .gallery-lightbox-card {
+  border-color: rgba(88, 255, 88, 0.3);
+  background: linear-gradient(180deg, rgba(0, 20, 0, 0.98), rgba(0, 6, 0, 0.98));
+}
+
+.w11.matrix .gallery-lightbox-header,
+.w11.matrix .gallery-lightbox-body,
+.w11.matrix .gallery-lightbox-stage,
+.w11.matrix .gallery-lightbox-close-floating {
+  border-color: rgba(89, 255, 89, 0.3);
+  background: rgba(0, 22, 0, 0.76);
+}
+
+.w11.matrix .gallery-lightbox-close-floating:hover {
+  background: rgba(0, 45, 0, 0.86);
+}
+
+.w11.matrix .window-content::-webkit-scrollbar-track,
+.w11.matrix .start-all-options::-webkit-scrollbar-track {
+  background: rgba(0, 18, 0, 0.72);
+}
+
+.w11.matrix .window-content::-webkit-scrollbar-thumb,
+.w11.matrix .start-all-options::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(60, 240, 60, 0.48), rgba(30, 140, 30, 0.36));
+  border: 2px solid rgba(0, 6, 0, 0.9);
+}
+
+.w11.matrix .window-content::-webkit-scrollbar-thumb:hover,
+.w11.matrix .start-all-options::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(84, 255, 84, 0.58), rgba(42, 180, 42, 0.46));
+}
+
 .desktop {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
   padding: 18px;
   padding-bottom: 82px;
+  padding-bottom: calc(82px + env(safe-area-inset-bottom, 0px));
   box-sizing: border-box;
 }
 
@@ -707,6 +868,7 @@ button:focus-visible {
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(19, 26, 42, 0.44);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
   backdrop-filter: blur(12px) saturate(140%);
 }
 
@@ -821,6 +983,10 @@ button:focus-visible {
   background: linear-gradient(135deg, rgba(255, 120, 0, 0.75), rgba(255, 0, 140, 0.55));
 }
 
+.app-icon.settings {
+  background: linear-gradient(135deg, rgba(120, 130, 160, 0.82), rgba(78, 92, 126, 0.72));
+}
+
 .window-area {
   position: absolute;
   inset: 0;
@@ -840,6 +1006,7 @@ button:focus-visible {
   background: rgba(18, 23, 39, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   backdrop-filter: blur(18px) saturate(140%);
   overflow: hidden;
   transform-origin: center top;
@@ -960,6 +1127,8 @@ button:focus-visible {
 .window-content {
   height: calc(100% - 44px);
   overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: 18px;
   padding-bottom: 22px;
   scrollbar-width: thin;
@@ -1084,6 +1253,129 @@ button:focus-visible {
   background: rgba(255, 255, 255, 0.12);
 }
 
+.settings-label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  opacity: 0.82;
+}
+
+.settings-select {
+  width: 100%;
+  max-width: 280px;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  padding: 8px 10px;
+}
+
+.settings-select option {
+  background: #111827;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.settings-select:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 1px;
+}
+
+.settings-toggle {
+  margin-top: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.settings-toggle.active {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.settings-toggle:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.w11.light .settings-select {
+  border-color: rgba(16, 89, 147, 0.26);
+  background: rgba(255, 255, 255, 0.8);
+  color: rgba(22, 29, 43, 0.94);
+}
+
+.w11.light .settings-select:focus-visible {
+  outline-color: rgba(16, 89, 147, 0.45);
+}
+
+.w11.light .settings-select option {
+  background: #f4f9ff;
+  color: rgba(22, 29, 43, 0.94);
+}
+
+.w11.aurora .settings-select {
+  border-color: rgba(129, 232, 255, 0.34);
+  background: rgba(16, 36, 60, 0.7);
+}
+
+.w11.glass .settings-select {
+  border-color: rgba(221, 236, 255, 0.38);
+  background: rgba(227, 238, 255, 0.2);
+}
+
+.w11.glass .settings-select option {
+  background: #243753;
+  color: rgba(244, 249, 255, 0.96);
+}
+
+.w11.retro .settings-select {
+  border-color: rgba(255, 188, 114, 0.4);
+  background: rgba(64, 34, 22, 0.76);
+}
+
+.w11.retro .settings-select option {
+  background: #3d2417;
+  color: rgba(255, 243, 214, 0.94);
+}
+
+.w11.solar .settings-select {
+  border-color: rgba(188, 132, 20, 0.34);
+  background: rgba(255, 239, 197, 0.84);
+  color: rgba(96, 64, 17, 0.94);
+}
+
+.w11.solar .settings-select:focus-visible {
+  outline-color: rgba(188, 132, 20, 0.46);
+}
+
+.w11.solar .settings-select option {
+  background: #fff3d2;
+  color: rgba(96, 64, 17, 0.94);
+}
+
+.w11.matrix .settings-select {
+  border-color: rgba(76, 255, 76, 0.34);
+  background: rgba(0, 16, 0, 0.82);
+  color: rgba(118, 221, 118, 0.94);
+}
+
+.w11.matrix .settings-select:focus-visible {
+  outline-color: rgba(95, 255, 95, 0.52);
+}
+
+.w11.matrix .settings-select option {
+  background: #001400;
+  color: rgba(118, 221, 118, 0.94);
+}
+
 .cards {
   margin-top: 12px;
   display: grid;
@@ -1143,6 +1435,7 @@ button:focus-visible {
   inset: 0;
   z-index: 40;
   background: radial-gradient(circle at top, rgba(40, 60, 92, 0.35), rgba(3, 7, 14, 0.9));
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
@@ -1345,11 +1638,13 @@ button:focus-visible {
   left: 50%;
   transform: translateX(-50%);
   bottom: 10px;
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
   width: min(960px, calc(100vw - 20px));
   height: 56px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(26, 31, 46, 0.45);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   backdrop-filter: blur(20px) saturate(160%);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
 }
@@ -1368,6 +1663,7 @@ button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .taskbar-right {
@@ -1413,6 +1709,10 @@ button:focus-visible {
 
 .tb-btn .app-icon.contact {
   background: linear-gradient(145deg, rgba(255, 174, 92, 0.88), rgba(255, 110, 163, 0.62));
+}
+
+.tb-btn .app-icon.settings {
+  background: linear-gradient(145deg, rgba(165, 178, 205, 0.84), rgba(111, 126, 163, 0.68));
 }
 
 .tb-btn .app-icon .icon {
@@ -1602,10 +1902,12 @@ button:focus-visible {
   left: 50%;
   transform: translateX(-50%);
   bottom: 76px;
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
   width: min(680px, calc(100vw - 22px));
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(26, 31, 46, 0.50);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
   backdrop-filter: blur(22px) saturate(160%);
   box-shadow: 0 18px 80px rgba(0, 0, 0, 0.70);
   overflow: hidden;
@@ -1691,6 +1993,8 @@ button:focus-visible {
   margin: 0 16px;
   max-height: 174px;
   overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1848,6 +2152,10 @@ button:focus-visible {
   color: #ffd473;
 }
 
+.start-theme-btn.theme-matrix .start-theme-swatch {
+  color: #5bff5b;
+}
+
 .start-userbar {
   margin-top: 12px;
   padding: 12px 16px;
@@ -1918,10 +2226,12 @@ button:focus-visible {
   left: 50%;
   transform: translateX(-50%);
   bottom: 146px;
+  bottom: calc(146px + env(safe-area-inset-bottom, 0px));
   width: min(520px, calc(100vw - 22px));
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(26, 31, 46, 0.52);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
   backdrop-filter: blur(22px) saturate(160%);
   box-shadow: 0 18px 80px rgba(0, 0, 0, 0.70);
   padding: 14px 16px;
@@ -2012,6 +2322,8 @@ button:focus-visible {
     left: 8px;
     top: 8px;
     width: calc(100vw - 16px);
+    height: calc(100vh - 118px);
+    height: calc(100svh - 118px);
     height: calc(100dvh - 118px);
   }
 
@@ -2057,6 +2369,10 @@ button:focus-visible {
     display: none;
   }
 
+  .taskbar-center {
+    scrollbar-width: none;
+  }
+
   .taskbar-right {
     justify-self: center;
     gap: 8px;
@@ -2088,6 +2404,9 @@ button:focus-visible {
   .start {
     width: calc(100vw - 10px);
     bottom: 106px;
+    bottom: calc(106px + env(safe-area-inset-bottom, 0px));
+    max-height: calc(100vh - 124px);
+    max-height: calc(100svh - 124px);
     max-height: calc(100dvh - 124px);
     display: flex;
     flex-direction: column;
@@ -2235,6 +2554,8 @@ button:focus-visible {
     left: 6px;
     top: 6px;
     width: calc(100vw - 12px);
+    height: calc(100vh - 118px);
+    height: calc(100svh - 118px);
     height: calc(100dvh - 118px);
     min-width: 0;
   }
@@ -2253,6 +2574,7 @@ button:focus-visible {
     width: calc(100vw - 8px);
     height: 96px;
     bottom: 4px;
+    bottom: calc(4px + env(safe-area-inset-bottom, 0px));
   }
 
   .taskbar-inner {
@@ -2290,6 +2612,9 @@ button:focus-visible {
 
   .start {
     bottom: 106px;
+    bottom: calc(106px + env(safe-area-inset-bottom, 0px));
+    max-height: calc(100vh - 114px);
+    max-height: calc(100svh - 114px);
     max-height: calc(100dvh - 114px);
     width: calc(100vw - 8px);
   }
@@ -2300,5 +2625,30 @@ button:focus-visible {
 
   .toast {
     width: calc(100vw - 8px);
+    bottom: calc(112px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .window,
+  .taskbar,
+  .start,
+  .social-rail,
+  .toast,
+  .gallery-lightbox,
+  .w11.glass .window,
+  .w11.glass .taskbar,
+  .w11.glass .start,
+  .w11.glass .social-rail {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .window,
+  .taskbar,
+  .start,
+  .social-rail,
+  .toast {
+    background: rgba(20, 26, 40, 0.94);
   }
 }

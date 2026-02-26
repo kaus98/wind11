@@ -12502,11 +12502,15 @@ const themeOptions = [
   { id: "aurora", label: "Aurora" },
   { id: "glass", label: "Glass" },
   { id: "retro", label: "Retro" },
-  { id: "solar", label: "Solar" }
+  { id: "solar", label: "Solar" },
+  { id: "matrix", label: "Matrix" }
 ];
 function isThemeName(value) {
   return themeOptions.some((theme) => theme.id === value);
 }
+const startMenuThemeOptions = themeOptions.filter(
+  (themeOption) => themeOption.id === "matrix" || themeOption.id === "dark" || themeOption.id === "solar"
+);
 function isExternalLink(href) {
   return /^https?:\/\//.test(href);
 }
@@ -12514,6 +12518,12 @@ function JobsIcon({ className }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M8 4.5A2.5 2.5 0 0 1 10.5 2h3A2.5 2.5 0 0 1 16 4.5V6h3.2A2.8 2.8 0 0 1 22 8.8v9.4a2.8 2.8 0 0 1-2.8 2.8H4.8A2.8 2.8 0 0 1 2 18.2V8.8A2.8 2.8 0 0 1 4.8 6H8V4.5Zm2.5-.5a.5.5 0 0 0-.5.5V6h4V4.5a.5.5 0 0 0-.5-.5h-3Z" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M2 12.1h7.5v1.1a1.4 1.4 0 0 0 1.4 1.4h2.2a1.4 1.4 0 0 0 1.4-1.4v-1.1H22v-1.8h-7.5V11a.4.4 0 0 1-.4.4h-2.2a.4.4 0 0 1-.4-.4v-.7H2v1.8Z" })
+  ] });
+}
+function SettingsIcon({ className }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M13 2.7a1 1 0 0 0-2 0v1a8.3 8.3 0 0 0-1.8.7l-.7-.7a1 1 0 1 0-1.4 1.4l.7.7a8.3 8.3 0 0 0-.7 1.8h-1a1 1 0 1 0 0 2h1a8.3 8.3 0 0 0 .7 1.8l-.7.7a1 1 0 1 0 1.4 1.4l.7-.7a8.3 8.3 0 0 0 1.8.7v1a1 1 0 1 0 2 0v-1a8.3 8.3 0 0 0 1.8-.7l.7.7a1 1 0 0 0 1.4-1.4l-.7-.7a8.3 8.3 0 0 0 .7-1.8h1a1 1 0 1 0 0-2h-1a8.3 8.3 0 0 0-.7-1.8l.7-.7a1 1 0 0 0-1.4-1.4l-.7.7A8.3 8.3 0 0 0 13 3.7v-1Z" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M12 8.4a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2Z" })
   ] });
 }
 function InstagramIcon({ className }) {
@@ -12613,7 +12623,8 @@ function App() {
     gallery: { x: 230, y: 110 },
     blogs: { x: 220, y: 100 },
     jobs: { x: 240, y: 130 },
-    contact: { x: 240, y: 140 }
+    contact: { x: 240, y: 140 },
+    settings: { x: 260, y: 90 }
   });
   const [drag, setDrag] = reactExports.useState(null);
   const [resize, setResize] = reactExports.useState(null);
@@ -12623,7 +12634,8 @@ function App() {
     gallery: { width: 920, height: 560 },
     blogs: { width: 860, height: 540 },
     jobs: { width: 860, height: 560 },
-    contact: { width: 620, height: 440 }
+    contact: { width: 620, height: 440 },
+    settings: { width: 540, height: 420 }
   });
   const [restoreBounds, setRestoreBounds] = reactExports.useState({
     about: null,
@@ -12631,7 +12643,8 @@ function App() {
     gallery: null,
     blogs: null,
     jobs: null,
-    contact: null
+    contact: null,
+    settings: null
   });
   const [closingWindows, setClosingWindows] = reactExports.useState({
     about: false,
@@ -12639,7 +12652,8 @@ function App() {
     gallery: false,
     blogs: false,
     jobs: false,
-    contact: false
+    contact: false,
+    settings: false
   });
   const closeWindowTimeouts = reactExports.useRef({});
   const windowRefs = reactExports.useRef({
@@ -12648,7 +12662,8 @@ function App() {
     gallery: null,
     blogs: null,
     jobs: null,
-    contact: null
+    contact: null,
+    settings: null
   });
   const audioRef = reactExports.useRef(null);
   const [muted, setMuted] = reactExports.useState(() => {
@@ -12663,7 +12678,7 @@ function App() {
   const [isGalleryLightboxOpen, setIsGalleryLightboxOpen] = reactExports.useState(false);
   const [theme, setTheme] = reactExports.useState(() => {
     const raw = window.localStorage.getItem("w11-theme");
-    return isThemeName(raw) ? raw : "dark";
+    return isThemeName(raw) ? raw : "matrix";
   });
   const [windows, setWindows] = reactExports.useState({
     about: { id: "about", title: "About", isOpen: false, isMinimized: false, isMaximized: false },
@@ -12671,7 +12686,8 @@ function App() {
     gallery: { id: "gallery", title: "Gallery", isOpen: false, isMinimized: false, isMaximized: false },
     blogs: { id: "blogs", title: "Blogs", isOpen: false, isMinimized: false, isMaximized: false },
     jobs: { id: "jobs", title: "Jobs", isOpen: false, isMinimized: false, isMaximized: false },
-    contact: { id: "contact", title: "Contact", isOpen: false, isMinimized: false, isMaximized: false }
+    contact: { id: "contact", title: "Contact", isOpen: false, isMinimized: false, isMaximized: false },
+    settings: { id: "settings", title: "Settings", isOpen: false, isMinimized: false, isMaximized: false }
   });
   reactExports.useEffect(() => {
     const t = window.setInterval(() => setNow(/* @__PURE__ */ new Date()), 1e3);
@@ -12869,10 +12885,7 @@ function App() {
     () => [
       { id: "about", label: "About" },
       { id: "projects", label: "Projects" },
-      { id: "gallery", label: "Gallery" },
-      { id: "blogs", label: "Blogs" },
-      { id: "jobs", label: "Jobs" },
-      { id: "contact", label: "Contact" }
+      { id: "jobs", label: "Jobs" }
     ],
     []
   );
@@ -12884,10 +12897,11 @@ function App() {
       { key: "blogs", label: "Blogs", description: "Posts from kaus98.github.io", type: "app", appId: "blogs" },
       { key: "jobs", label: "Jobs", description: "Experience and internships", type: "app", appId: "jobs" },
       { key: "contact", label: "Contact", description: "Email, phone and social links", type: "app", appId: "contact" },
+      { key: "settings", label: "Settings", description: "Theme, sound and time controls", type: "app", appId: "settings" },
       { key: "resume", label: "Resume", description: "Download PDF resume", type: "resume" },
       {
         key: "theme",
-        label: `Cycle theme (${themeOptions.find((themeOption) => themeOption.id === theme)?.label ?? "Dark"})`,
+        label: `Cycle theme (${themeOptions.find((themeOption) => themeOption.id === theme)?.label ?? "Matrix"})`,
         description: "Rotate between visual styles",
         type: "theme"
       },
@@ -13141,6 +13155,10 @@ function App() {
         /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("contact"), children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon contact", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Contact" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("settings"), children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon settings", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Settings" })
         ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("aside", { className: "social-rail", "aria-label": "Social links", onMouseDown: (e) => e.stopPropagation(), children: socialLinks.map(({ key, label, href, Icon }) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "social-rail-link", href, target: "_blank", rel: "noreferrer", "aria-label": label, title: label, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "social-rail-icon" }) }, key)) }),
@@ -13206,9 +13224,9 @@ function App() {
                         /* @__PURE__ */ jsxRuntimeExports.jsx(
                           "span",
                           {
-                            className: id === "about" ? "app-icon small about" : id === "projects" ? "app-icon small projects" : id === "gallery" ? "app-icon small gallery" : id === "blogs" ? "app-icon small blogs" : id === "jobs" ? "app-icon small projects" : "app-icon small contact",
+                            className: id === "about" ? "app-icon small about" : id === "projects" ? "app-icon small projects" : id === "gallery" ? "app-icon small gallery" : id === "blogs" ? "app-icon small blogs" : id === "jobs" ? "app-icon small projects" : id === "settings" ? "app-icon small settings" : "app-icon small contact",
                             "aria-hidden": "true",
-                            children: id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : id === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
+                            children: id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : id === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : id === "settings" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
                           }
                         ),
                         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: w.title })
@@ -13372,6 +13390,38 @@ function App() {
                     )) }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Positions of Responsibility" }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: contact.responsibilities.map((position) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: position }, position)) })
+                  ] }),
+                  id === "settings" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Settings" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Control theme and sound." }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel-block", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading", children: "Theme" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "settings-label", htmlFor: "settings-theme-select", children: "Select theme" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "select",
+                        {
+                          id: "settings-theme-select",
+                          className: "settings-select",
+                          value: theme,
+                          onChange: (e) => applyTheme(e.target.value),
+                          children: themeOptions.map((themeOption) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: themeOption.id, children: themeOption.label }, themeOption.id))
+                        }
+                      )
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel-block", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading", children: "Sound" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "button",
+                        {
+                          className: muted ? "settings-toggle" : "settings-toggle active",
+                          type: "button",
+                          onClick: () => toggleSoundFromMenu(),
+                          disabled: audioError,
+                          "aria-pressed": !muted,
+                          children: audioError ? "Audio file missing" : muted ? "Muted" : "Unmuted"
+                        }
+                      )
+                    ] })
                   ] })
                 ] }),
                 !isMaximized && /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -13483,14 +13533,7 @@ function App() {
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-grid", children: [
         filteredPinnedApps.map((a) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "start-item", type: "button", onClick: () => openApp(a.id), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "span",
-            {
-              className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : a.id === "gallery" ? "app-icon gallery" : a.id === "blogs" ? "app-icon blogs" : a.id === "jobs" ? "app-icon projects" : "app-icon contact",
-              "aria-hidden": "true",
-              children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : a.id === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : a.id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : a.id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
-            }
-          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : "app-icon projects", "aria-hidden": "true", children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-label", children: a.label })
         ] }, a.id)),
         filteredPinnedApps.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-empty", children: "No pinned apps found." })
@@ -13500,9 +13543,9 @@ function App() {
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "span",
             {
-              className: option.key === "about" ? "app-icon small about" : option.key === "projects" ? "app-icon small projects" : option.key === "gallery" ? "app-icon small gallery" : option.key === "blogs" ? "app-icon small blogs" : option.key === "jobs" ? "app-icon small projects" : option.key === "contact" ? "app-icon small contact" : "app-icon small about",
+              className: option.key === "about" ? "app-icon small about" : option.key === "projects" ? "app-icon small projects" : option.key === "gallery" ? "app-icon small gallery" : option.key === "blogs" ? "app-icon small blogs" : option.key === "jobs" ? "app-icon small projects" : option.key === "contact" ? "app-icon small contact" : option.key === "settings" ? "app-icon small settings" : "app-icon small about",
               "aria-hidden": "true",
-              children: option.key === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : option.key === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : option.key === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : option.key === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : option.key === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : option.key === "contact" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) : option.key === "theme" ? theme === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "icon" }) : option.key === "resume" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "icon" }) : muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "icon" })
+              children: option.key === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : option.key === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : option.key === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : option.key === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : option.key === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : option.key === "contact" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) : option.key === "settings" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) : option.key === "theme" ? theme === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "icon" }) : option.key === "resume" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "icon" }) : muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "icon" })
             }
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "start-option-copy", children: [
@@ -13513,7 +13556,7 @@ function App() {
         filteredAllOptions.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-empty", children: "No options found." })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-social", "aria-label": "Social links", children: socialLinks.map(({ key, label, href, Icon }) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "start-social-link", href, target: "_blank", rel: "noreferrer", "aria-label": label, title: label, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "start-social-icon" }) }, key)) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-theme", "aria-label": "Theme switcher", children: themeOptions.map((themeOption) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-theme", "aria-label": "Theme switcher", children: startMenuThemeOptions.map((themeOption) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           className: theme === themeOption.id ? `start-theme-btn active theme-${themeOption.id}` : `start-theme-btn theme-${themeOption.id}`,
@@ -13521,7 +13564,7 @@ function App() {
           onClick: () => applyTheme(themeOption.id),
           "aria-pressed": theme === themeOption.id,
           children: [
-            themeOption.id === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "start-theme-icon" }) : themeOption.id === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "start-theme-icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-theme-swatch", "aria-hidden": "true" }),
+            themeOption.id === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "start-theme-icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-theme-swatch", "aria-hidden": "true" }),
             themeOption.label
           ]
         },
@@ -13580,9 +13623,9 @@ function App() {
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "span",
                   {
-                    className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : a.id === "blogs" ? "app-icon blogs" : a.id === "jobs" ? "app-icon projects" : "app-icon contact",
+                    className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : a.id === "jobs" ? "app-icon projects" : "app-icon projects",
                     "aria-hidden": "true",
-                    children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : a.id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : a.id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
+                    children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" })
                   }
                 ),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "running-dot", "aria-hidden": "true" })

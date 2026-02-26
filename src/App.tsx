@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
 import { portfolioData } from './data/portfolioData'
 
-type AppId = 'about' | 'projects' | 'gallery' | 'blogs' | 'jobs' | 'contact'
+type AppId = 'about' | 'projects' | 'gallery' | 'blogs' | 'jobs' | 'contact' | 'settings'
 
 const galleryImageModules = import.meta.glob(['/public/gallery/*.{png,jpg,jpeg,webp,gif,avif,svg}', '/public/gallery/*.{PNG,JPG,JPEG,WEBP,GIF,AVIF,SVG}'], {
   eager: true,
@@ -21,6 +21,7 @@ const themeOptions = [
   { id: 'glass', label: 'Glass' },
   { id: 'retro', label: 'Retro' },
   { id: 'solar', label: 'Solar' },
+  { id: 'matrix', label: 'Matrix' },
 ] as const
 
 type ThemeName = (typeof themeOptions)[number]['id']
@@ -28,6 +29,10 @@ type ThemeName = (typeof themeOptions)[number]['id']
 function isThemeName(value: string | null): value is ThemeName {
   return themeOptions.some((theme) => theme.id === value)
 }
+
+const startMenuThemeOptions = themeOptions.filter(
+  (themeOption) => themeOption.id === 'matrix' || themeOption.id === 'dark' || themeOption.id === 'solar',
+)
 
 type AppWindow = {
   id: AppId
@@ -46,6 +51,15 @@ function JobsIcon({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <path d="M8 4.5A2.5 2.5 0 0 1 10.5 2h3A2.5 2.5 0 0 1 16 4.5V6h3.2A2.8 2.8 0 0 1 22 8.8v9.4a2.8 2.8 0 0 1-2.8 2.8H4.8A2.8 2.8 0 0 1 2 18.2V8.8A2.8 2.8 0 0 1 4.8 6H8V4.5Zm2.5-.5a.5.5 0 0 0-.5.5V6h4V4.5a.5.5 0 0 0-.5-.5h-3Z" />
       <path d="M2 12.1h7.5v1.1a1.4 1.4 0 0 0 1.4 1.4h2.2a1.4 1.4 0 0 0 1.4-1.4v-1.1H22v-1.8h-7.5V11a.4.4 0 0 1-.4.4h-2.2a.4.4 0 0 1-.4-.4v-.7H2v1.8Z" />
+    </svg>
+  )
+}
+
+function SettingsIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M13 2.7a1 1 0 0 0-2 0v1a8.3 8.3 0 0 0-1.8.7l-.7-.7a1 1 0 1 0-1.4 1.4l.7.7a8.3 8.3 0 0 0-.7 1.8h-1a1 1 0 1 0 0 2h1a8.3 8.3 0 0 0 .7 1.8l-.7.7a1 1 0 1 0 1.4 1.4l.7-.7a8.3 8.3 0 0 0 1.8.7v1a1 1 0 1 0 2 0v-1a8.3 8.3 0 0 0 1.8-.7l.7.7a1 1 0 0 0 1.4-1.4l-.7-.7a8.3 8.3 0 0 0 .7-1.8h1a1 1 0 1 0 0-2h-1a8.3 8.3 0 0 0-.7-1.8l.7-.7a1 1 0 0 0-1.4-1.4l-.7.7A8.3 8.3 0 0 0 13 3.7v-1Z" />
+      <path d="M12 8.4a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2Z" />
     </svg>
   )
 }
@@ -247,6 +261,7 @@ function App() {
     blogs: { x: 220, y: 100 },
     jobs: { x: 240, y: 130 },
     contact: { x: 240, y: 140 },
+    settings: { x: 260, y: 90 },
   })
   const [drag, setDrag] = useState<DragState | null>(null)
   const [resize, setResize] = useState<ResizeState | null>(null)
@@ -257,6 +272,7 @@ function App() {
     blogs: { width: 860, height: 540 },
     jobs: { width: 860, height: 560 },
     contact: { width: 620, height: 440 },
+    settings: { width: 540, height: 420 },
   })
   const [restoreBounds, setRestoreBounds] = useState<Record<AppId, WindowBounds | null>>({
     about: null,
@@ -265,6 +281,7 @@ function App() {
     blogs: null,
     jobs: null,
     contact: null,
+    settings: null,
   })
   const [closingWindows, setClosingWindows] = useState<Record<AppId, boolean>>({
     about: false,
@@ -273,6 +290,7 @@ function App() {
     blogs: false,
     jobs: false,
     contact: false,
+    settings: false,
   })
   const closeWindowTimeouts = useRef<Partial<Record<AppId, number>>>({})
   const windowRefs = useRef<Record<AppId, HTMLElement | null>>({
@@ -282,6 +300,7 @@ function App() {
     blogs: null,
     jobs: null,
     contact: null,
+    settings: null,
   })
 
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -297,7 +316,7 @@ function App() {
   const [isGalleryLightboxOpen, setIsGalleryLightboxOpen] = useState(false)
   const [theme, setTheme] = useState<ThemeName>(() => {
     const raw = window.localStorage.getItem('w11-theme')
-    return isThemeName(raw) ? raw : 'dark'
+    return isThemeName(raw) ? raw : 'matrix'
   })
 
   const [windows, setWindows] = useState<Record<AppId, AppWindow>>({
@@ -307,6 +326,7 @@ function App() {
     blogs: { id: 'blogs', title: 'Blogs', isOpen: false, isMinimized: false, isMaximized: false },
     jobs: { id: 'jobs', title: 'Jobs', isOpen: false, isMinimized: false, isMaximized: false },
     contact: { id: 'contact', title: 'Contact', isOpen: false, isMinimized: false, isMaximized: false },
+    settings: { id: 'settings', title: 'Settings', isOpen: false, isMinimized: false, isMaximized: false },
   })
 
   useEffect(() => {
@@ -554,10 +574,7 @@ function App() {
       [
         { id: 'about' as const, label: 'About' },
         { id: 'projects' as const, label: 'Projects' },
-        { id: 'gallery' as const, label: 'Gallery' },
-        { id: 'blogs' as const, label: 'Blogs' },
         { id: 'jobs' as const, label: 'Jobs' },
-        { id: 'contact' as const, label: 'Contact' },
       ],
     [],
   )
@@ -570,10 +587,11 @@ function App() {
       { key: 'blogs', label: 'Blogs', description: 'Posts from kaus98.github.io', type: 'app' as const, appId: 'blogs' as const },
       { key: 'jobs', label: 'Jobs', description: 'Experience and internships', type: 'app' as const, appId: 'jobs' as const },
       { key: 'contact', label: 'Contact', description: 'Email, phone and social links', type: 'app' as const, appId: 'contact' as const },
+      { key: 'settings', label: 'Settings', description: 'Theme, sound and time controls', type: 'app' as const, appId: 'settings' as const },
       { key: 'resume', label: 'Resume', description: 'Download PDF resume', type: 'resume' as const },
       {
         key: 'theme',
-        label: `Cycle theme (${themeOptions.find((themeOption) => themeOption.id === theme)?.label ?? 'Dark'})`,
+        label: `Cycle theme (${themeOptions.find((themeOption) => themeOption.id === theme)?.label ?? 'Matrix'})`,
         description: 'Rotate between visual styles',
         type: 'theme' as const,
       },
@@ -900,6 +918,12 @@ function App() {
             </span>
             <span className="desktop-icon-label">Contact</span>
           </button>
+          <button className="desktop-icon" type="button" onClick={() => openApp('settings')}>
+            <span className="app-icon settings" aria-hidden="true">
+              <SettingsIcon className="icon" />
+            </span>
+            <span className="desktop-icon-label">Settings</span>
+          </button>
         </div>
 
         <aside className="social-rail" aria-label="Social links" onMouseDown={(e) => e.stopPropagation()}>
@@ -991,6 +1015,8 @@ function App() {
                               ? 'app-icon small blogs'
                             : id === 'jobs'
                               ? 'app-icon small projects'
+                            : id === 'settings'
+                              ? 'app-icon small settings'
                             : 'app-icon small contact'
                       }
                       aria-hidden="true"
@@ -1005,6 +1031,8 @@ function App() {
                         <BlogsIcon className="icon" />
                       ) : id === 'jobs' ? (
                         <JobsIcon className="icon" />
+                      ) : id === 'settings' ? (
+                        <SettingsIcon className="icon" />
                       ) : (
                         <ContactIcon className="icon" />
                       )}
@@ -1281,6 +1309,45 @@ function App() {
                       </ul>
                     </div>
                   )}
+
+                  {id === 'settings' && (
+                    <div className="panel cards-panel">
+                      <h2 className="section-heading">Settings</h2>
+                      <p className="muted">Control theme and sound.</p>
+
+                      <div className="panel-block">
+                        <h3 className="section-heading">Theme</h3>
+                        <label className="settings-label" htmlFor="settings-theme-select">
+                          Select theme
+                        </label>
+                        <select
+                          id="settings-theme-select"
+                          className="settings-select"
+                          value={theme}
+                          onChange={(e) => applyTheme(e.target.value as ThemeName)}
+                        >
+                          {themeOptions.map((themeOption) => (
+                            <option key={themeOption.id} value={themeOption.id}>
+                              {themeOption.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div className="panel-block">
+                        <h3 className="section-heading">Sound</h3>
+                        <button
+                          className={muted ? 'settings-toggle' : 'settings-toggle active'}
+                          type="button"
+                          onClick={() => toggleSoundFromMenu()}
+                          disabled={audioError}
+                          aria-pressed={!muted}
+                        >
+                          {audioError ? 'Audio file missing' : muted ? 'Muted' : 'Unmuted'}
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {!isMaximized && (
@@ -1420,34 +1487,13 @@ function App() {
           <div className="start-grid">
             {filteredPinnedApps.map((a) => (
               <button key={a.id} className="start-item" type="button" onClick={() => openApp(a.id)}>
-                <span
-                  className={
-                    a.id === 'about'
-                      ? 'app-icon about'
-                      : a.id === 'projects'
-                        ? 'app-icon projects'
-                        : a.id === 'gallery'
-                          ? 'app-icon gallery'
-                        : a.id === 'blogs'
-                          ? 'app-icon blogs'
-                        : a.id === 'jobs'
-                          ? 'app-icon projects'
-                          : 'app-icon contact'
-                  }
-                  aria-hidden="true"
-                >
+                <span className={a.id === 'about' ? 'app-icon about' : a.id === 'projects' ? 'app-icon projects' : 'app-icon projects'} aria-hidden="true">
                   {a.id === 'about' ? (
                     <AboutIcon className="icon" />
                   ) : a.id === 'projects' ? (
                     <ProjectsIcon className="icon" />
-                  ) : a.id === 'gallery' ? (
-                    <GalleryIcon className="icon" />
-                  ) : a.id === 'blogs' ? (
-                    <BlogsIcon className="icon" />
-                  ) : a.id === 'jobs' ? (
-                    <JobsIcon className="icon" />
                   ) : (
-                    <ContactIcon className="icon" />
+                    <JobsIcon className="icon" />
                   )}
                 </span>
                 <span className="start-label">{a.label}</span>
@@ -1473,6 +1519,8 @@ function App() {
                           ? 'app-icon small projects'
                         : option.key === 'contact'
                           ? 'app-icon small contact'
+                        : option.key === 'settings'
+                          ? 'app-icon small settings'
                           : 'app-icon small about'
                   }
                   aria-hidden="true"
@@ -1489,6 +1537,8 @@ function App() {
                     <JobsIcon className="icon" />
                   ) : option.key === 'contact' ? (
                     <ContactIcon className="icon" />
+                  ) : option.key === 'settings' ? (
+                    <SettingsIcon className="icon" />
                   ) : option.key === 'theme' ? (
                     theme === 'light' ? <SunIcon className="icon" /> : <MoonIcon className="icon" />
                   ) : option.key === 'resume' ? (
@@ -1517,7 +1567,7 @@ function App() {
           </div>
 
           <div className="start-theme" aria-label="Theme switcher">
-            {themeOptions.map((themeOption) => (
+            {startMenuThemeOptions.map((themeOption) => (
               <button
                 key={themeOption.id}
                 className={theme === themeOption.id ? `start-theme-btn active theme-${themeOption.id}` : `start-theme-btn theme-${themeOption.id}`}
@@ -1525,9 +1575,7 @@ function App() {
                 onClick={() => applyTheme(themeOption.id)}
                 aria-pressed={theme === themeOption.id}
               >
-                {themeOption.id === 'light' ? (
-                  <SunIcon className="start-theme-icon" />
-                ) : themeOption.id === 'dark' ? (
+                {themeOption.id === 'dark' ? (
                   <MoonIcon className="start-theme-icon" />
                 ) : (
                   <span className="start-theme-swatch" aria-hidden="true" />
@@ -1607,11 +1655,9 @@ function App() {
                           ? 'app-icon about'
                           : a.id === 'projects'
                             ? 'app-icon projects'
-                            : a.id === 'blogs'
-                              ? 'app-icon blogs'
                             : a.id === 'jobs'
                               ? 'app-icon projects'
-                              : 'app-icon contact'
+                              : 'app-icon projects'
                       }
                       aria-hidden="true"
                     >
@@ -1619,12 +1665,8 @@ function App() {
                         <AboutIcon className="icon" />
                       ) : a.id === 'projects' ? (
                         <ProjectsIcon className="icon" />
-                      ) : a.id === 'blogs' ? (
-                        <BlogsIcon className="icon" />
-                      ) : a.id === 'jobs' ? (
-                        <JobsIcon className="icon" />
                       ) : (
-                        <ContactIcon className="icon" />
+                        <JobsIcon className="icon" />
                       )}
                     </span>
                     <span className="running-dot" aria-hidden="true" />
