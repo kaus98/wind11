@@ -814,12 +814,17 @@
 }
 
 .desktop-icons {
-  display: grid;
-  gap: 14px;
-  width: 92px;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 120px);
+  height: calc(100svh - 120px);
+  height: calc(100dvh - 120px);
+  min-height: 280px;
 }
 
 .desktop-icon {
+  position: absolute;
+  width: 92px;
   border: 0;
   background: transparent;
   color: inherit;
@@ -829,15 +834,23 @@
   justify-items: center;
   gap: 8px;
   cursor: pointer;
+  transition: transform 150ms ease, background-color 150ms ease;
+  user-select: none;
 }
 
 .desktop-icon:hover {
   background: rgba(255, 255, 255, 0.10);
+  transform: translateY(-2px);
 }
 
 .desktop-icon:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.55);
   outline-offset: 2px;
+}
+
+.desktop-icon.dragging {
+  opacity: 0.62;
+  cursor: grabbing;
 }
 
 .desktop-icon-label {
@@ -2704,10 +2717,10 @@
   }
 
   .desktop-icons {
-    width: 92px;
-    grid-auto-flow: row;
-    grid-template-columns: 1fr;
-    gap: 8px;
+    width: 100%;
+    height: calc(100vh - 148px);
+    height: calc(100svh - 148px);
+    height: calc(100dvh - 148px);
   }
 
   .desktop-icon {
@@ -2937,9 +2950,10 @@
   }
 
   .desktop-icons {
-    width: 84px;
-    gap: 6px;
-    grid-template-columns: 1fr;
+    width: 100%;
+    height: calc(100vh - 152px);
+    height: calc(100svh - 152px);
+    height: calc(100dvh - 152px);
   }
 
   .desktop-icon {

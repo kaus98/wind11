@@ -1,3 +1,4 @@
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties, ComponentType, MutableRefObject } from 'react'
 import {
   AboutIcon,
@@ -20,6 +21,18 @@ type SocialLink = {
   label: string
   href: string
   Icon: ComponentType<{ className?: string }>
+}
+
+type DesktopShortcut = {
+  id: AppId
+  label: string
+  iconClass: string
+  Icon: ComponentType<{ className?: string }>
+}
+
+type IconPosition = {
+  x: number
+  y: number
 }
 
 type DesktopWindowsProps = {
@@ -139,63 +152,179 @@ export function DesktopWindows(props: DesktopWindowsProps) {
     filteredInternshipJobs,
   } = props
 
+  const desktopShortcuts: DesktopShortcut[] = useMemo(
+    () => [
+      { id: 'about', label: 'About', iconClass: 'about', Icon: AboutIcon },
+      { id: 'projects', label: 'Projects', iconClass: 'projects', Icon: ProjectsIcon },
+      { id: 'gallery', label: 'Gallery', iconClass: 'gallery', Icon: GalleryIcon },
+      { id: 'blogs', label: 'Blogs', iconClass: 'blogs', Icon: BlogsIcon },
+      { id: 'jobs', label: 'Jobs', iconClass: 'projects', Icon: JobsIcon },
+      { id: 'timeline', label: 'Timeline', iconClass: 'timeline', Icon: TimelineIcon },
+      { id: 'contact', label: 'Contact', iconClass: 'contact', Icon: ContactIcon },
+      { id: 'settings', label: 'Settings', iconClass: 'settings', Icon: SettingsIcon },
+      { id: 'terminal', label: 'Terminal', iconClass: 'terminal', Icon: TerminalIcon },
+    ],
+    [],
+  )
+
+  const desktopIconsRef = useRef<HTMLDivElement | null>(null)
+
+  const shortcutById = useMemo(
+    () =>
+      desktopShortcuts.reduce<Record<AppId, DesktopShortcut>>((acc, shortcut) => {
+        acc[shortcut.id] = shortcut
+        return acc
+      }, {} as Record<AppId, DesktopShortcut>),
+    [desktopShortcuts],
+  )
+
+  const iconSize = useMemo(() => ({ width: 92, height: 94 }), [])
+
+  const [iconOrder] = useState<AppId[]>(() => {
+    const ids = desktopShortcuts.map((shortcut) => shortcut.id)
+    for (let index = ids.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1))
+      ;[ids[index], ids[randomIndex]] = [ids[randomIndex], ids[index]]
+    }
+    return ids
+  })
+
+  const [iconPositions, setIconPositions] = useState<Record<AppId, IconPosition>>(() => {
+    const availableWidth = Math.max(220, viewport.width - 180)
+    const availableHeight = Math.max(220, viewport.height - taskbarReservedHeight - 36)
+    return desktopShortcuts.reduce<Record<AppId, IconPosition>>((acc, shortcut, index) => {
+      const column = index % 3
+      const row = Math.floor(index / 3)
+      const jitterX = Math.floor(Math.random() * 36) - 18
+      const jitterY = Math.floor(Math.random() * 34) - 17
+      const x = Math.max(8, Math.min(availableWidth - iconSize.width, 14 + column * 106 + jitterX))
+      const y = Math.max(8, Math.min(availableHeight - iconSize.height, 14 + row * 108 + jitterY))
+      acc[shortcut.id] = { x, y }
+      return acc
+    }, {} as Record<AppId, IconPosition>)
+  })
+
+  const [draggedIconId, setDraggedIconId] = useState<AppId | null>(null)
+  const dragStateRef = useRef<{ id: AppId; offsetX: number; offsetY: number; moved: boolean } | null>(null)
+  const skipClickForIconRef = useRef<AppId | null>(null)
+
+  useEffect(() => {
+    if (!draggedIconId) return
+
+    function onMouseMove(event: MouseEvent) {
+      const dragState = dragStateRef.current
+      const desktopEl = desktopIconsRef.current
+      if (!dragState || !desktopEl) return
+
+      const desktopRect = desktopEl.getBoundingClientRect()
+      const availableWidth = Math.max(220, viewport.width - 180)
+      const availableHeight = Math.max(220, viewport.height - taskbarReservedHeight - 36)
+      const maxX = Math.max(8, Math.min(desktopRect.width - iconSize.width, availableWidth - iconSize.width))
+      const maxY = Math.max(8, Math.min(desktopRect.height - iconSize.height, availableHeight - iconSize.height))
+      const x = Math.max(8, Math.min(maxX, event.clientX - desktopRect.left - dragState.offsetX))
+      const y = Math.max(8, Math.min(maxY, event.clientY - desktopRect.top - dragState.offsetY))
+
+      dragState.moved = true
+      setIconPositions((prev) => ({
+        ...prev,
+        [dragState.id]: { x, y },
+      }))
+    }
+
+    function onMouseUp() {
+      const dragState = dragStateRef.current
+      if (dragState?.moved) {
+        skipClickForIconRef.current = dragState.id
+      }
+      dragStateRef.current = null
+      setDraggedIconId(null)
+    }
+
+    window.addEventListener('mousemove', onMouseMove)
+    window.addEventListener('mouseup', onMouseUp)
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove)
+      window.removeEventListener('mouseup', onMouseUp)
+    }
+  }, [draggedIconId, iconSize.height, iconSize.width, taskbarReservedHeight, viewport.height, viewport.width])
+
+  useEffect(() => {
+    setIconPositions((prev) => {
+      const availableWidth = Math.max(220, viewport.width - 180)
+      const availableHeight = Math.max(220, viewport.height - taskbarReservedHeight - 36)
+      let changed = false
+      const next = { ...prev }
+
+      desktopShortcuts.forEach((shortcut, index) => {
+        if (!next[shortcut.id]) {
+          const column = index % 3
+          const row = Math.floor(index / 3)
+          next[shortcut.id] = {
+            x: Math.max(8, Math.min(availableWidth - iconSize.width, 14 + column * 106)),
+            y: Math.max(8, Math.min(availableHeight - iconSize.height, 14 + row * 108)),
+          }
+          changed = true
+        }
+
+        const clampedX = Math.max(8, Math.min(availableWidth - iconSize.width, next[shortcut.id].x))
+        const clampedY = Math.max(8, Math.min(availableHeight - iconSize.height, next[shortcut.id].y))
+        if (clampedX !== next[shortcut.id].x || clampedY !== next[shortcut.id].y) {
+          next[shortcut.id] = { x: clampedX, y: clampedY }
+          changed = true
+        }
+      })
+
+      return changed ? next : prev
+    })
+  }, [desktopShortcuts, iconSize.height, iconSize.width, taskbarReservedHeight, viewport.height, viewport.width])
+
   return (
     <div className="desktop" onMouseDown={closeStartMenu}>
-      <div className="desktop-icons">
-        <button className="desktop-icon" type="button" onClick={() => openApp('about')}>
-          <span className="app-icon about" aria-hidden="true">
-            <AboutIcon className="icon" />
-          </span>
-          <span className="desktop-icon-label">About</span>
-        </button>
-        <button className="desktop-icon" type="button" onClick={() => openApp('projects')}>
-          <span className="app-icon projects" aria-hidden="true">
-            <ProjectsIcon className="icon" />
-          </span>
-          <span className="desktop-icon-label">Projects</span>
-        </button>
-        <button className="desktop-icon" type="button" onClick={() => openApp('gallery')}>
-          <span className="app-icon gallery" aria-hidden="true">
-            <GalleryIcon className="icon" />
-          </span>
-          <span className="desktop-icon-label">Gallery</span>
-        </button>
-        <button className="desktop-icon" type="button" onClick={() => openApp('blogs')}>
-          <span className="app-icon blogs" aria-hidden="true">
-            <BlogsIcon className="icon" />
-          </span>
-          <span className="desktop-icon-label">Blogs</span>
-        </button>
-        <button className="desktop-icon" type="button" onClick={() => openApp('jobs')}>
-          <span className="app-icon projects" aria-hidden="true">
-            <JobsIcon className="icon" />
-          </span>
-          <span className="desktop-icon-label">Jobs</span>
-        </button>
-        <button className="desktop-icon" type="button" onClick={() => openApp('timeline')}>
-          <span className="app-icon timeline" aria-hidden="true">
-            <TimelineIcon className="icon" />
-          </span>
-          <span className="desktop-icon-label">Timeline</span>
-        </button>
-        <button className="desktop-icon" type="button" onClick={() => openApp('contact')}>
-          <span className="app-icon contact" aria-hidden="true">
-            <ContactIcon className="icon" />
-          </span>
-          <span className="desktop-icon-label">Contact</span>
-        </button>
-        <button className="desktop-icon" type="button" onClick={() => openApp('settings')}>
-          <span className="app-icon settings" aria-hidden="true">
-            <SettingsIcon className="icon" />
-          </span>
-          <span className="desktop-icon-label">Settings</span>
-        </button>
-        <button className="desktop-icon" type="button" onClick={() => openApp('terminal')}>
-          <span className="app-icon terminal" aria-hidden="true">
-            <TerminalIcon className="icon" />
-          </span>
-          <span className="desktop-icon-label">Terminal</span>
-        </button>
+      <div className="desktop-icons" ref={desktopIconsRef}>
+        {iconOrder.map((id) => {
+          const shortcut = shortcutById[id]
+          if (!shortcut) return null
+          const iconPosition = iconPositions[shortcut.id]
+          return (
+            <button
+              key={shortcut.id}
+              className={`desktop-icon${draggedIconId === shortcut.id ? ' dragging' : ''}`}
+              type="button"
+              style={
+                iconPosition
+                  ? {
+                      left: iconPosition.x,
+                      top: iconPosition.y,
+                    }
+                  : undefined
+              }
+              onMouseDown={(event) => {
+                if (event.button !== 0) return
+                const buttonRect = event.currentTarget.getBoundingClientRect()
+                setDraggedIconId(shortcut.id)
+                dragStateRef.current = {
+                  id: shortcut.id,
+                  offsetX: event.clientX - buttonRect.left,
+                  offsetY: event.clientY - buttonRect.top,
+                  moved: false,
+                }
+              }}
+              onClick={() => {
+                if (skipClickForIconRef.current === shortcut.id) {
+                  skipClickForIconRef.current = null
+                  return
+                }
+                openApp(shortcut.id)
+              }}
+            >
+              <span className={`app-icon ${shortcut.iconClass}`} aria-hidden="true">
+                <shortcut.Icon className="icon" />
+              </span>
+              <span className="desktop-icon-label">{shortcut.label}</span>
+            </button>
+          )
+        })}
       </div>
 
       <aside className="social-rail" aria-label="Social links" onMouseDown={(e) => e.stopPropagation()}>
