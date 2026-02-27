@@ -677,7 +677,9 @@ function App() {
   const normalizedStartQuery = startQuery.trim().toLowerCase()
   const normalizedQuery = query.trim().toLowerCase()
 
-  const filteredPinnedApps = pinnedApps.filter((app) => app.label.toLowerCase().includes(normalizedStartQuery))
+  const filteredPinnedApps = pinnedApps.filter(
+    (app) => app.id !== 'terminal' && app.label.toLowerCase().includes(normalizedStartQuery),
+  )
   const filteredAllOptions = allOptions.filter(
     (item) =>
       item.label.toLowerCase().includes(normalizedStartQuery) || item.description.toLowerCase().includes(normalizedStartQuery),
