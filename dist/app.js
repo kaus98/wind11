@@ -12478,15 +12478,15 @@ function requireClient() {
   return client.exports;
 }
 var clientExports = requireClient();
-const __vite_glob_0_0 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 01.59.30.jpeg", import.meta.url).href;
-const __vite_glob_0_1 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 02.00.40.jpeg", import.meta.url).href;
-const __vite_glob_0_2 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 02.02.05.jpeg", import.meta.url).href;
-const __vite_glob_0_3 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 02.02.06.jpeg", import.meta.url).href;
 const portfolioJson = '{\n  "about": {\n    "name": "Kaustubh Pathak",\n    "rolesLine": "Data Scientist · Data Engineer · NLP Enthusiast",\n    "location": "Etawah, UP",\n    "summaryParagraphs": [\n      "Data Scientist with 3+ years of experience building data-driven solutions to improve efficiency, accuracy, and utility of internal data processing. Experienced in deep learning, predictive modeling, forecasting and data mining, with strong backend engineering skills in Python/Flask/Django and modern data stacks.",\n      "Active in open-source communities and comfortable across backend and frontend technologies including JavaScript, Socket.IO, AJAX and jQuery, with hands-on operations experience both in collaborative teams and as an individual contributor."\n    ],\n    "technologies": [\n      "Python",\n      "PySpark",\n      "Scikit-learn",\n      "Flask",\n      "Django",\n      "FastAPI",\n      "Rasa",\n      "PyTorch",\n      "Transformers",\n      "Sentence Transformers",\n      "Keras",\n      "XGBoost",\n      "Spark / Scala",\n      "Airflow",\n      "Delta Lake / Iceberg",\n      "Databricks",\n      "HDInsight",\n      "Azure EventHub",\n      "DBFS / Blob Storage",\n      "Kafka",\n      "Hadoop",\n      "MinIO / HDFS",\n      "Telegraf",\n      "Argo Workflows",\n      "Grafana / Superset",\n      "Plotly / Folium",\n      "MySQL",\n      "PostgreSQL",\n      "MongoDB",\n      "Elasticsearch",\n      "Docker",\n      "AWS",\n      "Google Cloud",\n      "Linux",\n      "Kubernetes",\n      "AngularJS + Spring Boot",\n      "Golang",\n      "YOLOv5",\n      "ARIMA / Prophet"\n    ],\n    "programming": [\n      "Python",\n      "IPython",\n      "JavaScript",\n      "TypeScript",\n      "Scala",\n      "Go",\n      "Java",\n      "SQL",\n      "MATLAB",\n      "PHP",\n      "HTML/CSS",\n      "C/C++"\n    ],\n    "education": [\n      "ABV-IIITM Gwalior (2017 - 2022) — M.Tech (Dual Degree) in Information Technology, GPA 7.7",\n      "ST. Mary College, Etawah (2016) — Intermediate in PCM with Computer, GPA 8.8/10"\n    ],\n    "interests": ["Open Source", "Automation", "Data Engineering", "Cloud Computing", "NLP", "Music", "Coffee"],\n    "achievements": ["Published research in Springer NLP conference (2023)", "Kaggle Expert profile (@terminate9298)"]\n  },\n  "socialLinks": [\n    { "key": "instagram", "label": "Instagram", "href": "https://www.instagram.com/kaus98/" },\n    { "key": "github", "label": "GitHub", "href": "https://github.com/terminate9298" },\n    { "key": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/in/kaus98" },\n    { "key": "kaggle", "label": "Kaggle", "href": "https://www.kaggle.com/terminate9298" }\n  ],\n  "contact": {\n    "email": "kaus.pathak@gmail.com",\n    "phone": "+91 91490 42316",\n    "availability": {\n      "status": "Open to full-time and consulting opportunities",\n      "from": "Available from March 2026",\n      "timezone": "IST (UTC+05:30)",\n      "updated": "Feb 2026"\n    },\n    "links": [\n      { "label": "Linktree", "href": "https://www.linktr.ee/kaus98" },\n      { "label": "GitHub", "href": "https://github.com/terminate9298" },\n      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/kaus98" },\n      { "label": "Kaggle", "href": "https://www.kaggle.com/terminate9298" },\n      { "label": "Medium", "href": "https://medium.com/@kaus.pathak" },\n      { "label": "Resume PDF", "href": "./Kaustubh_Pathak_Resume.pdf", "download": true }\n    ],\n    "responsibilities": [\n      "Currently SDE-2 @ Dell India",\n      "Developer Position in E-Cell since 2018-2022",\n      "Graphic Designer for Aurora cultural festival at ABV-IIITM Gwalior"\n    ]\n  },\n  "timeline": [\n    {\n      "title": "Built AI-UI Project",\n      "date": "2026",\n      "description": "Developed AI-UI to unify interactions across OpenAI-compatible APIs with a single interface.",\n      "sortOrder": 10\n    },\n    {\n      "title": "SDE-2, Data Engineering @ Dell India",\n      "date": "2022 - Present",\n      "description": "Scaling ETL, model-serving APIs, streaming systems, and observability pipelines across enterprise workloads.",\n      "sortOrder": 9\n    },\n    {\n      "title": "Published Springer NLP Research",\n      "date": "2022",\n      "description": "Published work on Fourier alternatives in Transformer architectures.",\n      "sortOrder": 8\n    },\n    {\n      "title": "Built COVID-19 India Forecasting Project",\n      "date": "2021",\n      "description": "Implemented epidemiological and time-series forecasting models with rich analytics visualizations.",\n      "sortOrder": 7.5\n    },\n    {\n      "title": "Data Engineering Intern @ Rakuten India",\n      "date": "Jul 2021 - Dec 2021",\n      "description": "Built data discovery and transfer workflows using NLP search, Airflow, and storage integrations.",\n      "sortOrder": 7\n    },\n    {\n      "title": "Data Science Engineering Intern @ Lambdatest",\n      "date": "May 2021 - Jul 2021",\n      "description": "Worked on forecasting, anomaly detection, and business analytics dashboards.",\n      "sortOrder": 6\n    },\n    {\n      "title": "NLP Engineer Intern @ Dolhinchat",\n      "date": "Feb 2021 - Apr 2021",\n      "description": "Delivered chatbot systems and integrations across web and social channels.",\n      "sortOrder": 5\n    },\n    {\n      "title": "Computer Vision Intern @ Eminenture",\n      "date": "2020",\n      "description": "Built OCR and contextual matching pipelines for document-heavy workflows.",\n      "sortOrder": 4\n    },\n    {\n      "title": "Developer Intern @ Vaidik Technologies",\n      "date": "Sep 2019 - Oct 2019",\n      "description": "Contributed to NLP interfaces and full-stack blog platform workflows.",\n      "sortOrder": 3\n    },\n    {\n      "title": "Web Developer Intern @ Shaastra Automations",\n      "date": "Aug 2018 - Nov 2018",\n      "description": "Built dynamic full-stack web pages and UI implementation modules.",\n      "sortOrder": 2\n    },\n    {\n      "title": "M.Tech (Dual Degree), ABV-IIITM Gwalior",\n      "date": "2017 - 2022",\n      "description": "Completed Information Technology dual-degree program with GPA 7.7.",\n      "sortOrder": 1\n    },\n    {\n      "title": "Passed 12th (Intermediate)",\n      "date": "2016",\n      "description": "Completed Intermediate in PCM with Computer from ST. Mary College, Etawah.",\n      "sortOrder": 0\n    }\n  ],\n  "jobs": [\n    {\n      "company": "Dell India",\n      "role": "Data Engineering (SDE-2)",\n      "employmentType": "full-time",\n      "sortOrder": 7,\n      "highlights": [\n        "Built and deployed PySpark/Scala ETL pipelines in medallion architecture (Delta/Iceberg) handling 100M+ rows/day.",\n        "Built FastAPI-based NBA endpoints to serve data science models (XGBoost/Scikit-learn) with user-friendly outputs.",\n        "Worked on AngularJS + Spring Boot admin portal for sales role and client management workflows.",\n        "Implemented Golang remediation platform for remote server login and script execution to speed up debugging.",\n        "Built custom pipelines with Argo Workflows (Kubernetes) and Apache Airflow (non-Kubernetes).",\n        "Implemented Telegraf input/output plugins (Redfish, SNMP Trap, Message Bus, HTTP) for 10M+ requests/day.",\n        "Developed TCP/UDP Kubernetes ingestion pipeline, benchmarked Telegraf scalability, and contributed to testing + CI/CD.",\n        "Automated streaming services with Docker, Kubernetes, Azure, Spark and Scala.",\n        "Maintained Spark jobs (Java/Scala) and ETL pipelines across EventHub, DBFS and Blob Storage."\n      ]\n    },\n    {\n      "company": "Rakuten India",\n      "role": "Data Engineering Intern",\n      "employmentType": "internship",\n      "sortOrder": 6,\n      "period": "Jul 2021 - Dec 2021",\n      "highlights": [\n        "Built a Wrangler tool for database/table discovery using both non-contextual and NLP contextual search.",\n        "Implemented components with HyperLogLog and Bloom Filters using Java and Python.",\n        "Created multi-threaded and multi-process SFTP to MinIO/HDFS transfer pipelines with Airflow.",\n        "Handled DataOps workflows for transfer, filtering and analysis over SFTP, MinIO, HDFS, MySQL and streaming data."\n      ]\n    },\n    {\n      "company": "Lambdatest",\n      "role": "Data Science Engineering Intern",\n      "employmentType": "internship",\n      "sortOrder": 5,\n      "period": "May 2021 - Jul 2021",\n      "highlights": [\n        "Developed forecasting models to predict localized server demand and reduce infrastructure cost.",\n        "Built ETL pipelines from MySQL and S3 for Sumologic, Grafana and Superset dashboards on millions of rows.",\n        "Automated anomaly detection pipelines and alerting workflows for operational logs.",\n        "Created custom analytics dashboards for sales and business teams using Flask, Plotly, Pandas and MySQL."\n      ]\n    },\n    {\n      "company": "Eminenture",\n      "role": "Computer Vision Intern",\n      "employmentType": "internship",\n      "sortOrder": 4,\n      "highlights": [\n        "Built OCR pipelines to extract structured data from PDFs and reduce manual processing effort.",\n        "Scraped large datasets from multiple sources including news sites, ticketing portals and social platforms.",\n        "Applied Siamese and Transformer-based sentence embeddings for contextual matching in real-time systems."\n      ]\n    },\n    {\n      "company": "Dolhinchat",\n      "role": "NLP Engineer & Chatbot Developer Intern",\n      "employmentType": "internship",\n      "sortOrder": 3,\n      "period": "Feb 2021 - Apr 2021",\n      "highlights": [\n        "Designed domain-specific chatbot assistants in a cross-functional NLP team.",\n        "Integrated chatbots with management dashboards, CRMs and social platforms.",\n        "Built middleware to reduce Rasa model size and lower hosting footprint.",\n        "Built chatbot integrations across Web, Facebook, WhatsApp and Slack channels; also delivered a YOLOv5 pothole localization prototype."\n      ]\n    },\n    {\n      "company": "Vaidik Technologies Private Limited",\n      "role": "Developer Intern",\n      "employmentType": "internship",\n      "sortOrder": 2,\n      "period": "Sep 2019 - Oct 2019",\n      "highlights": [\n        "Built NLP interfaces for news discovery and article recommendation.",\n        "Contributed to Django + Firebase full-stack blog platform and deployment workflows."\n      ]\n    },\n    {\n      "company": "Shaastra Automations",\n      "role": "Web Developer Intern",\n      "employmentType": "internship",\n      "sortOrder": 1,\n      "period": "Aug 2018 - Nov 2018",\n      "highlights": [\n        "Worked as a full-stack developer building dynamic multi-page websites.",\n        "Contributed to company website development and UI implementation."\n      ]\n    }\n  ],\n  "blogs": [\n    {\n      "title": "Unified Interface for AI Api",\n      "date": "Jan 31, 2026",\n      "summary": "Unify interactions across OpenAI-compatible providers with one consistent API layer.",\n      "link": "https://kaus98.github.io/2026/01/31/unified-interface-for-ai-api/"\n    },\n    {\n      "title": "Nano Banana Gemini Viral Prompts",\n      "date": "Sep 15, 2025",\n      "summary": "Prompt ideas and usage notes for Nano Banana Gemini for social-media-ready outputs.",\n      "link": "https://kaus98.github.io/2025/09/15/banana-prompts/"\n    },\n    {\n      "title": "Visualize Activation Function available to use in Pytorch",\n      "date": "Jan 13, 2025",\n      "summary": "Practical notes on activation functions and visualization patterns for deep learning workflows.",\n      "link": "https://kaus98.github.io/2025/01/13/activation-functions/"\n    },\n    {\n      "title": "Data Warehousing Notes",\n      "date": "Jan 8, 2023",\n      "summary": "Concise notes on warehousing fundamentals, analytical workloads, and architecture concepts.",\n      "link": "https://kaus98.github.io/2023/01/08/data-warehouse-quick-notes/"\n    },\n    {\n      "title": "Deploying Apache Spark, Jupyter Lab with support for Scala/Python",\n      "date": "Aug 15, 2022",\n      "summary": "Dockerized setup guide for Spark + Scala/Python + Jupyter Lab workflows.",\n      "link": "https://kaus98.github.io/2022/08/15/docker-spark/"\n    },\n    {\n      "title": "Recreating the New York Times Covid-19 Spiral Graph",\n      "date": "Jan 15, 2022",\n      "summary": "Python visualization walkthrough for reproducing the NYT COVID spiral graph style.",\n      "link": "https://kaus98.github.io/2022/01/15/spiral-graph-python/"\n    },\n    {\n      "title": "Elastic Quick Start Notes and Keywords Explained",\n      "date": "Jan 13, 2022",\n      "summary": "Beginner-friendly Elasticsearch primer covering key concepts and practical terminology.",\n      "link": "https://kaus98.github.io/2022/01/13/elasticsearch-quick-notes/"\n    }\n  ],\n  "projects": [\n    {\n      "title": "Fourier Transform in NLP",\n      "subtitle": "Research Paper / MTP Project",\n      "description": "Studied Fourier Transform alternatives in Transformer architectures and hybrid Fourier + Multi-Head Attention approaches under Dr. Anuraj Singh; published in Springer NLP conference 2023.",\n      "github": ""\n    },\n    {\n      "title": "AI-UI",\n      "subtitle": "UI Build with AI",\n      "description": "Interact with OpenAI-compatible APIs using native Node.js fetch across OpenAI, Groq, Nvidia, and local LLM endpoints.",\n      "github": "https://github.com/kaus98/AI-UI"\n    },\n    {\n      "title": "COVID-19 India",\n      "subtitle": "Visualizations, Predictions & Forecasting",\n      "description": "Built epidemic and time-series forecasting pipelines using SIR/SIRD/SEIRD/SEIHRD, SARIMAX, ARIMA, Prophet, Theta and Holts models.",\n      "github": "https://github.com/terminate9298/corona-visualization-and-prediction"\n    },\n    {\n      "title": "Multitask Learning",\n      "subtitle": "BTP Project",\n      "description": "Created MultiT, a PyTorch-based library to train deep learning models on multiple datasets using multitask learning concepts.",\n      "github": ""\n    },\n    {\n      "title": "Movie Recommendation System",\n      "subtitle": "BTP Project",\n      "description": "Implemented content-based, collaborative, embedding and RNN-based recommendation strategies for personalized movie suggestions.",\n      "website": "https://rec-movies.herokuapp.com/",\n      "github": ""\n    },\n    {\n      "title": "Song Lyrics Generator",\n      "subtitle": "NLP Solo Project",\n      "description": "Generated lyrics with LSTMs, Seq2Seq, Transformers and BERT. Also built async lyric scraping pipelines with proxy/header pooling.",\n      "github": "https://colab.research.google.com/drive/1QOUCiAXzQEeO8gQ0Mw5iYj1kmaJ-brFj?usp=sharing"\n    }\n  ],\n  "certifications": [\n    "NLP With Deep Learning (Stanford Online)",\n    "Deep Learning Nanodegree Program (Udacity)",\n    "Introduction To Deep Learning (Udemy)",\n    "Complete A-Z Of Machine Learning (Udemy)",\n    "Introduction To Machine Learning By Andrew Ng (Coursera)",\n    "OpenCV With Python For Image And Video Analysis (LinkedIn)",\n    "Automate The Boring Stuff With Python (Al Sweigart)",\n    "Full Stack Web Developer Bootcamp (Udemy)"\n  ]\n}\n';
 function parsePortfolioData() {
   return JSON.parse(portfolioJson);
 }
 const portfolioData = parsePortfolioData();
+const __vite_glob_0_0 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 01.59.30.jpeg", import.meta.url).href;
+const __vite_glob_0_1 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 02.00.40.jpeg", import.meta.url).href;
+const __vite_glob_0_2 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 02.02.05.jpeg", import.meta.url).href;
+const __vite_glob_0_3 = "" + new URL("assets/WhatsApp Image 2026-02-26 at 02.02.06.jpeg", import.meta.url).href;
 const galleryImageModules = /* @__PURE__ */ Object.assign({
   "/public/gallery/WhatsApp Image 2026-02-26 at 01.59.30.jpeg": __vite_glob_0_0,
   "/public/gallery/WhatsApp Image 2026-02-26 at 02.00.40.jpeg": __vite_glob_0_1,
@@ -12519,6 +12519,67 @@ const startMenuThemeOptions = themeOptions.filter(
 function isExternalLink(href) {
   return /^https?:\/\//.test(href);
 }
+const pinnedApps = [
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "jobs", label: "Jobs" },
+  { id: "terminal", label: "Terminal" }
+];
+const initialPositions = {
+  about: { x: 160, y: 70 },
+  projects: { x: 210, y: 110 },
+  gallery: { x: 230, y: 110 },
+  blogs: { x: 220, y: 100 },
+  jobs: { x: 240, y: 130 },
+  timeline: { x: 250, y: 120 },
+  contact: { x: 240, y: 140 },
+  settings: { x: 260, y: 90 },
+  terminal: { x: 280, y: 110 }
+};
+const initialSizes = {
+  about: { width: 840, height: 520 },
+  projects: { width: 840, height: 520 },
+  gallery: { width: 920, height: 560 },
+  blogs: { width: 860, height: 540 },
+  jobs: { width: 860, height: 560 },
+  timeline: { width: 860, height: 560 },
+  contact: { width: 620, height: 440 },
+  settings: { width: 540, height: 420 },
+  terminal: { width: 880, height: 520 }
+};
+const initialRestoreBounds = {
+  about: null,
+  projects: null,
+  gallery: null,
+  blogs: null,
+  jobs: null,
+  timeline: null,
+  contact: null,
+  settings: null,
+  terminal: null
+};
+const initialClosingWindows = {
+  about: false,
+  projects: false,
+  gallery: false,
+  blogs: false,
+  jobs: false,
+  timeline: false,
+  contact: false,
+  settings: false,
+  terminal: false
+};
+const initialWindows = {
+  about: { id: "about", title: "About", isOpen: false, isMinimized: false, isMaximized: false },
+  projects: { id: "projects", title: "Projects", isOpen: false, isMinimized: false, isMaximized: false },
+  gallery: { id: "gallery", title: "Gallery", isOpen: false, isMinimized: false, isMaximized: false },
+  blogs: { id: "blogs", title: "Blogs", isOpen: false, isMinimized: false, isMaximized: false },
+  jobs: { id: "jobs", title: "Jobs", isOpen: false, isMinimized: false, isMaximized: false },
+  timeline: { id: "timeline", title: "Timeline", isOpen: false, isMinimized: false, isMaximized: false },
+  contact: { id: "contact", title: "Contact", isOpen: false, isMinimized: false, isMaximized: false },
+  settings: { id: "settings", title: "Settings", isOpen: false, isMinimized: false, isMaximized: false },
+  terminal: { id: "terminal", title: "Terminal", isOpen: false, isMinimized: false, isMaximized: false }
+};
 function JobsIcon({ className }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M8 4.5A2.5 2.5 0 0 1 10.5 2h3A2.5 2.5 0 0 1 16 4.5V6h3.2A2.8 2.8 0 0 1 22 8.8v9.4a2.8 2.8 0 0 1-2.8 2.8H4.8A2.8 2.8 0 0 1 2 18.2V8.8A2.8 2.8 0 0 1 4.8 6H8V4.5Zm2.5-.5a.5.5 0 0 0-.5.5V6h4V4.5a.5.5 0 0 0-.5-.5h-3Z" }),
@@ -12611,6 +12672,12 @@ function GalleryIcon({ className }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M7.3 10.5a1.9 1.9 0 1 1 1.9-1.9 1.9 1.9 0 0 1-1.9 1.9Zm0-2a.1.1 0 1 0 .1.1.1.1 0 0 0-.1-.1Zm12.2 7.5H4.5a1 1 0 0 1-.8-1.6l3.6-5a1 1 0 0 1 1.4-.2l2.2 1.6 2.3-3a1 1 0 0 1 1.5-.1l5.6 5.8a1 1 0 0 1-.8 1.7Z" })
   ] });
 }
+function TerminalIcon({ className }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M4 4.5A2.5 2.5 0 0 1 6.5 2h11A2.5 2.5 0 0 1 20 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 19.5v-15Zm2.5-.5a.5.5 0 0 0-.5.5v15c0 .3.2.5.5.5h11a.5.5 0 0 0 .5-.5v-15a.5.5 0 0 0-.5-.5h-11Z" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M8.7 9.2a1 1 0 0 1 1.4 0L12 11l-1.9 1.8a1 1 0 1 1-1.4-1.4l.8-.8-.8-.8a1 1 0 0 1 0-1.4Zm4.8 4.8h2.2a1 1 0 1 1 0 2h-2.2a1 1 0 1 1 0-2Z" })
+  ] });
+}
 function SpeakerOnIcon({ className }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className, viewBox: "0 0 24 24", "aria-hidden": "true", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M11 4 6.8 7.6H3a1 1 0 0 0-1 1v6.8a1 1 0 0 0 1 1h3.8L11 20V4Z" }),
@@ -12630,6 +12697,775 @@ function ResumeIcon({ className }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M18 16a1 1 0 0 1 1 1v2.6l.8-.8a1 1 0 1 1 1.4 1.4l-2.5 2.5a1 1 0 0 1-1.4 0l-2.5-2.5a1 1 0 1 1 1.4-1.4l.8.8V17a1 1 0 0 1 1-1Z" })
   ] });
 }
+function WindowPanels({
+  id,
+  about,
+  availability,
+  technologyChips,
+  programmingChips,
+  timelineItems,
+  galleryPhotos,
+  activeGalleryPhoto,
+  isGalleryLightboxOpen,
+  setIsGalleryLightboxOpen,
+  setActiveGalleryPhoto,
+  blogPosts,
+  fullTimeJobs,
+  internshipJobs,
+  projectCards,
+  certifications,
+  contact,
+  theme,
+  applyTheme,
+  muted,
+  toggleSoundFromMenu,
+  audioError,
+  terminalLines,
+  terminalInput,
+  setTerminalInput,
+  runTerminalCommand,
+  navigateTerminalHistory,
+  autocompleteTerminalInput
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    id === "about" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "big-title", children: about.name }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: about.rolesLine }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: about.location }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "muted", children: [
+        availability.status,
+        " · ",
+        availability.from
+      ] }),
+      about.summaryParagraphs.map((paragraph) => /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: paragraph }, paragraph)),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "chips", children: technologyChips.map((technology) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "chip", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(TechChipIcon, { className: "chip-icon" }),
+        technology
+      ] }, technology)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Programming" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "chips", children: programmingChips.map((language) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "chip", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CodeChipIcon, { className: "chip-icon" }),
+        language
+      ] }, language)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Education" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: about.education.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: item }, item)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Interests" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "chips", children: about.interests.map((interest) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip", children: interest }, interest)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Achievements" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: about.achievements.map((achievement) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: achievement }, achievement)) })
+    ] }),
+    id === "timeline" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Timeline" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "A dated snapshot of my career and learning journey." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "timeline-list timeline-rich", children: timelineItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "timeline-item", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "timeline-date", children: item.date }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "timeline-title", children: item.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "timeline-desc", children: item.description })
+      ] }, `${item.date}-${item.title}`)) })
+    ] }),
+    id === "gallery" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Gallery" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Take a peek into my life, one chaotic screenshot at a time." }),
+      galleryPhotos.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-grid", children: galleryPhotos.map((photo) => /* @__PURE__ */ jsxRuntimeExports.jsx("figure", { className: "gallery-item", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          className: "gallery-thumb gallery-thumb-icon",
+          type: "button",
+          onClick: () => {
+            setIsGalleryLightboxOpen(false);
+            setActiveGalleryPhoto(photo);
+          },
+          "aria-label": `Open ${photo.displayName}`,
+          title: photo.displayName,
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "gallery-image gallery-image-icon", src: photo.src, alt: photo.displayName, loading: "lazy" })
+        }
+      ) }, photo.src)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No photos found yet in /public/gallery." }),
+      activeGalleryPhoto && /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          className: `gallery-lightbox ${isGalleryLightboxOpen ? "is-open" : "is-closing"}`,
+          role: "dialog",
+          "aria-modal": "true",
+          onClick: () => setIsGalleryLightboxOpen(false),
+          children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-card", onClick: (e) => e.stopPropagation(), children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-header", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  className: "gallery-lightbox-close-floating",
+                  type: "button",
+                  "aria-label": "Close image",
+                  onClick: () => setIsGalleryLightboxOpen(false),
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-close-glyph", "aria-hidden": "true", children: "×" })
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-meta", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-label", children: "Image Preview" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-name", title: activeGalleryPhoto.displayName, children: activeGalleryPhoto.displayName })
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-body", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-stage", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "gallery-lightbox-image", src: activeGalleryPhoto.src, alt: activeGalleryPhoto.displayName }) }) })
+          ] })
+        }
+      )
+    ] }),
+    id === "blogs" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Blogs" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Latest writing from kaus98.github.io" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: blogPosts.map((post) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: post.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: post.date }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: post.summary }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "wcard-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: post.link, target: "_blank", rel: "noreferrer", children: "Read" }) })
+      ] }, post.link)) })
+    ] }),
+    id === "jobs" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Jobs" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Experience split by full-time and internships" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "jobs-list", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading", children: "Full-time" }),
+        fullTimeJobs.map((job) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard job-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: job.company }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "job-meta", children: [
+            job.role,
+            job.period ? ` · ${job.period}` : ""
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain job-points", children: job.highlights.map((point) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: point }, point)) })
+        ] }, job.company)),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading panel-block", children: "Internships" }),
+        internshipJobs.map((job) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard job-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: job.company }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "job-meta", children: [
+            job.role,
+            job.period ? ` · ${job.period}` : ""
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain job-points", children: job.highlights.map((point) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: point }, point)) })
+        ] }, job.company))
+      ] })
+    ] }),
+    id === "projects" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Projects" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: projectCards.map((project) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: project.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: project.subtitle }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: project.description }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "wcard-actions", children: [
+          project.website && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: project.website, target: "_blank", rel: "noreferrer", children: "Live" }),
+          project.github && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: project.github, target: "_blank", rel: "noreferrer", children: "Code" })
+        ] })
+      ] }, project.title)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Certifications" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: certifications.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: item }, item)) })
+    ] }),
+    id === "contact" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Contact" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "availability-card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "availability-title", children: "Availability" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "availability-status", children: availability.status }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "availability-meta", children: [
+          availability.from,
+          " · ",
+          availability.timezone
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "availability-meta", children: [
+          "Updated: ",
+          availability.updated
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+        "Email:",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-space" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: `mailto:${contact.email}`, children: contact.email })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+        "Phone:",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-space" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: `tel:${contact.phone.replace(/\s+/g, "")}`, children: contact.phone })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "chips", children: contact.links.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "a",
+        {
+          className: "chip link",
+          href: link.href,
+          target: isExternalLink(link.href) ? "_blank" : void 0,
+          rel: isExternalLink(link.href) ? "noreferrer" : void 0,
+          download: link.download ? true : void 0,
+          children: link.label
+        },
+        link.label
+      )) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Positions of Responsibility" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: contact.responsibilities.map((position) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: position }, position)) })
+    ] }),
+    id === "settings" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Settings" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Control theme and sound." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel-block", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading", children: "Theme" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "settings-label", htmlFor: "settings-theme-select", children: "Select theme" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "select",
+          {
+            id: "settings-theme-select",
+            className: "settings-select",
+            value: theme,
+            onChange: (e) => applyTheme(e.target.value),
+            children: themeOptions.map((themeOption) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: themeOption.id, children: themeOption.label }, themeOption.id))
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel-block", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading", children: "Sound" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            className: muted ? "settings-toggle" : "settings-toggle active",
+            type: "button",
+            onClick: toggleSoundFromMenu,
+            disabled: audioError,
+            "aria-pressed": !muted,
+            children: audioError ? "Audio file missing" : muted ? "Muted" : "Unmuted"
+          }
+        )
+      ] })
+    ] }),
+    id === "terminal" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel terminal-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "terminal-session-label", title: `${about.name.toLowerCase().replace(/\s+/g, "")}@portfolio:~`, children: [
+        about.name.toLowerCase().replace(/\s+/g, ""),
+        "@portfolio:~"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "terminal-shell", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "terminal-console", role: "log", "aria-live": "polite", children: terminalLines.map((line) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `terminal-line terminal-line-${line.tone}`, children: line.text }, line.id)) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "form",
+          {
+            className: "terminal-input-row",
+            onSubmit: (e) => {
+              e.preventDefault();
+              runTerminalCommand(terminalInput);
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "terminal-prompt", children: "$" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  className: "terminal-input",
+                  value: terminalInput,
+                  onChange: (e) => setTerminalInput(e.target.value),
+                  onKeyDown: (e) => {
+                    if (e.key === "ArrowUp") {
+                      e.preventDefault();
+                      navigateTerminalHistory("up");
+                    } else if (e.key === "ArrowDown") {
+                      e.preventDefault();
+                      navigateTerminalHistory("down");
+                    } else if (e.key === "Tab") {
+                      e.preventDefault();
+                      autocompleteTerminalInput();
+                    }
+                  },
+                  placeholder: "Type a command and press Enter",
+                  "aria-label": "Terminal command",
+                  autoComplete: "off",
+                  autoCapitalize: "none",
+                  autoCorrect: "off",
+                  spellCheck: false
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "terminal-run-btn", type: "submit", children: "Run" })
+            ]
+          }
+        )
+      ] })
+    ] })
+  ] });
+}
+function DesktopWindows(props) {
+  const {
+    windows,
+    activeId,
+    positions,
+    sizes,
+    closingWindows,
+    viewport,
+    taskbarReservedHeight,
+    windowInset,
+    forceFullscreenWindows,
+    windowRefs,
+    setActiveId,
+    setDrag,
+    setResize,
+    toggleMinimize,
+    toggleMaximize,
+    closeApp,
+    closeStartMenu,
+    openApp,
+    socialLinks,
+    about,
+    availability,
+    technologyChips,
+    programmingChips,
+    timelineItems,
+    galleryPhotos,
+    activeGalleryPhoto,
+    isGalleryLightboxOpen,
+    setIsGalleryLightboxOpen,
+    setActiveGalleryPhoto,
+    blogPosts,
+    fullTimeJobs,
+    internshipJobs,
+    projectCards,
+    certifications,
+    contact,
+    theme,
+    applyTheme,
+    muted,
+    toggleSoundFromMenu,
+    audioError,
+    terminalLines,
+    terminalInput,
+    setTerminalInput,
+    runTerminalCommand,
+    navigateTerminalHistory,
+    autocompleteTerminalInput,
+    normalizedQuery,
+    searchWindowStyle,
+    query,
+    setQuery,
+    filteredProjectCards,
+    filteredBlogPosts,
+    searchedJobs,
+    filteredFullTimeJobs,
+    filteredInternshipJobs
+  } = props;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "desktop", onMouseDown: closeStartMenu, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "desktop-icons", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("about"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon about", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "About" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("projects"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon projects", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Projects" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("gallery"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon gallery", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Gallery" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("blogs"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon blogs", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Blogs" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("jobs"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon projects", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Jobs" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("timeline"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon timeline", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TimelineIcon, { className: "icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Timeline" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("contact"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon contact", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Contact" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("settings"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon settings", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Settings" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("terminal"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon terminal", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TerminalIcon, { className: "icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Terminal" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("aside", { className: "social-rail", "aria-label": "Social links", onMouseDown: (e) => e.stopPropagation(), children: socialLinks.map(({ key, label, href, Icon }) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "social-rail-link", href, target: "_blank", rel: "noreferrer", "aria-label": label, title: label, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "social-rail-icon" }) }, key)) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-area", children: [
+      Object.keys(windows).map((id) => {
+        const w = windows[id];
+        if (!w.isOpen || w.isMinimized) return null;
+        const isActive = activeId === id;
+        const zIndex = isActive ? 3 : 2;
+        const pos = positions[id];
+        const size = sizes[id];
+        const isMaximized = windows[id].isMaximized;
+        const windowClassName = ["window", isActive ? "active" : "", isMaximized ? "maximized" : "", closingWindows[id] ? "window-exit" : "window-enter"].filter(Boolean).join(" ");
+        const maximizedHeight = Math.max(220, viewport.height - taskbarReservedHeight);
+        const fullscreenHeight = Math.max(220, viewport.height - taskbarReservedHeight - windowInset * 2);
+        return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "section",
+          {
+            className: windowClassName,
+            style: isMaximized ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight } : forceFullscreenWindows ? {
+              zIndex,
+              left: windowInset,
+              top: windowInset,
+              width: Math.max(0, viewport.width - windowInset * 2),
+              height: fullscreenHeight
+            } : { zIndex, left: pos.x, top: pos.y, width: size.width, height: size.height },
+            ref: (el) => {
+              windowRefs.current[id] = el;
+            },
+            onMouseDown: (e) => {
+              e.stopPropagation();
+              setActiveId(id);
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "header",
+                {
+                  className: "window-titlebar",
+                  onPointerDown: (e) => {
+                    if (e.target?.closest(".window-controls")) return;
+                    if (e.target?.closest(".window-resize-handle")) return;
+                    if (windows[id].isMaximized) return;
+                    e.stopPropagation();
+                    setActiveId(id);
+                    const start = positions[id];
+                    e.currentTarget.setPointerCapture(e.pointerId);
+                    setDrag({
+                      id,
+                      pointerId: e.pointerId,
+                      startClientX: e.clientX,
+                      startClientY: e.clientY,
+                      startX: start.x,
+                      startY: start.y
+                    });
+                  },
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-title", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "span",
+                        {
+                          className: id === "about" ? "app-icon small about" : id === "projects" ? "app-icon small projects" : id === "gallery" ? "app-icon small gallery" : id === "blogs" ? "app-icon small blogs" : id === "jobs" ? "app-icon small projects" : id === "timeline" ? "app-icon small timeline" : id === "settings" ? "app-icon small settings" : id === "terminal" ? "app-icon small terminal" : "app-icon small contact",
+                          "aria-hidden": "true",
+                          children: id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : id === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : id === "timeline" ? /* @__PURE__ */ jsxRuntimeExports.jsx(TimelineIcon, { className: "icon" }) : id === "settings" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) : id === "terminal" ? /* @__PURE__ */ jsxRuntimeExports.jsx(TerminalIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: w.title })
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-controls", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "win-btn", type: "button", "aria-label": "Minimize", onClick: () => toggleMinimize(id), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-glyph", children: "—" }) }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "button",
+                        {
+                          className: "win-btn",
+                          type: "button",
+                          "aria-label": isMaximized ? "Restore" : "Maximize",
+                          onClick: () => toggleMaximize(id),
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-glyph", children: isMaximized ? "❐" : "□" })
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "win-btn close", type: "button", "aria-label": "Close", onClick: () => closeApp(id), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-glyph", children: "×" }) })
+                    ] })
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "window-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                WindowPanels,
+                {
+                  id,
+                  about,
+                  availability,
+                  technologyChips,
+                  programmingChips,
+                  timelineItems,
+                  galleryPhotos,
+                  activeGalleryPhoto,
+                  isGalleryLightboxOpen,
+                  setIsGalleryLightboxOpen,
+                  setActiveGalleryPhoto,
+                  blogPosts,
+                  fullTimeJobs,
+                  internshipJobs,
+                  projectCards,
+                  certifications,
+                  contact,
+                  theme,
+                  applyTheme,
+                  muted,
+                  toggleSoundFromMenu,
+                  audioError,
+                  terminalLines,
+                  terminalInput,
+                  setTerminalInput,
+                  runTerminalCommand,
+                  navigateTerminalHistory,
+                  autocompleteTerminalInput
+                }
+              ) }),
+              !isMaximized && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "window-resize-handle",
+                  onPointerDown: (e) => {
+                    e.stopPropagation();
+                    setActiveId(id);
+                    e.currentTarget.setPointerCapture(e.pointerId);
+                    setResize({
+                      id,
+                      pointerId: e.pointerId,
+                      startClientX: e.clientX,
+                      startClientY: e.clientY,
+                      startWidth: sizes[id].width,
+                      startHeight: sizes[id].height
+                    });
+                  }
+                }
+              )
+            ]
+          },
+          id
+        );
+      }),
+      normalizedQuery && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "window active search-results-window", style: searchWindowStyle, onMouseDown: (e) => e.stopPropagation(), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "window-titlebar", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-title", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon small projects", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Search Results" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "window-controls", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "win-btn close", type: "button", "aria-label": "Close search", onClick: () => setQuery(""), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-glyph", children: "×" }) }) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "window-content", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "section-heading", children: [
+            'Results for "',
+            query,
+            '"'
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "muted", children: [
+            filteredProjectCards.length,
+            " project matches · ",
+            filteredBlogPosts.length,
+            " blog matches · ",
+            searchedJobs.length,
+            " work matches"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading panel-block", children: "Projects" }),
+          filteredProjectCards.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: filteredProjectCards.map((project) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: project.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: project.subtitle }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: project.description })
+          ] }, `search-${project.title}`)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No matching projects." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading panel-block", children: "Blogs" }),
+          filteredBlogPosts.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: filteredBlogPosts.map((post) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: post.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: post.date }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: post.summary })
+          ] }, `search-blog-${post.link}`)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No matching blogs." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading panel-block", children: "Work" }),
+          searchedJobs.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "jobs-list", children: [
+            filteredFullTimeJobs.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Full-time" }),
+            filteredFullTimeJobs.map((job) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard job-card", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: job.company }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "job-meta", children: [
+                job.role,
+                job.period ? ` · ${job.period}` : ""
+              ] })
+            ] }, `search-ft-${job.company}`)),
+            filteredInternshipJobs.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Internships" }),
+            filteredInternshipJobs.map((job) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard job-card", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: job.company }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "job-meta", children: [
+                job.role,
+                job.period ? ` · ${job.period}` : ""
+              ] })
+            ] }, `search-int-${job.company}`))
+          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No matching work experience." })
+        ] }) })
+      ] })
+    ] })
+  ] });
+}
+function StartMenu({
+  startOpen,
+  startQuery,
+  setStartQuery,
+  filteredPinnedApps,
+  filteredAllOptions,
+  openApp,
+  openStartOption,
+  socialLinks,
+  theme,
+  applyTheme,
+  muted,
+  userName,
+  runPowerAction
+}) {
+  if (!startOpen) return null;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start", onMouseDown: (e) => e.stopPropagation(), children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-top", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-search-wrap", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "search-icon", "aria-hidden": "true" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          className: "start-search-input",
+          value: startQuery,
+          onChange: (e) => setStartQuery(e.target.value),
+          placeholder: "Search for apps, files, and settings",
+          "aria-label": "Start menu search"
+        }
+      )
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-headline-row", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-title", children: "Pinned" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-title subtle", children: "All options" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-grid", children: [
+      filteredPinnedApps.map((a) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "start-item", type: "button", onClick: () => openApp(a.id), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "span",
+          {
+            className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : a.id === "terminal" ? "app-icon terminal" : "app-icon projects",
+            "aria-hidden": "true",
+            children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : a.id === "terminal" ? /* @__PURE__ */ jsxRuntimeExports.jsx(TerminalIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" })
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-label", children: a.label })
+      ] }, a.id)),
+      filteredPinnedApps.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-empty", children: "No pinned apps found." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-all-options", children: [
+      filteredAllOptions.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "start-option", type: "button", onClick: () => openStartOption(option), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "span",
+          {
+            className: option.key === "about" ? "app-icon small about" : option.key === "projects" ? "app-icon small projects" : option.key === "gallery" ? "app-icon small gallery" : option.key === "blogs" ? "app-icon small blogs" : option.key === "jobs" ? "app-icon small projects" : option.key === "timeline" ? "app-icon small timeline" : option.key === "contact" ? "app-icon small contact" : option.key === "settings" ? "app-icon small settings" : option.key === "terminal" ? "app-icon small terminal" : "app-icon small about",
+            "aria-hidden": "true",
+            children: option.key === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : option.key === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : option.key === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : option.key === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : option.key === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : option.key === "timeline" ? /* @__PURE__ */ jsxRuntimeExports.jsx(TimelineIcon, { className: "icon" }) : option.key === "contact" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) : option.key === "settings" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) : option.key === "terminal" ? /* @__PURE__ */ jsxRuntimeExports.jsx(TerminalIcon, { className: "icon" }) : option.key === "theme" ? theme === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "icon" }) : option.key === "resume" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "icon" }) : muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "icon" })
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "start-option-copy", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-option-label", children: option.label }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-option-desc", children: option.description })
+        ] })
+      ] }, option.key)),
+      filteredAllOptions.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-empty", children: "No options found." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-social", "aria-label": "Social links", children: socialLinks.map(({ key, label, href, Icon }) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "start-social-link", href, target: "_blank", rel: "noreferrer", "aria-label": label, title: label, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "start-social-icon" }) }, key)) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-theme", "aria-label": "Theme switcher", children: startMenuThemeOptions.map((themeOption) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "button",
+      {
+        className: theme === themeOption.id ? `start-theme-btn active theme-${themeOption.id}` : `start-theme-btn theme-${themeOption.id}`,
+        type: "button",
+        onClick: () => applyTheme(themeOption.id),
+        "aria-pressed": theme === themeOption.id,
+        children: [
+          themeOption.id === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "start-theme-icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-theme-swatch", "aria-hidden": "true" }),
+          themeOption.label
+        ]
+      },
+      themeOption.id
+    )) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-userbar", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-user", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-avatar", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "start-avatar-img", src: AVATAR_ICON_URL, alt: "" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-user-meta", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-username", children: userName }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-user-role", children: "Data Scientist" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-user-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-power-row", "aria-label": "Power actions", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "start-power-item", type: "button", "aria-label": "Restart", title: "Restart", onClick: () => runPowerAction("restart"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(RestartIcon, { className: "start-power-item-icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "start-power-item", type: "button", "aria-label": "Sleep", title: "Sleep", onClick: () => runPowerAction("sleep"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(SleepIcon, { className: "start-power-item-icon" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "start-power-item shutdown", type: "button", "aria-label": "Shutdown", title: "Shutdown", onClick: () => runPowerAction("shutdown"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ShutdownIcon, { className: "start-power-item-icon shutdown-icon" }) })
+      ] }) })
+    ] })
+  ] });
+}
+function Taskbar({
+  startOpen,
+  toggleStartMenu,
+  query,
+  setQuery,
+  windows,
+  activeId,
+  visibleWindowIds,
+  toggleMinimize,
+  setActiveId,
+  openApp,
+  toggleTheme,
+  theme,
+  muted,
+  audioError,
+  toggleSoundFromMenu,
+  timeText,
+  dateText
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "taskbar", onMouseDown: (e) => e.stopPropagation(), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "taskbar-inner", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "taskbar-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: startOpen ? "tb-btn active" : "tb-btn", type: "button", "aria-label": "Start", onClick: toggleStartMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-logo", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(WindowsIcon, { className: "win-svg" }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "search", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "search-icon", "aria-hidden": "true" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            className: "search-input",
+            value: query,
+            onChange: (e) => setQuery(e.target.value),
+            placeholder: "Search",
+            "aria-label": "Search"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pinned", children: pinnedApps.map((a) => {
+        const w = windows[a.id];
+        const isRunning = w.isOpen;
+        const isActive = a.id === activeId && visibleWindowIds.includes(a.id);
+        return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "button",
+          {
+            className: isActive ? "tb-btn active" : isRunning ? "tb-btn running" : "tb-btn",
+            type: "button",
+            "aria-label": a.label,
+            onClick: () => {
+              if (windows[a.id].isOpen && !windows[a.id].isMinimized && a.id === activeId) {
+                toggleMinimize(a.id);
+                return;
+              }
+              if (windows[a.id].isOpen && windows[a.id].isMinimized) {
+                toggleMinimize(a.id);
+                setActiveId(a.id);
+                return;
+              }
+              openApp(a.id);
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : a.id === "terminal" ? "app-icon terminal" : a.id === "jobs" ? "app-icon projects" : "app-icon projects",
+                  "aria-hidden": "true",
+                  children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : a.id === "terminal" ? /* @__PURE__ */ jsxRuntimeExports.jsx(TerminalIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" })
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "running-dot", "aria-hidden": "true" })
+            ]
+          },
+          a.id
+        );
+      }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "taskbar-right", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tray", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "tray-btn", href: "./Kaustubh_Pathak_Resume.pdf", download: true, "aria-label": "Download resume", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "tray-svg" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "tray-btn", type: "button", "aria-label": "Switch theme", onClick: toggleTheme, children: theme === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "tray-svg" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "tray-svg" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            className: muted ? "tray-btn" : "tray-btn active",
+            type: "button",
+            "aria-label": audioError ? "Audio file missing" : muted ? "Unmute" : "Mute",
+            disabled: audioError,
+            onClick: () => toggleSoundFromMenu(),
+            children: muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "tray-svg" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "tray-svg" })
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "clock", "aria-label": "Time and date", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "clock-time", children: timeText }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "clock-date", children: dateText })
+      ] })
+    ] })
+  ] }) });
+}
 function App() {
   const [startOpen, setStartOpen] = reactExports.useState(false);
   const [query, setQuery] = reactExports.useState("");
@@ -12640,48 +13476,12 @@ function App() {
   const taskbarReservedHeight = viewport.width < 700 ? 118 : 76;
   const windowInset = viewport.width < 480 ? 6 : 8;
   const forceFullscreenWindows = viewport.width < 640;
-  const [positions, setPositions] = reactExports.useState({
-    about: { x: 160, y: 70 },
-    projects: { x: 210, y: 110 },
-    gallery: { x: 230, y: 110 },
-    blogs: { x: 220, y: 100 },
-    jobs: { x: 240, y: 130 },
-    timeline: { x: 250, y: 120 },
-    contact: { x: 240, y: 140 },
-    settings: { x: 260, y: 90 }
-  });
+  const [positions, setPositions] = reactExports.useState(initialPositions);
   const [drag, setDrag] = reactExports.useState(null);
   const [resize, setResize] = reactExports.useState(null);
-  const [sizes, setSizes] = reactExports.useState({
-    about: { width: 840, height: 520 },
-    projects: { width: 840, height: 520 },
-    gallery: { width: 920, height: 560 },
-    blogs: { width: 860, height: 540 },
-    jobs: { width: 860, height: 560 },
-    timeline: { width: 860, height: 560 },
-    contact: { width: 620, height: 440 },
-    settings: { width: 540, height: 420 }
-  });
-  const [restoreBounds, setRestoreBounds] = reactExports.useState({
-    about: null,
-    projects: null,
-    gallery: null,
-    blogs: null,
-    jobs: null,
-    timeline: null,
-    contact: null,
-    settings: null
-  });
-  const [closingWindows, setClosingWindows] = reactExports.useState({
-    about: false,
-    projects: false,
-    gallery: false,
-    blogs: false,
-    jobs: false,
-    timeline: false,
-    contact: false,
-    settings: false
-  });
+  const [sizes, setSizes] = reactExports.useState(initialSizes);
+  const [restoreBounds, setRestoreBounds] = reactExports.useState(initialRestoreBounds);
+  const [closingWindows, setClosingWindows] = reactExports.useState(initialClosingWindows);
   const closeWindowTimeouts = reactExports.useRef({});
   const windowRefs = reactExports.useRef({
     about: null,
@@ -12691,7 +13491,8 @@ function App() {
     jobs: null,
     timeline: null,
     contact: null,
-    settings: null
+    settings: null,
+    terminal: null
   });
   const audioRef = reactExports.useRef(null);
   const [muted, setMuted] = reactExports.useState(() => {
@@ -12709,16 +13510,14 @@ function App() {
     const raw = window.localStorage.getItem("w11-theme");
     return isThemeName(raw) ? raw : "matrix";
   });
-  const [windows, setWindows] = reactExports.useState({
-    about: { id: "about", title: "About", isOpen: false, isMinimized: false, isMaximized: false },
-    projects: { id: "projects", title: "Projects", isOpen: false, isMinimized: false, isMaximized: false },
-    gallery: { id: "gallery", title: "Gallery", isOpen: false, isMinimized: false, isMaximized: false },
-    blogs: { id: "blogs", title: "Blogs", isOpen: false, isMinimized: false, isMaximized: false },
-    jobs: { id: "jobs", title: "Jobs", isOpen: false, isMinimized: false, isMaximized: false },
-    timeline: { id: "timeline", title: "Timeline", isOpen: false, isMinimized: false, isMaximized: false },
-    contact: { id: "contact", title: "Contact", isOpen: false, isMinimized: false, isMaximized: false },
-    settings: { id: "settings", title: "Settings", isOpen: false, isMinimized: false, isMaximized: false }
-  });
+  const [terminalLines, setTerminalLines] = reactExports.useState([
+    { id: 1, text: "Kaus OS Terminal v1.0.0", tone: "system" },
+    { id: 2, text: "Type 'help' to list available commands.", tone: "system" }
+  ]);
+  const [terminalInput, setTerminalInput] = reactExports.useState("");
+  const [terminalHistory, setTerminalHistory] = reactExports.useState([]);
+  const [, setTerminalHistoryIndex] = reactExports.useState(-1);
+  const [windows, setWindows] = reactExports.useState(initialWindows);
   reactExports.useEffect(() => {
     const t = window.setInterval(() => setNow(/* @__PURE__ */ new Date()), 1e3);
     return () => window.clearInterval(t);
@@ -12765,6 +13564,337 @@ function App() {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, [positions, sizes]);
+  function pushTerminalLines(lines) {
+    if (lines.length === 0) return;
+    setTerminalLines((prev) => {
+      let nextId = prev.length > 0 ? prev[prev.length - 1].id + 1 : 1;
+      const appended = lines.map((line) => {
+        const entry = { id: nextId, text: line.text, tone: line.tone };
+        nextId += 1;
+        return entry;
+      });
+      return [...prev, ...appended];
+    });
+  }
+  function downloadResume() {
+    const anchor = document.createElement("a");
+    anchor.href = "./Kaustubh_Pathak_Resume.pdf";
+    anchor.download = "";
+    anchor.click();
+  }
+  function resolveAppId(token) {
+    if (!token) return null;
+    const normalized = token.toLowerCase();
+    const appAliasMap = {
+      about: "about",
+      project: "projects",
+      projects: "projects",
+      gallery: "gallery",
+      blog: "blogs",
+      blogs: "blogs",
+      job: "jobs",
+      jobs: "jobs",
+      timeline: "timeline",
+      contact: "contact",
+      setting: "settings",
+      settings: "settings",
+      terminal: "terminal"
+    };
+    return appAliasMap[normalized] ?? null;
+  }
+  function maximizeApp(id) {
+    setRestoreBounds((boundsPrev) => ({
+      ...boundsPrev,
+      [id]: boundsPrev[id] ?? {
+        x: positions[id].x,
+        y: positions[id].y,
+        width: sizes[id].width,
+        height: sizes[id].height
+      }
+    }));
+    setWindows((prev) => ({
+      ...prev,
+      [id]: { ...prev[id], isOpen: true, isMinimized: false, isMaximized: true }
+    }));
+    setActiveId(id);
+  }
+  function getTerminalHelpLines() {
+    return [
+      "Core: help, clear, history, date, time, echo <text>, man <command>",
+      "Navigation: apps, open <app>, close <app>, minimize <app>, maximize <app>",
+      "Apps: about, projects, gallery, blogs, jobs, timeline, contact, settings, terminal",
+      "System: resume, theme list, theme set <name>, theme next, sound on/off/toggle",
+      "Profile: whoami, skills, social, neofetch, matrix, fortune, joke",
+      "Aliases: ls=apps, cls=clear, cv=resume"
+    ];
+  }
+  function runTerminalCommand(rawInput) {
+    const commandText = rawInput.trim();
+    if (!commandText) return;
+    pushTerminalLines([{ text: `C:/Users/${userName}> ${commandText}`, tone: "input" }]);
+    setTerminalHistory((prev) => [...prev, commandText]);
+    setTerminalHistoryIndex(-1);
+    const [rawCommand, ...args] = commandText.split(/\s+/);
+    const aliases = { ls: "apps", cls: "clear", cv: "resume" };
+    const command = aliases[rawCommand.toLowerCase()] ?? rawCommand.toLowerCase();
+    const pushOutput = (...text) => pushTerminalLines(text.map((line) => ({ text: line, tone: "output" })));
+    const pushError = (text) => pushTerminalLines([{ text, tone: "error" }]);
+    const pushSystem = (...text) => pushTerminalLines(text.map((line) => ({ text: line, tone: "system" })));
+    if (command === "clear") {
+      setTerminalLines([]);
+      setTerminalInput("");
+      return;
+    }
+    switch (command) {
+      case "help":
+        pushOutput(...getTerminalHelpLines());
+        break;
+      case "history":
+        pushOutput(...terminalHistory.length ? terminalHistory.map((entry, index) => `${index + 1}. ${entry}`) : ["No commands in history yet."]);
+        break;
+      case "date":
+        pushOutput(now.toLocaleDateString());
+        break;
+      case "time":
+        pushOutput(now.toLocaleTimeString());
+        break;
+      case "echo":
+        pushOutput(args.join(" "));
+        break;
+      case "man": {
+        const topic = args[0]?.toLowerCase();
+        if (!topic) {
+          pushError("Usage: man <command>");
+        } else if (topic === "theme") {
+          pushOutput("theme list | theme set <name> | theme next");
+        } else if (topic === "sound") {
+          pushOutput("sound on | sound off | sound toggle");
+        } else if (topic === "open") {
+          pushOutput("open <app-name>  # about/projects/gallery/blogs/jobs/timeline/contact/settings/terminal");
+        } else {
+          pushOutput(`No manual entry for '${topic}'.`);
+        }
+        break;
+      }
+      case "apps":
+        pushOutput("Installed apps: about, projects, gallery, blogs, jobs, timeline, contact, settings, terminal");
+        break;
+      case "open": {
+        const appId = resolveAppId(args[0]);
+        if (!appId) {
+          pushError("Unknown app. Try: open projects");
+          break;
+        }
+        openApp(appId);
+        pushSystem(`Opened ${appId}.`);
+        break;
+      }
+      case "close": {
+        const appId = resolveAppId(args[0]);
+        if (!appId) {
+          pushError("Unknown app. Try: close projects");
+          break;
+        }
+        closeApp(appId);
+        pushSystem(`Closing ${appId}.`);
+        break;
+      }
+      case "minimize": {
+        const appId = resolveAppId(args[0]);
+        if (!appId) {
+          pushError("Unknown app. Try: minimize projects");
+          break;
+        }
+        toggleMinimize(appId);
+        pushSystem(`Toggled minimize for ${appId}.`);
+        break;
+      }
+      case "maximize": {
+        const appId = resolveAppId(args[0]);
+        if (!appId) {
+          pushError("Unknown app. Try: maximize projects");
+          break;
+        }
+        maximizeApp(appId);
+        pushSystem(`Maximized ${appId}.`);
+        break;
+      }
+      case "about":
+      case "projects":
+      case "gallery":
+      case "blogs":
+      case "jobs":
+      case "timeline":
+      case "contact":
+      case "settings":
+      case "terminal":
+        openApp(command);
+        pushSystem(`Opened ${command}.`);
+        break;
+      case "resume":
+        downloadResume();
+        pushSystem("Resume download started.");
+        break;
+      case "theme": {
+        const sub = args[0]?.toLowerCase();
+        if (sub === "list") {
+          pushOutput(`Themes: ${themeOptions.map((item) => item.id).join(", ")}`);
+        } else if (sub === "next") {
+          toggleTheme();
+          pushSystem("Switched to next theme.");
+        } else if (sub === "set") {
+          const next = args[1]?.toLowerCase() ?? null;
+          if (!next || !isThemeName(next)) {
+            pushError("Usage: theme set <name>  # use theme list");
+            break;
+          }
+          applyTheme(next);
+          pushSystem(`Theme set to ${next}.`);
+        } else {
+          pushError("Usage: theme list | theme set <name> | theme next");
+        }
+        break;
+      }
+      case "sound": {
+        const sub = args[0]?.toLowerCase();
+        if (sub === "toggle") {
+          toggleSoundFromMenu();
+          pushSystem("Sound toggled.");
+        } else if (sub === "on") {
+          if (muted) {
+            toggleSoundFromMenu();
+            pushSystem("Attempting to enable sound.");
+          } else {
+            pushOutput("Sound is already on.");
+          }
+        } else if (sub === "off") {
+          if (muted) {
+            pushOutput("Sound is already off.");
+          } else {
+            setMuted(true);
+            pushSystem("Sound muted.");
+          }
+        } else {
+          pushError("Usage: sound on | sound off | sound toggle");
+        }
+        break;
+      }
+      case "whoami":
+        pushOutput(`${about.name} - ${about.rolesLine}`);
+        break;
+      case "skills":
+        pushOutput(`Technologies: ${technologyChips.join(", ")}`);
+        pushOutput(`Programming: ${programmingChips.join(", ")}`);
+        break;
+      case "social":
+        pushOutput(...socialLinks.map((item) => `${item.label}: ${item.href}`));
+        break;
+      case "matrix": {
+        const glyphs = "01#@$%&*+";
+        const rows = Array.from({ length: 8 }, () => Array.from({ length: 34 }, () => glyphs[Math.floor(Math.random() * glyphs.length)]).join(""));
+        pushOutput(...rows);
+        break;
+      }
+      case "neofetch":
+        pushOutput("Kaus-OS", `User: ${about.name}`, `Role: ${about.rolesLine}`, `Location: ${about.location}`, `Theme: ${theme}`);
+        break;
+      case "fortune": {
+        const fortunes = ["Stay curious, keep shipping.", "Small commits build big products.", "Data tells stories if you ask the right questions."];
+        pushOutput(fortunes[Math.floor(Math.random() * fortunes.length)]);
+        break;
+      }
+      case "joke": {
+        const jokes = [
+          "Why do programmers prefer dark mode? Because light attracts bugs.",
+          "There are 10 types of people: those who understand binary and those who do not.",
+          "I would tell you a UDP joke, but you might not get it."
+        ];
+        pushOutput(jokes[Math.floor(Math.random() * jokes.length)]);
+        break;
+      }
+      default:
+        pushError(`Unknown command: ${command}. Type 'help' to see available commands.`);
+    }
+    setTerminalInput("");
+  }
+  function navigateTerminalHistory(direction) {
+    if (terminalHistory.length === 0) return;
+    setTerminalHistoryIndex((prev) => {
+      if (direction === "up") {
+        const nextIndex2 = prev === -1 ? terminalHistory.length - 1 : Math.max(0, prev - 1);
+        setTerminalInput(terminalHistory[nextIndex2]);
+        return nextIndex2;
+      }
+      if (prev === -1) return -1;
+      const nextIndex = prev + 1;
+      if (nextIndex >= terminalHistory.length) {
+        setTerminalInput("");
+        return -1;
+      }
+      setTerminalInput(terminalHistory[nextIndex]);
+      return nextIndex;
+    });
+  }
+  function autocompleteTerminalInput() {
+    const value = terminalInput.trimStart();
+    if (!value) return;
+    if (value.includes(" ")) {
+      const [command, ...rest] = value.split(/\s+/);
+      if (command.toLowerCase() === "theme" && rest.length === 2 && rest[0].toLowerCase() === "set") {
+        const partial2 = rest[1].toLowerCase();
+        const matches2 = themeOptions.map((item) => item.id).filter((name) => name.startsWith(partial2));
+        if (matches2.length === 1) {
+          setTerminalInput(`theme set ${matches2[0]}`);
+        }
+      }
+      return;
+    }
+    const commandCatalog = [
+      "help",
+      "clear",
+      "history",
+      "date",
+      "time",
+      "echo",
+      "man",
+      "apps",
+      "open",
+      "close",
+      "minimize",
+      "maximize",
+      "about",
+      "projects",
+      "gallery",
+      "blogs",
+      "jobs",
+      "timeline",
+      "contact",
+      "settings",
+      "terminal",
+      "resume",
+      "theme",
+      "sound",
+      "whoami",
+      "skills",
+      "social",
+      "matrix",
+      "neofetch",
+      "fortune",
+      "joke",
+      "ls",
+      "cls",
+      "cv"
+    ];
+    const partial = value.toLowerCase();
+    const matches = commandCatalog.filter((item) => item.startsWith(partial));
+    if (matches.length === 1) {
+      setTerminalInput(matches[0]);
+      return;
+    }
+    if (matches.length > 1) {
+      pushTerminalLines([{ text: `Suggestions: ${matches.join(", ")}`, tone: "system" }]);
+    }
+  }
   reactExports.useEffect(() => {
     if (!activeGalleryPhoto) return;
     const frame = window.requestAnimationFrame(() => setIsGalleryLightboxOpen(true));
@@ -12911,14 +14041,6 @@ function App() {
       window.removeEventListener("pointercancel", onUp);
     };
   }, [positions, resize, taskbarReservedHeight, viewport.width, windows]);
-  const pinnedApps = reactExports.useMemo(
-    () => [
-      { id: "about", label: "About" },
-      { id: "projects", label: "Projects" },
-      { id: "jobs", label: "Jobs" }
-    ],
-    []
-  );
   const allOptions = reactExports.useMemo(
     () => [
       { key: "about", label: "About", description: "Profile, education and skills", type: "app", appId: "about" },
@@ -12929,6 +14051,7 @@ function App() {
       { key: "timeline", label: "Timeline", description: "Career milestones and dated journey", type: "app", appId: "timeline" },
       { key: "contact", label: "Contact", description: "Email, phone and social links", type: "app", appId: "contact" },
       { key: "settings", label: "Settings", description: "Theme, sound and time controls", type: "app", appId: "settings" },
+      { key: "terminal", label: "Terminal", description: "Command line tools and shortcuts", type: "app", appId: "terminal" },
       { key: "resume", label: "Resume", description: "Download PDF resume", type: "resume" },
       {
         key: "theme",
@@ -13046,6 +14169,7 @@ function App() {
   }
   function openStartOption(option) {
     if (option.type === "app") {
+      if (!option.appId) return;
       openApp(option.appId);
       return;
     }
@@ -13188,577 +14312,106 @@ function App() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "toast-btn", type: "button", onClick: () => setSoundToastOpen(false), children: "Dismiss" })
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "desktop", onMouseDown: closeStartMenu, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "desktop-icons", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("about"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon about", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "About" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("projects"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon projects", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Projects" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("gallery"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon gallery", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Gallery" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("blogs"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon blogs", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Blogs" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("jobs"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon projects", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Jobs" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("timeline"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon timeline", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TimelineIcon, { className: "icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Timeline" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("contact"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon contact", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Contact" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("settings"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon settings", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Settings" })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("aside", { className: "social-rail", "aria-label": "Social links", onMouseDown: (e) => e.stopPropagation(), children: socialLinks.map(({ key, label, href, Icon }) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "social-rail-link", href, target: "_blank", rel: "noreferrer", "aria-label": label, title: label, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "social-rail-icon" }) }, key)) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-area", children: [
-        Object.keys(windows).map((id) => {
-          const w = windows[id];
-          if (!w.isOpen || w.isMinimized) return null;
-          const isActive = activeId === id;
-          const zIndex = isActive ? 3 : 2;
-          const pos = positions[id];
-          const size = sizes[id];
-          const isMaximized = windows[id].isMaximized;
-          const windowClassName = [
-            "window",
-            isActive ? "active" : "",
-            isMaximized ? "maximized" : "",
-            closingWindows[id] ? "window-exit" : "window-enter"
-          ].filter(Boolean).join(" ");
-          const maximizedHeight = Math.max(220, viewport.height - taskbarReservedHeight);
-          const fullscreenHeight = Math.max(220, viewport.height - taskbarReservedHeight - windowInset * 2);
-          return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "section",
-            {
-              className: windowClassName,
-              style: isMaximized ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight } : forceFullscreenWindows ? {
-                zIndex,
-                left: windowInset,
-                top: windowInset,
-                width: Math.max(0, viewport.width - windowInset * 2),
-                height: fullscreenHeight
-              } : { zIndex, left: pos.x, top: pos.y, width: size.width, height: size.height },
-              ref: (el) => {
-                windowRefs.current[id] = el;
-              },
-              onMouseDown: (e) => {
-                e.stopPropagation();
-                setActiveId(id);
-              },
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                  "header",
-                  {
-                    className: "window-titlebar",
-                    onPointerDown: (e) => {
-                      if (e.target?.closest(".window-controls")) return;
-                      if (e.target?.closest(".window-resize-handle")) return;
-                      if (windows[id].isMaximized) return;
-                      e.stopPropagation();
-                      setActiveId(id);
-                      const start = positions[id];
-                      e.currentTarget.setPointerCapture(e.pointerId);
-                      setDrag({
-                        id,
-                        pointerId: e.pointerId,
-                        startClientX: e.clientX,
-                        startClientY: e.clientY,
-                        startX: start.x,
-                        startY: start.y
-                      });
-                    },
-                    children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-title", children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(
-                          "span",
-                          {
-                            className: id === "about" ? "app-icon small about" : id === "projects" ? "app-icon small projects" : id === "gallery" ? "app-icon small gallery" : id === "blogs" ? "app-icon small blogs" : id === "jobs" ? "app-icon small projects" : id === "timeline" ? "app-icon small timeline" : id === "settings" ? "app-icon small settings" : "app-icon small contact",
-                            "aria-hidden": "true",
-                            children: id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : id === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : id === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : id === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : id === "timeline" ? /* @__PURE__ */ jsxRuntimeExports.jsx(TimelineIcon, { className: "icon" }) : id === "settings" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" })
-                          }
-                        ),
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: w.title })
-                      ] }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-controls", children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "win-btn", type: "button", "aria-label": "Minimize", onClick: () => toggleMinimize(id), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-glyph", children: "—" }) }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(
-                          "button",
-                          {
-                            className: "win-btn",
-                            type: "button",
-                            "aria-label": isMaximized ? "Restore" : "Maximize",
-                            onClick: () => toggleMaximize(id),
-                            children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-glyph", children: isMaximized ? "❐" : "□" })
-                          }
-                        ),
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "win-btn close", type: "button", "aria-label": "Close", onClick: () => closeApp(id), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-glyph", children: "×" }) })
-                      ] })
-                    ]
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-content", children: [
-                  id === "about" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "big-title", children: about.name }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: about.rolesLine }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: about.location }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "muted", children: [
-                      availability.status,
-                      " · ",
-                      availability.from
-                    ] }),
-                    about.summaryParagraphs.map((paragraph) => /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: paragraph }, paragraph)),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "chips", children: technologyChips.map((technology) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "chip", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(TechChipIcon, { className: "chip-icon" }),
-                      technology
-                    ] }, technology)) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Programming" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "chips", children: programmingChips.map((language) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "chip", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(CodeChipIcon, { className: "chip-icon" }),
-                      language
-                    ] }, language)) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Education" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: about.education.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: item }, item)) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Interests" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "chips", children: about.interests.map((interest) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip", children: interest }, interest)) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Achievements" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: about.achievements.map((achievement) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: achievement }, achievement)) })
-                  ] }),
-                  id === "timeline" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Timeline" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "A dated snapshot of my career and learning journey." }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "timeline-list timeline-rich", children: timelineItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "timeline-item", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "timeline-date", children: item.date }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "timeline-title", children: item.title }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "timeline-desc", children: item.description })
-                    ] }, `${item.date}-${item.title}`)) })
-                  ] }),
-                  id === "gallery" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Gallery" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Take a peek into my life, one chaotic screenshot at a time." }),
-                    galleryPhotos.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-grid", children: galleryPhotos.map((photo) => /* @__PURE__ */ jsxRuntimeExports.jsx("figure", { className: "gallery-item", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "button",
-                      {
-                        className: "gallery-thumb gallery-thumb-icon",
-                        type: "button",
-                        onClick: () => {
-                          setIsGalleryLightboxOpen(false);
-                          setActiveGalleryPhoto(photo);
-                        },
-                        "aria-label": `Open ${photo.displayName}`,
-                        title: photo.displayName,
-                        children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "gallery-image gallery-image-icon", src: photo.src, alt: photo.displayName, loading: "lazy" })
-                      }
-                    ) }, photo.src)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No photos found yet in /public/gallery." }),
-                    activeGalleryPhoto && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "div",
-                      {
-                        className: `gallery-lightbox ${isGalleryLightboxOpen ? "is-open" : "is-closing"}`,
-                        role: "dialog",
-                        "aria-modal": "true",
-                        onClick: () => setIsGalleryLightboxOpen(false),
-                        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-card", onClick: (e) => e.stopPropagation(), children: [
-                          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-header", children: [
-                            /* @__PURE__ */ jsxRuntimeExports.jsx(
-                              "button",
-                              {
-                                className: "gallery-lightbox-close-floating",
-                                type: "button",
-                                "aria-label": "Close image",
-                                onClick: () => setIsGalleryLightboxOpen(false),
-                                children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-close-glyph", "aria-hidden": "true", children: "×" })
-                              }
-                            ),
-                            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "gallery-lightbox-meta", children: [
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-label", children: "Image Preview" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gallery-lightbox-name", title: activeGalleryPhoto.displayName, children: activeGalleryPhoto.displayName })
-                            ] })
-                          ] }),
-                          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-body", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gallery-lightbox-stage", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "gallery-lightbox-image", src: activeGalleryPhoto.src, alt: activeGalleryPhoto.displayName }) }) })
-                        ] })
-                      }
-                    )
-                  ] }),
-                  id === "blogs" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Blogs" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Latest writing from kaus98.github.io" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: blogPosts.map((post) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: post.title }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: post.date }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: post.summary }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "wcard-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: post.link, target: "_blank", rel: "noreferrer", children: "Read" }) })
-                    ] }, post.link)) })
-                  ] }),
-                  id === "jobs" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Jobs" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Experience split by full-time and internships" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "jobs-list", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading", children: "Full-time" }),
-                      fullTimeJobs.map((job) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard job-card", children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: job.company }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "job-meta", children: [
-                          job.role,
-                          job.period ? ` · ${job.period}` : ""
-                        ] }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain job-points", children: job.highlights.map((point) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: point }, point)) })
-                      ] }, job.company)),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading panel-block", children: "Internships" }),
-                      internshipJobs.map((job) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard job-card", children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: job.company }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "job-meta", children: [
-                          job.role,
-                          job.period ? ` · ${job.period}` : ""
-                        ] }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain job-points", children: job.highlights.map((point) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: point }, point)) })
-                      ] }, job.company))
-                    ] })
-                  ] }),
-                  id === "projects" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Projects" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: projectCards.map((project) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: project.title }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: project.subtitle }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: project.description }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "wcard-actions", children: [
-                        project.website && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: project.website, target: "_blank", rel: "noreferrer", children: "Live" }),
-                        project.github && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: project.github, target: "_blank", rel: "noreferrer", children: "Code" })
-                      ] })
-                    ] }, project.title)) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Certifications" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: certifications.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: item }, item)) })
-                  ] }),
-                  id === "contact" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Contact" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "availability-card", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "availability-title", children: "Availability" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "availability-status", children: availability.status }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "availability-meta", children: [
-                        availability.from,
-                        " · ",
-                        availability.timezone
-                      ] }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "availability-meta", children: [
-                        "Updated: ",
-                        availability.updated
-                      ] })
-                    ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
-                      "Email:",
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-space" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: `mailto:${contact.email}`, children: contact.email })
-                    ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
-                      "Phone:",
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-space" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: `tel:${contact.phone.replace(/\s+/g, "")}`, children: contact.phone })
-                    ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "chips", children: contact.links.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "a",
-                      {
-                        className: "chip link",
-                        href: link.href,
-                        target: isExternalLink(link.href) ? "_blank" : void 0,
-                        rel: isExternalLink(link.href) ? "noreferrer" : void 0,
-                        download: link.download ? true : void 0,
-                        children: link.label
-                      },
-                      link.label
-                    )) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Positions of Responsibility" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: contact.responsibilities.map((position) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: position }, position)) })
-                  ] }),
-                  id === "settings" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Settings" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Control theme and sound." }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel-block", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading", children: "Theme" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "settings-label", htmlFor: "settings-theme-select", children: "Select theme" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(
-                        "select",
-                        {
-                          id: "settings-theme-select",
-                          className: "settings-select",
-                          value: theme,
-                          onChange: (e) => applyTheme(e.target.value),
-                          children: themeOptions.map((themeOption) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: themeOption.id, children: themeOption.label }, themeOption.id))
-                        }
-                      )
-                    ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel-block", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading", children: "Sound" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(
-                        "button",
-                        {
-                          className: muted ? "settings-toggle" : "settings-toggle active",
-                          type: "button",
-                          onClick: () => toggleSoundFromMenu(),
-                          disabled: audioError,
-                          "aria-pressed": !muted,
-                          children: audioError ? "Audio file missing" : muted ? "Muted" : "Unmuted"
-                        }
-                      )
-                    ] })
-                  ] })
-                ] }),
-                !isMaximized && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "div",
-                  {
-                    className: "window-resize-handle",
-                    onPointerDown: (e) => {
-                      e.stopPropagation();
-                      setActiveId(id);
-                      e.currentTarget.setPointerCapture(e.pointerId);
-                      setResize({
-                        id,
-                        pointerId: e.pointerId,
-                        startClientX: e.clientX,
-                        startClientY: e.clientY,
-                        startWidth: sizes[id].width,
-                        startHeight: sizes[id].height
-                      });
-                    }
-                  }
-                )
-              ]
-            },
-            id
-          );
-        }),
-        normalizedQuery && /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "section",
-          {
-            className: "window active search-results-window",
-            style: searchWindowStyle,
-            onMouseDown: (e) => e.stopPropagation(),
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "window-titlebar", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-title", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon small projects", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Search Results" })
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "window-controls", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "win-btn close", type: "button", "aria-label": "Close search", onClick: () => setQuery(""), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-glyph", children: "×" }) }) })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "window-content", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "section-heading", children: [
-                  'Results for "',
-                  query,
-                  '"'
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "muted", children: [
-                  filteredProjectCards.length,
-                  " project matches · ",
-                  filteredBlogPosts.length,
-                  " blog matches · ",
-                  searchedJobs.length,
-                  " work matches"
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading panel-block", children: "Projects" }),
-                filteredProjectCards.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: filteredProjectCards.map((project) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: project.title }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: project.subtitle }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: project.description })
-                ] }, `search-${project.title}`)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No matching projects." }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading panel-block", children: "Blogs" }),
-                filteredBlogPosts.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: filteredBlogPosts.map((post) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: post.title }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: post.date }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: post.summary })
-                ] }, `search-blog-${post.link}`)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No matching blogs." }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "section-heading panel-block", children: "Work" }),
-                searchedJobs.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "jobs-list", children: [
-                  filteredFullTimeJobs.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Full-time" }),
-                  filteredFullTimeJobs.map((job) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard job-card", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: job.company }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "job-meta", children: [
-                      job.role,
-                      job.period ? ` · ${job.period}` : ""
-                    ] })
-                  ] }, `search-ft-${job.company}`)),
-                  filteredInternshipJobs.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Internships" }),
-                  filteredInternshipJobs.map((job) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard job-card", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: job.company }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "job-meta", children: [
-                      job.role,
-                      job.period ? ` · ${job.period}` : ""
-                    ] })
-                  ] }, `search-int-${job.company}`))
-                ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No matching work experience." })
-              ] }) })
-            ]
-          }
-        )
-      ] })
-    ] }),
-    startOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start", onMouseDown: (e) => e.stopPropagation(), children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-top", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-search-wrap", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "search-icon", "aria-hidden": "true" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            className: "start-search-input",
-            value: startQuery,
-            onChange: (e) => setStartQuery(e.target.value),
-            placeholder: "Search for apps, files, and settings",
-            "aria-label": "Start menu search"
-          }
-        )
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-headline-row", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-title", children: "Pinned" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-title subtle", children: "All options" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-grid", children: [
-        filteredPinnedApps.map((a) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "start-item", type: "button", onClick: () => openApp(a.id), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : "app-icon projects", "aria-hidden": "true", children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-label", children: a.label })
-        ] }, a.id)),
-        filteredPinnedApps.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-empty", children: "No pinned apps found." })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-all-options", children: [
-        filteredAllOptions.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "start-option", type: "button", onClick: () => openStartOption(option), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "span",
-            {
-              className: option.key === "about" ? "app-icon small about" : option.key === "projects" ? "app-icon small projects" : option.key === "gallery" ? "app-icon small gallery" : option.key === "blogs" ? "app-icon small blogs" : option.key === "jobs" ? "app-icon small projects" : option.key === "timeline" ? "app-icon small timeline" : option.key === "contact" ? "app-icon small contact" : option.key === "settings" ? "app-icon small settings" : "app-icon small about",
-              "aria-hidden": "true",
-              children: option.key === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : option.key === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : option.key === "gallery" ? /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) : option.key === "blogs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) : option.key === "jobs" ? /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) : option.key === "timeline" ? /* @__PURE__ */ jsxRuntimeExports.jsx(TimelineIcon, { className: "icon" }) : option.key === "contact" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) : option.key === "settings" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) : option.key === "theme" ? theme === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "icon" }) : option.key === "resume" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "icon" }) : muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "icon" })
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "start-option-copy", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-option-label", children: option.label }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-option-desc", children: option.description })
-          ] })
-        ] }, option.key)),
-        filteredAllOptions.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-empty", children: "No options found." })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-social", "aria-label": "Social links", children: socialLinks.map(({ key, label, href, Icon }) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "start-social-link", href, target: "_blank", rel: "noreferrer", "aria-label": label, title: label, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "start-social-icon" }) }, key)) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-theme", "aria-label": "Theme switcher", children: startMenuThemeOptions.map((themeOption) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "button",
-        {
-          className: theme === themeOption.id ? `start-theme-btn active theme-${themeOption.id}` : `start-theme-btn theme-${themeOption.id}`,
-          type: "button",
-          onClick: () => applyTheme(themeOption.id),
-          "aria-pressed": theme === themeOption.id,
-          children: [
-            themeOption.id === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "start-theme-icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-theme-swatch", "aria-hidden": "true" }),
-            themeOption.label
-          ]
-        },
-        themeOption.id
-      )) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-userbar", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-user", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "start-avatar", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "start-avatar-img", src: AVATAR_ICON_URL, alt: "" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-user-meta", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-username", children: userName }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-user-role", children: "Data Scientist" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "start-user-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "start-power-row", "aria-label": "Power actions", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "start-power-item", type: "button", "aria-label": "Restart", title: "Restart", onClick: () => runPowerAction("restart"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(RestartIcon, { className: "start-power-item-icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "start-power-item", type: "button", "aria-label": "Sleep", title: "Sleep", onClick: () => runPowerAction("sleep"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(SleepIcon, { className: "start-power-item-icon" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "start-power-item shutdown", type: "button", "aria-label": "Shutdown", title: "Shutdown", onClick: () => runPowerAction("shutdown"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ShutdownIcon, { className: "start-power-item-icon shutdown-icon" }) })
-        ] }) })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "taskbar", onMouseDown: (e) => e.stopPropagation(), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "taskbar-inner", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "taskbar-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: startOpen ? "tb-btn active" : "tb-btn", type: "button", "aria-label": "Start", onClick: toggleStartMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "win-logo", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(WindowsIcon, { className: "win-svg" }) }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "search", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "search-icon", "aria-hidden": "true" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              className: "search-input",
-              value: query,
-              onChange: (e) => setQuery(e.target.value),
-              placeholder: "Search",
-              "aria-label": "Search"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pinned", children: pinnedApps.map((a) => {
-          const w = windows[a.id];
-          const isRunning = w.isOpen;
-          const isActive = a.id === activeId && visibleWindowIds.includes(a.id);
-          return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "button",
-            {
-              className: isActive ? "tb-btn active" : isRunning ? "tb-btn running" : "tb-btn",
-              type: "button",
-              "aria-label": a.label,
-              onClick: () => {
-                if (windows[a.id].isOpen && !windows[a.id].isMinimized && a.id === activeId) {
-                  toggleMinimize(a.id);
-                  return;
-                }
-                if (windows[a.id].isOpen && windows[a.id].isMinimized) {
-                  toggleMinimize(a.id);
-                  setActiveId(a.id);
-                  return;
-                }
-                openApp(a.id);
-              },
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "span",
-                  {
-                    className: a.id === "about" ? "app-icon about" : a.id === "projects" ? "app-icon projects" : a.id === "jobs" ? "app-icon projects" : "app-icon projects",
-                    "aria-hidden": "true",
-                    children: a.id === "about" ? /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) : a.id === "projects" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" })
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "running-dot", "aria-hidden": "true" })
-              ]
-            },
-            a.id
-          );
-        }) })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "taskbar-right", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tray", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "tray-btn", href: "./Kaustubh_Pathak_Resume.pdf", download: true, "aria-label": "Download resume", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ResumeIcon, { className: "tray-svg" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              className: "tray-btn",
-              type: "button",
-              "aria-label": "Switch theme",
-              onClick: toggleTheme,
-              children: theme === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(SunIcon, { className: "tray-svg" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MoonIcon, { className: "tray-svg" })
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              className: muted ? "tray-btn" : "tray-btn active",
-              type: "button",
-              "aria-label": audioError ? "Audio file missing" : muted ? "Unmute" : "Mute",
-              disabled: audioError,
-              onClick: () => toggleSoundFromMenu(),
-              children: muted ? /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOffIcon, { className: "tray-svg" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SpeakerOnIcon, { className: "tray-svg" })
-            }
-          )
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "clock", "aria-label": "Time and date", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "clock-time", children: timeText }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "clock-date", children: dateText })
-        ] })
-      ] })
-    ] }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      DesktopWindows,
+      {
+        windows,
+        activeId,
+        positions,
+        sizes,
+        closingWindows,
+        viewport,
+        taskbarReservedHeight,
+        windowInset,
+        forceFullscreenWindows,
+        windowRefs,
+        setActiveId,
+        setDrag,
+        setResize,
+        toggleMinimize,
+        toggleMaximize,
+        closeApp,
+        closeStartMenu,
+        openApp,
+        socialLinks,
+        about,
+        availability,
+        technologyChips,
+        programmingChips,
+        timelineItems,
+        galleryPhotos,
+        activeGalleryPhoto,
+        isGalleryLightboxOpen,
+        setIsGalleryLightboxOpen,
+        setActiveGalleryPhoto,
+        blogPosts,
+        fullTimeJobs,
+        internshipJobs,
+        projectCards,
+        certifications,
+        contact,
+        theme,
+        applyTheme,
+        muted,
+        toggleSoundFromMenu,
+        audioError,
+        terminalLines,
+        terminalInput,
+        setTerminalInput,
+        runTerminalCommand,
+        navigateTerminalHistory,
+        autocompleteTerminalInput,
+        normalizedQuery,
+        searchWindowStyle,
+        query,
+        setQuery,
+        filteredProjectCards,
+        filteredBlogPosts,
+        searchedJobs,
+        filteredFullTimeJobs,
+        filteredInternshipJobs
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      StartMenu,
+      {
+        startOpen,
+        startQuery,
+        setStartQuery,
+        filteredPinnedApps,
+        filteredAllOptions,
+        openApp,
+        openStartOption,
+        socialLinks,
+        theme,
+        applyTheme,
+        muted,
+        userName,
+        runPowerAction
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Taskbar,
+      {
+        startOpen,
+        toggleStartMenu,
+        query,
+        setQuery,
+        windows,
+        activeId,
+        visibleWindowIds,
+        toggleMinimize,
+        setActiveId,
+        openApp,
+        toggleTheme,
+        theme,
+        muted,
+        audioError,
+        toggleSoundFromMenu,
+        timeText,
+        dateText
+      }
+    )
   ] });
 }
 clientExports.createRoot(document.getElementById("root")).render(

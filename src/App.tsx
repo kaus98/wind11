@@ -1,285 +1,30 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
 import { portfolioData } from './data/portfolioData'
-
-type AppId = 'about' | 'projects' | 'gallery' | 'blogs' | 'jobs' | 'timeline' | 'contact' | 'settings'
-
-const galleryImageModules = import.meta.glob(['/public/gallery/*.{png,jpg,jpeg,webp,gif,avif,svg}', '/public/gallery/*.{PNG,JPG,JPEG,WEBP,GIF,AVIF,SVG}'], {
-  eager: true,
-  query: '?url',
-  import: 'default',
-}) as Record<string, string>
-
-const AVATAR_ICON_URL = 'https://kaus98.github.io/img/avatar-hux-home.jpg?cache-bust=1772011888911'
-const GALLERY_LIGHTBOX_TRANSITION_MS = 260
-const WINDOW_PANEL_TRANSITION_MS = 240
-
-const themeOptions = [
-  { id: 'dark', label: 'Dark' },
-  { id: 'light', label: 'Light' },
-  { id: 'aurora', label: 'Aurora' },
-  { id: 'glass', label: 'Glass' },
-  { id: 'retro', label: 'Retro' },
-  { id: 'solar', label: 'Solar' },
-  { id: 'matrix', label: 'Matrix' },
-  { id: 'neon', label: 'Neon' },
-  { id: 'sunset', label: 'Sunset' },
-  { id: 'monochrome', label: 'Monochrome' },
-  { id: 'dracula', label: 'Dracula' },
-  { id: 'oceanic', label: 'Oceanic' },
-] as const
-
-type ThemeName = (typeof themeOptions)[number]['id']
-
-function isThemeName(value: string | null): value is ThemeName {
-  return themeOptions.some((theme) => theme.id === value)
-}
-
-const startMenuThemeOptions = themeOptions.filter(
-  (themeOption) => themeOption.id === 'matrix' || themeOption.id === 'dark' || themeOption.id === 'solar',
-)
-
-type AppWindow = {
-  id: AppId
-  title: string
-  isOpen: boolean
-  isMinimized: boolean
-  isMaximized: boolean
-}
-
-function isExternalLink(href: string) {
-  return /^https?:\/\//.test(href)
-}
-
-function JobsIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M8 4.5A2.5 2.5 0 0 1 10.5 2h3A2.5 2.5 0 0 1 16 4.5V6h3.2A2.8 2.8 0 0 1 22 8.8v9.4a2.8 2.8 0 0 1-2.8 2.8H4.8A2.8 2.8 0 0 1 2 18.2V8.8A2.8 2.8 0 0 1 4.8 6H8V4.5Zm2.5-.5a.5.5 0 0 0-.5.5V6h4V4.5a.5.5 0 0 0-.5-.5h-3Z" />
-      <path d="M2 12.1h7.5v1.1a1.4 1.4 0 0 0 1.4 1.4h2.2a1.4 1.4 0 0 0 1.4-1.4v-1.1H22v-1.8h-7.5V11a.4.4 0 0 1-.4.4h-2.2a.4.4 0 0 1-.4-.4v-.7H2v1.8Z" />
-    </svg>
-  )
-}
-
-function TimelineIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2a1 1 0 0 1 1 1v8.7l5.2 3a1 1 0 1 1-1 1.8l-5.7-3.3a1 1 0 0 1-.5-.9V3a1 1 0 0 1 1-1Z" />
-      <path d="M12 5a7 7 0 1 0 7 7 1 1 0 1 1 2 0A9 9 0 1 1 12 3a1 1 0 0 1 0 2Z" />
-    </svg>
-  )
-}
-
-function RestartIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M11.9 4.2a7.8 7.8 0 0 1 6.8 4l1-1a1 1 0 0 1 1.4 1.4l-2.8 2.8a1 1 0 0 1-1.4 0L14 8.6A1 1 0 0 1 15.4 7l.9.9A5.8 5.8 0 1 0 17.7 12a1 1 0 1 1 2 0 7.8 7.8 0 1 1-7.8-7.8Z" />
-    </svg>
-  )
-}
-
-function SleepIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M15.9 3.1a1 1 0 0 1 .6 1.7A6.7 6.7 0 1 0 19.2 15a1 1 0 0 1 1.5 1.1A8.7 8.7 0 1 1 14.8 2.7a1 1 0 0 1 1.1.4Z" />
-    </svg>
-  )
-}
-
-function ShutdownIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M11 2.5a1 1 0 0 1 2 0v6.8a1 1 0 1 1-2 0V2.5Z" />
-      <path d="M7.4 4.2A1 1 0 0 1 8 6a6 6 0 1 0 8 0 1 1 0 0 1 1-1.8 8 8 0 1 1-10 0 1 1 0 0 1 .4-.1Z" />
-    </svg>
-  )
-}
-
-function SettingsIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M13 2.7a1 1 0 0 0-2 0v1a8.3 8.3 0 0 0-1.8.7l-.7-.7a1 1 0 1 0-1.4 1.4l.7.7a8.3 8.3 0 0 0-.7 1.8h-1a1 1 0 1 0 0 2h1a8.3 8.3 0 0 0 .7 1.8l-.7.7a1 1 0 1 0 1.4 1.4l.7-.7a8.3 8.3 0 0 0 1.8.7v1a1 1 0 1 0 2 0v-1a8.3 8.3 0 0 0 1.8-.7l.7.7a1 1 0 0 0 1.4-1.4l-.7-.7a8.3 8.3 0 0 0 .7-1.8h1a1 1 0 1 0 0-2h-1a8.3 8.3 0 0 0-.7-1.8l.7-.7a1 1 0 0 0-1.4-1.4l-.7.7A8.3 8.3 0 0 0 13 3.7v-1Z" />
-      <path d="M12 8.4a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2Z" />
-    </svg>
-  )
-}
-
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M7.6 2h8.8A5.6 5.6 0 0 1 22 7.6v8.8a5.6 5.6 0 0 1-5.6 5.6H7.6A5.6 5.6 0 0 1 2 16.4V7.6A5.6 5.6 0 0 1 7.6 2Zm0 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Z" />
-      <path d="M12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5Zm0 2a3 3 0 1 0 3 3 3 3 0 0 0-3-3Zm5-3.4a1.4 1.4 0 1 1-1.4 1.4A1.4 1.4 0 0 1 17 5.6Z" />
-    </svg>
-  )
-}
-
-function GithubIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2.2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-2c-2.9.6-3.5-1.2-3.5-1.2a2.8 2.8 0 0 0-1.2-1.6c-1-.7.1-.7.1-.7a2.3 2.3 0 0 1 1.7 1.1 2.4 2.4 0 0 0 3.2.9 2.4 2.4 0 0 1 .7-1.5c-2.3-.2-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.7 3.7 0 0 1 .1-2.7s.8-.3 2.8 1a9.9 9.9 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1a3.7 3.7 0 0 1 .1 2.7 3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.8-4.6 5a2.7 2.7 0 0 1 .8 2.1v3.1c0 .3.2.6.7.5A10 10 0 0 0 12 2.2Z" />
-    </svg>
-  )
-}
-
-function LinkedInIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5.2 3A2.2 2.2 0 1 1 3 5.2 2.2 2.2 0 0 1 5.2 3ZM3.5 8h3.4v12.5H3.5V8Zm5.5 0h3.2v1.8h.1a3.5 3.5 0 0 1 3.2-2c3.4 0 4 2.2 4 5.2v7.5h-3.4v-6.7c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5v6.8H9V8Z" />
-    </svg>
-  )
-}
-
-function KaggleIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 4.5a1 1 0 0 1 2 0v9.6l4.3-4.4a1 1 0 1 1 1.4 1.4L9.8 14l3 3.7a1 1 0 1 1-1.6 1.2L8.4 15.4 7 16.9v2.6a1 1 0 1 1-2 0V4.5Zm10.4 5.1a1 1 0 0 1 1.4.2l2.9 3.8 2.8-3.8a1 1 0 0 1 1.6 1.2l-3.1 4.1 3.1 4.1a1 1 0 1 1-1.6 1.2l-2.8-3.8-2.9 3.8a1 1 0 1 1-1.6-1.2l3.1-4.1-3.1-4.1a1 1 0 0 1 .2-1.4Z" />
-    </svg>
-  )
-}
-
-function TechChipIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M13 2.2a1 1 0 0 0-2 0v1.4a8.2 8.2 0 0 0-2.6 1.1L7.3 3.6a1 1 0 0 0-1.4 1.4L7 6.1A8.2 8.2 0 0 0 5.9 8.7H4.5a1 1 0 0 0 0 2h1.4A8.2 8.2 0 0 0 7 13.3l-1.1 1.1a1 1 0 1 0 1.4 1.4l1.1-1.1a8.2 8.2 0 0 0 2.6 1.1v1.4a1 1 0 0 0 2 0v-1.4a8.2 8.2 0 0 0 2.6-1.1l1.1 1.1a1 1 0 0 0 1.4-1.4L17 13.3a8.2 8.2 0 0 0 1.1-2.6h1.4a1 1 0 1 0 0-2h-1.4A8.2 8.2 0 0 0 17 6.1l1.1-1.1a1 1 0 0 0-1.4-1.4l-1.1 1.1A8.2 8.2 0 0 0 13 3.6V2.2Zm-1 5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" />
-    </svg>
-  )
-}
-
-function CodeChipIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M8 7.6a1 1 0 0 1 0 1.4L5 12l3 3a1 1 0 0 1-1.4 1.4l-3.7-3.7a1 1 0 0 1 0-1.4l3.7-3.7A1 1 0 0 1 8 7.6Zm8 0a1 1 0 0 1 1.4 0l3.7 3.7a1 1 0 0 1 0 1.4l-3.7 3.7a1 1 0 1 1-1.4-1.4l3-3-3-3a1 1 0 0 1 0-1.4ZM13.9 4.4a1 1 0 0 1 .7 1.2l-3.1 12a1 1 0 0 1-1.9-.5l3.1-12a1 1 0 0 1 1.2-.7Z" />
-    </svg>
-  )
-}
-
-function SunIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 7.2a4.8 4.8 0 1 0 4.8 4.8A4.8 4.8 0 0 0 12 7.2Zm0 7.6a2.8 2.8 0 1 1 2.8-2.8 2.8 2.8 0 0 1-2.8 2.8Z" />
-      <path d="M12 2.4a1 1 0 0 1 1 1v1.3a1 1 0 1 1-2 0V3.4a1 1 0 0 1 1-1Zm0 16.9a1 1 0 0 1 1 1v1.3a1 1 0 1 1-2 0v-1.3a1 1 0 0 1 1-1ZM4.7 11a1 1 0 1 1 0 2H3.4a1 1 0 0 1 0-2h1.3Zm16 0a1 1 0 1 1 0 2h-1.3a1 1 0 0 1 0-2h1.3ZM6.5 5.1a1 1 0 0 1 1.4 0l.9.9A1 1 0 1 1 7.4 7.4l-.9-.9a1 1 0 0 1 0-1.4Zm9.7 9.7a1 1 0 0 1 1.4 0l.9.9a1 1 0 1 1-1.4 1.4l-.9-.9a1 1 0 0 1 0-1.4ZM18.5 5.1a1 1 0 0 1 0 1.4l-.9.9a1 1 0 0 1-1.4-1.4l.9-.9a1 1 0 0 1 1.4 0Zm-9.7 9.7a1 1 0 0 1 0 1.4l-.9.9a1 1 0 1 1-1.4-1.4l.9-.9a1 1 0 0 1 1.4 0Z" />
-    </svg>
-  )
-}
-
-function MoonIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M14.9 3.3a1 1 0 0 1 .8 1.6 7.6 7.6 0 1 0 3.4 12.3 1 1 0 0 1 1.7.9 9.6 9.6 0 1 1-6.3-14.7h.4Z" />
-    </svg>
-  )
-}
-
-function BlogsIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 2v14h12V5H6Z" />
-      <path d="M8 8.2h8v1.7H8V8.2Zm0 3.6h8v1.7H8v-1.7Zm0 3.6h5.4v1.7H8v-1.7Z" />
-    </svg>
-  )
-}
-
-type WindowPos = {
-  x: number
-  y: number
-}
-
-type WindowSize = {
-  width: number
-  height: number
-}
-
-type WindowBounds = WindowPos & WindowSize
-
-type DragState = {
-  id: AppId
-  pointerId: number
-  startClientX: number
-  startClientY: number
-  startX: number
-  startY: number
-}
-
-type ResizeState = {
-  id: AppId
-  pointerId: number
-  startClientX: number
-  startClientY: number
-  startWidth: number
-  startHeight: number
-}
-
-function WindowsIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="#00A4EF" d="M3 3h8.6v8.6H3V3Z" />
-      <path fill="#7FBA00" d="M12.9 3H21v8.6h-8.1V3Z" />
-      <path fill="#FFB900" d="M3 12.9h8.6V21H3v-8.1Z" />
-      <path fill="#F25022" d="M12.9 12.9H21V21h-8.1v-8.1Z" />
-    </svg>
-  )
-}
-
-function AboutIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 3.2a4.2 4.2 0 1 1-4.2 4.2A4.2 4.2 0 0 1 12 3.2Zm0 10.4c4.2 0 7.6 2.3 7.6 5.1a1 1 0 0 1-1 1H5.4a1 1 0 0 1-1-1c0-2.8 3.4-5.1 7.6-5.1Zm0 2c-2.9 0-5.2 1.3-5.6 2.5h11.2c-.4-1.2-2.7-2.5-5.6-2.5Z" />
-    </svg>
-  )
-}
-
-function ProjectsIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M10 4h4l2 2h4.2c1 0 1.8.8 1.8 1.8V18c0 1-.8 1.8-1.8 1.8H3.8C2.8 19.8 2 19 2 18V6.8C2 5.8 2.8 5 3.8 5H8l2-1Zm11.2 4.3H2.8V18c0 .6.4 1 1 1h16.4c.6 0 1-.4 1-1V8.3Z" />
-      <path d="M10.1 10.8 6.9 12.7l3.2 1.9v1.3L5 13.4v-1.4l5.1-2.5v1.3Zm3.8 4.1 3.2-1.9-3.2-1.9V9.8L19 12.3v1.4l-5.1 2.5v-1.3Z" />
-    </svg>
-  )
-}
-
-function ContactIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M20 6H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2Zm0 2v.4l-8 5-8-5V8h16Zm0 8H4V9.7l7.5 4.7c.3.2.7.2 1 0L20 9.7V16Z" />
-    </svg>
-  )
-}
-
-function GalleryIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M4.2 4h15.6A2.2 2.2 0 0 1 22 6.2v11.6a2.2 2.2 0 0 1-2.2 2.2H4.2A2.2 2.2 0 0 1 2 17.8V6.2A2.2 2.2 0 0 1 4.2 4Zm0 2a.2.2 0 0 0-.2.2v11.6c0 .1.1.2.2.2h15.6a.2.2 0 0 0 .2-.2V6.2a.2.2 0 0 0-.2-.2H4.2Z" />
-      <path d="M7.3 10.5a1.9 1.9 0 1 1 1.9-1.9 1.9 1.9 0 0 1-1.9 1.9Zm0-2a.1.1 0 1 0 .1.1.1.1 0 0 0-.1-.1Zm12.2 7.5H4.5a1 1 0 0 1-.8-1.6l3.6-5a1 1 0 0 1 1.4-.2l2.2 1.6 2.3-3a1 1 0 0 1 1.5-.1l5.6 5.8a1 1 0 0 1-.8 1.7Z" />
-    </svg>
-  )
-}
-
-function SpeakerOnIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M11 4 6.8 7.6H3a1 1 0 0 0-1 1v6.8a1 1 0 0 0 1 1h3.8L11 20V4Z" />
-      <path d="M14.6 8.2a1 1 0 0 1 1.4 0 6.7 6.7 0 0 1 0 9.6 1 1 0 1 1-1.4-1.4 4.7 4.7 0 0 0 0-6.8 1 1 0 0 1 0-1.4Z" />
-      <path d="M17.4 5.4a1 1 0 0 1 1.4 0 10.7 10.7 0 0 1 0 15.2 1 1 0 1 1-1.4-1.4 8.7 8.7 0 0 0 0-12.4 1 1 0 0 1 0-1.4Z" />
-    </svg>
-  )
-}
-
-function SpeakerOffIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M11 4 6.8 7.6H3a1 1 0 0 0-1 1v6.8a1 1 0 0 0 1 1h3.8L11 20V4Z" />
-      <path d="M15.2 9.2a1 1 0 0 1 1.4 0L19 11.6l2.4-2.4a1 1 0 1 1 1.4 1.4L20.4 13l2.4 2.4a1 1 0 1 1-1.4 1.4L19 14.4l-2.4 2.4a1 1 0 0 1-1.4-1.4l2.4-2.4-2.4-2.4a1 1 0 0 1 0-1.4Z" />
-    </svg>
-  )
-}
-
-function ResumeIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M7 2h7.3L18 5.7V14a1 1 0 0 1-2 0V7h-3.3A1.7 1.7 0 0 1 11 5.3V2H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h4a1 1 0 1 1 0 2H7a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3Zm6 1.9V5a.3.3 0 0 0 .3.3H16l-3-3Z" />
-      <path d="M18 16a1 1 0 0 1 1 1v2.6l.8-.8a1 1 0 1 1 1.4 1.4l-2.5 2.5a1 1 0 0 1-1.4 0l-2.5-2.5a1 1 0 1 1 1.4-1.4l.8.8V17a1 1 0 0 1 1-1Z" />
-    </svg>
-  )
-}
+import {
+  GALLERY_LIGHTBOX_TRANSITION_MS,
+  WINDOW_PANEL_TRANSITION_MS,
+  galleryImageModules,
+  initialClosingWindows,
+  initialPositions,
+  initialRestoreBounds,
+  initialSizes,
+  initialWindows,
+  isThemeName,
+  pinnedApps,
+  themeOptions,
+  type ThemeName,
+} from './app/constants'
+import {
+  GithubIcon,
+  InstagramIcon,
+  KaggleIcon,
+  LinkedInIcon,
+} from './app/icons'
+import { DesktopWindows } from './app/DesktopWindows'
+import { StartMenu, type StartMenuOption } from './app/StartMenu'
+import { Taskbar } from './app/Taskbar'
+import type { AppId, AppWindow, DragState, GalleryPhoto, ResizeState, TerminalLine, WindowBounds, WindowPos, WindowSize } from './app/types'
 
 function App() {
   const [startOpen, setStartOpen] = useState(false)
@@ -293,48 +38,12 @@ function App() {
   const windowInset = viewport.width < 480 ? 6 : 8
   const forceFullscreenWindows = viewport.width < 640
 
-  const [positions, setPositions] = useState<Record<AppId, WindowPos>>({
-    about: { x: 160, y: 70 },
-    projects: { x: 210, y: 110 },
-    gallery: { x: 230, y: 110 },
-    blogs: { x: 220, y: 100 },
-    jobs: { x: 240, y: 130 },
-    timeline: { x: 250, y: 120 },
-    contact: { x: 240, y: 140 },
-    settings: { x: 260, y: 90 },
-  })
+  const [positions, setPositions] = useState<Record<AppId, WindowPos>>(initialPositions)
   const [drag, setDrag] = useState<DragState | null>(null)
   const [resize, setResize] = useState<ResizeState | null>(null)
-  const [sizes, setSizes] = useState<Record<AppId, WindowSize>>({
-    about: { width: 840, height: 520 },
-    projects: { width: 840, height: 520 },
-    gallery: { width: 920, height: 560 },
-    blogs: { width: 860, height: 540 },
-    jobs: { width: 860, height: 560 },
-    timeline: { width: 860, height: 560 },
-    contact: { width: 620, height: 440 },
-    settings: { width: 540, height: 420 },
-  })
-  const [restoreBounds, setRestoreBounds] = useState<Record<AppId, WindowBounds | null>>({
-    about: null,
-    projects: null,
-    gallery: null,
-    blogs: null,
-    jobs: null,
-    timeline: null,
-    contact: null,
-    settings: null,
-  })
-  const [closingWindows, setClosingWindows] = useState<Record<AppId, boolean>>({
-    about: false,
-    projects: false,
-    gallery: false,
-    blogs: false,
-    jobs: false,
-    timeline: false,
-    contact: false,
-    settings: false,
-  })
+  const [sizes, setSizes] = useState<Record<AppId, WindowSize>>(initialSizes)
+  const [restoreBounds, setRestoreBounds] = useState<Record<AppId, WindowBounds | null>>(initialRestoreBounds)
+  const [closingWindows, setClosingWindows] = useState<Record<AppId, boolean>>(initialClosingWindows)
   const closeWindowTimeouts = useRef<Partial<Record<AppId, number>>>({})
   const windowRefs = useRef<Record<AppId, HTMLElement | null>>({
     about: null,
@@ -345,6 +54,7 @@ function App() {
     timeline: null,
     contact: null,
     settings: null,
+    terminal: null,
   })
 
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -357,23 +67,22 @@ function App() {
   const [soundToastOpen, setSoundToastOpen] = useState(false)
   const [soundToastText, setSoundToastText] = useState<string>('')
   const [isSleeping, setIsSleeping] = useState(false)
-  const [activeGalleryPhoto, setActiveGalleryPhoto] = useState<{ src: string; filename: string; displayName: string } | null>(null)
+  const [activeGalleryPhoto, setActiveGalleryPhoto] = useState<GalleryPhoto | null>(null)
   const [isGalleryLightboxOpen, setIsGalleryLightboxOpen] = useState(false)
   const [theme, setTheme] = useState<ThemeName>(() => {
     const raw = window.localStorage.getItem('w11-theme')
     return isThemeName(raw) ? raw : 'matrix'
   })
 
-  const [windows, setWindows] = useState<Record<AppId, AppWindow>>({
-    about: { id: 'about', title: 'About', isOpen: false, isMinimized: false, isMaximized: false },
-    projects: { id: 'projects', title: 'Projects', isOpen: false, isMinimized: false, isMaximized: false },
-    gallery: { id: 'gallery', title: 'Gallery', isOpen: false, isMinimized: false, isMaximized: false },
-    blogs: { id: 'blogs', title: 'Blogs', isOpen: false, isMinimized: false, isMaximized: false },
-    jobs: { id: 'jobs', title: 'Jobs', isOpen: false, isMinimized: false, isMaximized: false },
-    timeline: { id: 'timeline', title: 'Timeline', isOpen: false, isMinimized: false, isMaximized: false },
-    contact: { id: 'contact', title: 'Contact', isOpen: false, isMinimized: false, isMaximized: false },
-    settings: { id: 'settings', title: 'Settings', isOpen: false, isMinimized: false, isMaximized: false },
-  })
+  const [terminalLines, setTerminalLines] = useState<TerminalLine[]>([
+    { id: 1, text: 'Kaus OS Terminal v1.0.0', tone: 'system' },
+    { id: 2, text: "Type 'help' to list available commands.", tone: 'system' },
+  ])
+  const [terminalInput, setTerminalInput] = useState('')
+  const [terminalHistory, setTerminalHistory] = useState<string[]>([])
+  const [, setTerminalHistoryIndex] = useState(-1)
+
+  const [windows, setWindows] = useState<Record<AppId, AppWindow>>(initialWindows)
 
   useEffect(() => {
     const t = window.setInterval(() => setNow(new Date()), 1000)
@@ -431,6 +140,328 @@ function App() {
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [positions, sizes])
+
+  function pushTerminalLines(lines: Array<{ text: string; tone: TerminalLine['tone'] }>) {
+    if (lines.length === 0) return
+    setTerminalLines((prev) => {
+      let nextId = prev.length > 0 ? prev[prev.length - 1].id + 1 : 1
+      const appended = lines.map((line) => {
+        const entry: TerminalLine = { id: nextId, text: line.text, tone: line.tone }
+        nextId += 1
+        return entry
+      })
+      return [...prev, ...appended]
+    })
+  }
+
+  function downloadResume() {
+    const anchor = document.createElement('a')
+    anchor.href = './Kaustubh_Pathak_Resume.pdf'
+    anchor.download = ''
+    anchor.click()
+  }
+
+  function resolveAppId(token: string | undefined): AppId | null {
+    if (!token) return null
+    const normalized = token.toLowerCase()
+    const appAliasMap: Record<string, AppId> = {
+      about: 'about',
+      project: 'projects',
+      projects: 'projects',
+      gallery: 'gallery',
+      blog: 'blogs',
+      blogs: 'blogs',
+      job: 'jobs',
+      jobs: 'jobs',
+      timeline: 'timeline',
+      contact: 'contact',
+      setting: 'settings',
+      settings: 'settings',
+      terminal: 'terminal',
+    }
+    return appAliasMap[normalized] ?? null
+  }
+
+  function maximizeApp(id: AppId) {
+    setRestoreBounds((boundsPrev) => ({
+      ...boundsPrev,
+      [id]: boundsPrev[id] ?? {
+        x: positions[id].x,
+        y: positions[id].y,
+        width: sizes[id].width,
+        height: sizes[id].height,
+      },
+    }))
+
+    setWindows((prev) => ({
+      ...prev,
+      [id]: { ...prev[id], isOpen: true, isMinimized: false, isMaximized: true },
+    }))
+    setActiveId(id)
+  }
+
+  function getTerminalHelpLines() {
+    return [
+      'Core: help, clear, history, date, time, echo <text>, man <command>',
+      'Navigation: apps, open <app>, close <app>, minimize <app>, maximize <app>',
+      'Apps: about, projects, gallery, blogs, jobs, timeline, contact, settings, terminal',
+      'System: resume, theme list, theme set <name>, theme next, sound on/off/toggle',
+      'Profile: whoami, skills, social, neofetch, matrix, fortune, joke',
+      'Aliases: ls=apps, cls=clear, cv=resume',
+    ]
+  }
+
+  function runTerminalCommand(rawInput: string) {
+    const commandText = rawInput.trim()
+    if (!commandText) return
+
+    pushTerminalLines([{ text: `C:/Users/${userName}> ${commandText}`, tone: 'input' }])
+    setTerminalHistory((prev) => [...prev, commandText])
+    setTerminalHistoryIndex(-1)
+
+    const [rawCommand, ...args] = commandText.split(/\s+/)
+    const aliases: Record<string, string> = { ls: 'apps', cls: 'clear', cv: 'resume' }
+    const command = aliases[rawCommand.toLowerCase()] ?? rawCommand.toLowerCase()
+
+    const pushOutput = (...text: string[]) => pushTerminalLines(text.map((line) => ({ text: line, tone: 'output' as const })))
+    const pushError = (text: string) => pushTerminalLines([{ text, tone: 'error' }])
+    const pushSystem = (...text: string[]) => pushTerminalLines(text.map((line) => ({ text: line, tone: 'system' as const })))
+
+    if (command === 'clear') {
+      setTerminalLines([])
+      setTerminalInput('')
+      return
+    }
+
+    switch (command) {
+      case 'help':
+        pushOutput(...getTerminalHelpLines())
+        break
+      case 'history':
+        pushOutput(...(terminalHistory.length ? terminalHistory.map((entry, index) => `${index + 1}. ${entry}`) : ['No commands in history yet.']))
+        break
+      case 'date':
+        pushOutput(now.toLocaleDateString())
+        break
+      case 'time':
+        pushOutput(now.toLocaleTimeString())
+        break
+      case 'echo':
+        pushOutput(args.join(' '))
+        break
+      case 'man': {
+        const topic = args[0]?.toLowerCase()
+        if (!topic) {
+          pushError('Usage: man <command>')
+        } else if (topic === 'theme') {
+          pushOutput('theme list | theme set <name> | theme next')
+        } else if (topic === 'sound') {
+          pushOutput('sound on | sound off | sound toggle')
+        } else if (topic === 'open') {
+          pushOutput('open <app-name>  # about/projects/gallery/blogs/jobs/timeline/contact/settings/terminal')
+        } else {
+          pushOutput(`No manual entry for '${topic}'.`)
+        }
+        break
+      }
+      case 'apps':
+        pushOutput('Installed apps: about, projects, gallery, blogs, jobs, timeline, contact, settings, terminal')
+        break
+      case 'open': {
+        const appId = resolveAppId(args[0])
+        if (!appId) {
+          pushError('Unknown app. Try: open projects')
+          break
+        }
+        openApp(appId)
+        pushSystem(`Opened ${appId}.`)
+        break
+      }
+      case 'close': {
+        const appId = resolveAppId(args[0])
+        if (!appId) {
+          pushError('Unknown app. Try: close projects')
+          break
+        }
+        closeApp(appId)
+        pushSystem(`Closing ${appId}.`)
+        break
+      }
+      case 'minimize': {
+        const appId = resolveAppId(args[0])
+        if (!appId) {
+          pushError('Unknown app. Try: minimize projects')
+          break
+        }
+        toggleMinimize(appId)
+        pushSystem(`Toggled minimize for ${appId}.`)
+        break
+      }
+      case 'maximize': {
+        const appId = resolveAppId(args[0])
+        if (!appId) {
+          pushError('Unknown app. Try: maximize projects')
+          break
+        }
+        maximizeApp(appId)
+        pushSystem(`Maximized ${appId}.`)
+        break
+      }
+      case 'about':
+      case 'projects':
+      case 'gallery':
+      case 'blogs':
+      case 'jobs':
+      case 'timeline':
+      case 'contact':
+      case 'settings':
+      case 'terminal':
+        openApp(command)
+        pushSystem(`Opened ${command}.`)
+        break
+      case 'resume':
+        downloadResume()
+        pushSystem('Resume download started.')
+        break
+      case 'theme': {
+        const sub = args[0]?.toLowerCase()
+        if (sub === 'list') {
+          pushOutput(`Themes: ${themeOptions.map((item) => item.id).join(', ')}`)
+        } else if (sub === 'next') {
+          toggleTheme()
+          pushSystem('Switched to next theme.')
+        } else if (sub === 'set') {
+          const next = args[1]?.toLowerCase() ?? null
+          if (!next || !isThemeName(next)) {
+            pushError('Usage: theme set <name>  # use theme list')
+            break
+          }
+          applyTheme(next)
+          pushSystem(`Theme set to ${next}.`)
+        } else {
+          pushError('Usage: theme list | theme set <name> | theme next')
+        }
+        break
+      }
+      case 'sound': {
+        const sub = args[0]?.toLowerCase()
+        if (sub === 'toggle') {
+          toggleSoundFromMenu()
+          pushSystem('Sound toggled.')
+        } else if (sub === 'on') {
+          if (muted) {
+            toggleSoundFromMenu()
+            pushSystem('Attempting to enable sound.')
+          } else {
+            pushOutput('Sound is already on.')
+          }
+        } else if (sub === 'off') {
+          if (muted) {
+            pushOutput('Sound is already off.')
+          } else {
+            setMuted(true)
+            pushSystem('Sound muted.')
+          }
+        } else {
+          pushError('Usage: sound on | sound off | sound toggle')
+        }
+        break
+      }
+      case 'whoami':
+        pushOutput(`${about.name} - ${about.rolesLine}`)
+        break
+      case 'skills':
+        pushOutput(`Technologies: ${technologyChips.join(', ')}`)
+        pushOutput(`Programming: ${programmingChips.join(', ')}`)
+        break
+      case 'social':
+        pushOutput(...socialLinks.map((item) => `${item.label}: ${item.href}`))
+        break
+      case 'matrix': {
+        const glyphs = '01#@$%&*+'
+        const rows = Array.from({ length: 8 }, () => Array.from({ length: 34 }, () => glyphs[Math.floor(Math.random() * glyphs.length)]).join(''))
+        pushOutput(...rows)
+        break
+      }
+      case 'neofetch':
+        pushOutput('Kaus-OS', `User: ${about.name}`, `Role: ${about.rolesLine}`, `Location: ${about.location}`, `Theme: ${theme}`)
+        break
+      case 'fortune': {
+        const fortunes = ['Stay curious, keep shipping.', 'Small commits build big products.', 'Data tells stories if you ask the right questions.']
+        pushOutput(fortunes[Math.floor(Math.random() * fortunes.length)])
+        break
+      }
+      case 'joke': {
+        const jokes = [
+          'Why do programmers prefer dark mode? Because light attracts bugs.',
+          'There are 10 types of people: those who understand binary and those who do not.',
+          'I would tell you a UDP joke, but you might not get it.',
+        ]
+        pushOutput(jokes[Math.floor(Math.random() * jokes.length)])
+        break
+      }
+      default:
+        pushError(`Unknown command: ${command}. Type 'help' to see available commands.`)
+    }
+
+    setTerminalInput('')
+  }
+
+  function navigateTerminalHistory(direction: 'up' | 'down') {
+    if (terminalHistory.length === 0) return
+
+    setTerminalHistoryIndex((prev) => {
+      if (direction === 'up') {
+        const nextIndex = prev === -1 ? terminalHistory.length - 1 : Math.max(0, prev - 1)
+        setTerminalInput(terminalHistory[nextIndex])
+        return nextIndex
+      }
+
+      if (prev === -1) return -1
+      const nextIndex = prev + 1
+      if (nextIndex >= terminalHistory.length) {
+        setTerminalInput('')
+        return -1
+      }
+
+      setTerminalInput(terminalHistory[nextIndex])
+      return nextIndex
+    })
+  }
+
+  function autocompleteTerminalInput() {
+    const value = terminalInput.trimStart()
+    if (!value) return
+
+    if (value.includes(' ')) {
+      const [command, ...rest] = value.split(/\s+/)
+      if (command.toLowerCase() === 'theme' && rest.length === 2 && rest[0].toLowerCase() === 'set') {
+        const partial = rest[1].toLowerCase()
+        const matches = themeOptions.map((item) => item.id).filter((name) => name.startsWith(partial))
+        if (matches.length === 1) {
+          setTerminalInput(`theme set ${matches[0]}`)
+        }
+      }
+      return
+    }
+
+    const commandCatalog = [
+      'help', 'clear', 'history', 'date', 'time', 'echo', 'man', 'apps', 'open', 'close', 'minimize', 'maximize',
+      'about', 'projects', 'gallery', 'blogs', 'jobs', 'timeline', 'contact', 'settings', 'terminal',
+      'resume', 'theme', 'sound', 'whoami', 'skills', 'social', 'matrix', 'neofetch', 'fortune', 'joke',
+      'ls', 'cls', 'cv',
+    ]
+    const partial = value.toLowerCase()
+    const matches = commandCatalog.filter((item) => item.startsWith(partial))
+    if (matches.length === 1) {
+      setTerminalInput(matches[0])
+      return
+    }
+
+    if (matches.length > 1) {
+      pushTerminalLines([{ text: `Suggestions: ${matches.join(', ')}`, tone: 'system' }])
+    }
+  }
 
   useEffect(() => {
     if (!activeGalleryPhoto) return
@@ -615,17 +646,7 @@ function App() {
     }
   }, [positions, resize, taskbarReservedHeight, viewport.width, windows])
 
-  const pinnedApps = useMemo(
-    () =>
-      [
-        { id: 'about' as const, label: 'About' },
-        { id: 'projects' as const, label: 'Projects' },
-        { id: 'jobs' as const, label: 'Jobs' },
-      ],
-    [],
-  )
-
-  const allOptions = useMemo(
+  const allOptions = useMemo<StartMenuOption[]>(
     () => [
       { key: 'about', label: 'About', description: 'Profile, education and skills', type: 'app' as const, appId: 'about' as const },
       { key: 'projects', label: 'Projects', description: 'AI, NLP and data engineering work', type: 'app' as const, appId: 'projects' as const },
@@ -635,6 +656,7 @@ function App() {
       { key: 'timeline', label: 'Timeline', description: 'Career milestones and dated journey', type: 'app' as const, appId: 'timeline' as const },
       { key: 'contact', label: 'Contact', description: 'Email, phone and social links', type: 'app' as const, appId: 'contact' as const },
       { key: 'settings', label: 'Settings', description: 'Theme, sound and time controls', type: 'app' as const, appId: 'settings' as const },
+      { key: 'terminal', label: 'Terminal', description: 'Command line tools and shortcuts', type: 'app' as const, appId: 'terminal' as const },
       { key: 'resume', label: 'Resume', description: 'Download PDF resume', type: 'resume' as const },
       {
         key: 'theme',
@@ -789,8 +811,9 @@ function App() {
       })
   }
 
-  function openStartOption(option: (typeof allOptions)[number]) {
+  function openStartOption(option: StartMenuOption) {
     if (option.type === 'app') {
+      if (!option.appId) return
       openApp(option.appId)
       return
     }
@@ -960,883 +983,99 @@ function App() {
         </div>
       )}
 
-      <div className="desktop" onMouseDown={closeStartMenu}>
-        <div className="desktop-icons">
-          <button className="desktop-icon" type="button" onClick={() => openApp('about')}>
-            <span className="app-icon about" aria-hidden="true">
-              <AboutIcon className="icon" />
-            </span>
-            <span className="desktop-icon-label">About</span>
-          </button>
-          <button className="desktop-icon" type="button" onClick={() => openApp('projects')}>
-            <span className="app-icon projects" aria-hidden="true">
-              <ProjectsIcon className="icon" />
-            </span>
-            <span className="desktop-icon-label">Projects</span>
-          </button>
-          <button className="desktop-icon" type="button" onClick={() => openApp('gallery')}>
-            <span className="app-icon gallery" aria-hidden="true">
-              <GalleryIcon className="icon" />
-            </span>
-            <span className="desktop-icon-label">Gallery</span>
-          </button>
-          <button className="desktop-icon" type="button" onClick={() => openApp('blogs')}>
-            <span className="app-icon blogs" aria-hidden="true">
-              <BlogsIcon className="icon" />
-            </span>
-            <span className="desktop-icon-label">Blogs</span>
-          </button>
-          <button className="desktop-icon" type="button" onClick={() => openApp('jobs')}>
-            <span className="app-icon projects" aria-hidden="true">
-              <JobsIcon className="icon" />
-            </span>
-            <span className="desktop-icon-label">Jobs</span>
-          </button>
-          <button className="desktop-icon" type="button" onClick={() => openApp('timeline')}>
-            <span className="app-icon timeline" aria-hidden="true">
-              <TimelineIcon className="icon" />
-            </span>
-            <span className="desktop-icon-label">Timeline</span>
-          </button>
-          <button className="desktop-icon" type="button" onClick={() => openApp('contact')}>
-            <span className="app-icon contact" aria-hidden="true">
-              <ContactIcon className="icon" />
-            </span>
-            <span className="desktop-icon-label">Contact</span>
-          </button>
-          <button className="desktop-icon" type="button" onClick={() => openApp('settings')}>
-            <span className="app-icon settings" aria-hidden="true">
-              <SettingsIcon className="icon" />
-            </span>
-            <span className="desktop-icon-label">Settings</span>
-          </button>
-        </div>
+      <DesktopWindows
+        windows={windows}
+        activeId={activeId}
+        positions={positions}
+        sizes={sizes}
+        closingWindows={closingWindows}
+        viewport={viewport}
+        taskbarReservedHeight={taskbarReservedHeight}
+        windowInset={windowInset}
+        forceFullscreenWindows={forceFullscreenWindows}
+        windowRefs={windowRefs}
+        setActiveId={setActiveId}
+        setDrag={setDrag}
+        setResize={setResize}
+        toggleMinimize={toggleMinimize}
+        toggleMaximize={toggleMaximize}
+        closeApp={closeApp}
+        closeStartMenu={closeStartMenu}
+        openApp={openApp}
+        socialLinks={socialLinks}
+        about={about}
+        availability={availability}
+        technologyChips={technologyChips}
+        programmingChips={programmingChips}
+        timelineItems={timelineItems}
+        galleryPhotos={galleryPhotos}
+        activeGalleryPhoto={activeGalleryPhoto}
+        isGalleryLightboxOpen={isGalleryLightboxOpen}
+        setIsGalleryLightboxOpen={setIsGalleryLightboxOpen}
+        setActiveGalleryPhoto={setActiveGalleryPhoto}
+        blogPosts={blogPosts}
+        fullTimeJobs={fullTimeJobs}
+        internshipJobs={internshipJobs}
+        projectCards={projectCards}
+        certifications={certifications}
+        contact={contact}
+        theme={theme}
+        applyTheme={applyTheme}
+        muted={muted}
+        toggleSoundFromMenu={toggleSoundFromMenu}
+        audioError={audioError}
+        terminalLines={terminalLines}
+        terminalInput={terminalInput}
+        setTerminalInput={setTerminalInput}
+        runTerminalCommand={runTerminalCommand}
+        navigateTerminalHistory={navigateTerminalHistory}
+        autocompleteTerminalInput={autocompleteTerminalInput}
+        normalizedQuery={normalizedQuery}
+        searchWindowStyle={searchWindowStyle}
+        query={query}
+        setQuery={setQuery}
+        filteredProjectCards={filteredProjectCards}
+        filteredBlogPosts={filteredBlogPosts}
+        searchedJobs={searchedJobs}
+        filteredFullTimeJobs={filteredFullTimeJobs}
+        filteredInternshipJobs={filteredInternshipJobs}
+      />
 
-        <aside className="social-rail" aria-label="Social links" onMouseDown={(e) => e.stopPropagation()}>
-          {socialLinks.map(({ key, label, href, Icon }) => (
-            <a key={key} className="social-rail-link" href={href} target="_blank" rel="noreferrer" aria-label={label} title={label}>
-              <Icon className="social-rail-icon" />
-            </a>
-          ))}
-        </aside>
+      <StartMenu
+        startOpen={startOpen}
+        startQuery={startQuery}
+        setStartQuery={setStartQuery}
+        filteredPinnedApps={filteredPinnedApps}
+        filteredAllOptions={filteredAllOptions}
+        openApp={openApp}
+        openStartOption={openStartOption}
+        socialLinks={socialLinks}
+        theme={theme}
+        applyTheme={applyTheme}
+        muted={muted}
+        userName={userName}
+        runPowerAction={runPowerAction}
+      />
 
-        <div className="window-area">
-          {(Object.keys(windows) as AppId[]).map((id) => {
-            const w = windows[id]
-            if (!w.isOpen || w.isMinimized) return null
-
-            const isActive = activeId === id
-            const zIndex = isActive ? 3 : 2
-            const pos = positions[id]
-            const size = sizes[id]
-            const isMaximized = windows[id].isMaximized
-            const windowClassName = [
-              'window',
-              isActive ? 'active' : '',
-              isMaximized ? 'maximized' : '',
-              closingWindows[id] ? 'window-exit' : 'window-enter',
-            ]
-              .filter(Boolean)
-              .join(' ')
-            const maximizedHeight = Math.max(220, viewport.height - taskbarReservedHeight)
-            const fullscreenHeight = Math.max(220, viewport.height - taskbarReservedHeight - windowInset * 2)
-
-            return (
-              <section
-                key={id}
-                className={windowClassName}
-                style={
-                  isMaximized
-                    ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight }
-                    : forceFullscreenWindows
-                      ? {
-                          zIndex,
-                          left: windowInset,
-                          top: windowInset,
-                          width: Math.max(0, viewport.width - windowInset * 2),
-                          height: fullscreenHeight,
-                        }
-                      : { zIndex, left: pos.x, top: pos.y, width: size.width, height: size.height }
-                }
-                ref={(el) => {
-                  windowRefs.current[id] = el
-                }}
-                onMouseDown={(e) => {
-                  e.stopPropagation()
-                  setActiveId(id)
-                }}
-              >
-                <header
-                  className="window-titlebar"
-                  onPointerDown={(e) => {
-                    if ((e.target as HTMLElement | null)?.closest('.window-controls')) return
-                    if ((e.target as HTMLElement | null)?.closest('.window-resize-handle')) return
-                    if (windows[id].isMaximized) return
-
-                    e.stopPropagation()
-                    setActiveId(id)
-
-                    const start = positions[id]
-                    ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
-                    setDrag({
-                      id,
-                      pointerId: e.pointerId,
-                      startClientX: e.clientX,
-                      startClientY: e.clientY,
-                      startX: start.x,
-                      startY: start.y,
-                    })
-                  }}
-                >
-                  <div className="window-title">
-                    <span
-                      className={
-                        id === 'about'
-                          ? 'app-icon small about'
-                          : id === 'projects'
-                            ? 'app-icon small projects'
-                            : id === 'gallery'
-                              ? 'app-icon small gallery'
-                            : id === 'blogs'
-                              ? 'app-icon small blogs'
-                            : id === 'jobs'
-                              ? 'app-icon small projects'
-                            : id === 'timeline'
-                              ? 'app-icon small timeline'
-                            : id === 'settings'
-                              ? 'app-icon small settings'
-                            : 'app-icon small contact'
-                      }
-                      aria-hidden="true"
-                    >
-                      {id === 'about' ? (
-                        <AboutIcon className="icon" />
-                      ) : id === 'projects' ? (
-                        <ProjectsIcon className="icon" />
-                      ) : id === 'gallery' ? (
-                        <GalleryIcon className="icon" />
-                      ) : id === 'blogs' ? (
-                        <BlogsIcon className="icon" />
-                      ) : id === 'jobs' ? (
-                        <JobsIcon className="icon" />
-                      ) : id === 'timeline' ? (
-                        <TimelineIcon className="icon" />
-                      ) : id === 'settings' ? (
-                        <SettingsIcon className="icon" />
-                      ) : (
-                        <ContactIcon className="icon" />
-                      )}
-                    </span>
-                    <span>{w.title}</span>
-                  </div>
-                  <div className="window-controls">
-                    <button className="win-btn" type="button" aria-label="Minimize" onClick={() => toggleMinimize(id)}>
-                      <span className="win-glyph">—</span>
-                    </button>
-                    <button
-                      className="win-btn"
-                      type="button"
-                      aria-label={isMaximized ? 'Restore' : 'Maximize'}
-                      onClick={() => toggleMaximize(id)}
-                    >
-                      <span className="win-glyph">{isMaximized ? '❐' : '□'}</span>
-                    </button>
-                    <button className="win-btn close" type="button" aria-label="Close" onClick={() => closeApp(id)}>
-                      <span className="win-glyph">×</span>
-                    </button>
-                  </div>
-                </header>
-
-                <div className="window-content">
-                  {id === 'about' && (
-                    <div className="panel full-panel">
-                      <h1 className="big-title">{about.name}</h1>
-                      <p className="muted">{about.rolesLine}</p>
-                      <p className="muted">{about.location}</p>
-                      <p className="muted">
-                        {availability.status} · {availability.from}
-                      </p>
-                      {about.summaryParagraphs.map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
-                      ))}
-                      <div className="chips">
-                        {technologyChips.map((technology) => (
-                          <span className="chip" key={technology}>
-                            <TechChipIcon className="chip-icon" />
-                            {technology}
-                          </span>
-                        ))}
-                      </div>
-
-                      <h2 className="section-heading panel-block">Programming</h2>
-                      <div className="chips">
-                        {programmingChips.map((language) => (
-                          <span className="chip" key={language}>
-                            <CodeChipIcon className="chip-icon" />
-                            {language}
-                          </span>
-                        ))}
-                      </div>
-
-                      <h2 className="section-heading panel-block">Education</h2>
-                      <ul className="list-plain">
-                        {about.education.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-
-                      <h2 className="section-heading panel-block">Interests</h2>
-                      <div className="chips">
-                        {about.interests.map((interest) => (
-                          <span className="chip" key={interest}>
-                            {interest}
-                          </span>
-                        ))}
-                      </div>
-
-                      <h2 className="section-heading panel-block">Achievements</h2>
-                      <ul className="list-plain">
-                        {about.achievements.map((achievement) => (
-                          <li key={achievement}>{achievement}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {id === 'timeline' && (
-                    <div className="panel full-panel">
-                      <h2 className="section-heading">Timeline</h2>
-                      <p className="muted">A dated snapshot of my career and learning journey.</p>
-                      <div className="timeline-list timeline-rich">
-                        {timelineItems.map((item) => (
-                          <article key={`${item.date}-${item.title}`} className="timeline-item">
-                            <p className="timeline-date">{item.date}</p>
-                            <h3 className="timeline-title">{item.title}</h3>
-                            <p className="timeline-desc">{item.description}</p>
-                          </article>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {id === 'gallery' && (
-                    <div className="panel cards-panel">
-                      <h2 className="section-heading">Gallery</h2>
-                      <p className="muted">Take a peek into my life, one chaotic screenshot at a time.</p>
-                      {galleryPhotos.length > 0 ? (
-                        <div className="gallery-grid">
-                          {galleryPhotos.map((photo) => (
-                            <figure key={photo.src} className="gallery-item">
-                              <button
-                                className="gallery-thumb gallery-thumb-icon"
-                                type="button"
-                                onClick={() => {
-                                  setIsGalleryLightboxOpen(false)
-                                  setActiveGalleryPhoto(photo)
-                                }}
-                                aria-label={`Open ${photo.displayName}`}
-                                title={photo.displayName}
-                              >
-                                <img className="gallery-image gallery-image-icon" src={photo.src} alt={photo.displayName} loading="lazy" />
-                              </button>
-                            </figure>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="muted">No photos found yet in /public/gallery.</p>
-                      )}
-
-                      {activeGalleryPhoto && (
-                        <div
-                          className={`gallery-lightbox ${isGalleryLightboxOpen ? 'is-open' : 'is-closing'}`}
-                          role="dialog"
-                          aria-modal="true"
-                          onClick={() => setIsGalleryLightboxOpen(false)}
-                        >
-                          <div className="gallery-lightbox-card" onClick={(e) => e.stopPropagation()}>
-                            <div className="gallery-lightbox-header">
-                              <button
-                                className="gallery-lightbox-close-floating"
-                                type="button"
-                                aria-label="Close image"
-                                onClick={() => setIsGalleryLightboxOpen(false)}
-                              >
-                                <span className="gallery-lightbox-close-glyph" aria-hidden="true">
-                                  ×
-                                </span>
-                              </button>
-                              <div className="gallery-lightbox-meta">
-                                <span className="gallery-lightbox-label">Image Preview</span>
-                                <span className="gallery-lightbox-name" title={activeGalleryPhoto.displayName}>
-                                  {activeGalleryPhoto.displayName}
-                                </span>
-                              </div>
-                            </div>
-                            <div className="gallery-lightbox-body">
-                              <div className="gallery-lightbox-stage">
-                                <img className="gallery-lightbox-image" src={activeGalleryPhoto.src} alt={activeGalleryPhoto.displayName} />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {id === 'blogs' && (
-                    <div className="panel cards-panel">
-                      <h2 className="section-heading">Blogs</h2>
-                      <p className="muted">Latest writing from kaus98.github.io</p>
-                      <div className="cards">
-                        {blogPosts.map((post) => (
-                          <article key={post.link} className="wcard">
-                            <h3 className="wcard-title">{post.title}</h3>
-                            <p className="muted">{post.date}</p>
-                            <p className="wcard-text">{post.summary}</p>
-                            <div className="wcard-actions">
-                              <a className="wlink" href={post.link} target="_blank" rel="noreferrer">
-                                Read
-                              </a>
-                            </div>
-                          </article>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {id === 'jobs' && (
-                    <div className="panel full-panel">
-                      <h2 className="section-heading">Jobs</h2>
-                      <p className="muted">Experience split by full-time and internships</p>
-                      <div className="jobs-list">
-                        <h3 className="section-heading">Full-time</h3>
-                        {fullTimeJobs.map((job) => (
-                          <article key={job.company} className="wcard job-card">
-                            <h3 className="wcard-title">{job.company}</h3>
-                            <p className="job-meta">
-                              {job.role}
-                              {job.period ? ` · ${job.period}` : ''}
-                            </p>
-                            <ul className="list-plain job-points">
-                              {job.highlights.map((point) => (
-                                <li key={point}>{point}</li>
-                              ))}
-                            </ul>
-                          </article>
-                        ))}
-
-                        <h3 className="section-heading panel-block">Internships</h3>
-                        {internshipJobs.map((job) => (
-                          <article key={job.company} className="wcard job-card">
-                            <h3 className="wcard-title">{job.company}</h3>
-                            <p className="job-meta">
-                              {job.role}
-                              {job.period ? ` · ${job.period}` : ''}
-                            </p>
-                            <ul className="list-plain job-points">
-                              {job.highlights.map((point) => (
-                                <li key={point}>{point}</li>
-                              ))}
-                            </ul>
-                          </article>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {id === 'projects' && (
-                    <div className="panel cards-panel">
-                      <h2 className="section-heading">Projects</h2>
-                      <div className="cards">
-                        {projectCards.map((project) => (
-                          <article key={project.title} className="wcard">
-                            <h3 className="wcard-title">{project.title}</h3>
-                            <p className="muted">{project.subtitle}</p>
-                            <p className="wcard-text">{project.description}</p>
-                            <div className="wcard-actions">
-                              {project.website && (
-                                <a className="wlink" href={project.website} target="_blank" rel="noreferrer">
-                                  Live
-                                </a>
-                              )}
-                              {project.github && (
-                                <a className="wlink" href={project.github} target="_blank" rel="noreferrer">
-                                  Code
-                                </a>
-                              )}
-                            </div>
-                          </article>
-                        ))}
-                      </div>
-
-                      <h2 className="section-heading panel-block">Certifications</h2>
-                      <ul className="list-plain">
-                        {certifications.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {id === 'contact' && (
-                    <div className="panel full-panel">
-                      <h2 className="section-heading">Contact</h2>
-                      <div className="availability-card">
-                        <h3 className="availability-title">Availability</h3>
-                        <p className="availability-status">{availability.status}</p>
-                        <p className="availability-meta">
-                          {availability.from} · {availability.timezone}
-                        </p>
-                        <p className="availability-meta">Updated: {availability.updated}</p>
-                      </div>
-                      <p>
-                        Email:
-                        <span className="inline-space" />
-                        <a className="wlink" href={`mailto:${contact.email}`}>
-                          {contact.email}
-                        </a>
-                      </p>
-                      <p>
-                        Phone:
-                        <span className="inline-space" />
-                        <a className="wlink" href={`tel:${contact.phone.replace(/\s+/g, '')}`}>
-                          {contact.phone}
-                        </a>
-                      </p>
-                      <div className="chips">
-                        {contact.links.map((link) => (
-                          <a
-                            key={link.label}
-                            className="chip link"
-                            href={link.href}
-                            target={isExternalLink(link.href) ? '_blank' : undefined}
-                            rel={isExternalLink(link.href) ? 'noreferrer' : undefined}
-                            download={link.download ? true : undefined}
-                          >
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-
-                      <h2 className="section-heading panel-block">Positions of Responsibility</h2>
-                      <ul className="list-plain">
-                        {contact.responsibilities.map((position) => (
-                          <li key={position}>{position}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {id === 'settings' && (
-                    <div className="panel cards-panel">
-                      <h2 className="section-heading">Settings</h2>
-                      <p className="muted">Control theme and sound.</p>
-
-                      <div className="panel-block">
-                        <h3 className="section-heading">Theme</h3>
-                        <label className="settings-label" htmlFor="settings-theme-select">
-                          Select theme
-                        </label>
-                        <select
-                          id="settings-theme-select"
-                          className="settings-select"
-                          value={theme}
-                          onChange={(e) => applyTheme(e.target.value as ThemeName)}
-                        >
-                          {themeOptions.map((themeOption) => (
-                            <option key={themeOption.id} value={themeOption.id}>
-                              {themeOption.label}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div className="panel-block">
-                        <h3 className="section-heading">Sound</h3>
-                        <button
-                          className={muted ? 'settings-toggle' : 'settings-toggle active'}
-                          type="button"
-                          onClick={() => toggleSoundFromMenu()}
-                          disabled={audioError}
-                          aria-pressed={!muted}
-                        >
-                          {audioError ? 'Audio file missing' : muted ? 'Muted' : 'Unmuted'}
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {!isMaximized && (
-                  <div
-                    className="window-resize-handle"
-                    onPointerDown={(e) => {
-                      e.stopPropagation()
-                      setActiveId(id)
-                      ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
-                      setResize({
-                        id,
-                        pointerId: e.pointerId,
-                        startClientX: e.clientX,
-                        startClientY: e.clientY,
-                        startWidth: sizes[id].width,
-                        startHeight: sizes[id].height,
-                      })
-                    }}
-                  />
-                )}
-              </section>
-            )
-          })}
-
-          {normalizedQuery && (
-            <section
-              className="window active search-results-window"
-              style={searchWindowStyle}
-              onMouseDown={(e) => e.stopPropagation()}
-            >
-              <header className="window-titlebar">
-                <div className="window-title">
-                  <span className="app-icon small projects" aria-hidden="true">
-                    <ProjectsIcon className="icon" />
-                  </span>
-                  <span>Search Results</span>
-                </div>
-                <div className="window-controls">
-                  <button className="win-btn close" type="button" aria-label="Close search" onClick={() => setQuery('')}>
-                    <span className="win-glyph">×</span>
-                  </button>
-                </div>
-              </header>
-
-              <div className="window-content">
-                <div className="panel cards-panel">
-                  <h2 className="section-heading">Results for "{query}"</h2>
-                  <p className="muted">
-                    {filteredProjectCards.length} project matches · {filteredBlogPosts.length} blog matches · {searchedJobs.length} work matches
-                  </p>
-
-                  <h3 className="section-heading panel-block">Projects</h3>
-                  {filteredProjectCards.length > 0 ? (
-                    <div className="cards">
-                      {filteredProjectCards.map((project) => (
-                        <article key={`search-${project.title}`} className="wcard">
-                          <h3 className="wcard-title">{project.title}</h3>
-                          <p className="muted">{project.subtitle}</p>
-                          <p className="wcard-text">{project.description}</p>
-                        </article>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="muted">No matching projects.</p>
-                  )}
-
-                  <h3 className="section-heading panel-block">Blogs</h3>
-                  {filteredBlogPosts.length > 0 ? (
-                    <div className="cards">
-                      {filteredBlogPosts.map((post) => (
-                        <article key={`search-blog-${post.link}`} className="wcard">
-                          <h3 className="wcard-title">{post.title}</h3>
-                          <p className="muted">{post.date}</p>
-                          <p className="wcard-text">{post.summary}</p>
-                        </article>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="muted">No matching blogs.</p>
-                  )}
-
-                  <h3 className="section-heading panel-block">Work</h3>
-                  {searchedJobs.length > 0 ? (
-                    <div className="jobs-list">
-                      {filteredFullTimeJobs.length > 0 && <p className="muted">Full-time</p>}
-                      {filteredFullTimeJobs.map((job) => (
-                        <article key={`search-ft-${job.company}`} className="wcard job-card">
-                          <h3 className="wcard-title">{job.company}</h3>
-                          <p className="job-meta">
-                            {job.role}
-                            {job.period ? ` · ${job.period}` : ''}
-                          </p>
-                        </article>
-                      ))}
-
-                      {filteredInternshipJobs.length > 0 && <p className="muted">Internships</p>}
-                      {filteredInternshipJobs.map((job) => (
-                        <article key={`search-int-${job.company}`} className="wcard job-card">
-                          <h3 className="wcard-title">{job.company}</h3>
-                          <p className="job-meta">
-                            {job.role}
-                            {job.period ? ` · ${job.period}` : ''}
-                          </p>
-                        </article>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="muted">No matching work experience.</p>
-                  )}
-                </div>
-              </div>
-            </section>
-          )}
-        </div>
-      </div>
-
-      {startOpen && (
-        <div className="start" onMouseDown={(e) => e.stopPropagation()}>
-          <div className="start-top">
-            <div className="start-search-wrap">
-              <span className="search-icon" aria-hidden="true" />
-              <input
-                className="start-search-input"
-                value={startQuery}
-                onChange={(e) => setStartQuery(e.target.value)}
-                placeholder="Search for apps, files, and settings"
-                aria-label="Start menu search"
-              />
-            </div>
-          </div>
-
-          <div className="start-headline-row">
-            <div className="start-title">Pinned</div>
-            <div className="start-title subtle">All options</div>
-          </div>
-
-          <div className="start-grid">
-            {filteredPinnedApps.map((a) => (
-              <button key={a.id} className="start-item" type="button" onClick={() => openApp(a.id)}>
-                <span className={a.id === 'about' ? 'app-icon about' : a.id === 'projects' ? 'app-icon projects' : 'app-icon projects'} aria-hidden="true">
-                  {a.id === 'about' ? (
-                    <AboutIcon className="icon" />
-                  ) : a.id === 'projects' ? (
-                    <ProjectsIcon className="icon" />
-                  ) : (
-                    <JobsIcon className="icon" />
-                  )}
-                </span>
-                <span className="start-label">{a.label}</span>
-              </button>
-            ))}
-            {filteredPinnedApps.length === 0 && <div className="start-empty">No pinned apps found.</div>}
-          </div>
-
-          <div className="start-all-options">
-            {filteredAllOptions.map((option) => (
-              <button key={option.key} className="start-option" type="button" onClick={() => openStartOption(option)}>
-                <span
-                  className={
-                    option.key === 'about'
-                      ? 'app-icon small about'
-                      : option.key === 'projects'
-                        ? 'app-icon small projects'
-                        : option.key === 'gallery'
-                          ? 'app-icon small gallery'
-                        : option.key === 'blogs'
-                          ? 'app-icon small blogs'
-                        : option.key === 'jobs'
-                          ? 'app-icon small projects'
-                        : option.key === 'timeline'
-                          ? 'app-icon small timeline'
-                        : option.key === 'contact'
-                          ? 'app-icon small contact'
-                        : option.key === 'settings'
-                          ? 'app-icon small settings'
-                          : 'app-icon small about'
-                  }
-                  aria-hidden="true"
-                >
-                  {option.key === 'about' ? (
-                    <AboutIcon className="icon" />
-                  ) : option.key === 'projects' ? (
-                    <ProjectsIcon className="icon" />
-                  ) : option.key === 'gallery' ? (
-                    <GalleryIcon className="icon" />
-                  ) : option.key === 'blogs' ? (
-                    <BlogsIcon className="icon" />
-                  ) : option.key === 'jobs' ? (
-                    <JobsIcon className="icon" />
-                  ) : option.key === 'timeline' ? (
-                    <TimelineIcon className="icon" />
-                  ) : option.key === 'contact' ? (
-                    <ContactIcon className="icon" />
-                  ) : option.key === 'settings' ? (
-                    <SettingsIcon className="icon" />
-                  ) : option.key === 'theme' ? (
-                    theme === 'light' ? <SunIcon className="icon" /> : <MoonIcon className="icon" />
-                  ) : option.key === 'resume' ? (
-                    <ResumeIcon className="icon" />
-                  ) : muted ? (
-                    <SpeakerOffIcon className="icon" />
-                  ) : (
-                    <SpeakerOnIcon className="icon" />
-                  )}
-                </span>
-                <span className="start-option-copy">
-                  <span className="start-option-label">{option.label}</span>
-                  <span className="start-option-desc">{option.description}</span>
-                </span>
-              </button>
-            ))}
-            {filteredAllOptions.length === 0 && <div className="start-empty">No options found.</div>}
-          </div>
-
-          <div className="start-social" aria-label="Social links">
-            {socialLinks.map(({ key, label, href, Icon }) => (
-              <a key={key} className="start-social-link" href={href} target="_blank" rel="noreferrer" aria-label={label} title={label}>
-                <Icon className="start-social-icon" />
-              </a>
-            ))}
-          </div>
-
-          <div className="start-theme" aria-label="Theme switcher">
-            {startMenuThemeOptions.map((themeOption) => (
-              <button
-                key={themeOption.id}
-                className={theme === themeOption.id ? `start-theme-btn active theme-${themeOption.id}` : `start-theme-btn theme-${themeOption.id}`}
-                type="button"
-                onClick={() => applyTheme(themeOption.id)}
-                aria-pressed={theme === themeOption.id}
-              >
-                {themeOption.id === 'dark' ? (
-                  <MoonIcon className="start-theme-icon" />
-                ) : (
-                  <span className="start-theme-swatch" aria-hidden="true" />
-                )}
-                {themeOption.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="start-userbar">
-            <div className="start-user">
-              <span className="start-avatar" aria-hidden="true">
-                <img className="start-avatar-img" src={AVATAR_ICON_URL} alt="" />
-              </span>
-              <div className="start-user-meta">
-                <div className="start-username">{userName}</div>
-                <div className="start-user-role">Data Scientist</div>
-              </div>
-            </div>
-            <div className="start-user-actions">
-              <div className="start-power-row" aria-label="Power actions">
-                <button className="start-power-item" type="button" aria-label="Restart" title="Restart" onClick={() => runPowerAction('restart')}>
-                  <RestartIcon className="start-power-item-icon" />
-                </button>
-                <button className="start-power-item" type="button" aria-label="Sleep" title="Sleep" onClick={() => runPowerAction('sleep')}>
-                  <SleepIcon className="start-power-item-icon" />
-                </button>
-                <button className="start-power-item shutdown" type="button" aria-label="Shutdown" title="Shutdown" onClick={() => runPowerAction('shutdown')}>
-                  <ShutdownIcon className="start-power-item-icon shutdown-icon" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <footer className="taskbar" onMouseDown={(e) => e.stopPropagation()}>
-        <div className="taskbar-inner">
-          <div className="taskbar-center">
-            <button className={startOpen ? 'tb-btn active' : 'tb-btn'} type="button" aria-label="Start" onClick={toggleStartMenu}>
-              <span className="win-logo" aria-hidden="true">
-                <WindowsIcon className="win-svg" />
-              </span>
-            </button>
-
-            <div className="search">
-              <span className="search-icon" aria-hidden="true" />
-              <input
-                className="search-input"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </div>
-
-            <div className="pinned">
-              {pinnedApps.map((a) => {
-                const w = windows[a.id]
-                const isRunning = w.isOpen
-                const isActive = a.id === activeId && visibleWindowIds.includes(a.id)
-
-                return (
-                  <button
-                    key={a.id}
-                    className={isActive ? 'tb-btn active' : isRunning ? 'tb-btn running' : 'tb-btn'}
-                    type="button"
-                    aria-label={a.label}
-                    onClick={() => {
-                      if (windows[a.id].isOpen && !windows[a.id].isMinimized && a.id === activeId) {
-                        toggleMinimize(a.id)
-                        return
-                      }
-
-                      if (windows[a.id].isOpen && windows[a.id].isMinimized) {
-                        toggleMinimize(a.id)
-                        setActiveId(a.id)
-                        return
-                      }
-
-                      openApp(a.id)
-                    }}
-                  >
-                    <span
-                      className={
-                        a.id === 'about'
-                          ? 'app-icon about'
-                          : a.id === 'projects'
-                            ? 'app-icon projects'
-                            : a.id === 'jobs'
-                              ? 'app-icon projects'
-                              : 'app-icon projects'
-                      }
-                      aria-hidden="true"
-                    >
-                      {a.id === 'about' ? (
-                        <AboutIcon className="icon" />
-                      ) : a.id === 'projects' ? (
-                        <ProjectsIcon className="icon" />
-                      ) : (
-                        <JobsIcon className="icon" />
-                      )}
-                    </span>
-                    <span className="running-dot" aria-hidden="true" />
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-
-          <div className="taskbar-right">
-            <div className="tray">
-              <a className="tray-btn" href="./Kaustubh_Pathak_Resume.pdf" download aria-label="Download resume">
-                <ResumeIcon className="tray-svg" />
-              </a>
-              <button
-                className="tray-btn"
-                type="button"
-                aria-label="Switch theme"
-                onClick={toggleTheme}
-              >
-                {theme === 'light' ? <SunIcon className="tray-svg" /> : <MoonIcon className="tray-svg" />}
-              </button>
-              <button
-                className={muted ? 'tray-btn' : 'tray-btn active'}
-                type="button"
-                aria-label={audioError ? 'Audio file missing' : muted ? 'Unmute' : 'Mute'}
-                disabled={audioError}
-                onClick={() => toggleSoundFromMenu()}
-              >
-                {muted ? <SpeakerOffIcon className="tray-svg" /> : <SpeakerOnIcon className="tray-svg" />}
-              </button>
-            </div>
-            <div className="clock" aria-label="Time and date">
-              <div className="clock-time">{timeText}</div>
-              <div className="clock-date">{dateText}</div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Taskbar
+        startOpen={startOpen}
+        toggleStartMenu={toggleStartMenu}
+        query={query}
+        setQuery={setQuery}
+        windows={windows}
+        activeId={activeId}
+        visibleWindowIds={visibleWindowIds}
+        toggleMinimize={toggleMinimize}
+        setActiveId={setActiveId}
+        openApp={openApp}
+        toggleTheme={toggleTheme}
+        theme={theme}
+        muted={muted}
+        audioError={audioError}
+        toggleSoundFromMenu={toggleSoundFromMenu}
+        timeText={timeText}
+        dateText={dateText}
+      />
     </div>
   )
 }
