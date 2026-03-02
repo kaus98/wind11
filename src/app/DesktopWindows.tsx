@@ -181,24 +181,18 @@ export function DesktopWindows(props: DesktopWindowsProps) {
   const iconSize = useMemo(() => ({ width: 92, height: 94 }), [])
 
   const [iconOrder] = useState<AppId[]>(() => {
-    const ids = desktopShortcuts.map((shortcut) => shortcut.id)
-    for (let index = ids.length - 1; index > 0; index -= 1) {
-      const randomIndex = Math.floor(Math.random() * (index + 1))
-      ;[ids[index], ids[randomIndex]] = [ids[randomIndex], ids[index]]
-    }
-    return ids
+    return desktopShortcuts.map((shortcut) => shortcut.id)
   })
 
   const [iconPositions, setIconPositions] = useState<Record<AppId, IconPosition>>(() => {
     const availableWidth = Math.max(220, viewport.width - 180)
     const availableHeight = Math.max(220, viewport.height - taskbarReservedHeight - 36)
     return desktopShortcuts.reduce<Record<AppId, IconPosition>>((acc, shortcut, index) => {
-      const column = index % 3
-      const row = Math.floor(index / 3)
-      const jitterX = Math.floor(Math.random() * 36) - 18
-      const jitterY = Math.floor(Math.random() * 34) - 17
-      const x = Math.max(8, Math.min(availableWidth - iconSize.width, 14 + column * 106 + jitterX))
-      const y = Math.max(8, Math.min(availableHeight - iconSize.height, 14 + row * 108 + jitterY))
+      const itemsPerColumn = Math.max(1, Math.floor(availableHeight / 108))
+      const column = Math.floor(index / itemsPerColumn)
+      const row = index % itemsPerColumn
+      const x = Math.max(8, Math.min(availableWidth - iconSize.width, 14 + column * 106))
+      const y = Math.max(8, Math.min(availableHeight - iconSize.height, 14 + row * 108))
       acc[shortcut.id] = { x, y }
       return acc
     }, {} as Record<AppId, IconPosition>)
@@ -258,8 +252,9 @@ export function DesktopWindows(props: DesktopWindowsProps) {
 
       desktopShortcuts.forEach((shortcut, index) => {
         if (!next[shortcut.id]) {
-          const column = index % 3
-          const row = Math.floor(index / 3)
+          const itemsPerColumn = Math.max(1, Math.floor(availableHeight / 108))
+          const column = Math.floor(index / itemsPerColumn)
+          const row = index % itemsPerColumn
           next[shortcut.id] = {
             x: Math.max(8, Math.min(availableWidth - iconSize.width, 14 + column * 106)),
             y: Math.max(8, Math.min(availableHeight - iconSize.height, 14 + row * 108)),
@@ -294,9 +289,9 @@ export function DesktopWindows(props: DesktopWindowsProps) {
               style={
                 iconPosition
                   ? {
-                      left: iconPosition.x,
-                      top: iconPosition.y,
-                    }
+                    left: iconPosition.x,
+                    top: iconPosition.y,
+                  }
                   : undefined
               }
               onMouseDown={(event) => {
@@ -360,12 +355,12 @@ export function DesktopWindows(props: DesktopWindowsProps) {
                   ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight }
                   : forceFullscreenWindows
                     ? {
-                        zIndex,
-                        left: windowInset,
-                        top: windowInset,
-                        width: Math.max(0, viewport.width - windowInset * 2),
-                        height: fullscreenHeight,
-                      }
+                      zIndex,
+                      left: windowInset,
+                      top: windowInset,
+                      width: Math.max(0, viewport.width - windowInset * 2),
+                      height: fullscreenHeight,
+                    }
                     : { zIndex, left: pos.x, top: pos.y, width: size.width, height: size.height }
               }
               ref={(el) => {
@@ -387,7 +382,7 @@ export function DesktopWindows(props: DesktopWindowsProps) {
                   setActiveId(id)
 
                   const start = positions[id]
-                  ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
+                    ; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
                   setDrag({
                     id,
                     pointerId: e.pointerId,
@@ -417,7 +412,7 @@ export function DesktopWindows(props: DesktopWindowsProps) {
                                     ? 'app-icon small settings'
                                     : id === 'terminal'
                                       ? 'app-icon small terminal'
-                                    : 'app-icon small contact'
+                                      : 'app-icon small contact'
                     }
                     aria-hidden="true"
                   >
@@ -500,7 +495,7 @@ export function DesktopWindows(props: DesktopWindowsProps) {
                   onPointerDown={(e) => {
                     e.stopPropagation()
                     setActiveId(id)
-                    ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
+                      ; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
                     setResize({
                       id,
                       pointerId: e.pointerId,
