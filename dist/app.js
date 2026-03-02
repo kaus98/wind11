@@ -12478,7 +12478,7 @@ function requireClient() {
   return client.exports;
 }
 var clientExports = requireClient();
-const portfolioJson = '{\n  "about": {\n    "name": "Kaustubh Pathak",\n    "rolesLine": "Data Scientist · Data Engineer · NLP Enthusiast",\n    "location": "Etawah, UP",\n    "summaryParagraphs": [\n      "Data Scientist with 3+ years of experience building data-driven solutions to improve efficiency, accuracy, and utility of internal data processing. Experienced in deep learning, predictive modeling, forecasting and data mining, with strong backend engineering skills in Python/Flask/Django and modern data stacks.",\n      "Active in open-source communities and comfortable across backend and frontend technologies including JavaScript, Socket.IO, AJAX and jQuery, with hands-on operations experience both in collaborative teams and as an individual contributor."\n    ],\n    "technologies": [\n      "Python",\n      "PySpark",\n      "Scikit-learn",\n      "Flask",\n      "Django",\n      "FastAPI",\n      "Rasa",\n      "PyTorch",\n      "Transformers",\n      "Sentence Transformers",\n      "Keras",\n      "XGBoost",\n      "Spark / Scala",\n      "Airflow",\n      "Delta Lake / Iceberg",\n      "Databricks",\n      "HDInsight",\n      "Azure EventHub",\n      "DBFS / Blob Storage",\n      "Kafka",\n      "Hadoop",\n      "MinIO / HDFS",\n      "Telegraf",\n      "Argo Workflows",\n      "Grafana / Superset",\n      "Plotly / Folium",\n      "MySQL",\n      "PostgreSQL",\n      "MongoDB",\n      "Elasticsearch",\n      "Docker",\n      "AWS",\n      "Google Cloud",\n      "Linux",\n      "Kubernetes",\n      "AngularJS + Spring Boot",\n      "Golang",\n      "YOLOv5",\n      "ARIMA / Prophet"\n    ],\n    "programming": [\n      "Python",\n      "IPython",\n      "JavaScript",\n      "TypeScript",\n      "Scala",\n      "Go",\n      "Java",\n      "SQL",\n      "MATLAB",\n      "PHP",\n      "HTML/CSS",\n      "C/C++"\n    ],\n    "education": [\n      "ABV-IIITM Gwalior (2017 - 2022) — M.Tech (Dual Degree) in Information Technology, GPA 7.7",\n      "ST. Mary College, Etawah (2016) — Intermediate in PCM with Computer, GPA 8.8/10"\n    ],\n    "interests": ["Open Source", "Automation", "Data Engineering", "Cloud Computing", "NLP", "Music", "Coffee"],\n    "achievements": ["Published research in Springer NLP conference (2023)", "Kaggle Expert profile (@terminate9298)"]\n  },\n  "socialLinks": [\n    { "key": "instagram", "label": "Instagram", "href": "https://www.instagram.com/kaus98/" },\n    { "key": "github", "label": "GitHub", "href": "https://github.com/terminate9298" },\n    { "key": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/in/kaus98" },\n    { "key": "kaggle", "label": "Kaggle", "href": "https://www.kaggle.com/terminate9298" }\n  ],\n  "contact": {\n    "email": "kaus.pathak@gmail.com",\n    "phone": "+91 91490 42316",\n    "availability": {\n      "status": "Open to full-time and consulting opportunities",\n      "from": "Available from March 2026",\n      "timezone": "IST (UTC+05:30)",\n      "updated": "Feb 2026"\n    },\n    "links": [\n      { "label": "Linktree", "href": "https://www.linktr.ee/kaus98" },\n      { "label": "GitHub", "href": "https://github.com/terminate9298" },\n      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/kaus98" },\n      { "label": "Kaggle", "href": "https://www.kaggle.com/terminate9298" },\n      { "label": "Medium", "href": "https://medium.com/@kaus.pathak" },\n      { "label": "Resume PDF", "href": "./Kaustubh_Pathak_Resume.pdf", "download": true }\n    ],\n    "responsibilities": [\n      "Currently SDE-2 @ Dell India",\n      "Developer Position in E-Cell since 2018-2022",\n      "Graphic Designer for Aurora cultural festival at ABV-IIITM Gwalior"\n    ]\n  },\n  "timeline": [\n    {\n      "title": "Built AI-UI Project",\n      "date": "2026",\n      "description": "Developed AI-UI to unify interactions across OpenAI-compatible APIs with a single interface.",\n      "sortOrder": 10\n    },\n    {\n      "title": "SDE-2, Data Engineering @ Dell India",\n      "date": "2022 - Present",\n      "description": "Scaling ETL, model-serving APIs, streaming systems, and observability pipelines across enterprise workloads.",\n      "sortOrder": 9\n    },\n    {\n      "title": "Published Springer NLP Research",\n      "date": "2022",\n      "description": "Published work on Fourier alternatives in Transformer architectures.",\n      "sortOrder": 8\n    },\n    {\n      "title": "Built COVID-19 India Forecasting Project",\n      "date": "2021",\n      "description": "Implemented epidemiological and time-series forecasting models with rich analytics visualizations.",\n      "sortOrder": 7.5\n    },\n    {\n      "title": "Data Engineering Intern @ Rakuten India",\n      "date": "Jul 2021 - Dec 2021",\n      "description": "Built data discovery and transfer workflows using NLP search, Airflow, and storage integrations.",\n      "sortOrder": 7\n    },\n    {\n      "title": "Data Science Engineering Intern @ Lambdatest",\n      "date": "May 2021 - Jul 2021",\n      "description": "Worked on forecasting, anomaly detection, and business analytics dashboards.",\n      "sortOrder": 6\n    },\n    {\n      "title": "NLP Engineer Intern @ Dolhinchat",\n      "date": "Feb 2021 - Apr 2021",\n      "description": "Delivered chatbot systems and integrations across web and social channels.",\n      "sortOrder": 5\n    },\n    {\n      "title": "Computer Vision Intern @ Eminenture",\n      "date": "2020",\n      "description": "Built OCR and contextual matching pipelines for document-heavy workflows.",\n      "sortOrder": 4\n    },\n    {\n      "title": "Developer Intern @ Vaidik Technologies",\n      "date": "Sep 2019 - Oct 2019",\n      "description": "Contributed to NLP interfaces and full-stack blog platform workflows.",\n      "sortOrder": 3\n    },\n    {\n      "title": "Web Developer Intern @ Shaastra Automations",\n      "date": "Aug 2018 - Nov 2018",\n      "description": "Built dynamic full-stack web pages and UI implementation modules.",\n      "sortOrder": 2\n    },\n    {\n      "title": "M.Tech (Dual Degree), ABV-IIITM Gwalior",\n      "date": "2017 - 2022",\n      "description": "Completed Information Technology dual-degree program with GPA 7.7.",\n      "sortOrder": 1\n    },\n    {\n      "title": "Passed 12th (Intermediate)",\n      "date": "2016",\n      "description": "Completed Intermediate in PCM with Computer from ST. Mary College, Etawah.",\n      "sortOrder": 0\n    }\n  ],\n  "jobs": [\n    {\n      "company": "Dell India",\n      "role": "Data Engineering (SDE-2)",\n      "employmentType": "full-time",\n      "sortOrder": 7,\n      "highlights": [\n        "Built and deployed PySpark/Scala ETL pipelines in medallion architecture (Delta/Iceberg) handling 100M+ rows/day.",\n        "Built FastAPI-based NBA endpoints to serve data science models (XGBoost/Scikit-learn) with user-friendly outputs.",\n        "Worked on AngularJS + Spring Boot admin portal for sales role and client management workflows.",\n        "Implemented Golang remediation platform for remote server login and script execution to speed up debugging.",\n        "Built custom pipelines with Argo Workflows (Kubernetes) and Apache Airflow (non-Kubernetes).",\n        "Implemented Telegraf input/output plugins (Redfish, SNMP Trap, Message Bus, HTTP) for 10M+ requests/day.",\n        "Developed TCP/UDP Kubernetes ingestion pipeline, benchmarked Telegraf scalability, and contributed to testing + CI/CD.",\n        "Automated streaming services with Docker, Kubernetes, Azure, Spark and Scala.",\n        "Maintained Spark jobs (Java/Scala) and ETL pipelines across EventHub, DBFS and Blob Storage."\n      ]\n    },\n    {\n      "company": "Rakuten India",\n      "role": "Data Engineering Intern",\n      "employmentType": "internship",\n      "sortOrder": 6,\n      "period": "Jul 2021 - Dec 2021",\n      "highlights": [\n        "Built a Wrangler tool for database/table discovery using both non-contextual and NLP contextual search.",\n        "Implemented components with HyperLogLog and Bloom Filters using Java and Python.",\n        "Created multi-threaded and multi-process SFTP to MinIO/HDFS transfer pipelines with Airflow.",\n        "Handled DataOps workflows for transfer, filtering and analysis over SFTP, MinIO, HDFS, MySQL and streaming data."\n      ]\n    },\n    {\n      "company": "Lambdatest",\n      "role": "Data Science Engineering Intern",\n      "employmentType": "internship",\n      "sortOrder": 5,\n      "period": "May 2021 - Jul 2021",\n      "highlights": [\n        "Developed forecasting models to predict localized server demand and reduce infrastructure cost.",\n        "Built ETL pipelines from MySQL and S3 for Sumologic, Grafana and Superset dashboards on millions of rows.",\n        "Automated anomaly detection pipelines and alerting workflows for operational logs.",\n        "Created custom analytics dashboards for sales and business teams using Flask, Plotly, Pandas and MySQL."\n      ]\n    },\n    {\n      "company": "Eminenture",\n      "role": "Computer Vision Intern",\n      "employmentType": "internship",\n      "sortOrder": 4,\n      "highlights": [\n        "Built OCR pipelines to extract structured data from PDFs and reduce manual processing effort.",\n        "Scraped large datasets from multiple sources including news sites, ticketing portals and social platforms.",\n        "Applied Siamese and Transformer-based sentence embeddings for contextual matching in real-time systems."\n      ]\n    },\n    {\n      "company": "Dolhinchat",\n      "role": "NLP Engineer & Chatbot Developer Intern",\n      "employmentType": "internship",\n      "sortOrder": 3,\n      "period": "Feb 2021 - Apr 2021",\n      "highlights": [\n        "Designed domain-specific chatbot assistants in a cross-functional NLP team.",\n        "Integrated chatbots with management dashboards, CRMs and social platforms.",\n        "Built middleware to reduce Rasa model size and lower hosting footprint.",\n        "Built chatbot integrations across Web, Facebook, WhatsApp and Slack channels; also delivered a YOLOv5 pothole localization prototype."\n      ]\n    },\n    {\n      "company": "Vaidik Technologies Private Limited",\n      "role": "Developer Intern",\n      "employmentType": "internship",\n      "sortOrder": 2,\n      "period": "Sep 2019 - Oct 2019",\n      "highlights": [\n        "Built NLP interfaces for news discovery and article recommendation.",\n        "Contributed to Django + Firebase full-stack blog platform and deployment workflows."\n      ]\n    },\n    {\n      "company": "Shaastra Automations",\n      "role": "Web Developer Intern",\n      "employmentType": "internship",\n      "sortOrder": 1,\n      "period": "Aug 2018 - Nov 2018",\n      "highlights": [\n        "Worked as a full-stack developer building dynamic multi-page websites.",\n        "Contributed to company website development and UI implementation."\n      ]\n    }\n  ],\n  "blogs": [\n    {\n      "title": "Unified Interface for AI Api",\n      "date": "Jan 31, 2026",\n      "summary": "Unify interactions across OpenAI-compatible providers with one consistent API layer.",\n      "link": "https://kaus98.github.io/2026/01/31/unified-interface-for-ai-api/"\n    },\n    {\n      "title": "Nano Banana Gemini Viral Prompts",\n      "date": "Sep 15, 2025",\n      "summary": "Prompt ideas and usage notes for Nano Banana Gemini for social-media-ready outputs.",\n      "link": "https://kaus98.github.io/2025/09/15/banana-prompts/"\n    },\n    {\n      "title": "Visualize Activation Function available to use in Pytorch",\n      "date": "Jan 13, 2025",\n      "summary": "Practical notes on activation functions and visualization patterns for deep learning workflows.",\n      "link": "https://kaus98.github.io/2025/01/13/activation-functions/"\n    },\n    {\n      "title": "Data Warehousing Notes",\n      "date": "Jan 8, 2023",\n      "summary": "Concise notes on warehousing fundamentals, analytical workloads, and architecture concepts.",\n      "link": "https://kaus98.github.io/2023/01/08/data-warehouse-quick-notes/"\n    },\n    {\n      "title": "Deploying Apache Spark, Jupyter Lab with support for Scala/Python",\n      "date": "Aug 15, 2022",\n      "summary": "Dockerized setup guide for Spark + Scala/Python + Jupyter Lab workflows.",\n      "link": "https://kaus98.github.io/2022/08/15/docker-spark/"\n    },\n    {\n      "title": "Recreating the New York Times Covid-19 Spiral Graph",\n      "date": "Jan 15, 2022",\n      "summary": "Python visualization walkthrough for reproducing the NYT COVID spiral graph style.",\n      "link": "https://kaus98.github.io/2022/01/15/spiral-graph-python/"\n    },\n    {\n      "title": "Elastic Quick Start Notes and Keywords Explained",\n      "date": "Jan 13, 2022",\n      "summary": "Beginner-friendly Elasticsearch primer covering key concepts and practical terminology.",\n      "link": "https://kaus98.github.io/2022/01/13/elasticsearch-quick-notes/"\n    }\n  ],\n  "projects": [\n    {\n      "title": "Fourier Transform in NLP",\n      "subtitle": "Research Paper / MTP Project",\n      "description": "Studied Fourier Transform alternatives in Transformer architectures and hybrid Fourier + Multi-Head Attention approaches under Dr. Anuraj Singh; published in Springer NLP conference 2023.",\n      "github": ""\n    },\n    {\n      "title": "AI-UI",\n      "subtitle": "UI Build with AI",\n      "description": "Interact with OpenAI-compatible APIs using native Node.js fetch across OpenAI, Groq, Nvidia, and local LLM endpoints.",\n      "github": "https://github.com/kaus98/AI-UI"\n    },\n    {\n      "title": "COVID-19 India",\n      "subtitle": "Visualizations, Predictions & Forecasting",\n      "description": "Built epidemic and time-series forecasting pipelines using SIR/SIRD/SEIRD/SEIHRD, SARIMAX, ARIMA, Prophet, Theta and Holts models.",\n      "github": "https://github.com/terminate9298/corona-visualization-and-prediction"\n    },\n    {\n      "title": "Multitask Learning",\n      "subtitle": "BTP Project",\n      "description": "Created MultiT, a PyTorch-based library to train deep learning models on multiple datasets using multitask learning concepts.",\n      "github": ""\n    },\n    {\n      "title": "Movie Recommendation System",\n      "subtitle": "BTP Project",\n      "description": "Implemented content-based, collaborative, embedding and RNN-based recommendation strategies for personalized movie suggestions.",\n      "website": "https://rec-movies.herokuapp.com/",\n      "github": ""\n    },\n    {\n      "title": "Song Lyrics Generator",\n      "subtitle": "NLP Solo Project",\n      "description": "Generated lyrics with LSTMs, Seq2Seq, Transformers and BERT. Also built async lyric scraping pipelines with proxy/header pooling.",\n      "github": "https://colab.research.google.com/drive/1QOUCiAXzQEeO8gQ0Mw5iYj1kmaJ-brFj?usp=sharing"\n    }\n  ],\n  "certifications": [\n    "NLP With Deep Learning (Stanford Online)",\n    "Deep Learning Nanodegree Program (Udacity)",\n    "Introduction To Deep Learning (Udemy)",\n    "Complete A-Z Of Machine Learning (Udemy)",\n    "Introduction To Machine Learning By Andrew Ng (Coursera)",\n    "OpenCV With Python For Image And Video Analysis (LinkedIn)",\n    "Automate The Boring Stuff With Python (Al Sweigart)",\n    "Full Stack Web Developer Bootcamp (Udemy)"\n  ]\n}\n';
+const portfolioJson = '{\r\n  "about": {\r\n    "name": "Kaustubh Pathak",\r\n    "rolesLine": "Data Scientist · Data Engineer · NLP Enthusiast",\r\n    "location": "Etawah, UP",\r\n    "summaryParagraphs": [\r\n      "Data Scientist with 3+ years of experience building data-driven solutions to improve efficiency, accuracy, and utility of internal data processing. Experienced in deep learning, predictive modeling, forecasting and data mining, with strong backend engineering skills in Python/Flask/Django and modern data stacks.",\r\n      "Active in open-source communities and comfortable across backend and frontend technologies including JavaScript, Socket.IO, AJAX and jQuery, with hands-on operations experience both in collaborative teams and as an individual contributor."\r\n    ],\r\n    "technologies": [\r\n      "Python",\r\n      "PySpark",\r\n      "Scikit-learn",\r\n      "Flask",\r\n      "Django",\r\n      "FastAPI",\r\n      "Rasa",\r\n      "PyTorch",\r\n      "Transformers",\r\n      "Sentence Transformers",\r\n      "Keras",\r\n      "XGBoost",\r\n      "Spark / Scala",\r\n      "Airflow",\r\n      "Delta Lake / Iceberg",\r\n      "Databricks",\r\n      "HDInsight",\r\n      "Azure EventHub",\r\n      "DBFS / Blob Storage",\r\n      "Kafka",\r\n      "Hadoop",\r\n      "MinIO / HDFS",\r\n      "Telegraf",\r\n      "Argo Workflows",\r\n      "Grafana / Superset",\r\n      "Plotly / Folium",\r\n      "MySQL",\r\n      "PostgreSQL",\r\n      "MongoDB",\r\n      "Elasticsearch",\r\n      "Docker",\r\n      "AWS",\r\n      "Google Cloud",\r\n      "Linux",\r\n      "Kubernetes",\r\n      "AngularJS + Spring Boot",\r\n      "Golang",\r\n      "YOLOv5",\r\n      "ARIMA / Prophet"\r\n    ],\r\n    "programming": [\r\n      "Python",\r\n      "IPython",\r\n      "JavaScript",\r\n      "TypeScript",\r\n      "Scala",\r\n      "Go",\r\n      "Java",\r\n      "SQL",\r\n      "MATLAB",\r\n      "PHP",\r\n      "HTML/CSS",\r\n      "C/C++"\r\n    ],\r\n    "education": [\r\n      "ABV-IIITM Gwalior (2017 - 2022) — M.Tech (Dual Degree) in Information Technology, GPA 7.7",\r\n      "ST. Mary College, Etawah (2016) — Intermediate in PCM with Computer, GPA 8.8/10"\r\n    ],\r\n    "interests": ["Open Source", "Automation", "Data Engineering", "Cloud Computing", "NLP", "Music", "Coffee"],\r\n    "achievements": [\r\n      "Published research in Springer NLP conference (2023): https://link.springer.com/chapter/10.1007/978-981-19-9225-4_37",\r\n      "Kaggle Expert profile: https://www.kaggle.com/terminate9298"\r\n    ]\r\n  },\r\n  "socialLinks": [\r\n    { "key": "instagram", "label": "Instagram", "href": "https://www.instagram.com/kaus98/" },\r\n    { "key": "github", "label": "GitHub", "href": "https://github.com/terminate9298" },\r\n    { "key": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/in/kaus98" },\r\n    { "key": "kaggle", "label": "Kaggle", "href": "https://www.kaggle.com/terminate9298" }\r\n  ],\r\n  "contact": {\r\n    "email": "kaus.pathak@gmail.com",\r\n    "phone": "+91 91490 42316",\r\n    "availability": {\r\n      "status": "Open to Work",\r\n      "from": "Available from March 2026",\r\n      "timezone": "IST (UTC+05:30)",\r\n      "updated": "Feb 2026"\r\n    },\r\n    "links": [\r\n      { "label": "Linktree", "href": "https://linktr.ee/kaus98" },\r\n      { "label": "Linkedin", "href": "https://www.linkedin.com/in/kaus98/" },\r\n      { "label": "Kaggle", "href": "https://kaggle.com/terminate9298" },\r\n      { "label": "Github New", "href": "https://github.com/kaus98" },\r\n      { "label": "Github", "href": "https://github.com/terminate9298" },\r\n      { "label": "Kaus Blog", "href": "https://kaus98.github.io" },\r\n      { "label": "Medium", "href": "https://medium.com/@kaus.pathak_30409" },\r\n      { "label": "Coding Ninjas Studio", "href": "https://www.codingninjas.com/studio/profile/kaus98" },\r\n      { "label": "LeetCode Profile", "href": "https://leetcode.com/terminate9298/" },\r\n      { "label": "Facebook", "href": "https://www.facebook.com/kaustubh.pathak.714" },\r\n      { "label": "Instagram", "href": "https://www.instagram.com/kaus98/" },\r\n      { "label": "Flickr", "href": "https://www.flickr.com/photos/160203994@N07/" },\r\n      { "label": "Resume PDF", "href": "./Kaustubh_Pathak_Resume.pdf", "download": true }\r\n    ],\r\n    "responsibilities": [\r\n      "Currently SDE-2 @ Dell India",\r\n      "Developer Position in E-Cell since 2018-2022",\r\n      "Graphic Designer for Aurora cultural festival at ABV-IIITM Gwalior"\r\n    ]\r\n  },\r\n  "timeline": [\r\n    {\r\n      "title": "Built AI-UI Project",\r\n      "date": "2026",\r\n      "description": "Developed AI-UI to unify interactions across OpenAI-compatible APIs with a single interface.",\r\n      "sortOrder": 10\r\n    },\r\n    {\r\n      "title": "SDE-2, Data Engineering @ Dell India",\r\n      "date": "2022 - Present",\r\n      "description": "Scaling ETL, model-serving APIs, streaming systems, and observability pipelines across enterprise workloads.",\r\n      "sortOrder": 9\r\n    },\r\n    {\r\n      "title": "Published Springer NLP Research",\r\n      "date": "2022",\r\n      "description": "Published work on Fourier alternatives in Transformer architectures.",\r\n      "sortOrder": 8\r\n    },\r\n    {\r\n      "title": "Built COVID-19 India Forecasting Project",\r\n      "date": "2021",\r\n      "description": "Implemented epidemiological and time-series forecasting models with rich analytics visualizations.",\r\n      "sortOrder": 7.5\r\n    },\r\n    {\r\n      "title": "Data Engineering Intern @ Rakuten India",\r\n      "date": "Jul 2021 - Dec 2021",\r\n      "description": "Built data discovery and transfer workflows using NLP search, Airflow, and storage integrations.",\r\n      "sortOrder": 7\r\n    },\r\n    {\r\n      "title": "Data Science Engineering Intern @ Lambdatest",\r\n      "date": "May 2021 - Jul 2021",\r\n      "description": "Worked on forecasting, anomaly detection, and business analytics dashboards.",\r\n      "sortOrder": 6\r\n    },\r\n    {\r\n      "title": "NLP Engineer Intern @ Dolhinchat",\r\n      "date": "Feb 2021 - Apr 2021",\r\n      "description": "Delivered chatbot systems and integrations across web and social channels.",\r\n      "sortOrder": 5\r\n    },\r\n    {\r\n      "title": "Computer Vision Intern @ Eminenture",\r\n      "date": "2020",\r\n      "description": "Built OCR and contextual matching pipelines for document-heavy workflows.",\r\n      "sortOrder": 4\r\n    },\r\n    {\r\n      "title": "Developer Intern @ Vaidik Technologies",\r\n      "date": "Sep 2019 - Oct 2019",\r\n      "description": "Contributed to NLP interfaces and full-stack blog platform workflows.",\r\n      "sortOrder": 3\r\n    },\r\n    {\r\n      "title": "Web Developer Intern @ Shaastra Automations",\r\n      "date": "Aug 2018 - Nov 2018",\r\n      "description": "Built dynamic full-stack web pages and UI implementation modules.",\r\n      "sortOrder": 2\r\n    },\r\n    {\r\n      "title": "M.Tech (Dual Degree), ABV-IIITM Gwalior",\r\n      "date": "2017 - 2022",\r\n      "description": "Completed Information Technology dual-degree program with GPA 7.7.",\r\n      "sortOrder": 1\r\n    },\r\n    {\r\n      "title": "Passed 12th (Intermediate)",\r\n      "date": "2016",\r\n      "description": "Completed Intermediate in PCM with Computer from ST. Mary College, Etawah.",\r\n      "sortOrder": 0\r\n    }\r\n  ],\r\n  "jobs": [\r\n    {\r\n      "company": "Dell India",\r\n      "role": "Data Engineering (SDE-2)",\r\n      "employmentType": "full-time",\r\n      "sortOrder": 7,\r\n      "highlights": [\r\n        "Built and deployed PySpark/Scala ETL pipelines in medallion architecture (Delta/Iceberg) handling 100M+ rows/day.",\r\n        "Built FastAPI-based NBA endpoints to serve data science models (XGBoost/Scikit-learn) with user-friendly outputs.",\r\n        "Worked on AngularJS + Spring Boot admin portal for sales role and client management workflows.",\r\n        "Implemented Golang remediation platform for remote server login and script execution to speed up debugging.",\r\n        "Built custom pipelines with Argo Workflows (Kubernetes) and Apache Airflow (non-Kubernetes).",\r\n        "Implemented Telegraf input/output plugins (Redfish, SNMP Trap, Message Bus, HTTP) for 10M+ requests/day.",\r\n        "Developed TCP/UDP Kubernetes ingestion pipeline, benchmarked Telegraf scalability, and contributed to testing + CI/CD.",\r\n        "Automated streaming services with Docker, Kubernetes, Azure, Spark and Scala.",\r\n        "Maintained Spark jobs (Java/Scala) and ETL pipelines across EventHub, DBFS and Blob Storage."\r\n      ]\r\n    },\r\n    {\r\n      "company": "Rakuten India",\r\n      "role": "Data Engineering Intern",\r\n      "employmentType": "internship",\r\n      "sortOrder": 6,\r\n      "period": "Jul 2021 - Dec 2021",\r\n      "highlights": [\r\n        "Built a Wrangler tool for database/table discovery using both non-contextual and NLP contextual search.",\r\n        "Implemented components with HyperLogLog and Bloom Filters using Java and Python.",\r\n        "Created multi-threaded and multi-process SFTP to MinIO/HDFS transfer pipelines with Airflow.",\r\n        "Handled DataOps workflows for transfer, filtering and analysis over SFTP, MinIO, HDFS, MySQL and streaming data."\r\n      ]\r\n    },\r\n    {\r\n      "company": "Lambdatest",\r\n      "role": "Data Science Engineering Intern",\r\n      "employmentType": "internship",\r\n      "sortOrder": 5,\r\n      "period": "May 2021 - Jul 2021",\r\n      "highlights": [\r\n        "Developed forecasting models to predict localized server demand and reduce infrastructure cost.",\r\n        "Built ETL pipelines from MySQL and S3 for Sumologic, Grafana and Superset dashboards on millions of rows.",\r\n        "Automated anomaly detection pipelines and alerting workflows for operational logs.",\r\n        "Created custom analytics dashboards for sales and business teams using Flask, Plotly, Pandas and MySQL."\r\n      ]\r\n    },\r\n    {\r\n      "company": "Eminenture",\r\n      "role": "Computer Vision Intern",\r\n      "employmentType": "internship",\r\n      "sortOrder": 4,\r\n      "highlights": [\r\n        "Built OCR pipelines to extract structured data from PDFs and reduce manual processing effort.",\r\n        "Scraped large datasets from multiple sources including news sites, ticketing portals and social platforms.",\r\n        "Applied Siamese and Transformer-based sentence embeddings for contextual matching in real-time systems."\r\n      ]\r\n    },\r\n    {\r\n      "company": "Dolhinchat",\r\n      "role": "NLP Engineer & Chatbot Developer Intern",\r\n      "employmentType": "internship",\r\n      "sortOrder": 3,\r\n      "period": "Feb 2021 - Apr 2021",\r\n      "highlights": [\r\n        "Designed domain-specific chatbot assistants in a cross-functional NLP team.",\r\n        "Integrated chatbots with management dashboards, CRMs and social platforms.",\r\n        "Built middleware to reduce Rasa model size and lower hosting footprint.",\r\n        "Built chatbot integrations across Web, Facebook, WhatsApp and Slack channels; also delivered a YOLOv5 pothole localization prototype."\r\n      ]\r\n    },\r\n    {\r\n      "company": "Vaidik Technologies Private Limited",\r\n      "role": "Developer Intern",\r\n      "employmentType": "internship",\r\n      "sortOrder": 2,\r\n      "period": "Sep 2019 - Oct 2019",\r\n      "highlights": [\r\n        "Built NLP interfaces for news discovery and article recommendation.",\r\n        "Contributed to Django + Firebase full-stack blog platform and deployment workflows."\r\n      ]\r\n    },\r\n    {\r\n      "company": "Shaastra Automations",\r\n      "role": "Web Developer Intern",\r\n      "employmentType": "internship",\r\n      "sortOrder": 1,\r\n      "period": "Aug 2018 - Nov 2018",\r\n      "highlights": [\r\n        "Worked as a full-stack developer building dynamic multi-page websites.",\r\n        "Contributed to company website development and UI implementation."\r\n      ]\r\n    }\r\n  ],\r\n  "blogs": [\r\n    {\r\n      "title": "Unified Interface for AI Api",\r\n      "date": "Jan 31, 2026",\r\n      "summary": "Unify interactions across OpenAI-compatible providers with one consistent API layer.",\r\n      "link": "https://kaus98.github.io/2026/01/31/unified-interface-for-ai-api/"\r\n    },\r\n    {\r\n      "title": "Nano Banana Gemini Viral Prompts",\r\n      "date": "Sep 15, 2025",\r\n      "summary": "Prompt ideas and usage notes for Nano Banana Gemini for social-media-ready outputs.",\r\n      "link": "https://kaus98.github.io/2025/09/15/banana-prompts/"\r\n    },\r\n    {\r\n      "title": "Visualize Activation Function available to use in Pytorch",\r\n      "date": "Jan 13, 2025",\r\n      "summary": "Practical notes on activation functions and visualization patterns for deep learning workflows.",\r\n      "link": "https://kaus98.github.io/2025/01/13/activation-functions/"\r\n    },\r\n    {\r\n      "title": "Data Warehousing Notes",\r\n      "date": "Jan 8, 2023",\r\n      "summary": "Concise notes on warehousing fundamentals, analytical workloads, and architecture concepts.",\r\n      "link": "https://kaus98.github.io/2023/01/08/data-warehouse-quick-notes/"\r\n    },\r\n    {\r\n      "title": "Deploying Apache Spark, Jupyter Lab with support for Scala/Python",\r\n      "date": "Aug 15, 2022",\r\n      "summary": "Dockerized setup guide for Spark + Scala/Python + Jupyter Lab workflows.",\r\n      "link": "https://kaus98.github.io/2022/08/15/docker-spark/"\r\n    },\r\n    {\r\n      "title": "Recreating the New York Times Covid-19 Spiral Graph",\r\n      "date": "Jan 15, 2022",\r\n      "summary": "Python visualization walkthrough for reproducing the NYT COVID spiral graph style.",\r\n      "link": "https://kaus98.github.io/2022/01/15/spiral-graph-python/"\r\n    },\r\n    {\r\n      "title": "Elastic Quick Start Notes and Keywords Explained",\r\n      "date": "Jan 13, 2022",\r\n      "summary": "Beginner-friendly Elasticsearch primer covering key concepts and practical terminology.",\r\n      "link": "https://kaus98.github.io/2022/01/13/elasticsearch-quick-notes/"\r\n    },\r\n    {\r\n      "title": "Beginner to Advance — Web Scraping Guide in Python: Deploy a Python Web App using Flask and…",\r\n      "date": "Jun 23, 2020",\r\n      "summary": "Deploy a Flask + PostgreSQL web app on Heroku as part of the web scraping tutorial series.",\r\n      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-deploy-a-python-web-app-using-flask-and-a0e3cc8ce9f6"\r\n    },\r\n    {\r\n      "title": "Beginner to Advance — Web Scraping Guide in Python: Build and Deploy a Python Web App using Flask…",\r\n      "date": "Jun 23, 2020",\r\n      "summary": "Build a Flask + Postgres web app and API to serve scraped lyrics data.",\r\n      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-build-and-deploy-a-python-web-app-using-flask-202ffdf8fd40"\r\n    },\r\n    {\r\n      "title": "Beginner to Advance — Web Scraping Guide in Python: Automated Lyrics Scraper.",\r\n      "date": "Jun 15, 2020",\r\n      "summary": "Automate large-scale AZLyrics scraping with proxy rotation, async workflows, and JSON persistence.",\r\n      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-automated-lyrics-scraper-809163f279a1"\r\n    },\r\n    {\r\n      "title": "Beginner to Advance — Web Scraping Guide in Python : Introduction to Asynchronous Programming",\r\n      "date": "Jun 14, 2020",\r\n      "summary": "Introduction to asynchronous Python patterns for faster scraping and concurrent request handling.",\r\n      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-introduction-to-asynchronous-programming-24bce03dafa7"\r\n    },\r\n    {\r\n      "title": "Beginner to Advance : Web Scraping Guide in Python.",\r\n      "date": "Jun 13, 2020",\r\n      "summary": "Tutorial on rotating headers and proxies to reduce blocking while scraping websites.",\r\n      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-ba24dca5dce0"\r\n    },\r\n    {\r\n      "title": "Beginner to Advance : Web Scraping Guide in Python.",\r\n      "date": "Jun 11, 2020",\r\n      "summary": "Introductory guide to scraping AZLyrics using requests and BeautifulSoup, with JSON output.",\r\n      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-799ffd367067"\r\n    }\r\n  ],\r\n  "projects": [\r\n    {\r\n      "title": "Fourier Transform in NLP",\r\n      "subtitle": "Research Paper / MTP Project",\r\n      "description": "Studied Fourier Transform alternatives in Transformer architectures and hybrid Fourier + Multi-Head Attention approaches under Dr. Anuraj Singh; published in Springer NLP conference 2023.",\r\n      "github": "https://github.com/terminate9298/MTP-Project",\r\n      "website": "https://link.springer.com/chapter/10.1007/978-981-19-9225-4_37",\r\n      "pinned": true,\r\n      "ageYears": 3.0\r\n    },\r\n    {\r\n      "title": "AI-UI",\r\n      "subtitle": "UI Build with AI",\r\n      "description": "Interact with OpenAI-compatible APIs using native Node.js fetch across OpenAI, Groq, Nvidia, and local LLM endpoints.",\r\n      "github": "https://github.com/kaus98/AI-UI",\r\n      "pinned": true,\r\n      "ageYears": 0.1,\r\n      "lastCommitAt": "2026-02-01"\r\n    },\r\n    {\r\n      "title": "COVID-19 India",\r\n      "subtitle": "Visualizations, Predictions & Forecasting",\r\n      "description": "Built epidemic and time-series forecasting pipelines using SIR/SIRD/SEIRD/SEIHRD, SARIMAX, ARIMA, Prophet, Theta and Holts models.",\r\n      "github": "https://github.com/terminate9298/corona-visualization-and-prediction",\r\n      "pinned": true,\r\n      "ageYears": 5.2,\r\n      "lastCommitAt": "2021-05-14"\r\n    },\r\n    {\r\n      "title": "Multitask Learning",\r\n      "subtitle": "BTP Project",\r\n      "description": "Created MultiT, a PyTorch-based library to train deep learning models on multiple datasets using multitask learning concepts.",\r\n      "github": ""\r\n    },\r\n    {\r\n      "title": "Movie Recommendation System",\r\n      "subtitle": "BTP Project",\r\n      "description": "Implemented content-based, collaborative, embedding and RNN-based recommendation strategies for personalized movie suggestions.",\r\n      "website": "https://rec-movies.herokuapp.com/",\r\n      "github": ""\r\n    },\r\n    {\r\n      "title": "Song Lyrics Generator",\r\n      "subtitle": "NLP Solo Project",\r\n      "description": "Generated lyrics with LSTMs, Seq2Seq, Transformers and BERT. Also built async lyric scraping pipelines with proxy/header pooling.",\r\n      "github": "https://colab.research.google.com/drive/1QOUCiAXzQEeO8gQ0Mw5iYj1kmaJ-brFj?usp=sharing"\r\n    },\r\n    {\r\n      "title": "ChatBot Tutorials (Kaggle Notebook)",\r\n      "subtitle": "Kaggle Code",\r\n      "description": "Kaggle notebook focused on chatbot workflows using the Cornell Movie-Dialog Corpus.",\r\n      "website": "https://www.kaggle.com/code/terminate9298/chatbot-tutorials",\r\n      "ageYears": 6.0,\r\n      "lastSuccessfulRunAt": "2020-02-14"\r\n    },\r\n    {\r\n      "title": "Pytorch Turorials For Neural Network CNN RNN GAN",\r\n      "subtitle": "Kaggle Code",\r\n      "description": "Kaggle notebook collection covering PyTorch deep-learning model tutorials (CNN, RNN, GAN).",\r\n      "website": "https://www.kaggle.com/code/terminate9298/pytorch-turorials-for-neural-network-cnn-rnn-gan",\r\n      "ageYears": 6.1,\r\n      "lastSuccessfulRunAt": "2020-02-02"\r\n    },\r\n    {\r\n      "title": "Songs Lyrics",\r\n      "subtitle": "Kaggle Dataset",\r\n      "description": "Published Kaggle dataset of English lyrics of famous singers for NLP and text modeling use cases.",\r\n      "website": "https://www.kaggle.com/datasets/terminate9298/songs-lyrics",\r\n      "ageYears": 5.7,\r\n      "lastSuccessfulRunAt": "2020-06-23"\r\n    },\r\n    {\r\n      "title": "Multiple Database Sentiment analysis",\r\n      "subtitle": "Kaggle Notebook",\r\n      "description": "Kaggle notebook focused on sentiment-analysis experiments across multiple data sources.",\r\n      "website": "https://www.kaggle.com/code/terminate9298/multiple-database-sentiment-analysis",\r\n      "ageYears": 6.5,\r\n      "lastSuccessfulRunAt": "2019-08-20"\r\n    },\r\n    {\r\n      "title": "Movie Recommendation system(For Deployment)",\r\n      "subtitle": "Kaggle Notebook",\r\n      "description": "Kaggle notebook for deploying a movie recommendation workflow using multiple data sources.",\r\n      "website": "https://www.kaggle.com/code/terminate9298/movie-recommendation-system-for-deployment",\r\n      "pinned": true,\r\n      "ageYears": 6.1,\r\n      "lastSuccessfulRunAt": "2020-02-02"\r\n    },\r\n    {\r\n      "title": "Bike Sharing Predictions[Top 10% Score(0.39)]",\r\n      "subtitle": "Kaggle Notebook",\r\n      "description": "Kaggle notebook on Bike Sharing Demand with a reported top-10% leaderboard performance (score 0.39).",\r\n      "website": "https://www.kaggle.com/code/terminate9298/bike-sharing-predictions-top-10-score-0-39",\r\n      "ageYears": 6.6,\r\n      "lastSuccessfulRunAt": "2019-07-18"\r\n    },\r\n    {\r\n      "title": "Mercedez Benz",\r\n      "subtitle": "Kaggle Notebook",\r\n      "description": "Kaggle notebook using the Mercedes-Benz Greener Manufacturing dataset for predictive modeling.",\r\n      "website": "https://www.kaggle.com/code/terminate9298/mercedez-benz",\r\n      "ageYears": 6.6,\r\n      "lastSuccessfulRunAt": "2019-08-02"\r\n    },\r\n    {\r\n      "title": "PUBG Model Predictions",\r\n      "subtitle": "Kaggle Notebook",\r\n      "description": "Kaggle notebook for PUBG finish placement prediction using the competition kernel dataset.",\r\n      "website": "https://www.kaggle.com/code/terminate9298/pubg-model-predictions",\r\n      "ageYears": 6.7,\r\n      "lastSuccessfulRunAt": "2019-06-25"\r\n    },\r\n    {\r\n      "title": "Music_Recommandation_system",\r\n      "subtitle": "Kaggle Notebook",\r\n      "description": "Kaggle notebook for the WSDM KKBox music recommendation challenge.",\r\n      "website": "https://www.kaggle.com/code/terminate9298/music-recommandation-system",\r\n      "ageYears": 6.6,\r\n      "lastSuccessfulRunAt": "2019-08-04"\r\n    },\r\n    {\r\n      "title": "Spiral Graph COVID NYC",\r\n      "subtitle": "Data Visualization · Python",\r\n      "description": "Recreated the New York Times COVID-19 spiral graph in Python with multi-country support and publication-ready plots.",\r\n      "github": "https://github.com/kaus98/spiral-graph-covid-nyc",\r\n      "ageYears": 4.1,\r\n      "lastCommitAt": "2022-06-14"\r\n    },\r\n    {\r\n      "title": "AZLyrics Scraper",\r\n      "subtitle": "Web Scraping · Python",\r\n      "description": "Built a lyrics scraper for AZLyrics using BeautifulSoup, concurrent programming patterns, and request rotation strategies.",\r\n      "github": "https://github.com/kaus98/azlyrics_scraper",\r\n      "ageYears": 3.5,\r\n      "lastCommitAt": "2021-06-02"\r\n    },\r\n    {\r\n      "title": "Load Tester",\r\n      "subtitle": "Load Testing · Go",\r\n      "description": "Created a Golang load-testing tool with a simple interface to hit target endpoints and stream real-time performance stats.",\r\n      "github": "https://github.com/kaus98/Load-Tester",\r\n      "ageYears": 2.9,\r\n      "lastCommitAt": "2023-06-09"\r\n    },\r\n    {\r\n      "title": "Catch the Ball",\r\n      "subtitle": "Reinforcement Learning · Python",\r\n      "description": "Reinforcement learning project that trains a neural-network-based agent to catch a moving ball.",\r\n      "github": "https://github.com/terminate9298/Catch_the_ball",\r\n      "ageYears": 6.5,\r\n      "lastCommitAt": "2022-11-22"\r\n    },\r\n    {\r\n      "title": "LambdaTest Assignment",\r\n      "subtitle": "ML Assignment · Jupyter Notebook",\r\n      "description": "Internship assessment submission covering machine learning and computer vision experiments in notebook form.",\r\n      "github": "https://github.com/terminate9298/LambdaTest-Assignment",\r\n      "ageYears": 4.8,\r\n      "lastCommitAt": "2021-05-09"\r\n    },\r\n    {\r\n      "title": "Beadcore Sentence Embedding",\r\n      "subtitle": "NLP · Sentence Embeddings",\r\n      "description": "Implemented a sentence embedding pipeline with preprocessing, embedding generation, ANN index creation, and prediction scripts.",\r\n      "github": "https://github.com/terminate9298/beadcore-sentence-embedding",\r\n      "ageYears": 4.8,\r\n      "lastCommitAt": "2021-05-04"\r\n    },\r\n    {\r\n      "title": "Rasa Submission",\r\n      "subtitle": "Chatbot · Rasa + SQLite",\r\n      "description": "Built a Rasa starter assistant that collects user name, phone, and email, stores details in SQLite, and supports WhatsApp integration.",\r\n      "github": "https://github.com/terminate9298/Rasa-Submission",\r\n      "ageYears": 5.0,\r\n      "lastCommitAt": "2021-02-23"\r\n    },\r\n    {\r\n      "title": "K-Means Clustering Implementation",\r\n      "subtitle": "Machine Learning Algorithm · Jupyter Notebook",\r\n      "description": "Implemented classic centroid-based K-Means clustering on the Iris dataset with notebook-based experimentation.",\r\n      "github": "https://github.com/terminate9298/K-Means-Clustering-Implementation",\r\n      "ageYears": 5.2,\r\n      "lastCommitAt": "2020-12-13"\r\n    },\r\n    {\r\n      "title": "K-Nearest Neighbours Implementation",\r\n      "subtitle": "Machine Learning Algorithm · Jupyter Notebook",\r\n      "description": "Implemented the classic K-Nearest Neighbours algorithm with end-to-end notebook experimentation.",\r\n      "github": "https://github.com/terminate9298/K-Nearest-Neighbours-Implementation",\r\n      "ageYears": 5.2,\r\n      "lastCommitAt": "2020-12-06"\r\n    },\r\n    {\r\n      "title": "XORChat",\r\n      "subtitle": "Realtime Chat App · Flask + Socket.IO",\r\n      "description": "Built an anonymous group chat application using Flask, Socket.IO, and Firebase backend services.",\r\n      "github": "https://github.com/terminate9298/XORChat",\r\n      "ageYears": 5.3,\r\n      "lastCommitAt": "2020-10-31"\r\n    },\r\n    {\r\n      "title": "Face Recognision",\r\n      "subtitle": "Computer Vision · Transfer Learning",\r\n      "description": "Implemented face recognition workflows using transfer learning with VGG and ResNet models.",\r\n      "github": "https://github.com/terminate9298/Face_Recognision",\r\n      "ageYears": 6.3,\r\n      "lastCommitAt": "2019-11-22"\r\n    },\r\n    {\r\n      "title": "Talent Identification System",\r\n      "subtitle": "Web App · HTML/CSS/JS",\r\n      "description": "Developed a talent identification web platform with profile/resume-focused pages and front-end assets for candidate showcasing.",\r\n      "github": "https://github.com/terminate9298/Talent_Identification_System",\r\n      "ageYears": 7.0,\r\n      "lastCommitAt": "2019-05-12"\r\n    },\r\n    {\r\n      "title": "Tiic Project",\r\n      "subtitle": "Static Website · HTML/CSS/JS",\r\n      "description": "Built a multi-page static website for startup incubation workflows, including eligibility, association, and application pages.",\r\n      "github": "https://github.com/terminate9298/Tiic-Project",\r\n      "ageYears": 7.0,\r\n      "lastCommitAt": "2019-03-19"\r\n    },\r\n    {\r\n      "title": "TroveTrace",\r\n      "subtitle": "Quiz Platform · PHP",\r\n      "description": "Developed an annual fest quiz platform with score tracking, negative marking, and timed question flow.",\r\n      "github": "https://github.com/terminate9298/TroveTrace",\r\n      "ageYears": 7.0,\r\n      "lastCommitAt": "2019-03-16"\r\n    },\r\n    {\r\n      "title": "Confession Site",\r\n      "subtitle": "Web App · PHP + MySQL",\r\n      "description": "Created a college confession platform using PHP and MySQL for anonymous post submission and display.",\r\n      "github": "https://github.com/terminate9298/Confession_site",\r\n      "ageYears": 7.2,\r\n      "lastCommitAt": "2019-03-16"\r\n    }\r\n  ],\r\n  "certifications": [\r\n    "NLP With Deep Learning (Stanford Online)",\r\n    "Deep Learning Nanodegree Program (Udacity)",\r\n    "Introduction To Deep Learning (Udemy)",\r\n    "Complete A-Z Of Machine Learning (Udemy)",\r\n    "Introduction To Machine Learning By Andrew Ng (Coursera)",\r\n    "OpenCV With Python For Image And Video Analysis (LinkedIn)",\r\n    "Automate The Boring Stuff With Python (Al Sweigart)",\r\n    "Full Stack Web Developer Bootcamp (Udemy)"\r\n  ]\r\n}\r\n';
 function parsePortfolioData() {
   return JSON.parse(portfolioJson);
 }
@@ -12697,6 +12697,34 @@ function ResumeIcon({ className }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M18 16a1 1 0 0 1 1 1v2.6l.8-.8a1 1 0 1 1 1.4 1.4l-2.5 2.5a1 1 0 0 1-1.4 0l-2.5-2.5a1 1 0 1 1 1.4-1.4l.8.8V17a1 1 0 0 1 1-1Z" })
   ] });
 }
+const TECH_STACK_RULES = [
+  { label: "NLP", keywords: ["nlp", "lyrics", "chatbot", "sentiment"] },
+  { label: "Transformers", keywords: ["transformer", "multi-head attention", "bert"] },
+  { label: "PyTorch", keywords: ["pytorch"] },
+  { label: "Forecasting", keywords: ["forecast", "sarimax", "arima", "prophet", "theta", "holts"] },
+  { label: "Recommendation Systems", keywords: ["recommendation"] },
+  { label: "Web Scraping", keywords: ["scraping", "scraper", "crawl"] },
+  { label: "Flask", keywords: ["flask"] },
+  { label: "Docker", keywords: ["docker"] },
+  { label: "Apache Spark", keywords: ["spark"] },
+  { label: "Data Visualization", keywords: ["visualization", "graph", "plot"] },
+  { label: "Kaggle", keywords: ["kaggle.com", "kaggle"] },
+  { label: "Python", keywords: ["python", "pytorch", "flask"] },
+  { label: "TypeScript", keywords: ["typescript"] },
+  { label: "JavaScript", keywords: ["javascript", "node.js", "nodejs"] },
+  { label: "Scala", keywords: ["scala"] }
+];
+function detectLabels(project, rules, explicitValues) {
+  const normalizedHaystack = [
+    project.title,
+    project.subtitle,
+    project.description,
+    project.website ?? "",
+    project.github ?? "",
+    ...explicitValues ?? []
+  ].join(" ").toLowerCase();
+  return rules.filter((rule) => rule.keywords.some((keyword) => normalizedHaystack.includes(keyword))).map((rule) => rule.label);
+}
 function WindowPanels({
   id,
   about,
@@ -12727,6 +12755,69 @@ function WindowPanels({
   navigateTerminalHistory,
   autocompleteTerminalInput
 }) {
+  const [projectFilterTab, setProjectFilterTab] = reactExports.useState("all");
+  const [projectTechStackFilter, setProjectTechStackFilter] = reactExports.useState("all");
+  const [blogTab, setBlogTab] = reactExports.useState("all");
+  const allProjectsSorted = reactExports.useMemo(() => {
+    return [...projectCards].sort((projectA, projectB) => {
+      const ageA = projectA.ageYears ?? -1;
+      const ageB = projectB.ageYears ?? -1;
+      if (ageA !== ageB) {
+        return ageA - ageB;
+      }
+      if (projectA.pinned !== projectB.pinned) {
+        return projectA.pinned ? -1 : 1;
+      }
+      return projectA.title.localeCompare(projectB.title);
+    });
+  }, [projectCards]);
+  const kaggleProjects = reactExports.useMemo(
+    () => allProjectsSorted.filter(
+      (project) => project.website?.includes("kaggle.com") || project.subtitle.toLowerCase().includes("kaggle")
+    ),
+    [allProjectsSorted]
+  );
+  const projectsByTab = reactExports.useMemo(() => {
+    if (projectFilterTab === "pinned") {
+      return allProjectsSorted.filter((project) => project.pinned);
+    }
+    if (projectFilterTab === "kaggle") {
+      return kaggleProjects;
+    }
+    if (projectFilterTab === "older") {
+      return allProjectsSorted.filter((project) => typeof project.ageYears === "number" && project.ageYears >= 5);
+    }
+    const pinnedProjects = allProjectsSorted.filter((project) => project.pinned);
+    const nonPinnedProjects = allProjectsSorted.filter((project) => !project.pinned);
+    return [...pinnedProjects, ...nonPinnedProjects];
+  }, [allProjectsSorted, kaggleProjects, projectFilterTab]);
+  const projectTechStackOptions = reactExports.useMemo(() => {
+    const labels = /* @__PURE__ */ new Set();
+    allProjectsSorted.forEach((project) => {
+      detectLabels(project, TECH_STACK_RULES, [...project.technologies || [], ...project.languages || []]).forEach((label) => labels.add(label));
+    });
+    return [...labels].sort((labelA, labelB) => labelA.localeCompare(labelB));
+  }, [allProjectsSorted]);
+  const visibleProjects = reactExports.useMemo(() => {
+    return projectsByTab.filter((project) => {
+      const techStackMatches = projectTechStackFilter === "all" || detectLabels(project, TECH_STACK_RULES, [...project.technologies || [], ...project.languages || []]).includes(projectTechStackFilter);
+      return techStackMatches;
+    });
+  }, [projectTechStackFilter, projectsByTab]);
+  const hasActiveProjectFilters = projectFilterTab !== "all" || projectTechStackFilter !== "all";
+  const projectsMissingAge = reactExports.useMemo(
+    () => allProjectsSorted.filter((project) => typeof project.ageYears !== "number"),
+    [allProjectsSorted]
+  );
+  const visibleBlogs = reactExports.useMemo(() => {
+    if (blogTab === "medium") {
+      return blogPosts.filter((post) => post.link.includes("medium.com"));
+    }
+    if (blogTab === "personal") {
+      return blogPosts.filter((post) => !post.link.includes("medium.com"));
+    }
+    return blogPosts;
+  }, [blogPosts, blogTab]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     id === "about" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "big-title", children: about.name }),
@@ -12812,12 +12903,50 @@ function WindowPanels({
     id === "blogs" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Blogs" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Latest writing from kaus98.github.io" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: blogPosts.map((post) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: post.title }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: post.date }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: post.summary }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "wcard-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: post.link, target: "_blank", rel: "noreferrer", children: "Read" }) })
-      ] }, post.link)) })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "project-tabs", role: "tablist", "aria-label": "Blog categories", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": blogTab === "all",
+            className: `project-tab${blogTab === "all" ? " active" : ""}`,
+            onClick: () => setBlogTab("all"),
+            children: "All Blogs"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": blogTab === "medium",
+            className: `project-tab${blogTab === "medium" ? " active" : ""}`,
+            onClick: () => setBlogTab("medium"),
+            children: "Medium"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": blogTab === "personal",
+            className: `project-tab${blogTab === "personal" ? " active" : ""}`,
+            onClick: () => setBlogTab("personal"),
+            children: "Personal"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "cards", children: [
+        visibleBlogs.map((post) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: post.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: post.date }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: post.summary }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "wcard-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: post.link, target: "_blank", rel: "noreferrer", children: "Read" }) })
+        ] }, post.link)),
+        visibleBlogs.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No blogs in this tab yet." })
+      ] })
     ] }),
     id === "jobs" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel full-panel", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Jobs" }),
@@ -12845,15 +12974,113 @@ function WindowPanels({
     ] }),
     id === "projects" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "panel cards-panel", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading", children: "Projects" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cards", children: projectCards.map((project) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "wcard-title", children: project.title }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: project.subtitle }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: project.description }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "wcard-actions", children: [
-          project.website && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: project.website, target: "_blank", rel: "noreferrer", children: "Live" }),
-          project.github && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: project.github, target: "_blank", rel: "noreferrer", children: "Code" })
-        ] })
-      ] }, project.title)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "project-tabs", role: "tablist", "aria-label": "Project categories", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": projectFilterTab === "all",
+            className: `project-tab${projectFilterTab === "all" ? " active" : ""}`,
+            onClick: () => setProjectFilterTab("all"),
+            children: "All Projects"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": projectFilterTab === "pinned",
+            className: `project-tab${projectFilterTab === "pinned" ? " active" : ""}`,
+            onClick: () => setProjectFilterTab("pinned"),
+            children: "Pinned Projects"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": projectFilterTab === "kaggle",
+            className: `project-tab${projectFilterTab === "kaggle" ? " active" : ""}`,
+            onClick: () => setProjectFilterTab("kaggle"),
+            children: "Kaggle Projects"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": projectFilterTab === "older",
+            className: `project-tab${projectFilterTab === "older" ? " active" : ""}`,
+            onClick: () => setProjectFilterTab("older"),
+            children: "Older Projects"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "project-filter-controls", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "project-filter-group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "project-filter-label", htmlFor: "project-tech-stack-filter", children: "Tech Stack" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "select",
+            {
+              id: "project-tech-stack-filter",
+              className: "settings-select",
+              value: projectTechStackFilter,
+              onChange: (event) => setProjectTechStackFilter(event.target.value),
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "all", children: "All tech stacks" }),
+                projectTechStackOptions.map((stack) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: stack, children: stack }, stack))
+              ]
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            className: "project-tab project-filter-clear",
+            onClick: () => {
+              setProjectFilterTab("all");
+              setProjectTechStackFilter("all");
+            },
+            disabled: !hasActiveProjectFilters,
+            children: "Clear filters"
+          }
+        )
+      ] }),
+      hasActiveProjectFilters && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "muted", children: [
+        "Active: ",
+        projectFilterTab !== "all" ? `Tab: ${projectFilterTab}` : "Tab: all",
+        projectTechStackFilter !== "all" ? ` · Tech Stack: ${projectTechStackFilter}` : ""
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "Sorted by age (oldest to newest) using project metadata." }),
+      projectsMissingAge.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "muted", children: [
+        "Age missing for: ",
+        projectsMissingAge.map((project) => project.title).join(", ")
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "cards", children: [
+        visibleProjects.map((project) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "wcard", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "wcard-title project-title-row", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: project.title }),
+            project.pinned && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "project-pin", "aria-label": "Pinned project", title: "Pinned project", children: "📌" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: project.subtitle }),
+          (typeof project.ageYears === "number" || project.lastCommitAt || project.lastSuccessfulRunAt) && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "muted", children: [
+            typeof project.ageYears === "number" ? `Age: ${project.ageYears} years` : "Age: Not set",
+            project.lastCommitAt ? ` · Last commit: ${project.lastCommitAt}` : "",
+            project.lastSuccessfulRunAt ? ` · Last successful run: ${project.lastSuccessfulRunAt}` : ""
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "wcard-text", children: project.description }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "wcard-actions", children: [
+            project.website && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: project.website, target: "_blank", rel: "noreferrer", children: "Live" }),
+            project.github && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "wlink", href: project.github, target: "_blank", rel: "noreferrer", children: "Code" })
+          ] })
+        ] }, project.title)),
+        visibleProjects.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "muted", children: "No projects match the selected filters." })
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "section-heading panel-block", children: "Certifications" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-plain", children: certifications.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: item }, item)) })
     ] }),
@@ -13038,45 +13265,149 @@ function DesktopWindows(props) {
     filteredFullTimeJobs,
     filteredInternshipJobs
   } = props;
+  const desktopShortcuts = reactExports.useMemo(
+    () => [
+      { id: "about", label: "About", iconClass: "about", Icon: AboutIcon },
+      { id: "projects", label: "Projects", iconClass: "projects", Icon: ProjectsIcon },
+      { id: "gallery", label: "Gallery", iconClass: "gallery", Icon: GalleryIcon },
+      { id: "blogs", label: "Blogs", iconClass: "blogs", Icon: BlogsIcon },
+      { id: "jobs", label: "Jobs", iconClass: "projects", Icon: JobsIcon },
+      { id: "timeline", label: "Timeline", iconClass: "timeline", Icon: TimelineIcon },
+      { id: "contact", label: "Contact", iconClass: "contact", Icon: ContactIcon },
+      { id: "settings", label: "Settings", iconClass: "settings", Icon: SettingsIcon },
+      { id: "terminal", label: "Terminal", iconClass: "terminal", Icon: TerminalIcon }
+    ],
+    []
+  );
+  const desktopIconsRef = reactExports.useRef(null);
+  const shortcutById = reactExports.useMemo(
+    () => desktopShortcuts.reduce((acc, shortcut) => {
+      acc[shortcut.id] = shortcut;
+      return acc;
+    }, {}),
+    [desktopShortcuts]
+  );
+  const iconSize = reactExports.useMemo(() => ({ width: 92, height: 94 }), []);
+  const [iconOrder] = reactExports.useState(() => {
+    return desktopShortcuts.map((shortcut) => shortcut.id);
+  });
+  const [iconPositions, setIconPositions] = reactExports.useState(() => {
+    const availableWidth = Math.max(220, viewport.width - 180);
+    const availableHeight = Math.max(220, viewport.height - taskbarReservedHeight - 36);
+    return desktopShortcuts.reduce((acc, shortcut, index) => {
+      const itemsPerColumn = Math.max(1, Math.floor(availableHeight / 108));
+      const column = Math.floor(index / itemsPerColumn);
+      const row = index % itemsPerColumn;
+      const x = Math.max(8, Math.min(availableWidth - iconSize.width, 14 + column * 106));
+      const y = Math.max(8, Math.min(availableHeight - iconSize.height, 14 + row * 108));
+      acc[shortcut.id] = { x, y };
+      return acc;
+    }, {});
+  });
+  const [draggedIconId, setDraggedIconId] = reactExports.useState(null);
+  const dragStateRef = reactExports.useRef(null);
+  const skipClickForIconRef = reactExports.useRef(null);
+  reactExports.useEffect(() => {
+    if (!draggedIconId) return;
+    function onMouseMove(event) {
+      const dragState = dragStateRef.current;
+      const desktopEl = desktopIconsRef.current;
+      if (!dragState || !desktopEl) return;
+      const desktopRect = desktopEl.getBoundingClientRect();
+      const availableWidth = Math.max(220, viewport.width - 180);
+      const availableHeight = Math.max(220, viewport.height - taskbarReservedHeight - 36);
+      const maxX = Math.max(8, Math.min(desktopRect.width - iconSize.width, availableWidth - iconSize.width));
+      const maxY = Math.max(8, Math.min(desktopRect.height - iconSize.height, availableHeight - iconSize.height));
+      const x = Math.max(8, Math.min(maxX, event.clientX - desktopRect.left - dragState.offsetX));
+      const y = Math.max(8, Math.min(maxY, event.clientY - desktopRect.top - dragState.offsetY));
+      dragState.moved = true;
+      setIconPositions((prev) => ({
+        ...prev,
+        [dragState.id]: { x, y }
+      }));
+    }
+    function onMouseUp() {
+      const dragState = dragStateRef.current;
+      if (dragState?.moved) {
+        skipClickForIconRef.current = dragState.id;
+      }
+      dragStateRef.current = null;
+      setDraggedIconId(null);
+    }
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+  }, [draggedIconId, iconSize.height, iconSize.width, taskbarReservedHeight, viewport.height, viewport.width]);
+  reactExports.useEffect(() => {
+    setIconPositions((prev) => {
+      const availableWidth = Math.max(220, viewport.width - 180);
+      const availableHeight = Math.max(220, viewport.height - taskbarReservedHeight - 36);
+      let changed = false;
+      const next = { ...prev };
+      desktopShortcuts.forEach((shortcut, index) => {
+        if (!next[shortcut.id]) {
+          const itemsPerColumn = Math.max(1, Math.floor(availableHeight / 108));
+          const column = Math.floor(index / itemsPerColumn);
+          const row = index % itemsPerColumn;
+          next[shortcut.id] = {
+            x: Math.max(8, Math.min(availableWidth - iconSize.width, 14 + column * 106)),
+            y: Math.max(8, Math.min(availableHeight - iconSize.height, 14 + row * 108))
+          };
+          changed = true;
+        }
+        const clampedX = Math.max(8, Math.min(availableWidth - iconSize.width, next[shortcut.id].x));
+        const clampedY = Math.max(8, Math.min(availableHeight - iconSize.height, next[shortcut.id].y));
+        if (clampedX !== next[shortcut.id].x || clampedY !== next[shortcut.id].y) {
+          next[shortcut.id] = { x: clampedX, y: clampedY };
+          changed = true;
+        }
+      });
+      return changed ? next : prev;
+    });
+  }, [desktopShortcuts, iconSize.height, iconSize.width, taskbarReservedHeight, viewport.height, viewport.width]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "desktop", onMouseDown: closeStartMenu, children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "desktop-icons", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("about"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon about", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AboutIcon, { className: "icon" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "About" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("projects"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon projects", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectsIcon, { className: "icon" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Projects" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("gallery"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon gallery", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(GalleryIcon, { className: "icon" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Gallery" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("blogs"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon blogs", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BlogsIcon, { className: "icon" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Blogs" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("jobs"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon projects", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(JobsIcon, { className: "icon" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Jobs" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("timeline"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon timeline", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TimelineIcon, { className: "icon" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Timeline" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("contact"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon contact", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ContactIcon, { className: "icon" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Contact" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("settings"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon settings", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SettingsIcon, { className: "icon" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Settings" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "desktop-icon", type: "button", onClick: () => openApp("terminal"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-icon terminal", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TerminalIcon, { className: "icon" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: "Terminal" })
-      ] })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "desktop-icons", ref: desktopIconsRef, children: iconOrder.map((id) => {
+      const shortcut = shortcutById[id];
+      if (!shortcut) return null;
+      const iconPosition = iconPositions[shortcut.id];
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          className: `desktop-icon${draggedIconId === shortcut.id ? " dragging" : ""}`,
+          type: "button",
+          style: iconPosition ? {
+            left: iconPosition.x,
+            top: iconPosition.y
+          } : void 0,
+          onMouseDown: (event) => {
+            if (event.button !== 0) return;
+            const buttonRect = event.currentTarget.getBoundingClientRect();
+            setDraggedIconId(shortcut.id);
+            dragStateRef.current = {
+              id: shortcut.id,
+              offsetX: event.clientX - buttonRect.left,
+              offsetY: event.clientY - buttonRect.top,
+              moved: false
+            };
+          },
+          onClick: () => {
+            if (skipClickForIconRef.current === shortcut.id) {
+              skipClickForIconRef.current = null;
+              return;
+            }
+            openApp(shortcut.id);
+          },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `app-icon ${shortcut.iconClass}`, "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(shortcut.Icon, { className: "icon" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "desktop-icon-label", children: shortcut.label })
+          ]
+        },
+        shortcut.id
+      );
+    }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("aside", { className: "social-rail", "aria-label": "Social links", onMouseDown: (e) => e.stopPropagation(), children: socialLinks.map(({ key, label, href, Icon }) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "social-rail-link", href, target: "_blank", rel: "noreferrer", "aria-label": label, title: label, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "social-rail-icon" }) }, key)) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "window-area", children: [
       Object.keys(windows).map((id) => {
@@ -13465,6 +13796,53 @@ function Taskbar({
       ] })
     ] })
   ] }) });
+}
+const phrases = [
+  "Hi, I am Kaustubh Pathak.",
+  "I Love Coding",
+  "Welcome to my Page."
+];
+const TYPING_SPEED_MS = 100;
+const DELETING_SPEED_MS = 50;
+const PAUSE_AFTER_TYPING_MS = 2e3;
+const PAUSE_AFTER_DELETING_MS = 500;
+function TypewriterBackground() {
+  const [text, setText] = reactExports.useState("");
+  const [isDeleting, setIsDeleting] = reactExports.useState(false);
+  const [loopIndex, setLoopIndex] = reactExports.useState(0);
+  const [typingDelay, setTypingDelay] = reactExports.useState(TYPING_SPEED_MS);
+  reactExports.useEffect(() => {
+    let timeoutId;
+    const currentPhrase = phrases[loopIndex % phrases.length];
+    const handleType = () => {
+      if (!isDeleting) {
+        const nextText = currentPhrase.substring(0, text.length + 1);
+        setText(nextText);
+        if (nextText === currentPhrase) {
+          setTypingDelay(PAUSE_AFTER_TYPING_MS);
+          setIsDeleting(true);
+        } else {
+          setTypingDelay(TYPING_SPEED_MS + Math.random() * 50);
+        }
+      } else {
+        const nextText = currentPhrase.substring(0, text.length - 1);
+        setText(nextText);
+        if (nextText === "") {
+          setIsDeleting(false);
+          setLoopIndex((prev) => prev + 1);
+          setTypingDelay(PAUSE_AFTER_DELETING_MS);
+        } else {
+          setTypingDelay(DELETING_SPEED_MS);
+        }
+      }
+    };
+    timeoutId = window.setTimeout(handleType, typingDelay);
+    return () => window.clearTimeout(timeoutId);
+  }, [text, isDeleting, loopIndex, typingDelay]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "typewriter-background", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "typewriter-content", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "typewriter-line", children: [
+    text,
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "typewriter-cursor", children: "|" })
+  ] }) }) });
 }
 function App() {
   const [startOpen, setStartOpen] = reactExports.useState(false);
@@ -14070,7 +14448,9 @@ function App() {
   );
   const normalizedStartQuery = startQuery.trim().toLowerCase();
   const normalizedQuery = query.trim().toLowerCase();
-  const filteredPinnedApps = pinnedApps.filter((app) => app.label.toLowerCase().includes(normalizedStartQuery));
+  const filteredPinnedApps = pinnedApps.filter(
+    (app) => app.id !== "terminal" && app.label.toLowerCase().includes(normalizedStartQuery)
+  );
   const filteredAllOptions = allOptions.filter(
     (item) => item.label.toLowerCase().includes(normalizedStartQuery) || item.description.toLowerCase().includes(normalizedStartQuery)
   );
@@ -14274,6 +14654,7 @@ function App() {
   });
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: drag || resize ? `w11 ${theme} dragging` : `w11 ${theme}`, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "wallpaper", "aria-hidden": "true" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(TypewriterBackground, {}),
     isSleeping && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sleep-overlay", role: "dialog", "aria-label": "Sleep mode", onClick: () => setIsSleeping(false), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       "button",
       {

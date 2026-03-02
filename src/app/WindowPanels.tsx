@@ -42,7 +42,7 @@ type DetectionRule = {
   keywords: string[]
 }
 
-const TECHNOLOGY_RULES: DetectionRule[] = [
+const TECH_STACK_RULES: DetectionRule[] = [
   { label: 'NLP', keywords: ['nlp', 'lyrics', 'chatbot', 'sentiment'] },
   { label: 'Transformers', keywords: ['transformer', 'multi-head attention', 'bert'] },
   { label: 'PyTorch', keywords: ['pytorch'] },
@@ -54,9 +54,6 @@ const TECHNOLOGY_RULES: DetectionRule[] = [
   { label: 'Apache Spark', keywords: ['spark'] },
   { label: 'Data Visualization', keywords: ['visualization', 'graph', 'plot'] },
   { label: 'Kaggle', keywords: ['kaggle.com', 'kaggle'] },
-]
-
-const LANGUAGE_RULES: DetectionRule[] = [
   { label: 'Python', keywords: ['python', 'pytorch', 'flask'] },
   { label: 'TypeScript', keywords: ['typescript'] },
   { label: 'JavaScript', keywords: ['javascript', 'node.js', 'nodejs'] },
@@ -111,8 +108,7 @@ export function WindowPanels({
   autocompleteTerminalInput,
 }: WindowPanelsProps) {
   const [projectFilterTab, setProjectFilterTab] = useState<'all' | 'pinned' | 'kaggle' | 'older'>('all')
-  const [projectTechnologyFilter, setProjectTechnologyFilter] = useState('all')
-  const [projectLanguageFilter, setProjectLanguageFilter] = useState('all')
+  const [projectTechStackFilter, setProjectTechStackFilter] = useState('all')
   const [blogTab, setBlogTab] = useState<'all' | 'medium' | 'personal'>('all')
 
   const allProjectsSorted = useMemo(() => {
@@ -159,21 +155,11 @@ export function WindowPanels({
     return [...pinnedProjects, ...nonPinnedProjects]
   }, [allProjectsSorted, kaggleProjects, projectFilterTab])
 
-  const projectTechnologyOptions = useMemo(() => {
+  const projectTechStackOptions = useMemo(() => {
     const labels = new Set<string>()
 
     allProjectsSorted.forEach((project) => {
-      detectLabels(project, TECHNOLOGY_RULES, project.technologies).forEach((label) => labels.add(label))
-    })
-
-    return [...labels].sort((labelA, labelB) => labelA.localeCompare(labelB))
-  }, [allProjectsSorted])
-
-  const projectLanguageOptions = useMemo(() => {
-    const labels = new Set<string>()
-
-    allProjectsSorted.forEach((project) => {
-      detectLabels(project, LANGUAGE_RULES, project.languages).forEach((label) => labels.add(label))
+      detectLabels(project, TECH_STACK_RULES, [...(project.technologies || []), ...(project.languages || [])]).forEach((label) => labels.add(label))
     })
 
     return [...labels].sort((labelA, labelB) => labelA.localeCompare(labelB))
@@ -181,20 +167,16 @@ export function WindowPanels({
 
   const visibleProjects = useMemo(() => {
     return projectsByTab.filter((project) => {
-      const technologyMatches =
-        projectTechnologyFilter === 'all' ||
-        detectLabels(project, TECHNOLOGY_RULES, project.technologies).includes(projectTechnologyFilter)
+      const techStackMatches =
+        projectTechStackFilter === 'all' ||
+        detectLabels(project, TECH_STACK_RULES, [...(project.technologies || []), ...(project.languages || [])]).includes(projectTechStackFilter)
 
-      const languageMatches =
-        projectLanguageFilter === 'all' ||
-        detectLabels(project, LANGUAGE_RULES, project.languages).includes(projectLanguageFilter)
-
-      return technologyMatches && languageMatches
+      return techStackMatches
     })
-  }, [projectLanguageFilter, projectTechnologyFilter, projectsByTab])
+  }, [projectTechStackFilter, projectsByTab])
 
   const hasActiveProjectFilters =
-    projectFilterTab !== 'all' || projectTechnologyFilter !== 'all' || projectLanguageFilter !== 'all'
+    projectFilterTab !== 'all' || projectTechStackFilter !== 'all'
 
   const projectsMissingAge = useMemo(
     () => allProjectsSorted.filter((project) => typeof project.ageYears !== 'number'),
@@ -484,38 +466,19 @@ export function WindowPanels({
           </div>
           <div className="project-filter-controls">
             <div className="project-filter-group">
-              <label className="project-filter-label" htmlFor="project-technology-filter">
-                Technology
+              <label className="project-filter-label" htmlFor="project-tech-stack-filter">
+                Tech Stack
               </label>
               <select
-                id="project-technology-filter"
+                id="project-tech-stack-filter"
                 className="settings-select"
-                value={projectTechnologyFilter}
-                onChange={(event) => setProjectTechnologyFilter(event.target.value)}
+                value={projectTechStackFilter}
+                onChange={(event) => setProjectTechStackFilter(event.target.value)}
               >
-                <option value="all">All technologies</option>
-                {projectTechnologyOptions.map((technology) => (
-                  <option key={technology} value={technology}>
-                    {technology}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="project-filter-group">
-              <label className="project-filter-label" htmlFor="project-language-filter">
-                Language
-              </label>
-              <select
-                id="project-language-filter"
-                className="settings-select"
-                value={projectLanguageFilter}
-                onChange={(event) => setProjectLanguageFilter(event.target.value)}
-              >
-                <option value="all">All languages</option>
-                {projectLanguageOptions.map((language) => (
-                  <option key={language} value={language}>
-                    {language}
+                <option value="all">All tech stacks</option>
+                {projectTechStackOptions.map((stack) => (
+                  <option key={stack} value={stack}>
+                    {stack}
                   </option>
                 ))}
               </select>
@@ -525,8 +488,7 @@ export function WindowPanels({
               className="project-tab project-filter-clear"
               onClick={() => {
                 setProjectFilterTab('all')
-                setProjectTechnologyFilter('all')
-                setProjectLanguageFilter('all')
+                setProjectTechStackFilter('all')
               }}
               disabled={!hasActiveProjectFilters}
             >
@@ -536,8 +498,7 @@ export function WindowPanels({
           {hasActiveProjectFilters && (
             <p className="muted">
               Active: {projectFilterTab !== 'all' ? `Tab: ${projectFilterTab}` : 'Tab: all'}
-              {projectTechnologyFilter !== 'all' ? ` · Technology: ${projectTechnologyFilter}` : ''}
-              {projectLanguageFilter !== 'all' ? ` · Language: ${projectLanguageFilter}` : ''}
+              {projectTechStackFilter !== 'all' ? ` · Tech Stack: ${projectTechStackFilter}` : ''}
             </p>
           )}
           <p className="muted">Sorted by age (oldest to newest) using project metadata.</p>

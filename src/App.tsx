@@ -24,6 +24,7 @@ import {
 import { DesktopWindows } from './app/DesktopWindows'
 import { StartMenu, type StartMenuOption } from './app/StartMenu'
 import { Taskbar } from './app/Taskbar'
+import { TypewriterBackground } from './app/TypewriterBackground'
 import type { AppId, AppWindow, DragState, GalleryPhoto, ResizeState, TerminalLine, WindowBounds, WindowPos, WindowSize } from './app/types'
 
 function App() {
@@ -99,17 +100,17 @@ function App() {
 
       const nextSizes = { ...sizes }
       let sizesChanged = false
-      ;(Object.keys(sizes) as AppId[]).forEach((id) => {
-        const maxWidth = Math.max(minWidth, nextViewport.width - 12)
-        const maxHeight = Math.max(minHeight, nextViewport.height - nextTaskbarReservedHeight - 12)
-        const width = Math.min(Math.max(minWidth, sizes[id].width), maxWidth)
-        const height = Math.min(Math.max(minHeight, sizes[id].height), maxHeight)
+        ; (Object.keys(sizes) as AppId[]).forEach((id) => {
+          const maxWidth = Math.max(minWidth, nextViewport.width - 12)
+          const maxHeight = Math.max(minHeight, nextViewport.height - nextTaskbarReservedHeight - 12)
+          const width = Math.min(Math.max(minWidth, sizes[id].width), maxWidth)
+          const height = Math.min(Math.max(minHeight, sizes[id].height), maxHeight)
 
-        if (width !== sizes[id].width || height !== sizes[id].height) {
-          sizesChanged = true
-          nextSizes[id] = { width, height }
-        }
-      })
+          if (width !== sizes[id].width || height !== sizes[id].height) {
+            sizesChanged = true
+            nextSizes[id] = { width, height }
+          }
+        })
 
       if (sizesChanged) {
         setSizes(nextSizes)
@@ -117,18 +118,18 @@ function App() {
 
       const nextPositions = { ...positions }
       let positionsChanged = false
-      ;(Object.keys(positions) as AppId[]).forEach((id) => {
-        const size = nextSizes[id]
-        const maxX = Math.max(0, nextViewport.width - size.width)
-        const maxY = Math.max(0, nextViewport.height - size.height - nextTaskbarReservedHeight)
-        const x = Math.min(Math.max(0, positions[id].x), maxX)
-        const y = Math.min(Math.max(0, positions[id].y), maxY)
+        ; (Object.keys(positions) as AppId[]).forEach((id) => {
+          const size = nextSizes[id]
+          const maxX = Math.max(0, nextViewport.width - size.width)
+          const maxY = Math.max(0, nextViewport.height - size.height - nextTaskbarReservedHeight)
+          const x = Math.min(Math.max(0, positions[id].x), maxX)
+          const y = Math.min(Math.max(0, positions[id].y), maxY)
 
-        if (x !== positions[id].x || y !== positions[id].y) {
-          positionsChanged = true
-          nextPositions[id] = { x, y }
-        }
-      })
+          if (x !== positions[id].x || y !== positions[id].y) {
+            positionsChanged = true
+            nextPositions[id] = { x, y }
+          }
+        })
 
       if (positionsChanged) {
         setPositions(nextPositions)
@@ -940,6 +941,7 @@ function App() {
   return (
     <div className={drag || resize ? `w11 ${theme} dragging` : `w11 ${theme}`}>
       <div className="wallpaper" aria-hidden="true" />
+      <TypewriterBackground />
       {isSleeping && (
         <div className="sleep-overlay" role="dialog" aria-label="Sleep mode" onClick={() => setIsSleeping(false)}>
           <button

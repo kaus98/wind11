@@ -897,12 +897,17 @@ button:focus-visible {
 }
 
 .desktop-icons {
-  display: grid;
-  gap: 14px;
-  width: 92px;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 120px);
+  height: calc(100svh - 120px);
+  height: calc(100dvh - 120px);
+  min-height: 280px;
 }
 
 .desktop-icon {
+  position: absolute;
+  width: 92px;
   border: 0;
   background: transparent;
   color: inherit;
@@ -912,15 +917,23 @@ button:focus-visible {
   justify-items: center;
   gap: 8px;
   cursor: pointer;
+  transition: transform 150ms ease, background-color 150ms ease;
+  user-select: none;
 }
 
 .desktop-icon:hover {
   background: rgba(255, 255, 255, 0.10);
+  transform: translateY(-2px);
 }
 
 .desktop-icon:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.55);
   outline-offset: 2px;
+}
+
+.desktop-icon.dragging {
+  opacity: 0.62;
+  cursor: grabbing;
 }
 
 .desktop-icon-label {
@@ -1419,7 +1432,7 @@ button:focus-visible {
   word-break: break-word;
 }
 
-.terminal-line + .terminal-line {
+.terminal-line+.terminal-line {
   margin-top: 6px;
 }
 
@@ -1661,6 +1674,74 @@ button:focus-visible {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 12px;
+}
+
+.project-tabs {
+  margin-top: 12px;
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.project-tab {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+
+.project-tab.active {
+  background: rgba(120, 190, 255, 0.22);
+  border-color: rgba(158, 214, 255, 0.5);
+}
+
+.project-filter-controls {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+}
+
+.project-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+  flex: 1 1 220px;
+}
+
+.project-filter-label {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.project-filter-clear {
+  height: fit-content;
+}
+
+@media (max-width: 640px) {
+  .project-filter-group {
+    min-width: 100%;
+  }
+}
+
+.project-title-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
 }
 
 .gallery-grid {
@@ -2787,10 +2868,10 @@ button:focus-visible {
   }
 
   .desktop-icons {
-    width: 92px;
-    grid-auto-flow: row;
-    grid-template-columns: 1fr;
-    gap: 8px;
+    width: 100%;
+    height: calc(100vh - 148px);
+    height: calc(100svh - 148px);
+    height: calc(100dvh - 148px);
   }
 
   .desktop-icon {
@@ -3020,9 +3101,10 @@ button:focus-visible {
   }
 
   .desktop-icons {
-    width: 84px;
-    gap: 6px;
-    grid-template-columns: 1fr;
+    width: 100%;
+    height: calc(100vh - 152px);
+    height: calc(100svh - 152px);
+    height: calc(100dvh - 152px);
   }
 
   .desktop-icon {
@@ -3123,6 +3205,7 @@ button:focus-visible {
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+
   .window,
   .taskbar,
   .start,
@@ -4000,4 +4083,108 @@ button:focus-visible {
 .w11.oceanic .timeline-rich .timeline-item::before {
   border-color: rgba(172, 239, 255, 0.84);
   background: rgba(107, 219, 242, 0.72);
+}
+
+/* --- Typewriter Background Effect --- */
+.typewriter-background {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  /* Let clicks pass through to desktop icons/windows */
+  z-index: 1;
+  /* Above wallpaper, below desktop icons (which don't have z-index so they flow, we can use z-index 1 safely since windows are z-index 2/3) */
+}
+
+.typewriter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(1.2rem, 4.5vw, 4rem);
+  padding: 0 1.25rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.15);
+  /* Very subtle white */
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  line-height: 1.4;
+  user-select: none;
+}
+
+.w11.light .typewriter-content {
+  color: rgba(0, 0, 0, 0.08);
+  /* Subtle dark for light mode */
+  text-shadow: 0 4px 24px rgba(255, 255, 255, 0.4);
+}
+
+.w11.aurora .typewriter-content {
+  color: rgba(92, 255, 218, 0.12);
+  text-shadow: 0 4px 24px rgba(92, 255, 218, 0.4);
+}
+
+.w11.glass .typewriter-content {
+  color: rgba(242, 247, 255, 0.15);
+  text-shadow: 0 4px 24px rgba(255, 255, 255, 0.3);
+}
+
+.w11.retro .typewriter-content {
+  color: rgba(255, 194, 102, 0.12);
+  text-shadow: 0 4px 24px rgba(255, 194, 102, 0.5);
+}
+
+.w11.solar .typewriter-content {
+  color: rgba(173, 122, 21, 0.15);
+  text-shadow: 0 4px 24px rgba(255, 255, 255, 0.5);
+}
+
+.w11.matrix .typewriter-content {
+  color: rgba(76, 255, 76, 0.18);
+  text-shadow: 0 4px 24px rgba(76, 255, 76, 0.6);
+}
+
+.w11.neon .typewriter-content {
+  color: rgba(255, 76, 255, 0.15);
+  text-shadow: 0 4px 24px rgba(255, 76, 255, 0.6);
+}
+
+.w11.sunset .typewriter-content {
+  color: rgba(255, 120, 76, 0.15);
+  text-shadow: 0 4px 24px rgba(255, 120, 76, 0.5);
+}
+
+.w11.monochrome .typewriter-content {
+  color: rgba(200, 200, 200, 0.15);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.w11.dracula .typewriter-content {
+  color: rgba(189, 147, 249, 0.15);
+  text-shadow: 0 4px 24px rgba(189, 147, 249, 0.5);
+}
+
+.w11.oceanic .typewriter-content {
+  color: rgba(72, 202, 228, 0.15);
+  text-shadow: 0 4px 24px rgba(72, 202, 228, 0.5);
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 2px;
+  animation: typewriter-blink 1s step-end infinite;
+}
+
+@keyframes typewriter-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
