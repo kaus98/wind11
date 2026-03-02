@@ -63,6 +63,12 @@ export type PortfolioData = {
     description: string
     website?: string
     github?: string
+    pinned?: boolean
+    technologies?: string[]
+    languages?: string[]
+    ageYears?: number
+    lastCommitAt?: string
+    lastSuccessfulRunAt?: string
   }>
   certifications: string[]
 }

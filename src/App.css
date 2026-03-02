@@ -1593,6 +1593,74 @@
   gap: 12px;
 }
 
+.project-tabs {
+  margin-top: 12px;
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.project-tab {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+
+.project-tab.active {
+  background: rgba(120, 190, 255, 0.22);
+  border-color: rgba(158, 214, 255, 0.5);
+}
+
+.project-filter-controls {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+}
+
+.project-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+  flex: 1 1 220px;
+}
+
+.project-filter-label {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.project-filter-clear {
+  height: fit-content;
+}
+
+@media (max-width: 640px) {
+  .project-filter-group {
+    min-width: 100%;
+  }
+}
+
+.project-title-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
 .gallery-grid {
   margin-top: 12px;
   display: grid;

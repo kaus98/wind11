@@ -67,7 +67,10 @@
       "ST. Mary College, Etawah (2016) — Intermediate in PCM with Computer, GPA 8.8/10"
     ],
     "interests": ["Open Source", "Automation", "Data Engineering", "Cloud Computing", "NLP", "Music", "Coffee"],
-    "achievements": ["Published research in Springer NLP conference (2023)", "Kaggle Expert profile (@terminate9298)"]
+    "achievements": [
+      "Published research in Springer NLP conference (2023): https://link.springer.com/chapter/10.1007/978-981-19-9225-4_37",
+      "Kaggle Expert profile: https://www.kaggle.com/terminate9298"
+    ]
   },
   "socialLinks": [
     { "key": "instagram", "label": "Instagram", "href": "https://www.instagram.com/kaus98/" },
@@ -79,17 +82,24 @@
     "email": "kaus.pathak@gmail.com",
     "phone": "+91 91490 42316",
     "availability": {
-      "status": "Open to full-time and consulting opportunities",
+      "status": "Open to Work",
       "from": "Available from March 2026",
       "timezone": "IST (UTC+05:30)",
       "updated": "Feb 2026"
     },
     "links": [
-      { "label": "Linktree", "href": "https://www.linktr.ee/kaus98" },
-      { "label": "GitHub", "href": "https://github.com/terminate9298" },
-      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/kaus98" },
-      { "label": "Kaggle", "href": "https://www.kaggle.com/terminate9298" },
-      { "label": "Medium", "href": "https://medium.com/@kaus.pathak" },
+      { "label": "Linktree", "href": "https://linktr.ee/kaus98" },
+      { "label": "Linkedin", "href": "https://www.linkedin.com/in/kaus98/" },
+      { "label": "Kaggle", "href": "https://kaggle.com/terminate9298" },
+      { "label": "Github New", "href": "https://github.com/kaus98" },
+      { "label": "Github", "href": "https://github.com/terminate9298" },
+      { "label": "Kaus Blog", "href": "https://kaus98.github.io" },
+      { "label": "Medium", "href": "https://medium.com/@kaus.pathak_30409" },
+      { "label": "Coding Ninjas Studio", "href": "https://www.codingninjas.com/studio/profile/kaus98" },
+      { "label": "LeetCode Profile", "href": "https://leetcode.com/terminate9298/" },
+      { "label": "Facebook", "href": "https://www.facebook.com/kaustubh.pathak.714" },
+      { "label": "Instagram", "href": "https://www.instagram.com/kaus98/" },
+      { "label": "Flickr", "href": "https://www.flickr.com/photos/160203994@N07/" },
       { "label": "Resume PDF", "href": "./Kaustubh_Pathak_Resume.pdf", "download": true }
     ],
     "responsibilities": [
@@ -305,6 +315,42 @@
       "date": "Jan 13, 2022",
       "summary": "Beginner-friendly Elasticsearch primer covering key concepts and practical terminology.",
       "link": "https://kaus98.github.io/2022/01/13/elasticsearch-quick-notes/"
+    },
+    {
+      "title": "Beginner to Advance — Web Scraping Guide in Python: Deploy a Python Web App using Flask and…",
+      "date": "Jun 23, 2020",
+      "summary": "Deploy a Flask + PostgreSQL web app on Heroku as part of the web scraping tutorial series.",
+      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-deploy-a-python-web-app-using-flask-and-a0e3cc8ce9f6"
+    },
+    {
+      "title": "Beginner to Advance — Web Scraping Guide in Python: Build and Deploy a Python Web App using Flask…",
+      "date": "Jun 23, 2020",
+      "summary": "Build a Flask + Postgres web app and API to serve scraped lyrics data.",
+      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-build-and-deploy-a-python-web-app-using-flask-202ffdf8fd40"
+    },
+    {
+      "title": "Beginner to Advance — Web Scraping Guide in Python: Automated Lyrics Scraper.",
+      "date": "Jun 15, 2020",
+      "summary": "Automate large-scale AZLyrics scraping with proxy rotation, async workflows, and JSON persistence.",
+      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-automated-lyrics-scraper-809163f279a1"
+    },
+    {
+      "title": "Beginner to Advance — Web Scraping Guide in Python : Introduction to Asynchronous Programming",
+      "date": "Jun 14, 2020",
+      "summary": "Introduction to asynchronous Python patterns for faster scraping and concurrent request handling.",
+      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-introduction-to-asynchronous-programming-24bce03dafa7"
+    },
+    {
+      "title": "Beginner to Advance : Web Scraping Guide in Python.",
+      "date": "Jun 13, 2020",
+      "summary": "Tutorial on rotating headers and proxies to reduce blocking while scraping websites.",
+      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-ba24dca5dce0"
+    },
+    {
+      "title": "Beginner to Advance : Web Scraping Guide in Python.",
+      "date": "Jun 11, 2020",
+      "summary": "Introductory guide to scraping AZLyrics using requests and BeautifulSoup, with JSON output.",
+      "link": "https://medium.com/analytics-vidhya/beginner-to-advance-web-scraping-guide-in-python-799ffd367067"
     }
   ],
   "projects": [
@@ -312,19 +358,28 @@
       "title": "Fourier Transform in NLP",
       "subtitle": "Research Paper / MTP Project",
       "description": "Studied Fourier Transform alternatives in Transformer architectures and hybrid Fourier + Multi-Head Attention approaches under Dr. Anuraj Singh; published in Springer NLP conference 2023.",
-      "github": ""
+      "github": "https://github.com/terminate9298/MTP-Project",
+      "website": "https://link.springer.com/chapter/10.1007/978-981-19-9225-4_37",
+      "pinned": true,
+      "ageYears": 3.0
     },
     {
       "title": "AI-UI",
       "subtitle": "UI Build with AI",
       "description": "Interact with OpenAI-compatible APIs using native Node.js fetch across OpenAI, Groq, Nvidia, and local LLM endpoints.",
-      "github": "https://github.com/kaus98/AI-UI"
+      "github": "https://github.com/kaus98/AI-UI",
+      "pinned": true,
+      "ageYears": 0.1,
+      "lastCommitAt": "2026-02-01"
     },
     {
       "title": "COVID-19 India",
       "subtitle": "Visualizations, Predictions & Forecasting",
       "description": "Built epidemic and time-series forecasting pipelines using SIR/SIRD/SEIRD/SEIHRD, SARIMAX, ARIMA, Prophet, Theta and Holts models.",
-      "github": "https://github.com/terminate9298/corona-visualization-and-prediction"
+      "github": "https://github.com/terminate9298/corona-visualization-and-prediction",
+      "pinned": true,
+      "ageYears": 5.2,
+      "lastCommitAt": "2021-05-14"
     },
     {
       "title": "Multitask Learning",
@@ -344,6 +399,199 @@
       "subtitle": "NLP Solo Project",
       "description": "Generated lyrics with LSTMs, Seq2Seq, Transformers and BERT. Also built async lyric scraping pipelines with proxy/header pooling.",
       "github": "https://colab.research.google.com/drive/1QOUCiAXzQEeO8gQ0Mw5iYj1kmaJ-brFj?usp=sharing"
+    },
+    {
+      "title": "ChatBot Tutorials (Kaggle Notebook)",
+      "subtitle": "Kaggle Code",
+      "description": "Kaggle notebook focused on chatbot workflows using the Cornell Movie-Dialog Corpus.",
+      "website": "https://www.kaggle.com/code/terminate9298/chatbot-tutorials",
+      "ageYears": 6.0,
+      "lastSuccessfulRunAt": "2020-02-14"
+    },
+    {
+      "title": "Pytorch Turorials For Neural Network CNN RNN GAN",
+      "subtitle": "Kaggle Code",
+      "description": "Kaggle notebook collection covering PyTorch deep-learning model tutorials (CNN, RNN, GAN).",
+      "website": "https://www.kaggle.com/code/terminate9298/pytorch-turorials-for-neural-network-cnn-rnn-gan",
+      "ageYears": 6.1,
+      "lastSuccessfulRunAt": "2020-02-02"
+    },
+    {
+      "title": "Songs Lyrics",
+      "subtitle": "Kaggle Dataset",
+      "description": "Published Kaggle dataset of English lyrics of famous singers for NLP and text modeling use cases.",
+      "website": "https://www.kaggle.com/datasets/terminate9298/songs-lyrics",
+      "ageYears": 5.7,
+      "lastSuccessfulRunAt": "2020-06-23"
+    },
+    {
+      "title": "Multiple Database Sentiment analysis",
+      "subtitle": "Kaggle Notebook",
+      "description": "Kaggle notebook focused on sentiment-analysis experiments across multiple data sources.",
+      "website": "https://www.kaggle.com/code/terminate9298/multiple-database-sentiment-analysis",
+      "ageYears": 6.5,
+      "lastSuccessfulRunAt": "2019-08-20"
+    },
+    {
+      "title": "Movie Recommendation system(For Deployment)",
+      "subtitle": "Kaggle Notebook",
+      "description": "Kaggle notebook for deploying a movie recommendation workflow using multiple data sources.",
+      "website": "https://www.kaggle.com/code/terminate9298/movie-recommendation-system-for-deployment",
+      "pinned": true,
+      "ageYears": 6.1,
+      "lastSuccessfulRunAt": "2020-02-02"
+    },
+    {
+      "title": "Bike Sharing Predictions[Top 10% Score(0.39)]",
+      "subtitle": "Kaggle Notebook",
+      "description": "Kaggle notebook on Bike Sharing Demand with a reported top-10% leaderboard performance (score 0.39).",
+      "website": "https://www.kaggle.com/code/terminate9298/bike-sharing-predictions-top-10-score-0-39",
+      "ageYears": 6.6,
+      "lastSuccessfulRunAt": "2019-07-18"
+    },
+    {
+      "title": "Mercedez Benz",
+      "subtitle": "Kaggle Notebook",
+      "description": "Kaggle notebook using the Mercedes-Benz Greener Manufacturing dataset for predictive modeling.",
+      "website": "https://www.kaggle.com/code/terminate9298/mercedez-benz",
+      "ageYears": 6.6,
+      "lastSuccessfulRunAt": "2019-08-02"
+    },
+    {
+      "title": "PUBG Model Predictions",
+      "subtitle": "Kaggle Notebook",
+      "description": "Kaggle notebook for PUBG finish placement prediction using the competition kernel dataset.",
+      "website": "https://www.kaggle.com/code/terminate9298/pubg-model-predictions",
+      "ageYears": 6.7,
+      "lastSuccessfulRunAt": "2019-06-25"
+    },
+    {
+      "title": "Music_Recommandation_system",
+      "subtitle": "Kaggle Notebook",
+      "description": "Kaggle notebook for the WSDM KKBox music recommendation challenge.",
+      "website": "https://www.kaggle.com/code/terminate9298/music-recommandation-system",
+      "ageYears": 6.6,
+      "lastSuccessfulRunAt": "2019-08-04"
+    },
+    {
+      "title": "Spiral Graph COVID NYC",
+      "subtitle": "Data Visualization · Python",
+      "description": "Recreated the New York Times COVID-19 spiral graph in Python with multi-country support and publication-ready plots.",
+      "github": "https://github.com/kaus98/spiral-graph-covid-nyc",
+      "ageYears": 4.1,
+      "lastCommitAt": "2022-06-14"
+    },
+    {
+      "title": "AZLyrics Scraper",
+      "subtitle": "Web Scraping · Python",
+      "description": "Built a lyrics scraper for AZLyrics using BeautifulSoup, concurrent programming patterns, and request rotation strategies.",
+      "github": "https://github.com/kaus98/azlyrics_scraper",
+      "ageYears": 3.5,
+      "lastCommitAt": "2021-06-02"
+    },
+    {
+      "title": "Load Tester",
+      "subtitle": "Load Testing · Go",
+      "description": "Created a Golang load-testing tool with a simple interface to hit target endpoints and stream real-time performance stats.",
+      "github": "https://github.com/kaus98/Load-Tester",
+      "ageYears": 2.9,
+      "lastCommitAt": "2023-06-09"
+    },
+    {
+      "title": "Catch the Ball",
+      "subtitle": "Reinforcement Learning · Python",
+      "description": "Reinforcement learning project that trains a neural-network-based agent to catch a moving ball.",
+      "github": "https://github.com/terminate9298/Catch_the_ball",
+      "ageYears": 6.5,
+      "lastCommitAt": "2022-11-22"
+    },
+    {
+      "title": "LambdaTest Assignment",
+      "subtitle": "ML Assignment · Jupyter Notebook",
+      "description": "Internship assessment submission covering machine learning and computer vision experiments in notebook form.",
+      "github": "https://github.com/terminate9298/LambdaTest-Assignment",
+      "ageYears": 4.8,
+      "lastCommitAt": "2021-05-09"
+    },
+    {
+      "title": "Beadcore Sentence Embedding",
+      "subtitle": "NLP · Sentence Embeddings",
+      "description": "Implemented a sentence embedding pipeline with preprocessing, embedding generation, ANN index creation, and prediction scripts.",
+      "github": "https://github.com/terminate9298/beadcore-sentence-embedding",
+      "ageYears": 4.8,
+      "lastCommitAt": "2021-05-04"
+    },
+    {
+      "title": "Rasa Submission",
+      "subtitle": "Chatbot · Rasa + SQLite",
+      "description": "Built a Rasa starter assistant that collects user name, phone, and email, stores details in SQLite, and supports WhatsApp integration.",
+      "github": "https://github.com/terminate9298/Rasa-Submission",
+      "ageYears": 5.0,
+      "lastCommitAt": "2021-02-23"
+    },
+    {
+      "title": "K-Means Clustering Implementation",
+      "subtitle": "Machine Learning Algorithm · Jupyter Notebook",
+      "description": "Implemented classic centroid-based K-Means clustering on the Iris dataset with notebook-based experimentation.",
+      "github": "https://github.com/terminate9298/K-Means-Clustering-Implementation",
+      "ageYears": 5.2,
+      "lastCommitAt": "2020-12-13"
+    },
+    {
+      "title": "K-Nearest Neighbours Implementation",
+      "subtitle": "Machine Learning Algorithm · Jupyter Notebook",
+      "description": "Implemented the classic K-Nearest Neighbours algorithm with end-to-end notebook experimentation.",
+      "github": "https://github.com/terminate9298/K-Nearest-Neighbours-Implementation",
+      "ageYears": 5.2,
+      "lastCommitAt": "2020-12-06"
+    },
+    {
+      "title": "XORChat",
+      "subtitle": "Realtime Chat App · Flask + Socket.IO",
+      "description": "Built an anonymous group chat application using Flask, Socket.IO, and Firebase backend services.",
+      "github": "https://github.com/terminate9298/XORChat",
+      "ageYears": 5.3,
+      "lastCommitAt": "2020-10-31"
+    },
+    {
+      "title": "Face Recognision",
+      "subtitle": "Computer Vision · Transfer Learning",
+      "description": "Implemented face recognition workflows using transfer learning with VGG and ResNet models.",
+      "github": "https://github.com/terminate9298/Face_Recognision",
+      "ageYears": 6.3,
+      "lastCommitAt": "2019-11-22"
+    },
+    {
+      "title": "Talent Identification System",
+      "subtitle": "Web App · HTML/CSS/JS",
+      "description": "Developed a talent identification web platform with profile/resume-focused pages and front-end assets for candidate showcasing.",
+      "github": "https://github.com/terminate9298/Talent_Identification_System",
+      "ageYears": 7.0,
+      "lastCommitAt": "2019-05-12"
+    },
+    {
+      "title": "Tiic Project",
+      "subtitle": "Static Website · HTML/CSS/JS",
+      "description": "Built a multi-page static website for startup incubation workflows, including eligibility, association, and application pages.",
+      "github": "https://github.com/terminate9298/Tiic-Project",
+      "ageYears": 7.0,
+      "lastCommitAt": "2019-03-19"
+    },
+    {
+      "title": "TroveTrace",
+      "subtitle": "Quiz Platform · PHP",
+      "description": "Developed an annual fest quiz platform with score tracking, negative marking, and timed question flow.",
+      "github": "https://github.com/terminate9298/TroveTrace",
+      "ageYears": 7.0,
+      "lastCommitAt": "2019-03-16"
+    },
+    {
+      "title": "Confession Site",
+      "subtitle": "Web App · PHP + MySQL",
+      "description": "Created a college confession platform using PHP and MySQL for anonymous post submission and display.",
+      "github": "https://github.com/terminate9298/Confession_site",
+      "ageYears": 7.2,
+      "lastCommitAt": "2019-03-16"
     }
   ],
   "certifications": [

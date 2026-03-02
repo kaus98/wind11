@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react'
 import { isExternalLink, themeOptions, type ThemeName } from './constants'
 import { CodeChipIcon, TechChipIcon } from './icons'
 import type { AppId, GalleryPhoto, TerminalLine } from './types'
@@ -34,6 +35,51 @@ type WindowPanelsProps = {
   autocompleteTerminalInput: () => void
 }
 
+type ProjectCard = PortfolioData['projects'][number]
+
+type DetectionRule = {
+  label: string
+  keywords: string[]
+}
+
+const TECHNOLOGY_RULES: DetectionRule[] = [
+  { label: 'NLP', keywords: ['nlp', 'lyrics', 'chatbot', 'sentiment'] },
+  { label: 'Transformers', keywords: ['transformer', 'multi-head attention', 'bert'] },
+  { label: 'PyTorch', keywords: ['pytorch'] },
+  { label: 'Forecasting', keywords: ['forecast', 'sarimax', 'arima', 'prophet', 'theta', 'holts'] },
+  { label: 'Recommendation Systems', keywords: ['recommendation'] },
+  { label: 'Web Scraping', keywords: ['scraping', 'scraper', 'crawl'] },
+  { label: 'Flask', keywords: ['flask'] },
+  { label: 'Docker', keywords: ['docker'] },
+  { label: 'Apache Spark', keywords: ['spark'] },
+  { label: 'Data Visualization', keywords: ['visualization', 'graph', 'plot'] },
+  { label: 'Kaggle', keywords: ['kaggle.com', 'kaggle'] },
+]
+
+const LANGUAGE_RULES: DetectionRule[] = [
+  { label: 'Python', keywords: ['python', 'pytorch', 'flask'] },
+  { label: 'TypeScript', keywords: ['typescript'] },
+  { label: 'JavaScript', keywords: ['javascript', 'node.js', 'nodejs'] },
+  { label: 'Scala', keywords: ['scala'] },
+]
+
+function detectLabels(project: ProjectCard, rules: DetectionRule[], explicitValues?: string[]): string[] {
+  const normalizedHaystack = [
+    project.title,
+    project.subtitle,
+    project.description,
+    project.website ?? '',
+    project.github ?? '',
+    ...(explicitValues ?? []),
+  ]
+    .join(' ')
+    .toLowerCase()
+
+  return rules
+    .filter((rule) => rule.keywords.some((keyword) => normalizedHaystack.includes(keyword)))
+    .map((rule) => rule.label)
+}
+
 export function WindowPanels({
   id,
   about,
@@ -64,6 +110,109 @@ export function WindowPanels({
   navigateTerminalHistory,
   autocompleteTerminalInput,
 }: WindowPanelsProps) {
+  const [projectFilterTab, setProjectFilterTab] = useState<'all' | 'pinned' | 'kaggle' | 'older'>('all')
+  const [projectTechnologyFilter, setProjectTechnologyFilter] = useState('all')
+  const [projectLanguageFilter, setProjectLanguageFilter] = useState('all')
+  const [blogTab, setBlogTab] = useState<'all' | 'medium' | 'personal'>('all')
+
+  const allProjectsSorted = useMemo(() => {
+    return [...projectCards].sort((projectA, projectB) => {
+      const ageA = projectA.ageYears ?? -1
+      const ageB = projectB.ageYears ?? -1
+
+      if (ageA !== ageB) {
+        return ageA - ageB
+      }
+
+      if (projectA.pinned !== projectB.pinned) {
+        return projectA.pinned ? -1 : 1
+      }
+
+      return projectA.title.localeCompare(projectB.title)
+    })
+  }, [projectCards])
+
+  const kaggleProjects = useMemo(
+    () =>
+      allProjectsSorted.filter(
+        (project) =>
+          project.website?.includes('kaggle.com') || project.subtitle.toLowerCase().includes('kaggle'),
+      ),
+    [allProjectsSorted],
+  )
+
+  const projectsByTab = useMemo(() => {
+    if (projectFilterTab === 'pinned') {
+      return allProjectsSorted.filter((project) => project.pinned)
+    }
+
+    if (projectFilterTab === 'kaggle') {
+      return kaggleProjects
+    }
+
+    if (projectFilterTab === 'older') {
+      return allProjectsSorted.filter((project) => typeof project.ageYears === 'number' && project.ageYears >= 5)
+    }
+
+    const pinnedProjects = allProjectsSorted.filter((project) => project.pinned)
+    const nonPinnedProjects = allProjectsSorted.filter((project) => !project.pinned)
+    return [...pinnedProjects, ...nonPinnedProjects]
+  }, [allProjectsSorted, kaggleProjects, projectFilterTab])
+
+  const projectTechnologyOptions = useMemo(() => {
+    const labels = new Set<string>()
+
+    allProjectsSorted.forEach((project) => {
+      detectLabels(project, TECHNOLOGY_RULES, project.technologies).forEach((label) => labels.add(label))
+    })
+
+    return [...labels].sort((labelA, labelB) => labelA.localeCompare(labelB))
+  }, [allProjectsSorted])
+
+  const projectLanguageOptions = useMemo(() => {
+    const labels = new Set<string>()
+
+    allProjectsSorted.forEach((project) => {
+      detectLabels(project, LANGUAGE_RULES, project.languages).forEach((label) => labels.add(label))
+    })
+
+    return [...labels].sort((labelA, labelB) => labelA.localeCompare(labelB))
+  }, [allProjectsSorted])
+
+  const visibleProjects = useMemo(() => {
+    return projectsByTab.filter((project) => {
+      const technologyMatches =
+        projectTechnologyFilter === 'all' ||
+        detectLabels(project, TECHNOLOGY_RULES, project.technologies).includes(projectTechnologyFilter)
+
+      const languageMatches =
+        projectLanguageFilter === 'all' ||
+        detectLabels(project, LANGUAGE_RULES, project.languages).includes(projectLanguageFilter)
+
+      return technologyMatches && languageMatches
+    })
+  }, [projectLanguageFilter, projectTechnologyFilter, projectsByTab])
+
+  const hasActiveProjectFilters =
+    projectFilterTab !== 'all' || projectTechnologyFilter !== 'all' || projectLanguageFilter !== 'all'
+
+  const projectsMissingAge = useMemo(
+    () => allProjectsSorted.filter((project) => typeof project.ageYears !== 'number'),
+    [allProjectsSorted],
+  )
+
+  const visibleBlogs = useMemo(() => {
+    if (blogTab === 'medium') {
+      return blogPosts.filter((post) => post.link.includes('medium.com'))
+    }
+
+    if (blogTab === 'personal') {
+      return blogPosts.filter((post) => !post.link.includes('medium.com'))
+    }
+
+    return blogPosts
+  }, [blogPosts, blogTab])
+
   return (
     <>
       {id === 'about' && (
@@ -205,8 +354,37 @@ export function WindowPanels({
         <div className="panel cards-panel">
           <h2 className="section-heading">Blogs</h2>
           <p className="muted">Latest writing from kaus98.github.io</p>
+          <div className="project-tabs" role="tablist" aria-label="Blog categories">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={blogTab === 'all'}
+              className={`project-tab${blogTab === 'all' ? ' active' : ''}`}
+              onClick={() => setBlogTab('all')}
+            >
+              All Blogs
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={blogTab === 'medium'}
+              className={`project-tab${blogTab === 'medium' ? ' active' : ''}`}
+              onClick={() => setBlogTab('medium')}
+            >
+              Medium
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={blogTab === 'personal'}
+              className={`project-tab${blogTab === 'personal' ? ' active' : ''}`}
+              onClick={() => setBlogTab('personal')}
+            >
+              Personal
+            </button>
+          </div>
           <div className="cards">
-            {blogPosts.map((post) => (
+            {visibleBlogs.map((post) => (
               <article key={post.link} className="wcard">
                 <h3 className="wcard-title">{post.title}</h3>
                 <p className="muted">{post.date}</p>
@@ -218,6 +396,7 @@ export function WindowPanels({
                 </div>
               </article>
             ))}
+            {visibleBlogs.length === 0 && <p className="muted">No blogs in this tab yet.</p>}
           </div>
         </div>
       )}
@@ -265,11 +444,127 @@ export function WindowPanels({
       {id === 'projects' && (
         <div className="panel cards-panel">
           <h2 className="section-heading">Projects</h2>
+          <div className="project-tabs" role="tablist" aria-label="Project categories">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={projectFilterTab === 'all'}
+              className={`project-tab${projectFilterTab === 'all' ? ' active' : ''}`}
+              onClick={() => setProjectFilterTab('all')}
+            >
+              All Projects
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={projectFilterTab === 'pinned'}
+              className={`project-tab${projectFilterTab === 'pinned' ? ' active' : ''}`}
+              onClick={() => setProjectFilterTab('pinned')}
+            >
+              Pinned Projects
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={projectFilterTab === 'kaggle'}
+              className={`project-tab${projectFilterTab === 'kaggle' ? ' active' : ''}`}
+              onClick={() => setProjectFilterTab('kaggle')}
+            >
+              Kaggle Projects
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={projectFilterTab === 'older'}
+              className={`project-tab${projectFilterTab === 'older' ? ' active' : ''}`}
+              onClick={() => setProjectFilterTab('older')}
+            >
+              Older Projects
+            </button>
+          </div>
+          <div className="project-filter-controls">
+            <div className="project-filter-group">
+              <label className="project-filter-label" htmlFor="project-technology-filter">
+                Technology
+              </label>
+              <select
+                id="project-technology-filter"
+                className="settings-select"
+                value={projectTechnologyFilter}
+                onChange={(event) => setProjectTechnologyFilter(event.target.value)}
+              >
+                <option value="all">All technologies</option>
+                {projectTechnologyOptions.map((technology) => (
+                  <option key={technology} value={technology}>
+                    {technology}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="project-filter-group">
+              <label className="project-filter-label" htmlFor="project-language-filter">
+                Language
+              </label>
+              <select
+                id="project-language-filter"
+                className="settings-select"
+                value={projectLanguageFilter}
+                onChange={(event) => setProjectLanguageFilter(event.target.value)}
+              >
+                <option value="all">All languages</option>
+                {projectLanguageOptions.map((language) => (
+                  <option key={language} value={language}>
+                    {language}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button
+              type="button"
+              className="project-tab project-filter-clear"
+              onClick={() => {
+                setProjectFilterTab('all')
+                setProjectTechnologyFilter('all')
+                setProjectLanguageFilter('all')
+              }}
+              disabled={!hasActiveProjectFilters}
+            >
+              Clear filters
+            </button>
+          </div>
+          {hasActiveProjectFilters && (
+            <p className="muted">
+              Active: {projectFilterTab !== 'all' ? `Tab: ${projectFilterTab}` : 'Tab: all'}
+              {projectTechnologyFilter !== 'all' ? ` · Technology: ${projectTechnologyFilter}` : ''}
+              {projectLanguageFilter !== 'all' ? ` · Language: ${projectLanguageFilter}` : ''}
+            </p>
+          )}
+          <p className="muted">Sorted by age (oldest to newest) using project metadata.</p>
+          {projectsMissingAge.length > 0 && (
+            <p className="muted">
+              Age missing for: {projectsMissingAge.map((project) => project.title).join(', ')}
+            </p>
+          )}
           <div className="cards">
-            {projectCards.map((project) => (
+            {visibleProjects.map((project) => (
               <article key={project.title} className="wcard">
-                <h3 className="wcard-title">{project.title}</h3>
+                <h3 className="wcard-title project-title-row">
+                  <span>{project.title}</span>
+                  {project.pinned && (
+                    <span className="project-pin" aria-label="Pinned project" title="Pinned project">
+                      📌
+                    </span>
+                  )}
+                </h3>
                 <p className="muted">{project.subtitle}</p>
+                {(typeof project.ageYears === 'number' || project.lastCommitAt || project.lastSuccessfulRunAt) && (
+                  <p className="muted">
+                    {typeof project.ageYears === 'number' ? `Age: ${project.ageYears} years` : 'Age: Not set'}
+                    {project.lastCommitAt ? ` · Last commit: ${project.lastCommitAt}` : ''}
+                    {project.lastSuccessfulRunAt ? ` · Last successful run: ${project.lastSuccessfulRunAt}` : ''}
+                  </p>
+                )}
                 <p className="wcard-text">{project.description}</p>
                 <div className="wcard-actions">
                   {project.website && (
@@ -285,6 +580,7 @@ export function WindowPanels({
                 </div>
               </article>
             ))}
+            {visibleProjects.length === 0 && <p className="muted">No projects match the selected filters.</p>}
           </div>
 
           <h2 className="section-heading panel-block">Certifications</h2>
