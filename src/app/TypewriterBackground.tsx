@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 const phrases = [
     'Hi, I am Kaustubh Pathak.',
-    'I Love Coding',
+    'I Love Coding..❤️',
     'Welcome to my Page.'
 ]
 

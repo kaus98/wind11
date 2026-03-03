@@ -4021,70 +4021,70 @@
   align-items: center;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(1.2rem, 4.5vw, 4rem);
+  font-size: clamp(1rem, 3vw, 2.5rem);
   padding: 0 1.25rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.15);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.08);
   /* Very subtle white */
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   line-height: 1.4;
   user-select: none;
 }
 
 .w11.light .typewriter-content {
-  color: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.05);
   /* Subtle dark for light mode */
-  text-shadow: 0 4px 24px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
 }
 
 .w11.aurora .typewriter-content {
-  color: rgba(92, 255, 218, 0.12);
-  text-shadow: 0 4px 24px rgba(92, 255, 218, 0.4);
+  color: rgba(92, 255, 218, 0.08);
+  text-shadow: 0 4px 16px rgba(92, 255, 218, 0.2);
 }
 
 .w11.glass .typewriter-content {
-  color: rgba(242, 247, 255, 0.15);
-  text-shadow: 0 4px 24px rgba(255, 255, 255, 0.3);
+  color: rgba(242, 247, 255, 0.08);
+  text-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
 }
 
 .w11.retro .typewriter-content {
-  color: rgba(255, 194, 102, 0.12);
-  text-shadow: 0 4px 24px rgba(255, 194, 102, 0.5);
+  color: rgba(255, 194, 102, 0.08);
+  text-shadow: 0 4px 16px rgba(255, 194, 102, 0.25);
 }
 
 .w11.solar .typewriter-content {
-  color: rgba(173, 122, 21, 0.15);
-  text-shadow: 0 4px 24px rgba(255, 255, 255, 0.5);
+  color: rgba(173, 122, 21, 0.08);
+  text-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
 }
 
 .w11.matrix .typewriter-content {
-  color: rgba(76, 255, 76, 0.18);
-  text-shadow: 0 4px 24px rgba(76, 255, 76, 0.6);
+  color: rgba(76, 255, 76, 0.08);
+  text-shadow: 0 4px 16px rgba(76, 255, 76, 0.3);
 }
 
 .w11.neon .typewriter-content {
-  color: rgba(255, 76, 255, 0.15);
-  text-shadow: 0 4px 24px rgba(255, 76, 255, 0.6);
+  color: rgba(255, 76, 255, 0.08);
+  text-shadow: 0 4px 16px rgba(255, 76, 255, 0.3);
 }
 
 .w11.sunset .typewriter-content {
-  color: rgba(255, 120, 76, 0.15);
-  text-shadow: 0 4px 24px rgba(255, 120, 76, 0.5);
+  color: rgba(255, 120, 76, 0.08);
+  text-shadow: 0 4px 16px rgba(255, 120, 76, 0.25);
 }
 
 .w11.monochrome .typewriter-content {
-  color: rgba(200, 200, 200, 0.15);
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  color: rgba(200, 200, 200, 0.08);
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .w11.dracula .typewriter-content {
-  color: rgba(189, 147, 249, 0.15);
-  text-shadow: 0 4px 24px rgba(189, 147, 249, 0.5);
+  color: rgba(189, 147, 249, 0.08);
+  text-shadow: 0 4px 16px rgba(189, 147, 249, 0.25);
 }
 
 .w11.oceanic .typewriter-content {
-  color: rgba(72, 202, 228, 0.15);
-  text-shadow: 0 4px 24px rgba(72, 202, 228, 0.5);
+  color: rgba(72, 202, 228, 0.08);
+  text-shadow: 0 4px 16px rgba(72, 202, 228, 0.25);
 }
 
 .typewriter-cursor {
