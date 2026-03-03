@@ -834,7 +834,7 @@
   justify-items: center;
   gap: 8px;
   cursor: pointer;
-  transition: transform 150ms ease, background-color 150ms ease;
+  transition: transform 150ms ease, background-color 150ms ease, left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
   user-select: none;
 }
 
@@ -851,6 +851,7 @@
 .desktop-icon.dragging {
   opacity: 0.62;
   cursor: grabbing;
+  transition: transform 150ms ease, background-color 150ms ease;
 }
 
 .desktop-icon-label {

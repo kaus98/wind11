@@ -219,6 +219,7 @@ export function DesktopWindows(props: DesktopWindowsProps) {
       const y = Math.max(8, Math.min(maxY, event.clientY - desktopRect.top - dragState.offsetY))
 
       dragState.moved = true
+      // Unsnapped direct follow
       setIconPositions((prev) => ({
         ...prev,
         [dragState.id]: { x, y },
@@ -229,6 +230,72 @@ export function DesktopWindows(props: DesktopWindowsProps) {
       const dragState = dragStateRef.current
       if (dragState?.moved) {
         skipClickForIconRef.current = dragState.id
+
+        // --- Grid Snapping & Collision Resolution ---
+        setIconPositions((prevPositions) => {
+          const nextPositions = { ...prevPositions }
+          const draggingId = dragState.id
+          const dropPos = nextPositions[draggingId]
+
+          if (!dropPos) return prevPositions
+
+          const CW = 106 // Column Width
+          const RH = 108 // Row Height
+          const MARGIN = 14
+
+          let targetCol = Math.max(0, Math.round((dropPos.x - MARGIN) / CW))
+          let targetRow = Math.max(0, Math.round((dropPos.y - MARGIN) / RH))
+
+          // Collision Check
+          const isOccupied = (c: number, r: number) => {
+            return (Object.keys(nextPositions) as AppId[]).some(iterId => {
+              if (iterId === draggingId) return false
+              const otherPos = nextPositions[iterId]
+              const otherCol = Math.round((otherPos.x - MARGIN) / CW)
+              const otherRow = Math.round((otherPos.y - MARGIN) / RH)
+              return otherCol === c && otherRow === r
+            })
+          }
+
+          // Spiral search for nearest empty slot if occupied
+          if (isOccupied(targetCol, targetRow)) {
+            let radius = 1
+            let found = false
+            while (!found && radius < 20) { // Limit search radius
+              for (let dx = -radius; dx <= radius && !found; dx++) {
+                for (let dy = -radius; dy <= radius && !found; dy++) {
+                  if (Math.abs(dx) !== radius && Math.abs(dy) !== radius) continue // Only perimeter of spiral
+                  const testCol = Math.max(0, targetCol + dx)
+                  const testRow = Math.max(0, targetRow + dy)
+                  if (!isOccupied(testCol, testRow)) {
+                    targetCol = testCol
+                    targetRow = testRow
+                    found = true
+                  }
+                }
+              }
+              radius++
+            }
+          }
+
+          // Enforce Grid Bounds
+          const availableWidth = Math.max(220, viewport.width - 180)
+          const availableHeight = Math.max(220, viewport.height - taskbarReservedHeight - 36)
+
+          const maxCol = Math.max(0, Math.floor((availableWidth - iconSize.width - MARGIN) / CW))
+          const maxRow = Math.max(0, Math.floor((availableHeight - iconSize.height - MARGIN) / RH))
+
+          targetCol = Math.min(targetCol, maxCol)
+          targetRow = Math.min(targetRow, maxRow)
+
+          // Final snapped X/Y
+          nextPositions[draggingId] = {
+            x: MARGIN + targetCol * CW,
+            y: MARGIN + targetRow * RH
+          }
+
+          return nextPositions
+        })
       }
       dragStateRef.current = null
       setDraggedIconId(null)
@@ -247,25 +314,71 @@ export function DesktopWindows(props: DesktopWindowsProps) {
     setIconPositions((prev) => {
       const availableWidth = Math.max(220, viewport.width - 180)
       const availableHeight = Math.max(220, viewport.height - taskbarReservedHeight - 36)
+      const CW = 106
+      const RH = 108
+      const MARGIN = 14
       let changed = false
       const next = { ...prev }
 
+      const isOccupied = (c: number, r: number, ignoreId: AppId | null = null) => {
+        return (Object.keys(next) as AppId[]).some((iterId) => {
+          if (iterId === ignoreId) return false
+          const otherPos = next[iterId]
+          const otherCol = Math.round((otherPos.x - MARGIN) / CW)
+          const otherRow = Math.round((otherPos.y - MARGIN) / RH)
+          return otherCol === c && otherRow === r
+        })
+      }
+
       desktopShortcuts.forEach((shortcut, index) => {
-        if (!next[shortcut.id]) {
+        let currentPos = next[shortcut.id]
+        let targetCol = 0
+        let targetRow = 0
+
+        if (!currentPos) {
+          // Initialize if missing
           const itemsPerColumn = Math.max(1, Math.floor(availableHeight / 108))
-          const column = Math.floor(index / itemsPerColumn)
-          const row = index % itemsPerColumn
-          next[shortcut.id] = {
-            x: Math.max(8, Math.min(availableWidth - iconSize.width, 14 + column * 106)),
-            y: Math.max(8, Math.min(availableHeight - iconSize.height, 14 + row * 108)),
-          }
-          changed = true
+          targetCol = Math.floor(index / itemsPerColumn)
+          targetRow = index % itemsPerColumn
+        } else {
+          // Retrieve current intended column
+          targetCol = Math.max(0, Math.round((currentPos.x - MARGIN) / CW))
+          targetRow = Math.max(0, Math.round((currentPos.y - MARGIN) / RH))
         }
 
-        const clampedX = Math.max(8, Math.min(availableWidth - iconSize.width, next[shortcut.id].x))
-        const clampedY = Math.max(8, Math.min(availableHeight - iconSize.height, next[shortcut.id].y))
-        if (clampedX !== next[shortcut.id].x || clampedY !== next[shortcut.id].y) {
-          next[shortcut.id] = { x: clampedX, y: clampedY }
+        // Enforce Grid Bounds
+        const maxCol = Math.max(0, Math.floor((availableWidth - iconSize.width - MARGIN) / CW))
+        const maxRow = Math.max(0, Math.floor((availableHeight - iconSize.height - MARGIN) / RH))
+
+        targetCol = Math.min(targetCol, maxCol)
+        targetRow = Math.min(targetRow, maxRow)
+
+        // Collision Check & Resolution for Resizing
+        if (isOccupied(targetCol, targetRow, shortcut.id)) {
+          let radius = 1
+          let found = false
+          while (!found && radius < 30) {
+            for (let dx = -radius; dx <= radius && !found; dx++) {
+              for (let dy = -radius; dy <= radius && !found; dy++) {
+                if (Math.abs(dx) !== radius && Math.abs(dy) !== radius) continue
+                const testCol = Math.min(maxCol, Math.max(0, targetCol + dx))
+                const testRow = Math.min(maxRow, Math.max(0, targetRow + dy))
+                if (!isOccupied(testCol, testRow, shortcut.id)) {
+                  targetCol = testCol
+                  targetRow = testRow
+                  found = true
+                }
+              }
+            }
+            radius++
+          }
+        }
+
+        const finalX = MARGIN + targetCol * CW
+        const finalY = MARGIN + targetRow * RH
+
+        if (!currentPos || finalX !== currentPos.x || finalY !== currentPos.y) {
+          next[shortcut.id] = { x: finalX, y: finalY }
           changed = true
         }
       })
