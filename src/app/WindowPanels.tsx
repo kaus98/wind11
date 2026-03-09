@@ -1,81 +1,97 @@
-import { useMemo, useState } from 'react'
-import { isExternalLink, themeOptions, type ThemeName } from './constants'
-import { CodeChipIcon, TechChipIcon } from './icons'
-import { MarkdownReader } from './MarkdownReader'
-import type { AppId, GalleryPhoto, TerminalLine } from './types'
-import type { PortfolioData } from '../data/portfolioData'
+import { useMemo, useState } from "react";
+import { isExternalLink, themeOptions, type ThemeName } from "./constants";
+import { CodeChipIcon, TechChipIcon } from "./icons";
+import { MarkdownReader } from "./MarkdownReader";
+import type { AppId, GalleryPhoto, TerminalLine } from "./types";
+import type { PortfolioData } from "../data/portfolioData";
 
 type WindowPanelsProps = {
-  id: AppId
-  about: PortfolioData['about']
-  availability: PortfolioData['contact']['availability']
-  technologyChips: string[]
-  programmingChips: string[]
-  timelineItems: PortfolioData['timeline']
-  galleryPhotos: GalleryPhoto[]
-  activeGalleryPhoto: GalleryPhoto | null
-  isGalleryLightboxOpen: boolean
-  setIsGalleryLightboxOpen: (open: boolean) => void
-  setActiveGalleryPhoto: (photo: GalleryPhoto | null) => void
-  blogPosts: PortfolioData['blogs']
-  fullTimeJobs: PortfolioData['jobs']
-  internshipJobs: PortfolioData['jobs']
-  projectCards: PortfolioData['projects']
-  certifications: PortfolioData['certifications']
-  contact: PortfolioData['contact']
-  theme: ThemeName
-  applyTheme: (theme: ThemeName) => void
-  muted: boolean
-  toggleSoundFromMenu: () => void
-  audioError: boolean
-  terminalLines: TerminalLine[]
-  terminalInput: string
-  setTerminalInput: (value: string) => void
-  runTerminalCommand: (command: string) => void
-  navigateTerminalHistory: (direction: 'up' | 'down') => void
-  autocompleteTerminalInput: () => void
-}
+  id: AppId;
+  about: PortfolioData["about"];
+  availability: PortfolioData["contact"]["availability"];
+  technologyChips: string[];
+  programmingChips: string[];
+  timelineItems: PortfolioData["timeline"];
+  galleryPhotos: GalleryPhoto[];
+  activeGalleryPhoto: GalleryPhoto | null;
+  isGalleryLightboxOpen: boolean;
+  setIsGalleryLightboxOpen: (open: boolean) => void;
+  setActiveGalleryPhoto: (photo: GalleryPhoto | null) => void;
+  blogPosts: PortfolioData["blogs"];
+  fullTimeJobs: PortfolioData["jobs"];
+  internshipJobs: PortfolioData["jobs"];
+  projectCards: PortfolioData["projects"];
+  certifications: PortfolioData["certifications"];
+  contact: PortfolioData["contact"];
+  theme: ThemeName;
+  applyTheme: (theme: ThemeName) => void;
+  muted: boolean;
+  toggleSoundFromMenu: () => void;
+  audioError: boolean;
+  terminalLines: TerminalLine[];
+  terminalInput: string;
+  setTerminalInput: (value: string) => void;
+  runTerminalCommand: (command: string) => void;
+  navigateTerminalHistory: (direction: "up" | "down") => void;
+  autocompleteTerminalInput: () => void;
+  widgetSettings: import("./types").WidgetSettings;
+  setWidgetSettings: React.Dispatch<
+    React.SetStateAction<import("./types").WidgetSettings>
+  >;
+};
 
-type ProjectCard = PortfolioData['projects'][number]
+type ProjectCard = PortfolioData["projects"][number];
 
 type DetectionRule = {
-  label: string
-  keywords: string[]
-}
+  label: string;
+  keywords: string[];
+};
 
 const TECH_STACK_RULES: DetectionRule[] = [
-  { label: 'NLP', keywords: ['nlp', 'lyrics', 'chatbot', 'sentiment'] },
-  { label: 'Transformers', keywords: ['transformer', 'multi-head attention', 'bert'] },
-  { label: 'PyTorch', keywords: ['pytorch'] },
-  { label: 'Forecasting', keywords: ['forecast', 'sarimax', 'arima', 'prophet', 'theta', 'holts'] },
-  { label: 'Recommendation Systems', keywords: ['recommendation'] },
-  { label: 'Web Scraping', keywords: ['scraping', 'scraper', 'crawl'] },
-  { label: 'Flask', keywords: ['flask'] },
-  { label: 'Docker', keywords: ['docker'] },
-  { label: 'Apache Spark', keywords: ['spark'] },
-  { label: 'Data Visualization', keywords: ['visualization', 'graph', 'plot'] },
-  { label: 'Kaggle', keywords: ['kaggle.com', 'kaggle'] },
-  { label: 'Python', keywords: ['python', 'pytorch', 'flask'] },
-  { label: 'TypeScript', keywords: ['typescript'] },
-  { label: 'JavaScript', keywords: ['javascript', 'node.js', 'nodejs'] },
-  { label: 'Scala', keywords: ['scala'] },
-]
+  { label: "NLP", keywords: ["nlp", "lyrics", "chatbot", "sentiment"] },
+  {
+    label: "Transformers",
+    keywords: ["transformer", "multi-head attention", "bert"],
+  },
+  { label: "PyTorch", keywords: ["pytorch"] },
+  {
+    label: "Forecasting",
+    keywords: ["forecast", "sarimax", "arima", "prophet", "theta", "holts"],
+  },
+  { label: "Recommendation Systems", keywords: ["recommendation"] },
+  { label: "Web Scraping", keywords: ["scraping", "scraper", "crawl"] },
+  { label: "Flask", keywords: ["flask"] },
+  { label: "Docker", keywords: ["docker"] },
+  { label: "Apache Spark", keywords: ["spark"] },
+  { label: "Data Visualization", keywords: ["visualization", "graph", "plot"] },
+  { label: "Kaggle", keywords: ["kaggle.com", "kaggle"] },
+  { label: "Python", keywords: ["python", "pytorch", "flask"] },
+  { label: "TypeScript", keywords: ["typescript"] },
+  { label: "JavaScript", keywords: ["javascript", "node.js", "nodejs"] },
+  { label: "Scala", keywords: ["scala"] },
+];
 
-function detectLabels(project: ProjectCard, rules: DetectionRule[], explicitValues?: string[]): string[] {
+function detectLabels(
+  project: ProjectCard,
+  rules: DetectionRule[],
+  explicitValues?: string[],
+): string[] {
   const normalizedHaystack = [
     project.title,
     project.subtitle,
     project.description,
-    project.website ?? '',
-    project.github ?? '',
+    project.website ?? "",
+    project.github ?? "",
     ...(explicitValues ?? []),
   ]
-    .join(' ')
-    .toLowerCase()
+    .join(" ")
+    .toLowerCase();
 
   return rules
-    .filter((rule) => rule.keywords.some((keyword) => normalizedHaystack.includes(keyword)))
-    .map((rule) => rule.label)
+    .filter((rule) =>
+      rule.keywords.some((keyword) => normalizedHaystack.includes(keyword)),
+    )
+    .map((rule) => rule.label);
 }
 
 export function WindowPanels({
@@ -107,99 +123,122 @@ export function WindowPanels({
   runTerminalCommand,
   navigateTerminalHistory,
   autocompleteTerminalInput,
+  widgetSettings,
+  setWidgetSettings,
 }: WindowPanelsProps) {
-  const [projectFilterTab, setProjectFilterTab] = useState<'all' | 'pinned' | 'kaggle' | 'older'>('all')
-  const [projectTechStackFilter, setProjectTechStackFilter] = useState('all')
-  const [blogTab, setBlogTab] = useState<'all' | 'medium' | 'personal'>('all')
-  const [activeBlogPost, setActiveBlogPost] = useState<PortfolioData['blogs'][0] | null>(null)
+  const [projectFilterTab, setProjectFilterTab] = useState<
+    "all" | "pinned" | "kaggle" | "older"
+  >("all");
+  const [projectTechStackFilter, setProjectTechStackFilter] = useState("all");
+  const [blogTab, setBlogTab] = useState<"all" | "medium" | "personal">("all");
+  const [activeBlogPost, setActiveBlogPost] = useState<
+    PortfolioData["blogs"][0] | null
+  >(null);
 
   const allProjectsSorted = useMemo(() => {
     return [...projectCards].sort((projectA, projectB) => {
-      const ageA = projectA.ageYears ?? -1
-      const ageB = projectB.ageYears ?? -1
+      const ageA = projectA.ageYears ?? -1;
+      const ageB = projectB.ageYears ?? -1;
 
       if (ageA !== ageB) {
-        return ageA - ageB
+        return ageA - ageB;
       }
 
       if (projectA.pinned !== projectB.pinned) {
-        return projectA.pinned ? -1 : 1
+        return projectA.pinned ? -1 : 1;
       }
 
-      return projectA.title.localeCompare(projectB.title)
-    })
-  }, [projectCards])
+      return projectA.title.localeCompare(projectB.title);
+    });
+  }, [projectCards]);
 
   const kaggleProjects = useMemo(
     () =>
       allProjectsSorted.filter(
         (project) =>
-          project.website?.includes('kaggle.com') || project.subtitle.toLowerCase().includes('kaggle'),
+          project.website?.includes("kaggle.com") ||
+          project.subtitle.toLowerCase().includes("kaggle"),
       ),
     [allProjectsSorted],
-  )
+  );
 
   const projectsByTab = useMemo(() => {
-    if (projectFilterTab === 'pinned') {
-      return allProjectsSorted.filter((project) => project.pinned)
+    if (projectFilterTab === "pinned") {
+      return allProjectsSorted.filter((project) => project.pinned);
     }
 
-    if (projectFilterTab === 'kaggle') {
-      return kaggleProjects
+    if (projectFilterTab === "kaggle") {
+      return kaggleProjects;
     }
 
-    if (projectFilterTab === 'older') {
-      return allProjectsSorted.filter((project) => typeof project.ageYears === 'number' && project.ageYears >= 5)
+    if (projectFilterTab === "older") {
+      return allProjectsSorted.filter(
+        (project) =>
+          typeof project.ageYears === "number" && project.ageYears >= 5,
+      );
     }
 
-    const pinnedProjects = allProjectsSorted.filter((project) => project.pinned)
-    const nonPinnedProjects = allProjectsSorted.filter((project) => !project.pinned)
-    return [...pinnedProjects, ...nonPinnedProjects]
-  }, [allProjectsSorted, kaggleProjects, projectFilterTab])
+    const pinnedProjects = allProjectsSorted.filter(
+      (project) => project.pinned,
+    );
+    const nonPinnedProjects = allProjectsSorted.filter(
+      (project) => !project.pinned,
+    );
+    return [...pinnedProjects, ...nonPinnedProjects];
+  }, [allProjectsSorted, kaggleProjects, projectFilterTab]);
 
   const projectTechStackOptions = useMemo(() => {
-    const labels = new Set<string>()
+    const labels = new Set<string>();
 
     allProjectsSorted.forEach((project) => {
-      detectLabels(project, TECH_STACK_RULES, [...(project.technologies || []), ...(project.languages || [])]).forEach((label) => labels.add(label))
-    })
+      detectLabels(project, TECH_STACK_RULES, [
+        ...(project.technologies || []),
+        ...(project.languages || []),
+      ]).forEach((label) => labels.add(label));
+    });
 
-    return [...labels].sort((labelA, labelB) => labelA.localeCompare(labelB))
-  }, [allProjectsSorted])
+    return [...labels].sort((labelA, labelB) => labelA.localeCompare(labelB));
+  }, [allProjectsSorted]);
 
   const visibleProjects = useMemo(() => {
     return projectsByTab.filter((project) => {
       const techStackMatches =
-        projectTechStackFilter === 'all' ||
-        detectLabels(project, TECH_STACK_RULES, [...(project.technologies || []), ...(project.languages || [])]).includes(projectTechStackFilter)
+        projectTechStackFilter === "all" ||
+        detectLabels(project, TECH_STACK_RULES, [
+          ...(project.technologies || []),
+          ...(project.languages || []),
+        ]).includes(projectTechStackFilter);
 
-      return techStackMatches
-    })
-  }, [projectTechStackFilter, projectsByTab])
+      return techStackMatches;
+    });
+  }, [projectTechStackFilter, projectsByTab]);
 
   const hasActiveProjectFilters =
-    projectFilterTab !== 'all' || projectTechStackFilter !== 'all'
+    projectFilterTab !== "all" || projectTechStackFilter !== "all";
 
   const projectsMissingAge = useMemo(
-    () => allProjectsSorted.filter((project) => typeof project.ageYears !== 'number'),
+    () =>
+      allProjectsSorted.filter(
+        (project) => typeof project.ageYears !== "number",
+      ),
     [allProjectsSorted],
-  )
+  );
 
   const visibleBlogs = useMemo(() => {
-    if (blogTab === 'medium') {
-      return blogPosts.filter((post) => post.link.includes('medium.com'))
+    if (blogTab === "medium") {
+      return blogPosts.filter((post) => post.link.includes("medium.com"));
     }
 
-    if (blogTab === 'personal') {
-      return blogPosts.filter((post) => !post.link.includes('medium.com'))
+    if (blogTab === "personal") {
+      return blogPosts.filter((post) => !post.link.includes("medium.com"));
     }
 
-    return blogPosts
-  }, [blogPosts, blogTab])
+    return blogPosts;
+  }, [blogPosts, blogTab]);
 
   return (
     <>
-      {id === 'about' && (
+      {id === "about" && (
         <div className="panel full-panel">
           <h1 className="big-title">{about.name}</h1>
           <p className="muted">{about.rolesLine}</p>
@@ -254,13 +293,18 @@ export function WindowPanels({
         </div>
       )}
 
-      {id === 'timeline' && (
+      {id === "timeline" && (
         <div className="panel full-panel">
           <h2 className="section-heading">Timeline</h2>
-          <p className="muted">A dated snapshot of my career and learning journey.</p>
+          <p className="muted">
+            A dated snapshot of my career and learning journey.
+          </p>
           <div className="timeline-list timeline-rich">
             {timelineItems.map((item) => (
-              <article key={`${item.date}-${item.title}`} className="timeline-item">
+              <article
+                key={`${item.date}-${item.title}`}
+                className="timeline-item"
+              >
                 <p className="timeline-date">{item.date}</p>
                 <h3 className="timeline-title">{item.title}</h3>
                 <p className="timeline-desc">{item.description}</p>
@@ -270,10 +314,12 @@ export function WindowPanels({
         </div>
       )}
 
-      {id === 'gallery' && (
+      {id === "gallery" && (
         <div className="panel cards-panel">
           <h2 className="section-heading">Gallery</h2>
-          <p className="muted">Take a peek into my life, one chaotic screenshot at a time.</p>
+          <p className="muted">
+            Take a peek into my life, one chaotic screenshot at a time.
+          </p>
           {galleryPhotos.length > 0 ? (
             <div className="gallery-grid">
               {galleryPhotos.map((photo) => (
@@ -282,13 +328,18 @@ export function WindowPanels({
                     className="gallery-thumb gallery-thumb-icon"
                     type="button"
                     onClick={() => {
-                      setIsGalleryLightboxOpen(false)
-                      setActiveGalleryPhoto(photo)
+                      setIsGalleryLightboxOpen(false);
+                      setActiveGalleryPhoto(photo);
                     }}
                     aria-label={`Open ${photo.displayName}`}
                     title={photo.displayName}
                   >
-                    <img className="gallery-image gallery-image-icon" src={photo.src} alt={photo.displayName} loading="lazy" />
+                    <img
+                      className="gallery-image gallery-image-icon"
+                      src={photo.src}
+                      alt={photo.displayName}
+                      loading="lazy"
+                    />
                   </button>
                 </figure>
               ))}
@@ -299,12 +350,15 @@ export function WindowPanels({
 
           {activeGalleryPhoto && (
             <div
-              className={`gallery-lightbox ${isGalleryLightboxOpen ? 'is-open' : 'is-closing'}`}
+              className={`gallery-lightbox ${isGalleryLightboxOpen ? "is-open" : "is-closing"}`}
               role="dialog"
               aria-modal="true"
               onClick={() => setIsGalleryLightboxOpen(false)}
             >
-              <div className="gallery-lightbox-card" onClick={(e) => e.stopPropagation()}>
+              <div
+                className="gallery-lightbox-card"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <div className="gallery-lightbox-header">
                   <button
                     className="gallery-lightbox-close-floating"
@@ -312,20 +366,32 @@ export function WindowPanels({
                     aria-label="Close image"
                     onClick={() => setIsGalleryLightboxOpen(false)}
                   >
-                    <span className="gallery-lightbox-close-glyph" aria-hidden="true">
+                    <span
+                      className="gallery-lightbox-close-glyph"
+                      aria-hidden="true"
+                    >
                       ×
                     </span>
                   </button>
                   <div className="gallery-lightbox-meta">
-                    <span className="gallery-lightbox-label">Image Preview</span>
-                    <span className="gallery-lightbox-name" title={activeGalleryPhoto.displayName}>
+                    <span className="gallery-lightbox-label">
+                      Image Preview
+                    </span>
+                    <span
+                      className="gallery-lightbox-name"
+                      title={activeGalleryPhoto.displayName}
+                    >
                       {activeGalleryPhoto.displayName}
                     </span>
                   </div>
                 </div>
                 <div className="gallery-lightbox-body">
                   <div className="gallery-lightbox-stage">
-                    <img className="gallery-lightbox-image" src={activeGalleryPhoto.src} alt={activeGalleryPhoto.displayName} />
+                    <img
+                      className="gallery-lightbox-image"
+                      src={activeGalleryPhoto.src}
+                      alt={activeGalleryPhoto.displayName}
+                    />
                   </div>
                 </div>
               </div>
@@ -334,39 +400,49 @@ export function WindowPanels({
         </div>
       )}
 
-      {id === 'blogs' && (
+      {id === "blogs" && (
         <div className="panel cards-panel">
           {activeBlogPost ? (
-            <MarkdownReader content={activeBlogPost.markdown || 'No markdown content available for this post.'} onClose={() => setActiveBlogPost(null)} />
+            <MarkdownReader
+              content={
+                activeBlogPost.markdown ||
+                "No markdown content available for this post."
+              }
+              onClose={() => setActiveBlogPost(null)}
+            />
           ) : (
             <>
               <h2 className="section-heading">Blogs</h2>
               <p className="muted">Latest writing from kaus98.github.io</p>
-              <div className="project-tabs" role="tablist" aria-label="Blog categories">
+              <div
+                className="project-tabs"
+                role="tablist"
+                aria-label="Blog categories"
+              >
                 <button
                   type="button"
                   role="tab"
-                  aria-selected={blogTab === 'all'}
-                  className={`project-tab${blogTab === 'all' ? ' active' : ''}`}
-                  onClick={() => setBlogTab('all')}
+                  aria-selected={blogTab === "all"}
+                  className={`project-tab${blogTab === "all" ? " active" : ""}`}
+                  onClick={() => setBlogTab("all")}
                 >
                   All Blogs
                 </button>
                 <button
                   type="button"
                   role="tab"
-                  aria-selected={blogTab === 'medium'}
-                  className={`project-tab${blogTab === 'medium' ? ' active' : ''}`}
-                  onClick={() => setBlogTab('medium')}
+                  aria-selected={blogTab === "medium"}
+                  className={`project-tab${blogTab === "medium" ? " active" : ""}`}
+                  onClick={() => setBlogTab("medium")}
                 >
                   Medium
                 </button>
                 <button
                   type="button"
                   role="tab"
-                  aria-selected={blogTab === 'personal'}
-                  className={`project-tab${blogTab === 'personal' ? ' active' : ''}`}
-                  onClick={() => setBlogTab('personal')}
+                  aria-selected={blogTab === "personal"}
+                  className={`project-tab${blogTab === "personal" ? " active" : ""}`}
+                  onClick={() => setBlogTab("personal")}
                 >
                   Personal
                 </button>
@@ -379,23 +455,35 @@ export function WindowPanels({
                     <p className="wcard-text">{post.summary}</p>
                     <div className="wcard-actions">
                       {post.markdown ? (
-                        <button className="wlink btn-link" onClick={() => setActiveBlogPost(post)}>Read</button>
+                        <button
+                          className="wlink btn-link"
+                          onClick={() => setActiveBlogPost(post)}
+                        >
+                          Read
+                        </button>
                       ) : (
-                        <a className="wlink" href={post.link} target="_blank" rel="noreferrer">
+                        <a
+                          className="wlink"
+                          href={post.link}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Read Open External
                         </a>
                       )}
                     </div>
                   </article>
                 ))}
-                {visibleBlogs.length === 0 && <p className="muted">No blogs in this tab yet.</p>}
+                {visibleBlogs.length === 0 && (
+                  <p className="muted">No blogs in this tab yet.</p>
+                )}
               </div>
             </>
           )}
         </div>
       )}
 
-      {id === 'jobs' && (
+      {id === "jobs" && (
         <div className="panel full-panel">
           <h2 className="section-heading">Jobs</h2>
           <p className="muted">Experience split by full-time and internships</p>
@@ -406,7 +494,7 @@ export function WindowPanels({
                 <h3 className="wcard-title">{job.company}</h3>
                 <p className="job-meta">
                   {job.role}
-                  {job.period ? ` · ${job.period}` : ''}
+                  {job.period ? ` · ${job.period}` : ""}
                 </p>
                 <ul className="list-plain job-points">
                   {job.highlights.map((point) => (
@@ -422,7 +510,7 @@ export function WindowPanels({
                 <h3 className="wcard-title">{job.company}</h3>
                 <p className="job-meta">
                   {job.role}
-                  {job.period ? ` · ${job.period}` : ''}
+                  {job.period ? ` · ${job.period}` : ""}
                 </p>
                 <ul className="list-plain job-points">
                   {job.highlights.map((point) => (
@@ -435,57 +523,66 @@ export function WindowPanels({
         </div>
       )}
 
-      {id === 'projects' && (
+      {id === "projects" && (
         <div className="panel cards-panel">
           <h2 className="section-heading">Projects</h2>
-          <div className="project-tabs" role="tablist" aria-label="Project categories">
+          <div
+            className="project-tabs"
+            role="tablist"
+            aria-label="Project categories"
+          >
             <button
               type="button"
               role="tab"
-              aria-selected={projectFilterTab === 'all'}
-              className={`project-tab${projectFilterTab === 'all' ? ' active' : ''}`}
-              onClick={() => setProjectFilterTab('all')}
+              aria-selected={projectFilterTab === "all"}
+              className={`project-tab${projectFilterTab === "all" ? " active" : ""}`}
+              onClick={() => setProjectFilterTab("all")}
             >
               All Projects
             </button>
             <button
               type="button"
               role="tab"
-              aria-selected={projectFilterTab === 'pinned'}
-              className={`project-tab${projectFilterTab === 'pinned' ? ' active' : ''}`}
-              onClick={() => setProjectFilterTab('pinned')}
+              aria-selected={projectFilterTab === "pinned"}
+              className={`project-tab${projectFilterTab === "pinned" ? " active" : ""}`}
+              onClick={() => setProjectFilterTab("pinned")}
             >
               Pinned Projects
             </button>
             <button
               type="button"
               role="tab"
-              aria-selected={projectFilterTab === 'kaggle'}
-              className={`project-tab${projectFilterTab === 'kaggle' ? ' active' : ''}`}
-              onClick={() => setProjectFilterTab('kaggle')}
+              aria-selected={projectFilterTab === "kaggle"}
+              className={`project-tab${projectFilterTab === "kaggle" ? " active" : ""}`}
+              onClick={() => setProjectFilterTab("kaggle")}
             >
               Kaggle Projects
             </button>
             <button
               type="button"
               role="tab"
-              aria-selected={projectFilterTab === 'older'}
-              className={`project-tab${projectFilterTab === 'older' ? ' active' : ''}`}
-              onClick={() => setProjectFilterTab('older')}
+              aria-selected={projectFilterTab === "older"}
+              className={`project-tab${projectFilterTab === "older" ? " active" : ""}`}
+              onClick={() => setProjectFilterTab("older")}
             >
               Older Projects
             </button>
           </div>
           <div className="project-filter-controls">
             <div className="project-filter-group">
-              <label className="project-filter-label" htmlFor="project-tech-stack-filter">
+              <label
+                className="project-filter-label"
+                htmlFor="project-tech-stack-filter"
+              >
                 Tech Stack
               </label>
               <select
                 id="project-tech-stack-filter"
                 className="settings-select"
                 value={projectTechStackFilter}
-                onChange={(event) => setProjectTechStackFilter(event.target.value)}
+                onChange={(event) =>
+                  setProjectTechStackFilter(event.target.value)
+                }
               >
                 <option value="all">All tech stacks</option>
                 {projectTechStackOptions.map((stack) => (
@@ -499,8 +596,8 @@ export function WindowPanels({
               type="button"
               className="project-tab project-filter-clear"
               onClick={() => {
-                setProjectFilterTab('all')
-                setProjectTechStackFilter('all')
+                setProjectFilterTab("all");
+                setProjectTechStackFilter("all");
               }}
               disabled={!hasActiveProjectFilters}
             >
@@ -509,14 +606,22 @@ export function WindowPanels({
           </div>
           {hasActiveProjectFilters && (
             <p className="muted">
-              Active: {projectFilterTab !== 'all' ? `Tab: ${projectFilterTab}` : 'Tab: all'}
-              {projectTechStackFilter !== 'all' ? ` · Tech Stack: ${projectTechStackFilter}` : ''}
+              Active:{" "}
+              {projectFilterTab !== "all"
+                ? `Tab: ${projectFilterTab}`
+                : "Tab: all"}
+              {projectTechStackFilter !== "all"
+                ? ` · Tech Stack: ${projectTechStackFilter}`
+                : ""}
             </p>
           )}
-          <p className="muted">Sorted by age (oldest to newest) using project metadata.</p>
+          <p className="muted">
+            Sorted by age (oldest to newest) using project metadata.
+          </p>
           {projectsMissingAge.length > 0 && (
             <p className="muted">
-              Age missing for: {projectsMissingAge.map((project) => project.title).join(', ')}
+              Age missing for:{" "}
+              {projectsMissingAge.map((project) => project.title).join(", ")}
             </p>
           )}
           <div className="cards">
@@ -525,35 +630,59 @@ export function WindowPanels({
                 <h3 className="wcard-title project-title-row">
                   <span>{project.title}</span>
                   {project.pinned && (
-                    <span className="project-pin" aria-label="Pinned project" title="Pinned project">
+                    <span
+                      className="project-pin"
+                      aria-label="Pinned project"
+                      title="Pinned project"
+                    >
                       📌
                     </span>
                   )}
                 </h3>
                 <p className="muted">{project.subtitle}</p>
-                {(typeof project.ageYears === 'number' || project.lastCommitAt || project.lastSuccessfulRunAt) && (
-                  <p className="muted">
-                    {typeof project.ageYears === 'number' ? `Age: ${project.ageYears} years` : 'Age: Not set'}
-                    {project.lastCommitAt ? ` · Last commit: ${project.lastCommitAt}` : ''}
-                    {project.lastSuccessfulRunAt ? ` · Last successful run: ${project.lastSuccessfulRunAt}` : ''}
-                  </p>
-                )}
+                {(typeof project.ageYears === "number" ||
+                  project.lastCommitAt ||
+                  project.lastSuccessfulRunAt) && (
+                    <p className="muted">
+                      {typeof project.ageYears === "number"
+                        ? `Age: ${project.ageYears} years`
+                        : "Age: Not set"}
+                      {project.lastCommitAt
+                        ? ` · Last commit: ${project.lastCommitAt}`
+                        : ""}
+                      {project.lastSuccessfulRunAt
+                        ? ` · Last successful run: ${project.lastSuccessfulRunAt}`
+                        : ""}
+                    </p>
+                  )}
                 <p className="wcard-text">{project.description}</p>
                 <div className="wcard-actions">
                   {project.website && (
-                    <a className="wlink" href={project.website} target="_blank" rel="noreferrer">
+                    <a
+                      className="wlink"
+                      href={project.website}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       Live
                     </a>
                   )}
                   {project.github && (
-                    <a className="wlink" href={project.github} target="_blank" rel="noreferrer">
+                    <a
+                      className="wlink"
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       Code
                     </a>
                   )}
                 </div>
               </article>
             ))}
-            {visibleProjects.length === 0 && <p className="muted">No projects match the selected filters.</p>}
+            {visibleProjects.length === 0 && (
+              <p className="muted">No projects match the selected filters.</p>
+            )}
           </div>
 
           <h2 className="section-heading panel-block">Certifications</h2>
@@ -565,7 +694,7 @@ export function WindowPanels({
         </div>
       )}
 
-      {id === 'contact' && (
+      {id === "contact" && (
         <div className="panel full-panel">
           <h2 className="section-heading">Contact</h2>
           <div className="availability-card">
@@ -586,7 +715,10 @@ export function WindowPanels({
           <p>
             Phone:
             <span className="inline-space" />
-            <a className="wlink" href={`tel:${contact.phone.replace(/\s+/g, '')}`}>
+            <a
+              className="wlink"
+              href={`tel:${contact.phone.replace(/\s+/g, "")}`}
+            >
               {contact.phone}
             </a>
           </p>
@@ -596,8 +728,8 @@ export function WindowPanels({
                 key={link.label}
                 className="chip link"
                 href={link.href}
-                target={isExternalLink(link.href) ? '_blank' : undefined}
-                rel={isExternalLink(link.href) ? 'noreferrer' : undefined}
+                target={isExternalLink(link.href) ? "_blank" : undefined}
+                rel={isExternalLink(link.href) ? "noreferrer" : undefined}
                 download={link.download ? true : undefined}
               >
                 {link.label}
@@ -605,7 +737,9 @@ export function WindowPanels({
             ))}
           </div>
 
-          <h2 className="section-heading panel-block">Positions of Responsibility</h2>
+          <h2 className="section-heading panel-block">
+            Positions of Responsibility
+          </h2>
           <ul className="list-plain">
             {contact.responsibilities.map((position) => (
               <li key={position}>{position}</li>
@@ -614,7 +748,7 @@ export function WindowPanels({
         </div>
       )}
 
-      {id === 'settings' && (
+      {id === "settings" && (
         <div className="panel cards-panel">
           <h2 className="section-heading">Settings</h2>
           <p className="muted">Control theme and sound.</p>
@@ -641,28 +775,192 @@ export function WindowPanels({
           <div className="panel-block">
             <h3 className="section-heading">Sound</h3>
             <button
-              className={muted ? 'settings-toggle' : 'settings-toggle active'}
+              className={muted ? "settings-toggle" : "settings-toggle active"}
               type="button"
               onClick={toggleSoundFromMenu}
               disabled={audioError}
               aria-pressed={!muted}
             >
-              {audioError ? 'Audio file missing' : muted ? 'Muted' : 'Unmuted'}
+              {audioError ? "Audio file missing" : muted ? "Muted" : "Unmuted"}
             </button>
           </div>
+
+          <div className="panel-block">
+            <h3 className="section-heading">Desktop Customization</h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+                marginTop: "12px",
+              }}
+            >
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  cursor: "pointer",
+                }}
+              >
+                <span>Show GitHub Status</span>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <span style={{ fontSize: "13px", opacity: 0.8 }}>
+                    {widgetSettings.showGithub ? "On" : "Off"}
+                  </span>
+                  <input
+                    type="checkbox"
+                    className="w11-toggle"
+                    checked={widgetSettings.showGithub}
+                    onChange={(e) =>
+                      setWidgetSettings((s) => ({
+                        ...s,
+                        showGithub: e.target.checked,
+                      }))
+                    }
+                  />
+                </div>
+              </label>
+
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  cursor: "pointer",
+                }}
+              >
+                <span>Show Clock & Calendar</span>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <span style={{ fontSize: "13px", opacity: 0.8 }}>
+                    {widgetSettings.showCalendar ? "On" : "Off"}
+                  </span>
+                  <input
+                    type="checkbox"
+                    className="w11-toggle"
+                    checked={widgetSettings.showCalendar}
+                    onChange={(e) =>
+                      setWidgetSettings((s) => ({
+                        ...s,
+                        showCalendar: e.target.checked,
+                      }))
+                    }
+                  />
+                </div>
+              </label>
+
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  cursor: "pointer",
+                }}
+              >
+                <span>Show Desktop Icons</span>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <span style={{ fontSize: "13px", opacity: 0.8 }}>
+                    {widgetSettings.showDesktopIcons ? "On" : "Off"}
+                  </span>
+                  <input
+                    type="checkbox"
+                    className="w11-toggle"
+                    checked={widgetSettings.showDesktopIcons}
+                    onChange={(e) =>
+                      setWidgetSettings((s) => ({
+                        ...s,
+                        showDesktopIcons: e.target.checked,
+                      }))
+                    }
+                  />
+                </div>
+              </label>
+
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  cursor: "pointer",
+                }}
+              >
+                <span>Show Social Media Rail</span>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <span style={{ fontSize: "13px", opacity: 0.8 }}>
+                    {widgetSettings.showSocials ? "On" : "Off"}
+                  </span>
+                  <input
+                    type="checkbox"
+                    className="w11-toggle"
+                    checked={widgetSettings.showSocials}
+                    onChange={(e) =>
+                      setWidgetSettings((s) => ({
+                        ...s,
+                        showSocials: e.target.checked,
+                      }))
+                    }
+                  />
+                </div>
+              </label>
+
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  cursor: "pointer",
+                }}
+              >
+                <span>Show Background Typewriter Effect</span>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <span style={{ fontSize: "13px", opacity: 0.8 }}>
+                    {widgetSettings.showTypewriter ? "On" : "Off"}
+                  </span>
+                  <input
+                    type="checkbox"
+                    className="w11-toggle"
+                    checked={widgetSettings.showTypewriter}
+                    onChange={(e) =>
+                      setWidgetSettings((s) => ({
+                        ...s,
+                        showTypewriter: e.target.checked,
+                      }))
+                    }
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+          <div style={{ height: "24px" }} />
         </div>
       )}
 
-      {id === 'terminal' && (
+      {id === "terminal" && (
         <div className="panel full-panel terminal-panel">
-          <p className="terminal-session-label" title={`${about.name.toLowerCase().replace(/\s+/g, '')}@portfolio:~`}>
-            {about.name.toLowerCase().replace(/\s+/g, '')}@portfolio:~
+          <p
+            className="terminal-session-label"
+            title={`${about.name.toLowerCase().replace(/\s+/g, "")}@portfolio:~`}
+          >
+            {about.name.toLowerCase().replace(/\s+/g, "")}@portfolio:~
           </p>
 
           <div className="terminal-shell">
             <div className="terminal-console" role="log" aria-live="polite">
               {terminalLines.map((line) => (
-                <div key={line.id} className={`terminal-line terminal-line-${line.tone}`}>
+                <div
+                  key={line.id}
+                  className={`terminal-line terminal-line-${line.tone}`}
+                >
                   {line.text}
                 </div>
               ))}
@@ -671,8 +969,8 @@ export function WindowPanels({
             <form
               className="terminal-input-row"
               onSubmit={(e) => {
-                e.preventDefault()
-                runTerminalCommand(terminalInput)
+                e.preventDefault();
+                runTerminalCommand(terminalInput);
               }}
             >
               <span className="terminal-prompt">$</span>
@@ -681,15 +979,15 @@ export function WindowPanels({
                 value={terminalInput}
                 onChange={(e) => setTerminalInput(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === 'ArrowUp') {
-                    e.preventDefault()
-                    navigateTerminalHistory('up')
-                  } else if (e.key === 'ArrowDown') {
-                    e.preventDefault()
-                    navigateTerminalHistory('down')
-                  } else if (e.key === 'Tab') {
-                    e.preventDefault()
-                    autocompleteTerminalInput()
+                  if (e.key === "ArrowUp") {
+                    e.preventDefault();
+                    navigateTerminalHistory("up");
+                  } else if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    navigateTerminalHistory("down");
+                  } else if (e.key === "Tab") {
+                    e.preventDefault();
+                    autocompleteTerminalInput();
                   }
                 }}
                 placeholder="Type a command and press Enter"
@@ -707,5 +1005,5 @@ export function WindowPanels({
         </div>
       )}
     </>
-  )
+  );
 }

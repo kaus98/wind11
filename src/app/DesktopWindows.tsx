@@ -1,12 +1,21 @@
-import type { CSSProperties, MutableRefObject } from 'react'
-import { WindowPanels } from './WindowPanels'
-import { GithubProfileCard } from './GithubWidgets'
-import { ClockCalendarWidget } from './ClockCalendarWidget'
-import { DesktopIconGrid } from './DesktopIconGrid'
-import { SearchResultsWindow } from './SearchResultsWindow'
-import type { AppId, AppWindow, DragState, GalleryPhoto, ResizeState, TerminalLine, WindowPos, WindowSize } from './types'
-import type { PortfolioData } from '../data/portfolioData'
-import type { ThemeName } from './constants'
+import type { CSSProperties, MutableRefObject } from "react";
+import { WindowPanels } from "./WindowPanels";
+import { GithubProfileCard } from "./GithubWidgets";
+import { ClockCalendarWidget } from "./ClockCalendarWidget";
+import { DesktopIconGrid } from "./DesktopIconGrid";
+import { SearchResultsWindow } from "./SearchResultsWindow";
+import type {
+  AppId,
+  AppWindow,
+  DragState,
+  GalleryPhoto,
+  ResizeState,
+  TerminalLine,
+  WindowPos,
+  WindowSize,
+} from "./types";
+import type { PortfolioData } from "../data/portfolioData";
+import type { ThemeName } from "./constants";
 import {
   AboutIcon,
   BlogsIcon,
@@ -17,72 +26,76 @@ import {
   SettingsIcon,
   TerminalIcon,
   TimelineIcon,
-} from './icons'
+} from "./icons";
 
 type SocialLink = {
-  key: string
-  label: string
-  href: string
-  Icon: React.ComponentType<{ className?: string }>
-}
+  key: string;
+  label: string;
+  href: string;
+  Icon: React.ComponentType<{ className?: string }>;
+};
 
 type DesktopWindowsProps = {
-  windows: Record<AppId, AppWindow>
-  activeId: AppId
-  positions: Record<AppId, WindowPos>
-  sizes: Record<AppId, WindowSize>
-  closingWindows: Record<AppId, boolean>
-  viewport: { width: number; height: number }
-  taskbarReservedHeight: number
-  windowInset: number
-  forceFullscreenWindows: boolean
-  windowRefs: MutableRefObject<Record<AppId, HTMLElement | null>>
-  setActiveId: (id: AppId) => void
-  setDrag: (drag: DragState | null) => void
-  setResize: (resize: ResizeState | null) => void
-  toggleMinimize: (id: AppId) => void
-  toggleMaximize: (id: AppId) => void
-  closeApp: (id: AppId) => void
-  closeStartMenu: () => void
-  openApp: (id: AppId) => void
-  socialLinks: SocialLink[]
-  about: PortfolioData['about']
-  availability: PortfolioData['contact']['availability']
-  technologyChips: string[]
-  programmingChips: string[]
-  timelineItems: PortfolioData['timeline']
-  galleryPhotos: GalleryPhoto[]
-  activeGalleryPhoto: GalleryPhoto | null
-  isGalleryLightboxOpen: boolean
-  setIsGalleryLightboxOpen: (open: boolean) => void
-  setActiveGalleryPhoto: (photo: GalleryPhoto | null) => void
-  blogPosts: PortfolioData['blogs']
-  fullTimeJobs: PortfolioData['jobs']
-  internshipJobs: PortfolioData['jobs']
-  projectCards: PortfolioData['projects']
-  certifications: PortfolioData['certifications']
-  contact: PortfolioData['contact']
-  theme: ThemeName
-  applyTheme: (theme: ThemeName) => void
-  muted: boolean
-  toggleSoundFromMenu: () => void
-  audioError: boolean
-  terminalLines: TerminalLine[]
-  terminalInput: string
-  setTerminalInput: (value: string) => void
-  runTerminalCommand: (command: string) => void
-  navigateTerminalHistory: (direction: 'up' | 'down') => void
-  autocompleteTerminalInput: () => void
-  normalizedQuery: string
-  searchWindowStyle: CSSProperties
-  query: string
-  setQuery: (query: string) => void
-  filteredProjectCards: PortfolioData['projects']
-  filteredBlogPosts: PortfolioData['blogs']
-  searchedJobs: PortfolioData['jobs']
-  filteredFullTimeJobs: PortfolioData['jobs']
-  filteredInternshipJobs: PortfolioData['jobs']
-}
+  windows: Record<AppId, AppWindow>;
+  activeId: AppId;
+  positions: Record<AppId, WindowPos>;
+  sizes: Record<AppId, WindowSize>;
+  closingWindows: Record<AppId, boolean>;
+  viewport: { width: number; height: number };
+  taskbarReservedHeight: number;
+  windowInset: number;
+  forceFullscreenWindows: boolean;
+  windowRefs: MutableRefObject<Record<AppId, HTMLElement | null>>;
+  setActiveId: (id: AppId) => void;
+  setDrag: (drag: DragState | null) => void;
+  setResize: (resize: ResizeState | null) => void;
+  toggleMinimize: (id: AppId) => void;
+  toggleMaximize: (id: AppId) => void;
+  closeApp: (id: AppId) => void;
+  closeStartMenu: () => void;
+  openApp: (id: AppId) => void;
+  socialLinks: SocialLink[];
+  about: PortfolioData["about"];
+  availability: PortfolioData["contact"]["availability"];
+  technologyChips: string[];
+  programmingChips: string[];
+  timelineItems: PortfolioData["timeline"];
+  galleryPhotos: GalleryPhoto[];
+  activeGalleryPhoto: GalleryPhoto | null;
+  isGalleryLightboxOpen: boolean;
+  setIsGalleryLightboxOpen: (open: boolean) => void;
+  setActiveGalleryPhoto: (photo: GalleryPhoto | null) => void;
+  blogPosts: PortfolioData["blogs"];
+  fullTimeJobs: PortfolioData["jobs"];
+  internshipJobs: PortfolioData["jobs"];
+  projectCards: PortfolioData["projects"];
+  certifications: PortfolioData["certifications"];
+  contact: PortfolioData["contact"];
+  theme: ThemeName;
+  applyTheme: (theme: ThemeName) => void;
+  muted: boolean;
+  toggleSoundFromMenu: () => void;
+  audioError: boolean;
+  terminalLines: TerminalLine[];
+  terminalInput: string;
+  setTerminalInput: (value: string) => void;
+  runTerminalCommand: (command: string) => void;
+  navigateTerminalHistory: (direction: "up" | "down") => void;
+  autocompleteTerminalInput: () => void;
+  normalizedQuery: string;
+  searchWindowStyle: CSSProperties;
+  query: string;
+  setQuery: (query: string) => void;
+  filteredProjectCards: PortfolioData["projects"];
+  filteredBlogPosts: PortfolioData["blogs"];
+  searchedJobs: PortfolioData["jobs"];
+  filteredFullTimeJobs: PortfolioData["jobs"];
+  filteredInternshipJobs: PortfolioData["jobs"];
+  widgetSettings: import("./types").WidgetSettings;
+  setWidgetSettings: React.Dispatch<
+    React.SetStateAction<import("./types").WidgetSettings>
+  >;
+};
 
 export function DesktopWindows(props: DesktopWindowsProps) {
   const {
@@ -141,44 +154,80 @@ export function DesktopWindows(props: DesktopWindowsProps) {
     searchedJobs,
     filteredFullTimeJobs,
     filteredInternshipJobs,
-  } = props
+    widgetSettings,
+    setWidgetSettings,
+  } = props;
 
   return (
     <div className="desktop" onMouseDown={closeStartMenu}>
-      <DesktopIconGrid
-        viewport={viewport}
-        taskbarReservedHeight={taskbarReservedHeight}
-        openApp={openApp}
-      />
+      {widgetSettings.showDesktopIcons && (
+        <DesktopIconGrid
+          viewport={viewport}
+          taskbarReservedHeight={taskbarReservedHeight}
+          openApp={openApp}
+        />
+      )}
 
-      <aside className="social-rail" aria-label="Social links" onMouseDown={(e) => e.stopPropagation()}>
-        {socialLinks.map(({ key, label, href, Icon }) => (
-          <a key={key} className="social-rail-link" href={href} target="_blank" rel="noreferrer" aria-label={label} title={label}>
-            <Icon className="social-rail-icon" />
-          </a>
-        ))}
-      </aside>
+      {widgetSettings.showSocials && (
+        <aside
+          className="social-rail"
+          aria-label="Social links"
+          onMouseDown={(e) => e.stopPropagation()}
+        >
+          {socialLinks.map(({ key, label, href, Icon }) => (
+            <a
+              key={key}
+              className="social-rail-link"
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={label}
+              title={label}
+            >
+              <Icon className="social-rail-icon" />
+            </a>
+          ))}
+        </aside>
+      )}
 
-      <div className="desktop-widgets" onMouseDown={(e) => e.stopPropagation()}>
-        <GithubProfileCard username={contact.githubUsername} />
-        <ClockCalendarWidget />
-      </div>
+      {(widgetSettings.showGithub || widgetSettings.showCalendar) && (
+        <div
+          className="desktop-widgets"
+          onMouseDown={(e) => e.stopPropagation()}
+        >
+          {widgetSettings.showGithub && (
+            <GithubProfileCard username={contact.githubUsername} />
+          )}
+          {widgetSettings.showCalendar && <ClockCalendarWidget />}
+        </div>
+      )}
 
       <div className="window-area">
         {(Object.keys(windows) as AppId[]).map((id) => {
-          const w = windows[id]
-          if (!w.isOpen || w.isMinimized) return null
+          const w = windows[id];
+          if (!w.isOpen || w.isMinimized) return null;
 
-          const isActive = activeId === id
-          const zIndex = isActive ? 3 : 2
-          const pos = positions[id]
-          const size = sizes[id]
-          const isMaximized = windows[id].isMaximized
-          const windowClassName = ['window', isActive ? 'active' : '', isMaximized ? 'maximized' : '', closingWindows[id] ? 'window-exit' : 'window-enter']
+          const isActive = activeId === id;
+          const zIndex = isActive ? 3 : 2;
+          const pos = positions[id];
+          const size = sizes[id];
+          const isMaximized = windows[id].isMaximized;
+          const windowClassName = [
+            "window",
+            isActive ? "active" : "",
+            isMaximized ? "maximized" : "",
+            closingWindows[id] ? "window-exit" : "window-enter",
+          ]
             .filter(Boolean)
-            .join(' ')
-          const maximizedHeight = Math.max(220, viewport.height - taskbarReservedHeight)
-          const fullscreenHeight = Math.max(220, viewport.height - taskbarReservedHeight - windowInset * 2)
+            .join(" ");
+          const maximizedHeight = Math.max(
+            220,
+            viewport.height - taskbarReservedHeight,
+          );
+          const fullscreenHeight = Math.max(
+            220,
+            viewport.height - taskbarReservedHeight - windowInset * 2,
+          );
 
           return (
             <section
@@ -186,37 +235,61 @@ export function DesktopWindows(props: DesktopWindowsProps) {
               className={windowClassName}
               style={
                 isMaximized
-                  ? { zIndex, left: 0, top: 0, width: viewport.width, height: maximizedHeight }
+                  ? {
+                      zIndex,
+                      left: 0,
+                      top: 0,
+                      width: viewport.width,
+                      height: maximizedHeight,
+                    }
                   : forceFullscreenWindows
                     ? {
-                      zIndex,
-                      left: windowInset,
-                      top: windowInset,
-                      width: Math.max(0, viewport.width - windowInset * 2),
-                      height: fullscreenHeight,
-                    }
-                    : { zIndex, left: pos.x, top: pos.y, width: size.width, height: size.height }
+                        zIndex,
+                        left: windowInset,
+                        top: windowInset,
+                        width: Math.max(0, viewport.width - windowInset * 2),
+                        height: fullscreenHeight,
+                      }
+                    : {
+                        zIndex,
+                        left: pos.x,
+                        top: pos.y,
+                        width: size.width,
+                        height: size.height,
+                      }
               }
               ref={(el) => {
-                windowRefs.current[id] = el
+                windowRefs.current[id] = el;
               }}
               onMouseDown={(e) => {
-                e.stopPropagation()
-                setActiveId(id)
+                e.stopPropagation();
+                setActiveId(id);
               }}
             >
               <header
                 className="window-titlebar"
                 onPointerDown={(e) => {
-                  if ((e.target as HTMLElement | null)?.closest('.window-controls')) return
-                  if ((e.target as HTMLElement | null)?.closest('.window-resize-handle')) return
-                  if (windows[id].isMaximized) return
+                  if (
+                    (e.target as HTMLElement | null)?.closest(
+                      ".window-controls",
+                    )
+                  )
+                    return;
+                  if (
+                    (e.target as HTMLElement | null)?.closest(
+                      ".window-resize-handle",
+                    )
+                  )
+                    return;
+                  if (windows[id].isMaximized) return;
 
-                  e.stopPropagation()
-                  setActiveId(id)
+                  e.stopPropagation();
+                  setActiveId(id);
 
-                  const start = positions[id]
-                    ; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
+                  const start = positions[id];
+                  (e.currentTarget as HTMLElement).setPointerCapture(
+                    e.pointerId,
+                  );
                   setDrag({
                     id,
                     pointerId: e.pointerId,
@@ -224,47 +297,47 @@ export function DesktopWindows(props: DesktopWindowsProps) {
                     startClientY: e.clientY,
                     startX: start.x,
                     startY: start.y,
-                  })
+                  });
                 }}
               >
                 <div className="window-title">
                   <span
                     className={
-                      id === 'about'
-                        ? 'app-icon small about'
-                        : id === 'projects'
-                          ? 'app-icon small projects'
-                          : id === 'gallery'
-                            ? 'app-icon small gallery'
-                            : id === 'blogs'
-                              ? 'app-icon small blogs'
-                              : id === 'jobs'
-                                ? 'app-icon small projects'
-                                : id === 'timeline'
-                                  ? 'app-icon small timeline'
-                                  : id === 'settings'
-                                    ? 'app-icon small settings'
-                                    : id === 'terminal'
-                                      ? 'app-icon small terminal'
-                                      : 'app-icon small contact'
+                      id === "about"
+                        ? "app-icon small about"
+                        : id === "projects"
+                          ? "app-icon small projects"
+                          : id === "gallery"
+                            ? "app-icon small gallery"
+                            : id === "blogs"
+                              ? "app-icon small blogs"
+                              : id === "jobs"
+                                ? "app-icon small projects"
+                                : id === "timeline"
+                                  ? "app-icon small timeline"
+                                  : id === "settings"
+                                    ? "app-icon small settings"
+                                    : id === "terminal"
+                                      ? "app-icon small terminal"
+                                      : "app-icon small contact"
                     }
                     aria-hidden="true"
                   >
-                    {id === 'about' ? (
+                    {id === "about" ? (
                       <AboutIcon className="icon" />
-                    ) : id === 'projects' ? (
+                    ) : id === "projects" ? (
                       <ProjectsIcon className="icon" />
-                    ) : id === 'gallery' ? (
+                    ) : id === "gallery" ? (
                       <GalleryIcon className="icon" />
-                    ) : id === 'blogs' ? (
+                    ) : id === "blogs" ? (
                       <BlogsIcon className="icon" />
-                    ) : id === 'jobs' ? (
+                    ) : id === "jobs" ? (
                       <JobsIcon className="icon" />
-                    ) : id === 'timeline' ? (
+                    ) : id === "timeline" ? (
                       <TimelineIcon className="icon" />
-                    ) : id === 'settings' ? (
+                    ) : id === "settings" ? (
                       <SettingsIcon className="icon" />
-                    ) : id === 'terminal' ? (
+                    ) : id === "terminal" ? (
                       <TerminalIcon className="icon" />
                     ) : (
                       <ContactIcon className="icon" />
@@ -273,18 +346,28 @@ export function DesktopWindows(props: DesktopWindowsProps) {
                   <span>{w.title}</span>
                 </div>
                 <div className="window-controls">
-                  <button className="win-btn" type="button" aria-label="Minimize" onClick={() => toggleMinimize(id)}>
+                  <button
+                    className="win-btn"
+                    type="button"
+                    aria-label="Minimize"
+                    onClick={() => toggleMinimize(id)}
+                  >
                     <span className="win-glyph">—</span>
                   </button>
                   <button
                     className="win-btn"
                     type="button"
-                    aria-label={isMaximized ? 'Restore' : 'Maximize'}
+                    aria-label={isMaximized ? "Restore" : "Maximize"}
                     onClick={() => toggleMaximize(id)}
                   >
-                    <span className="win-glyph">{isMaximized ? '❐' : '□'}</span>
+                    <span className="win-glyph">{isMaximized ? "❐" : "□"}</span>
                   </button>
-                  <button className="win-btn close" type="button" aria-label="Close" onClick={() => closeApp(id)}>
+                  <button
+                    className="win-btn close"
+                    type="button"
+                    aria-label="Close"
+                    onClick={() => closeApp(id)}
+                  >
                     <span className="win-glyph">×</span>
                   </button>
                 </div>
@@ -320,6 +403,8 @@ export function DesktopWindows(props: DesktopWindowsProps) {
                   runTerminalCommand={runTerminalCommand}
                   navigateTerminalHistory={navigateTerminalHistory}
                   autocompleteTerminalInput={autocompleteTerminalInput}
+                  widgetSettings={widgetSettings}
+                  setWidgetSettings={setWidgetSettings}
                 />
               </div>
 
@@ -327,9 +412,11 @@ export function DesktopWindows(props: DesktopWindowsProps) {
                 <div
                   className="window-resize-handle"
                   onPointerDown={(e) => {
-                    e.stopPropagation()
-                    setActiveId(id)
-                      ; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
+                    e.stopPropagation();
+                    setActiveId(id);
+                    (e.currentTarget as HTMLElement).setPointerCapture(
+                      e.pointerId,
+                    );
                     setResize({
                       id,
                       pointerId: e.pointerId,
@@ -337,12 +424,12 @@ export function DesktopWindows(props: DesktopWindowsProps) {
                       startClientY: e.clientY,
                       startWidth: sizes[id].width,
                       startHeight: sizes[id].height,
-                    })
+                    });
                   }}
                 />
               )}
             </section>
-          )
+          );
         })}
 
         <SearchResultsWindow
@@ -357,6 +444,6 @@ export function DesktopWindows(props: DesktopWindowsProps) {
           filteredInternshipJobs={filteredInternshipJobs}
         />
       </div>
-    </div >
-  )
+    </div>
+  );
 }
