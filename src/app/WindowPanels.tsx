@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { isExternalLink, themeOptions, type ThemeName } from './constants'
 import { CodeChipIcon, TechChipIcon } from './icons'
+import { MarkdownReader } from './MarkdownReader'
 import type { AppId, GalleryPhoto, TerminalLine } from './types'
 import type { PortfolioData } from '../data/portfolioData'
 
@@ -110,6 +111,7 @@ export function WindowPanels({
   const [projectFilterTab, setProjectFilterTab] = useState<'all' | 'pinned' | 'kaggle' | 'older'>('all')
   const [projectTechStackFilter, setProjectTechStackFilter] = useState('all')
   const [blogTab, setBlogTab] = useState<'all' | 'medium' | 'personal'>('all')
+  const [activeBlogPost, setActiveBlogPost] = useState<PortfolioData['blogs'][0] | null>(null)
 
   const allProjectsSorted = useMemo(() => {
     return [...projectCards].sort((projectA, projectB) => {
@@ -334,52 +336,62 @@ export function WindowPanels({
 
       {id === 'blogs' && (
         <div className="panel cards-panel">
-          <h2 className="section-heading">Blogs</h2>
-          <p className="muted">Latest writing from kaus98.github.io</p>
-          <div className="project-tabs" role="tablist" aria-label="Blog categories">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={blogTab === 'all'}
-              className={`project-tab${blogTab === 'all' ? ' active' : ''}`}
-              onClick={() => setBlogTab('all')}
-            >
-              All Blogs
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={blogTab === 'medium'}
-              className={`project-tab${blogTab === 'medium' ? ' active' : ''}`}
-              onClick={() => setBlogTab('medium')}
-            >
-              Medium
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={blogTab === 'personal'}
-              className={`project-tab${blogTab === 'personal' ? ' active' : ''}`}
-              onClick={() => setBlogTab('personal')}
-            >
-              Personal
-            </button>
-          </div>
-          <div className="cards">
-            {visibleBlogs.map((post) => (
-              <article key={post.link} className="wcard">
-                <h3 className="wcard-title">{post.title}</h3>
-                <p className="muted">{post.date}</p>
-                <p className="wcard-text">{post.summary}</p>
-                <div className="wcard-actions">
-                  <a className="wlink" href={post.link} target="_blank" rel="noreferrer">
-                    Read
-                  </a>
-                </div>
-              </article>
-            ))}
-            {visibleBlogs.length === 0 && <p className="muted">No blogs in this tab yet.</p>}
-          </div>
+          {activeBlogPost ? (
+            <MarkdownReader content={activeBlogPost.markdown || 'No markdown content available for this post.'} onClose={() => setActiveBlogPost(null)} />
+          ) : (
+            <>
+              <h2 className="section-heading">Blogs</h2>
+              <p className="muted">Latest writing from kaus98.github.io</p>
+              <div className="project-tabs" role="tablist" aria-label="Blog categories">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={blogTab === 'all'}
+                  className={`project-tab${blogTab === 'all' ? ' active' : ''}`}
+                  onClick={() => setBlogTab('all')}
+                >
+                  All Blogs
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={blogTab === 'medium'}
+                  className={`project-tab${blogTab === 'medium' ? ' active' : ''}`}
+                  onClick={() => setBlogTab('medium')}
+                >
+                  Medium
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={blogTab === 'personal'}
+                  className={`project-tab${blogTab === 'personal' ? ' active' : ''}`}
+                  onClick={() => setBlogTab('personal')}
+                >
+                  Personal
+                </button>
+              </div>
+              <div className="cards">
+                {visibleBlogs.map((post) => (
+                  <article key={post.link} className="wcard">
+                    <h3 className="wcard-title">{post.title}</h3>
+                    <p className="muted">{post.date}</p>
+                    <p className="wcard-text">{post.summary}</p>
+                    <div className="wcard-actions">
+                      {post.markdown ? (
+                        <button className="wlink btn-link" onClick={() => setActiveBlogPost(post)}>Read</button>
+                      ) : (
+                        <a className="wlink" href={post.link} target="_blank" rel="noreferrer">
+                          Read Open External
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                ))}
+                {visibleBlogs.length === 0 && <p className="muted">No blogs in this tab yet.</p>}
+              </div>
+            </>
+          )}
         </div>
       )}
 

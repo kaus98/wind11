@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { pinnedApps, type ThemeName } from './constants'
+import { SystemTrayFlyout } from './SystemTrayFlyout'
 import {
   AboutIcon,
   JobsIcon,
@@ -52,6 +54,8 @@ export function Taskbar({
   timeText,
   dateText,
 }: TaskbarProps) {
+  const [isTrayOpen, setIsTrayOpen] = useState(false)
+
   return (
     <footer className="taskbar" onMouseDown={(e) => e.stopPropagation()}>
       <div className="taskbar-inner">
@@ -108,9 +112,9 @@ export function Taskbar({
                           ? 'app-icon projects'
                           : a.id === 'terminal'
                             ? 'app-icon terminal'
-                          : a.id === 'jobs'
-                            ? 'app-icon projects'
-                            : 'app-icon projects'
+                            : a.id === 'jobs'
+                              ? 'app-icon projects'
+                              : 'app-icon projects'
                     }
                     aria-hidden="true"
                   >
@@ -132,11 +136,11 @@ export function Taskbar({
         </div>
 
         <div className="taskbar-right">
-          <div className="tray">
-            <a className="tray-btn" href="./Kaustubh_Pathak_Resume.pdf" download aria-label="Download resume">
+          <div className="tray" onClick={() => setIsTrayOpen((prev) => !prev)}>
+            <a className="tray-btn" href="./Kaustubh_Pathak_Resume.pdf" download aria-label="Download resume" onClick={(e) => e.stopPropagation()}>
               <ResumeIcon className="tray-svg" />
             </a>
-            <button className="tray-btn" type="button" aria-label="Switch theme" onClick={toggleTheme}>
+            <button className="tray-btn" type="button" aria-label="Switch theme" onClick={(e) => { e.stopPropagation(); toggleTheme() }}>
               {theme === 'light' ? <SunIcon className="tray-svg" /> : <MoonIcon className="tray-svg" />}
             </button>
             <button
@@ -144,7 +148,7 @@ export function Taskbar({
               type="button"
               aria-label={audioError ? 'Audio file missing' : muted ? 'Unmute' : 'Mute'}
               disabled={audioError}
-              onClick={() => toggleSoundFromMenu()}
+              onClick={(e) => { e.stopPropagation(); toggleSoundFromMenu() }}
             >
               {muted ? <SpeakerOffIcon className="tray-svg" /> : <SpeakerOnIcon className="tray-svg" />}
             </button>
@@ -155,6 +159,12 @@ export function Taskbar({
           </div>
         </div>
       </div>
+      <SystemTrayFlyout
+        isOpen={isTrayOpen}
+        onClose={() => setIsTrayOpen(false)}
+        muted={muted}
+        toggleSoundFromMenu={toggleSoundFromMenu}
+      />
     </footer>
   )
 }

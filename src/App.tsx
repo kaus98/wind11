@@ -22,6 +22,7 @@ import {
   LinkedInIcon,
 } from './app/icons'
 import { DesktopWindows } from './app/DesktopWindows'
+import { ContextMenu } from './app/ContextMenu'
 import { StartMenu, type StartMenuOption } from './app/StartMenu'
 import { Taskbar } from './app/Taskbar'
 import { TypewriterBackground } from './app/TypewriterBackground'
@@ -68,6 +69,7 @@ function App() {
   const [soundToastOpen, setSoundToastOpen] = useState(false)
   const [soundToastText, setSoundToastText] = useState<string>('')
   const [isSleeping, setIsSleeping] = useState(false)
+  const [isShuttingDown, setIsShuttingDown] = useState(false)
   const [activeGalleryPhoto, setActiveGalleryPhoto] = useState<GalleryPhoto | null>(null)
   const [isGalleryLightboxOpen, setIsGalleryLightboxOpen] = useState(false)
   const [theme, setTheme] = useState<ThemeName>(() => {
@@ -82,6 +84,8 @@ function App() {
   const [terminalInput, setTerminalInput] = useState('')
   const [terminalHistory, setTerminalHistory] = useState<string[]>([])
   const [, setTerminalHistoryIndex] = useState(-1)
+
+  const [contextMenu, setContextMenu] = useState({ isOpen: false, x: 0, y: 0 })
 
   const [windows, setWindows] = useState<Record<AppId, AppWindow>>(initialWindows)
 
@@ -603,7 +607,7 @@ function App() {
       window.removeEventListener('pointerup', onUp)
       window.removeEventListener('pointercancel', onUp)
     }
-  }, [drag])
+  }, [drag, taskbarReservedHeight])
 
   useEffect(() => {
     if (!resize) return
@@ -645,6 +649,7 @@ function App() {
       window.removeEventListener('pointerup', onUp)
       window.removeEventListener('pointercancel', onUp)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [positions, resize, taskbarReservedHeight, viewport.width, windows])
 
   const allOptions = useMemo<StartMenuOption[]>(
@@ -851,8 +856,11 @@ function App() {
       return
     }
 
-    window.close()
-    window.location.href = 'about:blank'
+    setIsShuttingDown(true)
+    setTimeout(() => {
+      window.close()
+      window.location.href = 'about:blank'
+    }, 4000)
   }
 
   function toggleMinimize(id: AppId) {
@@ -939,7 +947,13 @@ function App() {
   })
 
   return (
-    <div className={drag || resize ? `w11 ${theme} dragging` : `w11 ${theme}`}>
+    <div
+      className={drag || resize ? `w11 ${theme} dragging` : `w11 ${theme}`}
+      onContextMenu={(e) => {
+        e.preventDefault()
+        setContextMenu({ isOpen: true, x: e.clientX, y: e.clientY })
+      }}
+    >
       <div className="wallpaper" aria-hidden="true" />
       <TypewriterBackground />
       {isSleeping && (
@@ -954,6 +968,12 @@ function App() {
           >
             Wake screen
           </button>
+        </div>
+      )}
+      {isShuttingDown && (
+        <div className="shutdown-overlay" role="dialog" aria-label="Shutting down">
+          <div className="shutdown-spinner" />
+          <div className="shutdown-text">Shutting down</div>
         </div>
       )}
       <audio
@@ -1079,6 +1099,15 @@ function App() {
         toggleSoundFromMenu={toggleSoundFromMenu}
         timeText={timeText}
         dateText={dateText}
+      />
+
+      <ContextMenu
+        isOpen={contextMenu.isOpen}
+        x={contextMenu.x}
+        y={contextMenu.y}
+        onClose={() => setContextMenu((prev) => ({ ...prev, isOpen: false }))}
+        openApp={openApp}
+        toggleTheme={toggleTheme}
       />
     </div>
   )

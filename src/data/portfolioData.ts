@@ -24,6 +24,7 @@ export type PortfolioData = {
   contact: {
     email: string
     phone: string
+    githubUsername: string
     availability: {
       status: string
       from: string
@@ -56,6 +57,7 @@ export type PortfolioData = {
     date: string
     summary: string
     link: string
+    markdown?: string
   }>
   projects: Array<{
     title: string

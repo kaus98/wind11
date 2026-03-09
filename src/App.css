@@ -14,7 +14,10 @@
 .wallpaper {
   position: fixed;
   inset: 0;
-  background-image: linear-gradient(145deg, #050b16 0%, #071028 56%, #081225 100%);
+  background-image: linear-gradient(145deg,
+      #050b16 0%,
+      #071028 56%,
+      #081225 100%);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,10 +25,12 @@
 }
 
 .wallpaper::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(3, 8, 20, 0.08), rgba(3, 8, 20, 0.22));
+  background: linear-gradient(180deg,
+      rgba(3, 8, 20, 0.08),
+      rgba(3, 8, 20, 0.22));
   pointer-events: none;
 }
 
@@ -35,8 +40,12 @@
 
 .w11.light .wallpaper {
   background-image:
-    radial-gradient(1000px 560px at 18% 10%, rgba(94, 187, 255, 0.30), rgba(94, 187, 255, 0)),
-    radial-gradient(760px 420px at 86% 86%, rgba(123, 241, 211, 0.28), rgba(123, 241, 211, 0)),
+    radial-gradient(1000px 560px at 18% 10%,
+      rgba(94, 187, 255, 0.3),
+      rgba(94, 187, 255, 0)),
+    radial-gradient(760px 420px at 86% 86%,
+      rgba(123, 241, 211, 0.28),
+      rgba(123, 241, 211, 0)),
     linear-gradient(140deg, #eaf4ff 0%, #e6f0ff 48%, #f5fbff 100%);
   background-size: cover;
   background-repeat: no-repeat;
@@ -45,7 +54,9 @@
 }
 
 .w11.light .wallpaper::after {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(232, 242, 255, 0.34));
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.24),
+      rgba(232, 242, 255, 0.34));
 }
 
 .w11.light .desktop-icon:hover {
@@ -70,8 +81,8 @@
 }
 
 .w11.light .window {
-  background: rgba(255, 255, 255, 0.70);
-  border-color: rgba(20, 70, 120, 0.20);
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(20, 70, 120, 0.2);
   box-shadow: 0 26px 56px rgba(25, 70, 120, 0.22);
 }
 
@@ -94,8 +105,8 @@
 }
 
 .w11.light .taskbar {
-  border-color: rgba(16, 86, 145, 0.30);
-  background: rgba(255, 255, 255, 0.90);
+  border-color: rgba(16, 86, 145, 0.3);
+  background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
   backdrop-filter: blur(20px) saturate(150%);
   box-shadow: 0 12px 46px rgba(28, 88, 143, 0.26);
@@ -114,7 +125,7 @@
 .w11.light .tb-btn.active,
 .w11.light .tray-btn.active {
   background: rgba(16, 89, 147, 0.21);
-  border-color: rgba(16, 86, 145, 0.30);
+  border-color: rgba(16, 86, 145, 0.3);
 }
 
 .w11.light .search,
@@ -131,7 +142,7 @@
 .w11.light .start {
   border-color: rgba(18, 96, 154, 0.18);
   background: rgba(247, 252, 255, 0.78);
-  box-shadow: 0 18px 60px rgba(26, 82, 132, 0.20);
+  box-shadow: 0 18px 60px rgba(26, 82, 132, 0.2);
 }
 
 .w11.light .start-top,
@@ -190,7 +201,7 @@
 .w11.light .start-resume-link,
 .w11.light .toast {
   border-color: rgba(21, 92, 148, 0.16);
-  background: rgba(255, 255, 255, 0.60);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .w11.light .chip.link:hover,
@@ -200,12 +211,14 @@
 
 .w11.light .window-content::-webkit-scrollbar-track,
 .w11.light .start-all-options::-webkit-scrollbar-track {
-  background: rgba(22, 92, 147, 0.10);
+  background: rgba(22, 92, 147, 0.1);
 }
 
 .w11.light .window-content::-webkit-scrollbar-thumb,
 .w11.light .start-all-options::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(31, 117, 183, 0.40), rgba(25, 99, 155, 0.28));
+  background: linear-gradient(180deg,
+      rgba(31, 117, 183, 0.4),
+      rgba(25, 99, 155, 0.28));
   border: 2px solid rgba(236, 245, 255, 0.85);
 }
 
@@ -215,8 +228,12 @@
 
 .w11.aurora .wallpaper {
   background-image:
-    radial-gradient(900px 520px at 14% 16%, rgba(92, 255, 218, 0.30), rgba(92, 255, 218, 0)),
-    radial-gradient(760px 420px at 82% 88%, rgba(158, 131, 255, 0.26), rgba(158, 131, 255, 0)),
+    radial-gradient(900px 520px at 14% 16%,
+      rgba(92, 255, 218, 0.3),
+      rgba(92, 255, 218, 0)),
+    radial-gradient(760px 420px at 82% 88%,
+      rgba(158, 131, 255, 0.26),
+      rgba(158, 131, 255, 0)),
     linear-gradient(142deg, #081228 0%, #0f1c3f 52%, #16284a 100%);
 }
 
@@ -241,31 +258,45 @@
 
 .w11.aurora .app-icon {
   border-color: rgba(132, 238, 255, 0.36);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(124, 226, 255, 0.14);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(124, 226, 255, 0.14);
 }
 
 .w11.aurora .tb-btn .app-icon {
-  box-shadow: inset 0 1px 0 rgba(214, 251, 255, 0.32), 0 8px 20px rgba(4, 15, 34, 0.48);
+  box-shadow:
+    inset 0 1px 0 rgba(214, 251, 255, 0.32),
+    0 8px 20px rgba(4, 15, 34, 0.48);
 }
 
 .w11.aurora .app-icon.about {
-  background: linear-gradient(145deg, rgba(78, 219, 255, 0.95), rgba(74, 255, 208, 0.62));
+  background: linear-gradient(145deg,
+      rgba(78, 219, 255, 0.95),
+      rgba(74, 255, 208, 0.62));
 }
 
 .w11.aurora .app-icon.projects {
-  background: linear-gradient(145deg, rgba(138, 151, 255, 0.92), rgba(95, 223, 255, 0.68));
+  background: linear-gradient(145deg,
+      rgba(138, 151, 255, 0.92),
+      rgba(95, 223, 255, 0.68));
 }
 
 .w11.aurora .app-icon.gallery {
-  background: linear-gradient(145deg, rgba(84, 255, 227, 0.9), rgba(95, 151, 255, 0.62));
+  background: linear-gradient(145deg,
+      rgba(84, 255, 227, 0.9),
+      rgba(95, 151, 255, 0.62));
 }
 
 .w11.aurora .app-icon.blogs {
-  background: linear-gradient(145deg, rgba(106, 188, 255, 0.9), rgba(140, 126, 255, 0.66));
+  background: linear-gradient(145deg,
+      rgba(106, 188, 255, 0.9),
+      rgba(140, 126, 255, 0.66));
 }
 
 .w11.aurora .app-icon.contact {
-  background: linear-gradient(145deg, rgba(255, 138, 216, 0.84), rgba(147, 136, 255, 0.64));
+  background: linear-gradient(145deg,
+      rgba(255, 138, 216, 0.84),
+      rgba(147, 136, 255, 0.64));
 }
 
 .w11.aurora .icon,
@@ -282,12 +313,16 @@
 }
 
 .w11.aurora .gallery-lightbox {
-  background: radial-gradient(circle at top, rgba(86, 187, 255, 0.35), rgba(7, 14, 29, 0.9));
+  background: radial-gradient(circle at top,
+      rgba(86, 187, 255, 0.35),
+      rgba(7, 14, 29, 0.9));
 }
 
 .w11.aurora .gallery-lightbox-card {
   border-color: rgba(139, 240, 255, 0.24);
-  background: linear-gradient(180deg, rgba(16, 30, 54, 0.96), rgba(9, 19, 35, 0.96));
+  background: linear-gradient(180deg,
+      rgba(16, 30, 54, 0.96),
+      rgba(9, 19, 35, 0.96));
 }
 
 .w11.aurora .gallery-lightbox-header,
@@ -303,7 +338,9 @@
 
 .w11.glass .wallpaper {
   background-image:
-    linear-gradient(120deg, rgba(61, 112, 182, 0.42), rgba(137, 171, 224, 0.28)),
+    linear-gradient(120deg,
+      rgba(61, 112, 182, 0.42),
+      rgba(137, 171, 224, 0.28)),
     linear-gradient(160deg, #121a2b 0%, #1a2a44 54%, #24395c 100%);
 }
 
@@ -311,7 +348,7 @@
 .w11.glass .taskbar,
 .w11.glass .start,
 .w11.glass .social-rail {
-  border-color: rgba(193, 220, 255, 0.30);
+  border-color: rgba(193, 220, 255, 0.3);
   background: rgba(227, 236, 255, 0.16);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   backdrop-filter: blur(24px) saturate(180%);
@@ -319,7 +356,7 @@
 
 .w11.glass .window-titlebar,
 .w11.glass .start-userbar {
-  background: rgba(240, 246, 255, 0.10);
+  background: rgba(240, 246, 255, 0.1);
 }
 
 .w11.glass .tb-btn.active,
@@ -335,28 +372,40 @@
 
 .w11.glass .app-icon {
   border-color: rgba(220, 234, 255, 0.36);
-  background: linear-gradient(160deg, rgba(226, 238, 255, 0.3), rgba(166, 196, 240, 0.22));
+  background: linear-gradient(160deg,
+      rgba(226, 238, 255, 0.3),
+      rgba(166, 196, 240, 0.22));
   box-shadow: 0 10px 24px rgba(10, 18, 36, 0.34);
 }
 
 .w11.glass .app-icon.about {
-  background: linear-gradient(150deg, rgba(147, 202, 255, 0.88), rgba(188, 239, 255, 0.62));
+  background: linear-gradient(150deg,
+      rgba(147, 202, 255, 0.88),
+      rgba(188, 239, 255, 0.62));
 }
 
 .w11.glass .app-icon.projects {
-  background: linear-gradient(150deg, rgba(157, 174, 255, 0.86), rgba(156, 214, 255, 0.58));
+  background: linear-gradient(150deg,
+      rgba(157, 174, 255, 0.86),
+      rgba(156, 214, 255, 0.58));
 }
 
 .w11.glass .app-icon.gallery {
-  background: linear-gradient(150deg, rgba(133, 226, 255, 0.88), rgba(156, 255, 228, 0.58));
+  background: linear-gradient(150deg,
+      rgba(133, 226, 255, 0.88),
+      rgba(156, 255, 228, 0.58));
 }
 
 .w11.glass .app-icon.blogs {
-  background: linear-gradient(150deg, rgba(129, 209, 255, 0.86), rgba(143, 168, 255, 0.56));
+  background: linear-gradient(150deg,
+      rgba(129, 209, 255, 0.86),
+      rgba(143, 168, 255, 0.56));
 }
 
 .w11.glass .app-icon.contact {
-  background: linear-gradient(150deg, rgba(255, 185, 157, 0.82), rgba(255, 152, 214, 0.54));
+  background: linear-gradient(150deg,
+      rgba(255, 185, 157, 0.82),
+      rgba(255, 152, 214, 0.54));
 }
 
 .w11.glass .icon,
@@ -373,12 +422,16 @@
 }
 
 .w11.glass .gallery-lightbox {
-  background: radial-gradient(circle at top, rgba(180, 211, 255, 0.3), rgba(9, 14, 24, 0.86));
+  background: radial-gradient(circle at top,
+      rgba(180, 211, 255, 0.3),
+      rgba(9, 14, 24, 0.86));
 }
 
 .w11.glass .gallery-lightbox-card {
   border-color: rgba(221, 236, 255, 0.3);
-  background: linear-gradient(180deg, rgba(210, 226, 255, 0.2), rgba(145, 176, 219, 0.16));
+  background: linear-gradient(180deg,
+      rgba(210, 226, 255, 0.2),
+      rgba(145, 176, 219, 0.16));
 }
 
 .w11.glass .gallery-lightbox-header,
@@ -394,7 +447,9 @@
 
 .w11.retro .wallpaper {
   background-image:
-    radial-gradient(800px 540px at 50% -20%, rgba(255, 194, 102, 0.18), rgba(255, 194, 102, 0)),
+    radial-gradient(800px 540px at 50% -20%,
+      rgba(255, 194, 102, 0.18),
+      rgba(255, 194, 102, 0)),
     linear-gradient(145deg, #2b1810 0%, #3b2214 44%, #1d1008 100%);
 }
 
@@ -435,27 +490,39 @@
 
 .w11.retro .tb-btn .app-icon {
   border-radius: 7px;
-  box-shadow: inset 0 1px 0 rgba(255, 218, 169, 0.3), 0 6px 16px rgba(0, 0, 0, 0.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 218, 169, 0.3),
+    0 6px 16px rgba(0, 0, 0, 0.48);
 }
 
 .w11.retro .app-icon.about {
-  background: linear-gradient(145deg, rgba(255, 170, 74, 0.9), rgba(255, 114, 71, 0.64));
+  background: linear-gradient(145deg,
+      rgba(255, 170, 74, 0.9),
+      rgba(255, 114, 71, 0.64));
 }
 
 .w11.retro .app-icon.projects {
-  background: linear-gradient(145deg, rgba(231, 141, 255, 0.74), rgba(255, 126, 74, 0.62));
+  background: linear-gradient(145deg,
+      rgba(231, 141, 255, 0.74),
+      rgba(255, 126, 74, 0.62));
 }
 
 .w11.retro .app-icon.gallery {
-  background: linear-gradient(145deg, rgba(255, 182, 79, 0.86), rgba(255, 232, 129, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 182, 79, 0.86),
+      rgba(255, 232, 129, 0.62));
 }
 
 .w11.retro .app-icon.blogs {
-  background: linear-gradient(145deg, rgba(255, 154, 104, 0.86), rgba(255, 120, 164, 0.58));
+  background: linear-gradient(145deg,
+      rgba(255, 154, 104, 0.86),
+      rgba(255, 120, 164, 0.58));
 }
 
 .w11.retro .app-icon.contact {
-  background: linear-gradient(145deg, rgba(255, 126, 104, 0.86), rgba(255, 89, 129, 0.56));
+  background: linear-gradient(145deg,
+      rgba(255, 126, 104, 0.86),
+      rgba(255, 89, 129, 0.56));
 }
 
 .w11.retro .icon,
@@ -472,12 +539,16 @@
 }
 
 .w11.retro .gallery-lightbox {
-  background: radial-gradient(circle at top, rgba(255, 170, 88, 0.2), rgba(16, 8, 5, 0.9));
+  background: radial-gradient(circle at top,
+      rgba(255, 170, 88, 0.2),
+      rgba(16, 8, 5, 0.9));
 }
 
 .w11.retro .gallery-lightbox-card {
   border-color: rgba(255, 184, 110, 0.28);
-  background: linear-gradient(180deg, rgba(66, 35, 22, 0.94), rgba(30, 16, 10, 0.95));
+  background: linear-gradient(180deg,
+      rgba(66, 35, 22, 0.94),
+      rgba(30, 16, 10, 0.95));
 }
 
 .w11.retro .gallery-lightbox-header,
@@ -493,13 +564,17 @@
 
 .w11.solar .wallpaper {
   background-image:
-    radial-gradient(900px 560px at 80% 14%, rgba(255, 218, 113, 0.42), rgba(255, 218, 113, 0)),
+    radial-gradient(900px 560px at 80% 14%,
+      rgba(255, 218, 113, 0.42),
+      rgba(255, 218, 113, 0)),
     linear-gradient(145deg, #fff4ce 0%, #ffe8a6 48%, #ffd985 100%);
   background-color: #fff0bf;
 }
 
 .w11.solar .wallpaper::after {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 210, 99, 0.20));
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 210, 99, 0.2));
 }
 
 .w11.solar .window,
@@ -525,7 +600,7 @@
 .w11.solar .window-titlebar,
 .w11.solar .start-userbar,
 .w11.solar .start-top {
-  border-color: rgba(182, 127, 19, 0.20);
+  border-color: rgba(182, 127, 19, 0.2);
   background: rgba(255, 236, 177, 0.55);
 }
 
@@ -564,23 +639,33 @@
 }
 
 .w11.solar .app-icon.about {
-  background: linear-gradient(145deg, rgba(255, 198, 94, 0.9), rgba(255, 147, 67, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 198, 94, 0.9),
+      rgba(255, 147, 67, 0.62));
 }
 
 .w11.solar .app-icon.projects {
-  background: linear-gradient(145deg, rgba(245, 182, 78, 0.9), rgba(225, 137, 74, 0.6));
+  background: linear-gradient(145deg,
+      rgba(245, 182, 78, 0.9),
+      rgba(225, 137, 74, 0.6));
 }
 
 .w11.solar .app-icon.gallery {
-  background: linear-gradient(145deg, rgba(255, 209, 92, 0.9), rgba(255, 180, 92, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 209, 92, 0.9),
+      rgba(255, 180, 92, 0.62));
 }
 
 .w11.solar .app-icon.blogs {
-  background: linear-gradient(145deg, rgba(255, 197, 102, 0.88), rgba(238, 153, 84, 0.58));
+  background: linear-gradient(145deg,
+      rgba(255, 197, 102, 0.88),
+      rgba(238, 153, 84, 0.58));
 }
 
 .w11.solar .app-icon.contact {
-  background: linear-gradient(145deg, rgba(245, 171, 74, 0.86), rgba(224, 124, 78, 0.58));
+  background: linear-gradient(145deg,
+      rgba(245, 171, 74, 0.86),
+      rgba(224, 124, 78, 0.58));
 }
 
 .w11.solar .social-rail-icon {
@@ -593,12 +678,16 @@
 }
 
 .w11.solar .gallery-lightbox {
-  background: radial-gradient(circle at top, rgba(255, 211, 111, 0.34), rgba(78, 53, 13, 0.88));
+  background: radial-gradient(circle at top,
+      rgba(255, 211, 111, 0.34),
+      rgba(78, 53, 13, 0.88));
 }
 
 .w11.solar .gallery-lightbox-card {
   border-color: rgba(188, 132, 20, 0.3);
-  background: linear-gradient(180deg, rgba(255, 241, 197, 0.95), rgba(255, 226, 159, 0.94));
+  background: linear-gradient(180deg,
+      rgba(255, 241, 197, 0.95),
+      rgba(255, 226, 159, 0.94));
 }
 
 .w11.solar .gallery-lightbox-header,
@@ -614,7 +703,9 @@
 
 .w11.matrix .wallpaper {
   background-image:
-    radial-gradient(900px 520px at 50% -10%, rgba(20, 86, 20, 0.34), rgba(0, 0, 0, 0)),
+    radial-gradient(900px 520px at 50% -10%,
+      rgba(20, 86, 20, 0.34),
+      rgba(0, 0, 0, 0)),
     linear-gradient(180deg, #000000 0%, #010301 54%, #000000 100%);
   background-color: #000000;
   overflow: hidden;
@@ -638,7 +729,7 @@
 .w11.matrix .start-social,
 .w11.matrix .search,
 .w11.matrix .start-search-wrap {
-  border-color: rgba(76, 255, 76, 0.30);
+  border-color: rgba(76, 255, 76, 0.3);
   background: rgba(0, 8, 0, 0.72);
 }
 
@@ -698,12 +789,18 @@
 
 .w11.matrix .app-icon {
   border-color: rgba(83, 255, 83, 0.36);
-  background: linear-gradient(145deg, rgba(0, 40, 0, 0.9), rgba(0, 18, 0, 0.95));
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(0, 255, 80, 0.16);
+  background: linear-gradient(145deg,
+      rgba(0, 40, 0, 0.9),
+      rgba(0, 18, 0, 0.95));
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.6),
+    inset 0 0 10px rgba(0, 255, 80, 0.16);
 }
 
 .w11.matrix .tb-btn .app-icon {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(0, 255, 80, 0.14);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.5),
+    inset 0 0 8px rgba(0, 255, 80, 0.14);
 }
 
 .w11.matrix .app-icon.about,
@@ -711,7 +808,9 @@
 .w11.matrix .app-icon.gallery,
 .w11.matrix .app-icon.blogs,
 .w11.matrix .app-icon.contact {
-  background: linear-gradient(145deg, rgba(0, 52, 0, 0.94), rgba(0, 14, 0, 0.98));
+  background: linear-gradient(145deg,
+      rgba(0, 52, 0, 0.94),
+      rgba(0, 14, 0, 0.98));
 }
 
 .w11.matrix .gallery-thumb-icon {
@@ -720,12 +819,16 @@
 }
 
 .w11.matrix .gallery-lightbox {
-  background: radial-gradient(circle at top, rgba(0, 90, 0, 0.25), rgba(0, 0, 0, 0.94));
+  background: radial-gradient(circle at top,
+      rgba(0, 90, 0, 0.25),
+      rgba(0, 0, 0, 0.94));
 }
 
 .w11.matrix .gallery-lightbox-card {
   border-color: rgba(88, 255, 88, 0.3);
-  background: linear-gradient(180deg, rgba(0, 20, 0, 0.98), rgba(0, 6, 0, 0.98));
+  background: linear-gradient(180deg,
+      rgba(0, 20, 0, 0.98),
+      rgba(0, 6, 0, 0.98));
 }
 
 .w11.matrix .gallery-lightbox-header,
@@ -747,13 +850,17 @@
 
 .w11.matrix .window-content::-webkit-scrollbar-thumb,
 .w11.matrix .start-all-options::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(60, 240, 60, 0.48), rgba(30, 140, 30, 0.36));
+  background: linear-gradient(180deg,
+      rgba(60, 240, 60, 0.48),
+      rgba(30, 140, 30, 0.36));
   border: 2px solid rgba(0, 6, 0, 0.9);
 }
 
 .w11.matrix .window-content::-webkit-scrollbar-thumb:hover,
 .w11.matrix .start-all-options::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(84, 255, 84, 0.58), rgba(42, 180, 42, 0.46));
+  background: linear-gradient(180deg,
+      rgba(84, 255, 84, 0.58),
+      rgba(42, 180, 42, 0.46));
 }
 
 .desktop {
@@ -793,7 +900,9 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: transform 140ms ease, background-color 140ms ease;
+  transition:
+    transform 140ms ease,
+    background-color 140ms ease;
 }
 
 .social-rail-link:hover {
@@ -834,12 +943,16 @@
   justify-items: center;
   gap: 8px;
   cursor: pointer;
-  transition: transform 150ms ease, background-color 150ms ease, left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease,
+    left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    top 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
   user-select: none;
 }
 
 .desktop-icon:hover {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
 
@@ -851,7 +964,9 @@
 .desktop-icon.dragging {
   opacity: 0.62;
   cursor: grabbing;
-  transition: transform 150ms ease, background-color 150ms ease;
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease;
 }
 
 .desktop-icon-label {
@@ -863,8 +978,8 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.20);
-  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
   display: inline-flex;
   align-items: center;
@@ -890,35 +1005,51 @@
 }
 
 .app-icon.about {
-  background: linear-gradient(135deg, rgba(0, 120, 212, 0.95), rgba(0, 255, 204, 0.55));
+  background: linear-gradient(135deg,
+      rgba(0, 120, 212, 0.95),
+      rgba(0, 255, 204, 0.55));
 }
 
 .app-icon.projects {
-  background: linear-gradient(135deg, rgba(125, 0, 255, 0.75), rgba(0, 120, 212, 0.65));
+  background: linear-gradient(135deg,
+      rgba(125, 0, 255, 0.75),
+      rgba(0, 120, 212, 0.65));
 }
 
 .app-icon.gallery {
-  background: linear-gradient(135deg, rgba(0, 188, 212, 0.78), rgba(0, 255, 145, 0.55));
+  background: linear-gradient(135deg,
+      rgba(0, 188, 212, 0.78),
+      rgba(0, 255, 145, 0.55));
 }
 
 .app-icon.blogs {
-  background: linear-gradient(135deg, rgba(0, 176, 255, 0.78), rgba(0, 255, 170, 0.58));
+  background: linear-gradient(135deg,
+      rgba(0, 176, 255, 0.78),
+      rgba(0, 255, 170, 0.58));
 }
 
 .app-icon.timeline {
-  background: linear-gradient(135deg, rgba(0, 224, 255, 0.82), rgba(125, 0, 255, 0.62));
+  background: linear-gradient(135deg,
+      rgba(0, 224, 255, 0.82),
+      rgba(125, 0, 255, 0.62));
 }
 
 .app-icon.contact {
-  background: linear-gradient(135deg, rgba(255, 120, 0, 0.75), rgba(255, 0, 140, 0.55));
+  background: linear-gradient(135deg,
+      rgba(255, 120, 0, 0.75),
+      rgba(255, 0, 140, 0.55));
 }
 
 .app-icon.settings {
-  background: linear-gradient(135deg, rgba(120, 130, 160, 0.82), rgba(78, 92, 126, 0.72));
+  background: linear-gradient(135deg,
+      rgba(120, 130, 160, 0.82),
+      rgba(78, 92, 126, 0.72));
 }
 
 .app-icon.terminal {
-  background: linear-gradient(135deg, rgba(36, 45, 64, 0.94), rgba(14, 20, 34, 0.92));
+  background: linear-gradient(135deg,
+      rgba(36, 45, 64, 0.94),
+      rgba(14, 20, 34, 0.92));
 }
 
 .window-area {
@@ -980,7 +1111,7 @@
 }
 
 .window.active {
-  border-color: rgba(255, 255, 255, 0.30);
+  border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
 }
 
@@ -994,8 +1125,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 10px 0 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(10, 12, 20, 0.20);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 12, 20, 0.2);
   cursor: grab;
   user-select: none;
 }
@@ -1049,12 +1180,12 @@
   transform: translateY(-0.5px);
 }
 
-.win-btn[aria-label='Minimize'] .win-glyph {
+.win-btn[aria-label="Minimize"] .win-glyph {
   transform: translateY(-2px);
 }
 
-.win-btn[aria-label='Maximize'] .win-glyph,
-.win-btn[aria-label='Restore'] .win-glyph {
+.win-btn[aria-label="Maximize"] .win-glyph,
+.win-btn[aria-label="Restore"] .win-glyph {
   font-size: 13px;
 }
 
@@ -1083,14 +1214,18 @@
 
 .window-content::-webkit-scrollbar-thumb,
 .start-all-options::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.2));
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.34),
+      rgba(255, 255, 255, 0.2));
   border-radius: 999px;
   border: 2px solid rgba(10, 12, 20, 0.3);
 }
 
 .window-content::-webkit-scrollbar-thumb:hover,
 .start-all-options::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.28));
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.48),
+      rgba(255, 255, 255, 0.28));
 }
 
 .window-resize-handle {
@@ -1103,7 +1238,7 @@
 }
 
 .window-resize-handle::before {
-  content: '';
+  content: "";
   position: absolute;
   right: 4px;
   bottom: 4px;
@@ -1193,10 +1328,14 @@
 }
 
 .terminal-panel {
-  --terminal-bg: radial-gradient(circle at 20% 0%, rgba(72, 26, 66, 0.9), rgba(31, 10, 39, 0.96));
+  --terminal-bg: radial-gradient(circle at 20% 0%,
+      rgba(72, 26, 66, 0.9),
+      rgba(31, 10, 39, 0.96));
   --terminal-border: rgba(245, 160, 116, 0.28);
   --terminal-inset: rgba(44, 17, 53, 0.78);
-  --terminal-titlebar: linear-gradient(180deg, rgba(71, 42, 78, 0.96), rgba(46, 24, 55, 0.95));
+  --terminal-titlebar: linear-gradient(180deg,
+      rgba(71, 42, 78, 0.96),
+      rgba(46, 24, 55, 0.95));
   --terminal-title: rgba(251, 225, 204, 0.92);
   --terminal-prompt: rgba(249, 138, 76, 0.95);
   --terminal-input-fg: rgba(255, 236, 226, 0.94);
@@ -1218,10 +1357,14 @@
 }
 
 .w11.light .terminal-panel {
-  --terminal-bg: radial-gradient(circle at 20% 0%, rgba(255, 244, 237, 0.96), rgba(241, 226, 242, 0.97));
+  --terminal-bg: radial-gradient(circle at 20% 0%,
+      rgba(255, 244, 237, 0.96),
+      rgba(241, 226, 242, 0.97));
   --terminal-border: rgba(169, 122, 101, 0.26);
   --terminal-inset: rgba(230, 212, 230, 0.85);
-  --terminal-titlebar: linear-gradient(180deg, rgba(242, 225, 222, 0.98), rgba(224, 208, 222, 0.96));
+  --terminal-titlebar: linear-gradient(180deg,
+      rgba(242, 225, 222, 0.98),
+      rgba(224, 208, 222, 0.96));
   --terminal-title: rgba(98, 56, 66, 0.92);
   --terminal-prompt: rgba(196, 84, 43, 0.94);
   --terminal-input-fg: rgba(73, 46, 56, 0.96);
@@ -1231,10 +1374,14 @@
 }
 
 .w11.aurora .terminal-panel {
-  --terminal-bg: radial-gradient(circle at 20% 0%, rgba(17, 47, 69, 0.92), rgba(8, 23, 45, 0.96));
+  --terminal-bg: radial-gradient(circle at 20% 0%,
+      rgba(17, 47, 69, 0.92),
+      rgba(8, 23, 45, 0.96));
   --terminal-border: rgba(128, 236, 255, 0.3);
   --terminal-inset: rgba(14, 34, 57, 0.8);
-  --terminal-titlebar: linear-gradient(180deg, rgba(22, 66, 86, 0.96), rgba(12, 42, 64, 0.94));
+  --terminal-titlebar: linear-gradient(180deg,
+      rgba(22, 66, 86, 0.96),
+      rgba(12, 42, 64, 0.94));
   --terminal-title: rgba(211, 248, 255, 0.94);
   --terminal-prompt: rgba(123, 241, 211, 0.96);
   --terminal-input-fg: rgba(220, 250, 255, 0.94);
@@ -1243,10 +1390,14 @@
 }
 
 .w11.glass .terminal-panel {
-  --terminal-bg: radial-gradient(circle at 20% 0%, rgba(38, 55, 86, 0.9), rgba(18, 30, 56, 0.95));
+  --terminal-bg: radial-gradient(circle at 20% 0%,
+      rgba(38, 55, 86, 0.9),
+      rgba(18, 30, 56, 0.95));
   --terminal-border: rgba(187, 212, 255, 0.28);
   --terminal-inset: rgba(21, 36, 63, 0.78);
-  --terminal-titlebar: linear-gradient(180deg, rgba(61, 85, 126, 0.95), rgba(37, 55, 87, 0.93));
+  --terminal-titlebar: linear-gradient(180deg,
+      rgba(61, 85, 126, 0.95),
+      rgba(37, 55, 87, 0.93));
   --terminal-title: rgba(226, 238, 255, 0.92);
   --terminal-prompt: rgba(154, 197, 255, 0.95);
   --terminal-input-fg: rgba(226, 237, 255, 0.94);
@@ -1257,10 +1408,14 @@
 .w11.retro .terminal-panel,
 .w11.solar .terminal-panel,
 .w11.sunset .terminal-panel {
-  --terminal-bg: radial-gradient(circle at 20% 0%, rgba(72, 35, 21, 0.92), rgba(39, 18, 11, 0.97));
+  --terminal-bg: radial-gradient(circle at 20% 0%,
+      rgba(72, 35, 21, 0.92),
+      rgba(39, 18, 11, 0.97));
   --terminal-border: rgba(255, 188, 114, 0.32);
   --terminal-inset: rgba(57, 25, 14, 0.82);
-  --terminal-titlebar: linear-gradient(180deg, rgba(115, 55, 31, 0.96), rgba(76, 36, 22, 0.95));
+  --terminal-titlebar: linear-gradient(180deg,
+      rgba(115, 55, 31, 0.96),
+      rgba(76, 36, 22, 0.95));
   --terminal-title: rgba(255, 225, 186, 0.94);
   --terminal-prompt: rgba(255, 164, 77, 0.96);
   --terminal-input-fg: rgba(255, 230, 198, 0.94);
@@ -1269,10 +1424,14 @@
 }
 
 .w11.matrix .terminal-panel {
-  --terminal-bg: radial-gradient(circle at 20% 0%, rgba(7, 34, 13, 0.94), rgba(2, 12, 5, 0.98));
+  --terminal-bg: radial-gradient(circle at 20% 0%,
+      rgba(7, 34, 13, 0.94),
+      rgba(2, 12, 5, 0.98));
   --terminal-border: rgba(83, 255, 83, 0.34);
   --terminal-inset: rgba(0, 20, 7, 0.88);
-  --terminal-titlebar: linear-gradient(180deg, rgba(10, 46, 19, 0.98), rgba(3, 26, 10, 0.96));
+  --terminal-titlebar: linear-gradient(180deg,
+      rgba(10, 46, 19, 0.98),
+      rgba(3, 26, 10, 0.96));
   --terminal-title: rgba(132, 255, 132, 0.93);
   --terminal-prompt: rgba(92, 255, 92, 0.95);
   --terminal-input-fg: rgba(180, 255, 180, 0.95);
@@ -1284,10 +1443,14 @@
 .w11.dracula .terminal-panel,
 .w11.oceanic .terminal-panel,
 .w11.monochrome .terminal-panel {
-  --terminal-bg: radial-gradient(circle at 20% 0%, rgba(38, 17, 58, 0.92), rgba(19, 10, 31, 0.97));
+  --terminal-bg: radial-gradient(circle at 20% 0%,
+      rgba(38, 17, 58, 0.92),
+      rgba(19, 10, 31, 0.97));
   --terminal-border: rgba(172, 133, 255, 0.34);
   --terminal-inset: rgba(27, 12, 43, 0.84);
-  --terminal-titlebar: linear-gradient(180deg, rgba(66, 33, 94, 0.96), rgba(39, 19, 62, 0.95));
+  --terminal-titlebar: linear-gradient(180deg,
+      rgba(66, 33, 94, 0.96),
+      rgba(39, 19, 62, 0.95));
   --terminal-title: rgba(235, 223, 255, 0.94);
   --terminal-prompt: rgba(204, 140, 255, 0.95);
   --terminal-input-fg: rgba(236, 227, 255, 0.95);
@@ -1296,10 +1459,14 @@
 }
 
 .w11.monochrome .terminal-panel {
-  --terminal-bg: radial-gradient(circle at 20% 0%, rgba(48, 48, 48, 0.94), rgba(18, 18, 18, 0.98));
+  --terminal-bg: radial-gradient(circle at 20% 0%,
+      rgba(48, 48, 48, 0.94),
+      rgba(18, 18, 18, 0.98));
   --terminal-border: rgba(195, 195, 195, 0.34);
   --terminal-inset: rgba(35, 35, 35, 0.86);
-  --terminal-titlebar: linear-gradient(180deg, rgba(94, 94, 94, 0.96), rgba(62, 62, 62, 0.95));
+  --terminal-titlebar: linear-gradient(180deg,
+      rgba(94, 94, 94, 0.96),
+      rgba(62, 62, 62, 0.95));
   --terminal-title: rgba(238, 238, 238, 0.94);
   --terminal-prompt: rgba(214, 214, 214, 0.95);
   --terminal-input-fg: rgba(242, 242, 242, 0.95);
@@ -1309,10 +1476,14 @@
 }
 
 .w11.oceanic .terminal-panel {
-  --terminal-bg: radial-gradient(circle at 20% 0%, rgba(9, 45, 67, 0.94), rgba(4, 18, 33, 0.98));
+  --terminal-bg: radial-gradient(circle at 20% 0%,
+      rgba(9, 45, 67, 0.94),
+      rgba(4, 18, 33, 0.98));
   --terminal-border: rgba(102, 211, 255, 0.34);
   --terminal-inset: rgba(7, 30, 48, 0.84);
-  --terminal-titlebar: linear-gradient(180deg, rgba(22, 76, 106, 0.96), rgba(11, 49, 76, 0.95));
+  --terminal-titlebar: linear-gradient(180deg,
+      rgba(22, 76, 106, 0.96),
+      rgba(11, 49, 76, 0.95));
   --terminal-title: rgba(210, 244, 255, 0.94);
   --terminal-prompt: rgba(118, 229, 255, 0.96);
   --terminal-input-fg: rgba(226, 248, 255, 0.95);
@@ -1327,7 +1498,7 @@
   border-radius: 10px;
   border: 1px solid var(--terminal-border);
   background: var(--terminal-titlebar);
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: "Consolas", "Courier New", monospace;
   font-size: 12px;
   color: var(--terminal-title);
   white-space: nowrap;
@@ -1340,7 +1511,7 @@
   max-height: 52vh;
   overflow: auto;
   padding: 12px;
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: "Consolas", "Courier New", monospace;
   font-size: 12px;
   line-height: 1.5;
 }
@@ -1380,7 +1551,7 @@
 }
 
 .terminal-prompt {
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: "Consolas", "Courier New", monospace;
   font-size: 12px;
   color: var(--terminal-prompt);
   white-space: nowrap;
@@ -1393,7 +1564,7 @@
   border: 1px solid var(--terminal-border);
   background: color-mix(in oklab, black 68%, transparent);
   color: var(--terminal-input-fg);
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: "Consolas", "Courier New", monospace;
   font-size: 13px;
   padding: 9px 10px;
 }
@@ -1408,7 +1579,7 @@
   border-radius: 8px;
   background: color-mix(in oklab, var(--terminal-prompt) 30%, transparent);
   color: var(--terminal-input-fg);
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: "Consolas", "Courier New", monospace;
   font-size: 12px;
   font-weight: 600;
   padding: 8px 10px;
@@ -1649,6 +1820,131 @@
   }
 }
 
+/* --- GitHub Widgets --- */
+.desktop-widgets {
+  position: absolute;
+  top: 14px;
+  right: 86px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+}
+
+@media (max-width: 1000px) {
+  .desktop-widgets {
+    display: none;
+  }
+}
+
+.github-widgets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.github-profile-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.github-profile-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.github-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.github-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.github-handle {
+  font-size: 13px;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.github-bio {
+  font-size: 13px;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.github-stats {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.github-stat {
+  font-size: 11px;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+}
+
+.github-stat strong {
+  font-size: 14px;
+  opacity: 1;
+}
+
+.loading-skeleton {
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.skeleton-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 12px;
+}
+
+.skeleton-line {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
 .project-title-row {
   display: inline-flex;
   align-items: center;
@@ -1713,7 +2009,9 @@
   position: fixed;
   inset: 0;
   z-index: 40;
-  background: radial-gradient(circle at top, rgba(40, 60, 92, 0.35), rgba(3, 7, 14, 0.9));
+  background: radial-gradient(circle at top,
+      rgba(40, 60, 92, 0.35),
+      rgba(3, 7, 14, 0.9));
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   display: flex;
@@ -1738,7 +2036,9 @@
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  background: linear-gradient(180deg, rgba(19, 27, 43, 0.96), rgba(9, 14, 24, 0.97));
+  background: linear-gradient(180deg,
+      rgba(19, 27, 43, 0.96),
+      rgba(9, 14, 24, 0.97));
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
@@ -1893,14 +2193,16 @@
 }
 
 .timeline-rich::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 8px;
   transform: none;
   top: 6px;
   bottom: 6px;
   width: 2px;
-  background: linear-gradient(180deg, rgba(90, 185, 255, 0.7), rgba(164, 115, 255, 0.55));
+  background: linear-gradient(180deg,
+      rgba(90, 185, 255, 0.7),
+      rgba(164, 115, 255, 0.55));
   border-radius: 999px;
 }
 
@@ -1910,11 +2212,14 @@
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(255, 255, 255, 0.05);
   padding: 12px;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
 }
 
 .timeline-rich .timeline-item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -18px;
   top: 14px;
@@ -2066,35 +2371,51 @@
   width: 88%;
   height: 88%;
   border-radius: 9px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 4px 12px rgba(0, 0, 0, 0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 4px 12px rgba(0, 0, 0, 0.24);
 }
 
 .tb-btn .app-icon.about {
-  background: linear-gradient(145deg, rgba(79, 179, 255, 0.92), rgba(45, 237, 207, 0.70));
+  background: linear-gradient(145deg,
+      rgba(79, 179, 255, 0.92),
+      rgba(45, 237, 207, 0.7));
 }
 
 .tb-btn .app-icon.projects {
-  background: linear-gradient(145deg, rgba(129, 145, 255, 0.90), rgba(82, 205, 255, 0.66));
+  background: linear-gradient(145deg,
+      rgba(129, 145, 255, 0.9),
+      rgba(82, 205, 255, 0.66));
 }
 
 .tb-btn .app-icon.blogs {
-  background: linear-gradient(145deg, rgba(72, 206, 255, 0.90), rgba(72, 255, 198, 0.66));
+  background: linear-gradient(145deg,
+      rgba(72, 206, 255, 0.9),
+      rgba(72, 255, 198, 0.66));
 }
 
 .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(82, 212, 255, 0.9), rgba(144, 116, 255, 0.64));
+  background: linear-gradient(145deg,
+      rgba(82, 212, 255, 0.9),
+      rgba(144, 116, 255, 0.64));
 }
 
 .tb-btn .app-icon.contact {
-  background: linear-gradient(145deg, rgba(255, 174, 92, 0.88), rgba(255, 110, 163, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 174, 92, 0.88),
+      rgba(255, 110, 163, 0.62));
 }
 
 .tb-btn .app-icon.settings {
-  background: linear-gradient(145deg, rgba(165, 178, 205, 0.84), rgba(111, 126, 163, 0.68));
+  background: linear-gradient(145deg,
+      rgba(165, 178, 205, 0.84),
+      rgba(111, 126, 163, 0.68));
 }
 
 .tb-btn .app-icon.terminal {
-  background: linear-gradient(145deg, rgba(76, 90, 120, 0.9), rgba(43, 56, 82, 0.72));
+  background: linear-gradient(145deg,
+      rgba(76, 90, 120, 0.9),
+      rgba(43, 56, 82, 0.72));
 }
 
 .tb-btn .app-icon .icon {
@@ -2103,12 +2424,12 @@
 }
 
 .tb-btn:hover {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .tb-btn.active {
   background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.20);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .tb-btn.running .running-dot {
@@ -2171,18 +2492,18 @@
 .search-icon {
   width: 14px;
   height: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.70);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   border-radius: 999px;
   position: relative;
   opacity: 0.85;
 }
 
 .search-icon::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 8px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.70);
+  background: rgba(255, 255, 255, 0.7);
   right: -7px;
   bottom: -4px;
   transform: rotate(45deg);
@@ -2200,7 +2521,7 @@
 }
 
 .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.70);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .tray {
@@ -2225,7 +2546,7 @@
 }
 
 .tray-btn:hover {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .tray-btn:disabled {
@@ -2268,7 +2589,7 @@
 }
 
 .clock:hover {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .clock-time {
@@ -2289,10 +2610,10 @@
   width: min(680px, calc(100vw - 22px));
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(26, 31, 46, 0.50);
+  background: rgba(26, 31, 46, 0.5);
   -webkit-backdrop-filter: blur(22px) saturate(160%);
   backdrop-filter: blur(22px) saturate(160%);
-  box-shadow: 0 18px 80px rgba(0, 0, 0, 0.70);
+  box-shadow: 0 18px 80px rgba(0, 0, 0, 0.7);
   overflow: hidden;
 }
 
@@ -2325,7 +2646,7 @@
 }
 
 .start-search-input::placeholder {
-  color: rgba(255, 255, 255, 0.70);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .start-headline-row {
@@ -2365,7 +2686,7 @@
 }
 
 .start-item:hover {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .start-label {
@@ -2455,7 +2776,7 @@
 }
 
 .start-social-link:hover {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .start-social-link:focus-visible {
@@ -2580,7 +2901,7 @@
   width: 30px;
   height: 30px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.20);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2687,7 +3008,7 @@
   background: rgba(26, 31, 46, 0.52);
   -webkit-backdrop-filter: blur(22px) saturate(160%);
   backdrop-filter: blur(22px) saturate(160%);
-  box-shadow: 0 18px 80px rgba(0, 0, 0, 0.70);
+  box-shadow: 0 18px 80px rgba(0, 0, 0, 0.7);
   padding: 14px 16px;
   box-sizing: border-box;
   z-index: 30;
@@ -2732,7 +3053,7 @@
 
 .toast-btn.primary {
   background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.20);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .sleep-overlay {
@@ -2757,6 +3078,58 @@
 
 .sleep-wake-btn:hover {
   background: rgba(255, 255, 255, 0.16);
+}
+
+.shutdown-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  animation: shutdown-fade-in 400ms ease forwards;
+}
+
+@keyframes shutdown-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.shutdown-spinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #0078d7;
+  /* Windows blue accent */
+  border-left-color: #0078d7;
+  animation: shutdown-spin 1.2s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+}
+
+@keyframes shutdown-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.shutdown-text {
+  /* removed hardcoded */
+  font-size: 24px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 1100px) {
@@ -3155,9 +3528,15 @@
 
 .w11.neon .wallpaper {
   background-image:
-    radial-gradient(900px 560px at 18% 10%, rgba(255, 0, 224, 0.34), rgba(255, 0, 224, 0)),
-    radial-gradient(820px 500px at 84% 84%, rgba(0, 244, 255, 0.32), rgba(0, 244, 255, 0)),
-    radial-gradient(620px 320px at 50% 100%, rgba(120, 0, 255, 0.24), rgba(120, 0, 255, 0)),
+    radial-gradient(900px 560px at 18% 10%,
+      rgba(255, 0, 224, 0.34),
+      rgba(255, 0, 224, 0)),
+    radial-gradient(820px 500px at 84% 84%,
+      rgba(0, 244, 255, 0.32),
+      rgba(0, 244, 255, 0)),
+    radial-gradient(620px 320px at 50% 100%,
+      rgba(120, 0, 255, 0.24),
+      rgba(120, 0, 255, 0)),
     linear-gradient(145deg, #04000c 0%, #190033 54%, #05020f 100%);
 }
 
@@ -3176,7 +3555,9 @@
 .w11.neon .start-search-wrap {
   border-color: rgba(255, 66, 238, 0.46);
   background: rgba(18, 5, 34, 0.8);
-  box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.08), inset 0 0 22px rgba(255, 0, 224, 0.1);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 255, 0.08),
+    inset 0 0 22px rgba(255, 0, 224, 0.1);
 }
 
 .w11.neon .window-titlebar,
@@ -3192,7 +3573,9 @@
 .w11.neon .start-theme-btn.active {
   border-color: rgba(255, 172, 248, 0.68);
   background: rgba(210, 52, 255, 0.45);
-  box-shadow: 0 0 18px rgba(255, 0, 224, 0.32), 0 0 28px rgba(0, 244, 255, 0.22);
+  box-shadow:
+    0 0 18px rgba(255, 0, 224, 0.32),
+    0 0 28px rgba(0, 244, 255, 0.22);
 }
 
 .w11.neon .icon,
@@ -3216,49 +3599,72 @@
 }
 
 .w11.neon .tb-btn .app-icon {
-  box-shadow: 0 8px 18px rgba(7, 3, 15, 0.58), 0 0 10px rgba(255, 0, 224, 0.26), inset 0 0 10px rgba(0, 244, 255, 0.18);
+  box-shadow:
+    0 8px 18px rgba(7, 3, 15, 0.58),
+    0 0 10px rgba(255, 0, 224, 0.26),
+    inset 0 0 10px rgba(0, 244, 255, 0.18);
 }
 
 .w11.neon .app-icon.about {
-  background: linear-gradient(145deg, rgba(255, 80, 224, 0.92), rgba(137, 55, 255, 0.66));
+  background: linear-gradient(145deg,
+      rgba(255, 80, 224, 0.92),
+      rgba(137, 55, 255, 0.66));
 }
 
 .w11.neon .app-icon.projects {
-  background: linear-gradient(145deg, rgba(106, 129, 255, 0.9), rgba(0, 234, 255, 0.62));
+  background: linear-gradient(145deg,
+      rgba(106, 129, 255, 0.9),
+      rgba(0, 234, 255, 0.62));
 }
 
 .w11.neon .app-icon.gallery {
-  background: linear-gradient(145deg, rgba(0, 246, 255, 0.9), rgba(84, 113, 255, 0.62));
+  background: linear-gradient(145deg,
+      rgba(0, 246, 255, 0.9),
+      rgba(84, 113, 255, 0.62));
 }
 
 .w11.neon .app-icon.blogs {
-  background: linear-gradient(145deg, rgba(223, 104, 255, 0.88), rgba(86, 235, 255, 0.62));
+  background: linear-gradient(145deg,
+      rgba(223, 104, 255, 0.88),
+      rgba(86, 235, 255, 0.62));
 }
 
 .w11.neon .app-icon.jobs {
-  background: linear-gradient(145deg, rgba(142, 125, 255, 0.88), rgba(255, 96, 201, 0.6));
+  background: linear-gradient(145deg,
+      rgba(142, 125, 255, 0.88),
+      rgba(255, 96, 201, 0.6));
 }
 
 .w11.neon .app-icon.contact {
-  background: linear-gradient(145deg, rgba(255, 93, 164, 0.9), rgba(112, 229, 255, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 93, 164, 0.9),
+      rgba(112, 229, 255, 0.62));
 }
 
 .w11.neon .app-icon.settings {
-  background: linear-gradient(145deg, rgba(196, 119, 255, 0.88), rgba(96, 244, 255, 0.62));
+  background: linear-gradient(145deg,
+      rgba(196, 119, 255, 0.88),
+      rgba(96, 244, 255, 0.62));
 }
 
 .w11.neon .gallery-thumb-icon {
   border: 1px solid rgba(255, 106, 244, 0.42);
-  box-shadow: 0 8px 20px rgba(22, 6, 38, 0.58), 0 0 16px rgba(0, 244, 255, 0.18);
+  box-shadow:
+    0 8px 20px rgba(22, 6, 38, 0.58),
+    0 0 16px rgba(0, 244, 255, 0.18);
 }
 
 .w11.neon .gallery-lightbox {
-  background: radial-gradient(circle at top, rgba(255, 0, 224, 0.36), rgba(7, 2, 14, 0.93));
+  background: radial-gradient(circle at top,
+      rgba(255, 0, 224, 0.36),
+      rgba(7, 2, 14, 0.93));
 }
 
 .w11.neon .gallery-lightbox-card {
   border-color: rgba(255, 106, 244, 0.42);
-  background: linear-gradient(180deg, rgba(32, 7, 50, 0.97), rgba(12, 5, 24, 0.98));
+  background: linear-gradient(180deg,
+      rgba(32, 7, 50, 0.97),
+      rgba(12, 5, 24, 0.98));
   box-shadow: 0 0 24px rgba(255, 0, 224, 0.2);
 }
 
@@ -3292,7 +3698,9 @@
 
 .w11.sunset .wallpaper {
   background-image:
-    radial-gradient(860px 540px at 84% 14%, rgba(255, 210, 120, 0.4), rgba(255, 210, 120, 0)),
+    radial-gradient(860px 540px at 84% 14%,
+      rgba(255, 210, 120, 0.4),
+      rgba(255, 210, 120, 0)),
     linear-gradient(150deg, #5a1d08 0%, #8a3110 42%, #cf5419 74%, #f1903b 100%);
 }
 
@@ -3341,39 +3749,57 @@
 
 .w11.sunset .app-icon {
   border-color: rgba(255, 174, 108, 0.38);
-  box-shadow: 0 10px 22px rgba(52, 21, 10, 0.46), inset 0 0 10px rgba(255, 196, 126, 0.12);
+  box-shadow:
+    0 10px 22px rgba(52, 21, 10, 0.46),
+    inset 0 0 10px rgba(255, 196, 126, 0.12);
 }
 
 .w11.sunset .tb-btn .app-icon {
-  box-shadow: 0 8px 18px rgba(42, 16, 8, 0.42), inset 0 0 8px rgba(255, 202, 131, 0.1);
+  box-shadow:
+    0 8px 18px rgba(42, 16, 8, 0.42),
+    inset 0 0 8px rgba(255, 202, 131, 0.1);
 }
 
 .w11.sunset .app-icon.about {
-  background: linear-gradient(145deg, rgba(255, 168, 91, 0.92), rgba(255, 109, 70, 0.66));
+  background: linear-gradient(145deg,
+      rgba(255, 168, 91, 0.92),
+      rgba(255, 109, 70, 0.66));
 }
 
 .w11.sunset .app-icon.projects {
-  background: linear-gradient(145deg, rgba(255, 191, 108, 0.9), rgba(238, 110, 68, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 191, 108, 0.9),
+      rgba(238, 110, 68, 0.62));
 }
 
 .w11.sunset .app-icon.gallery {
-  background: linear-gradient(145deg, rgba(255, 209, 116, 0.9), rgba(255, 146, 74, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 209, 116, 0.9),
+      rgba(255, 146, 74, 0.62));
 }
 
 .w11.sunset .app-icon.blogs {
-  background: linear-gradient(145deg, rgba(255, 183, 98, 0.9), rgba(231, 96, 63, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 183, 98, 0.9),
+      rgba(231, 96, 63, 0.62));
 }
 
 .w11.sunset .app-icon.jobs {
-  background: linear-gradient(145deg, rgba(255, 198, 110, 0.9), rgba(250, 118, 74, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 198, 110, 0.9),
+      rgba(250, 118, 74, 0.62));
 }
 
 .w11.sunset .app-icon.contact {
-  background: linear-gradient(145deg, rgba(255, 158, 91, 0.9), rgba(224, 86, 60, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 158, 91, 0.9),
+      rgba(224, 86, 60, 0.62));
 }
 
 .w11.sunset .app-icon.settings {
-  background: linear-gradient(145deg, rgba(255, 191, 116, 0.9), rgba(243, 103, 66, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 191, 116, 0.9),
+      rgba(243, 103, 66, 0.62));
 }
 
 .w11.sunset .gallery-thumb-icon {
@@ -3382,12 +3808,16 @@
 }
 
 .w11.sunset .gallery-lightbox {
-  background: radial-gradient(circle at top, rgba(255, 180, 108, 0.34), rgba(36, 10, 4, 0.9));
+  background: radial-gradient(circle at top,
+      rgba(255, 180, 108, 0.34),
+      rgba(36, 10, 4, 0.9));
 }
 
 .w11.sunset .gallery-lightbox-card {
   border-color: rgba(255, 174, 108, 0.3);
-  background: linear-gradient(180deg, rgba(96, 34, 15, 0.94), rgba(52, 21, 10, 0.96));
+  background: linear-gradient(180deg,
+      rgba(96, 34, 15, 0.94),
+      rgba(52, 21, 10, 0.96));
 }
 
 .w11.sunset .gallery-lightbox-header,
@@ -3418,7 +3848,9 @@
 }
 
 .w11.monochrome .wallpaper {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.74));
+  background-image: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.74));
   background-color: #1f1f1f;
 }
 
@@ -3526,8 +3958,12 @@
 
 .w11.dracula .wallpaper {
   background-image:
-    radial-gradient(900px 540px at 14% 16%, rgba(189, 147, 249, 0.26), rgba(189, 147, 249, 0)),
-    radial-gradient(760px 420px at 82% 88%, rgba(255, 121, 198, 0.2), rgba(255, 121, 198, 0)),
+    radial-gradient(900px 540px at 14% 16%,
+      rgba(189, 147, 249, 0.26),
+      rgba(189, 147, 249, 0)),
+    radial-gradient(760px 420px at 82% 88%,
+      rgba(255, 121, 198, 0.2),
+      rgba(255, 121, 198, 0)),
     linear-gradient(148deg, #181923 0%, #232533 50%, #2b2d3f 100%);
 }
 
@@ -3576,39 +4012,57 @@
 
 .w11.dracula .app-icon {
   border-color: rgba(189, 147, 249, 0.38);
-  box-shadow: 0 10px 22px rgba(17, 17, 28, 0.52), inset 0 0 10px rgba(255, 121, 198, 0.1);
+  box-shadow:
+    0 10px 22px rgba(17, 17, 28, 0.52),
+    inset 0 0 10px rgba(255, 121, 198, 0.1);
 }
 
 .w11.dracula .tb-btn .app-icon {
-  box-shadow: 0 8px 18px rgba(14, 14, 22, 0.5), inset 0 0 8px rgba(255, 121, 198, 0.08);
+  box-shadow:
+    0 8px 18px rgba(14, 14, 22, 0.5),
+    inset 0 0 8px rgba(255, 121, 198, 0.08);
 }
 
 .w11.dracula .app-icon.about {
-  background: linear-gradient(145deg, rgba(189, 147, 249, 0.9), rgba(139, 233, 253, 0.62));
+  background: linear-gradient(145deg,
+      rgba(189, 147, 249, 0.9),
+      rgba(139, 233, 253, 0.62));
 }
 
 .w11.dracula .app-icon.projects {
-  background: linear-gradient(145deg, rgba(255, 121, 198, 0.88), rgba(189, 147, 249, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 121, 198, 0.88),
+      rgba(189, 147, 249, 0.62));
 }
 
 .w11.dracula .app-icon.gallery {
-  background: linear-gradient(145deg, rgba(139, 233, 253, 0.88), rgba(80, 250, 123, 0.6));
+  background: linear-gradient(145deg,
+      rgba(139, 233, 253, 0.88),
+      rgba(80, 250, 123, 0.6));
 }
 
 .w11.dracula .app-icon.blogs {
-  background: linear-gradient(145deg, rgba(255, 184, 108, 0.88), rgba(255, 121, 198, 0.6));
+  background: linear-gradient(145deg,
+      rgba(255, 184, 108, 0.88),
+      rgba(255, 121, 198, 0.6));
 }
 
 .w11.dracula .app-icon.jobs {
-  background: linear-gradient(145deg, rgba(189, 147, 249, 0.9), rgba(255, 184, 108, 0.6));
+  background: linear-gradient(145deg,
+      rgba(189, 147, 249, 0.9),
+      rgba(255, 184, 108, 0.6));
 }
 
 .w11.dracula .app-icon.contact {
-  background: linear-gradient(145deg, rgba(255, 85, 85, 0.86), rgba(255, 121, 198, 0.6));
+  background: linear-gradient(145deg,
+      rgba(255, 85, 85, 0.86),
+      rgba(255, 121, 198, 0.6));
 }
 
 .w11.dracula .app-icon.settings {
-  background: linear-gradient(145deg, rgba(139, 233, 253, 0.86), rgba(189, 147, 249, 0.6));
+  background: linear-gradient(145deg,
+      rgba(139, 233, 253, 0.86),
+      rgba(189, 147, 249, 0.6));
 }
 
 .w11.dracula .gallery-thumb-icon {
@@ -3617,12 +4071,16 @@
 }
 
 .w11.dracula .gallery-lightbox {
-  background: radial-gradient(circle at top, rgba(189, 147, 249, 0.26), rgba(14, 15, 23, 0.92));
+  background: radial-gradient(circle at top,
+      rgba(189, 147, 249, 0.26),
+      rgba(14, 15, 23, 0.92));
 }
 
 .w11.dracula .gallery-lightbox-card {
   border-color: rgba(189, 147, 249, 0.28);
-  background: linear-gradient(180deg, rgba(42, 44, 60, 0.96), rgba(30, 31, 44, 0.97));
+  background: linear-gradient(180deg,
+      rgba(42, 44, 60, 0.96),
+      rgba(30, 31, 44, 0.97));
 }
 
 .w11.dracula .gallery-lightbox-header,
@@ -3654,8 +4112,12 @@
 
 .w11.oceanic .wallpaper {
   background-image:
-    radial-gradient(860px 560px at 18% 12%, rgba(0, 180, 216, 0.26), rgba(0, 180, 216, 0)),
-    radial-gradient(760px 430px at 82% 88%, rgba(144, 224, 239, 0.24), rgba(144, 224, 239, 0)),
+    radial-gradient(860px 560px at 18% 12%,
+      rgba(0, 180, 216, 0.26),
+      rgba(0, 180, 216, 0)),
+    radial-gradient(760px 430px at 82% 88%,
+      rgba(144, 224, 239, 0.24),
+      rgba(144, 224, 239, 0)),
     linear-gradient(145deg, #03223b 0%, #014569 52%, #022b44 100%);
 }
 
@@ -3704,39 +4166,57 @@
 
 .w11.oceanic .app-icon {
   border-color: rgba(76, 206, 235, 0.38);
-  box-shadow: 0 10px 22px rgba(3, 24, 38, 0.52), inset 0 0 10px rgba(144, 224, 239, 0.1);
+  box-shadow:
+    0 10px 22px rgba(3, 24, 38, 0.52),
+    inset 0 0 10px rgba(144, 224, 239, 0.1);
 }
 
 .w11.oceanic .tb-btn .app-icon {
-  box-shadow: 0 8px 18px rgba(2, 20, 32, 0.48), inset 0 0 8px rgba(144, 224, 239, 0.08);
+  box-shadow:
+    0 8px 18px rgba(2, 20, 32, 0.48),
+    inset 0 0 8px rgba(144, 224, 239, 0.08);
 }
 
 .w11.oceanic .app-icon.about {
-  background: linear-gradient(145deg, rgba(0, 180, 216, 0.9), rgba(72, 202, 228, 0.62));
+  background: linear-gradient(145deg,
+      rgba(0, 180, 216, 0.9),
+      rgba(72, 202, 228, 0.62));
 }
 
 .w11.oceanic .app-icon.projects {
-  background: linear-gradient(145deg, rgba(2, 138, 181, 0.9), rgba(0, 180, 216, 0.62));
+  background: linear-gradient(145deg,
+      rgba(2, 138, 181, 0.9),
+      rgba(0, 180, 216, 0.62));
 }
 
 .w11.oceanic .app-icon.gallery {
-  background: linear-gradient(145deg, rgba(72, 202, 228, 0.88), rgba(144, 224, 239, 0.6));
+  background: linear-gradient(145deg,
+      rgba(72, 202, 228, 0.88),
+      rgba(144, 224, 239, 0.6));
 }
 
 .w11.oceanic .app-icon.blogs {
-  background: linear-gradient(145deg, rgba(0, 119, 182, 0.9), rgba(72, 202, 228, 0.6));
+  background: linear-gradient(145deg,
+      rgba(0, 119, 182, 0.9),
+      rgba(72, 202, 228, 0.6));
 }
 
 .w11.oceanic .app-icon.jobs {
-  background: linear-gradient(145deg, rgba(3, 76, 140, 0.9), rgba(0, 180, 216, 0.6));
+  background: linear-gradient(145deg,
+      rgba(3, 76, 140, 0.9),
+      rgba(0, 180, 216, 0.6));
 }
 
 .w11.oceanic .app-icon.contact {
-  background: linear-gradient(145deg, rgba(0, 95, 152, 0.9), rgba(144, 224, 239, 0.6));
+  background: linear-gradient(145deg,
+      rgba(0, 95, 152, 0.9),
+      rgba(144, 224, 239, 0.6));
 }
 
 .w11.oceanic .app-icon.settings {
-  background: linear-gradient(145deg, rgba(0, 180, 216, 0.88), rgba(3, 119, 182, 0.6));
+  background: linear-gradient(145deg,
+      rgba(0, 180, 216, 0.88),
+      rgba(3, 119, 182, 0.6));
 }
 
 .w11.oceanic .gallery-thumb-icon {
@@ -3745,12 +4225,16 @@
 }
 
 .w11.oceanic .gallery-lightbox {
-  background: radial-gradient(circle at top, rgba(76, 206, 235, 0.24), rgba(4, 18, 28, 0.92));
+  background: radial-gradient(circle at top,
+      rgba(76, 206, 235, 0.24),
+      rgba(4, 18, 28, 0.92));
 }
 
 .w11.oceanic .gallery-lightbox-card {
   border-color: rgba(76, 206, 235, 0.28);
-  background: linear-gradient(180deg, rgba(7, 58, 88, 0.95), rgba(5, 38, 60, 0.97));
+  background: linear-gradient(180deg,
+      rgba(7, 58, 88, 0.95),
+      rgba(5, 38, 60, 0.97));
 }
 
 .w11.oceanic .gallery-lightbox-header,
@@ -3778,7 +4262,9 @@
 /* Timeline Theme Alignment */
 .w11.light .app-icon.timeline,
 .w11.light .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(79, 167, 242, 0.9), rgba(131, 195, 255, 0.66));
+  background: linear-gradient(145deg,
+      rgba(79, 167, 242, 0.9),
+      rgba(131, 195, 255, 0.66));
 }
 
 .w11.light .timeline-item {
@@ -3787,7 +4273,9 @@
 }
 
 .w11.light .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(53, 139, 206, 0.64), rgba(94, 172, 234, 0.48));
+  background: linear-gradient(180deg,
+      rgba(53, 139, 206, 0.64),
+      rgba(94, 172, 234, 0.48));
 }
 
 .w11.light .timeline-rich .timeline-item::before {
@@ -3798,7 +4286,9 @@
 
 .w11.aurora .app-icon.timeline,
 .w11.aurora .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(88, 232, 255, 0.9), rgba(138, 151, 255, 0.64));
+  background: linear-gradient(145deg,
+      rgba(88, 232, 255, 0.9),
+      rgba(138, 151, 255, 0.64));
 }
 
 .w11.aurora .timeline-item,
@@ -3819,7 +4309,9 @@
 }
 
 .w11.aurora .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(120, 234, 255, 0.7), rgba(148, 138, 255, 0.52));
+  background: linear-gradient(180deg,
+      rgba(120, 234, 255, 0.7),
+      rgba(148, 138, 255, 0.52));
 }
 
 .w11.aurora .timeline-rich .timeline-item::before {
@@ -3829,7 +4321,9 @@
 
 .w11.glass .app-icon.timeline,
 .w11.glass .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(176, 212, 255, 0.88), rgba(154, 238, 255, 0.6));
+  background: linear-gradient(145deg,
+      rgba(176, 212, 255, 0.88),
+      rgba(154, 238, 255, 0.6));
 }
 
 .w11.glass .timeline-item {
@@ -3838,7 +4332,9 @@
 }
 
 .w11.glass .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(178, 216, 255, 0.64), rgba(155, 205, 255, 0.48));
+  background: linear-gradient(180deg,
+      rgba(178, 216, 255, 0.64),
+      rgba(155, 205, 255, 0.48));
 }
 
 .w11.glass .timeline-rich .timeline-item::before {
@@ -3848,7 +4344,9 @@
 
 .w11.retro .app-icon.timeline,
 .w11.retro .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(255, 178, 88, 0.9), rgba(255, 128, 92, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 178, 88, 0.9),
+      rgba(255, 128, 92, 0.62));
 }
 
 .w11.retro .timeline-item {
@@ -3857,7 +4355,9 @@
 }
 
 .w11.retro .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(255, 177, 82, 0.66), rgba(255, 123, 86, 0.5));
+  background: linear-gradient(180deg,
+      rgba(255, 177, 82, 0.66),
+      rgba(255, 123, 86, 0.5));
 }
 
 .w11.retro .timeline-rich .timeline-item::before {
@@ -3867,7 +4367,9 @@
 
 .w11.solar .app-icon.timeline,
 .w11.solar .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(255, 206, 102, 0.92), rgba(245, 168, 86, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 206, 102, 0.92),
+      rgba(245, 168, 86, 0.62));
 }
 
 .w11.solar .timeline-item {
@@ -3876,7 +4378,9 @@
 }
 
 .w11.solar .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(224, 166, 48, 0.62), rgba(255, 200, 84, 0.5));
+  background: linear-gradient(180deg,
+      rgba(224, 166, 48, 0.62),
+      rgba(255, 200, 84, 0.5));
 }
 
 .w11.solar .timeline-rich .timeline-item::before {
@@ -3886,7 +4390,9 @@
 
 .w11.matrix .app-icon.timeline,
 .w11.matrix .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(0, 66, 0, 0.94), rgba(0, 16, 0, 0.98));
+  background: linear-gradient(145deg,
+      rgba(0, 66, 0, 0.94),
+      rgba(0, 16, 0, 0.98));
 }
 
 .w11.matrix .timeline-item {
@@ -3895,7 +4401,9 @@
 }
 
 .w11.matrix .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(88, 255, 88, 0.7), rgba(55, 185, 55, 0.5));
+  background: linear-gradient(180deg,
+      rgba(88, 255, 88, 0.7),
+      rgba(55, 185, 55, 0.5));
 }
 
 .w11.matrix .timeline-rich .timeline-item::before {
@@ -3906,7 +4414,9 @@
 
 .w11.neon .app-icon.timeline,
 .w11.neon .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(0, 246, 255, 0.9), rgba(196, 119, 255, 0.62));
+  background: linear-gradient(145deg,
+      rgba(0, 246, 255, 0.9),
+      rgba(196, 119, 255, 0.62));
 }
 
 .w11.neon .timeline-item {
@@ -3916,7 +4426,9 @@
 }
 
 .w11.neon .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(0, 244, 255, 0.74), rgba(255, 0, 224, 0.58));
+  background: linear-gradient(180deg,
+      rgba(0, 244, 255, 0.74),
+      rgba(255, 0, 224, 0.58));
 }
 
 .w11.neon .timeline-rich .timeline-item::before {
@@ -3927,7 +4439,9 @@
 
 .w11.sunset .app-icon.timeline,
 .w11.sunset .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(255, 206, 122, 0.9), rgba(236, 97, 62, 0.62));
+  background: linear-gradient(145deg,
+      rgba(255, 206, 122, 0.9),
+      rgba(236, 97, 62, 0.62));
 }
 
 .w11.sunset .timeline-item {
@@ -3936,7 +4450,9 @@
 }
 
 .w11.sunset .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(255, 186, 122, 0.7), rgba(235, 102, 64, 0.54));
+  background: linear-gradient(180deg,
+      rgba(255, 186, 122, 0.7),
+      rgba(235, 102, 64, 0.54));
 }
 
 .w11.sunset .timeline-rich .timeline-item::before {
@@ -3956,7 +4472,9 @@
 }
 
 .w11.monochrome .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(198, 198, 198, 0.6), rgba(140, 140, 140, 0.46));
+  background: linear-gradient(180deg,
+      rgba(198, 198, 198, 0.6),
+      rgba(140, 140, 140, 0.46));
 }
 
 .w11.monochrome .timeline-rich .timeline-item::before {
@@ -3967,7 +4485,9 @@
 
 .w11.dracula .app-icon.timeline,
 .w11.dracula .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(189, 147, 249, 0.9), rgba(139, 233, 253, 0.62));
+  background: linear-gradient(145deg,
+      rgba(189, 147, 249, 0.9),
+      rgba(139, 233, 253, 0.62));
 }
 
 .w11.dracula .timeline-item {
@@ -3976,7 +4496,9 @@
 }
 
 .w11.dracula .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(189, 147, 249, 0.68), rgba(255, 121, 198, 0.5));
+  background: linear-gradient(180deg,
+      rgba(189, 147, 249, 0.68),
+      rgba(255, 121, 198, 0.5));
 }
 
 .w11.dracula .timeline-rich .timeline-item::before {
@@ -3986,7 +4508,9 @@
 
 .w11.oceanic .app-icon.timeline,
 .w11.oceanic .tb-btn .app-icon.timeline {
-  background: linear-gradient(145deg, rgba(72, 202, 228, 0.9), rgba(0, 119, 182, 0.62));
+  background: linear-gradient(145deg,
+      rgba(72, 202, 228, 0.9),
+      rgba(0, 119, 182, 0.62));
 }
 
 .w11.oceanic .timeline-item {
@@ -3995,7 +4519,9 @@
 }
 
 .w11.oceanic .timeline-rich::before {
-  background: linear-gradient(180deg, rgba(76, 206, 235, 0.68), rgba(0, 147, 191, 0.5));
+  background: linear-gradient(180deg,
+      rgba(76, 206, 235, 0.68),
+      rgba(0, 147, 191, 0.5));
 }
 
 .w11.oceanic .timeline-rich .timeline-item::before {
@@ -4021,7 +4547,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: clamp(1rem, 3vw, 2.5rem);
   padding: 0 1.25rem;
   font-weight: 600;
@@ -4105,4 +4631,653 @@
   50% {
     opacity: 0;
   }
+}
+
+/* Clock and Calendar Widget */
+.desktop-widgets {
+  position: absolute;
+  top: 18px;
+  right: 68px;
+  /* Room for social rail */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1;
+  /* Below windows */
+}
+
+.clock-calendar-widget {
+  background: rgba(30, 41, 59, 0.45);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 16px;
+  width: 280px;
+  /* removed hardcoded */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.clock-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.clock-calendar-widget .clock-time {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.clock-calendar-widget .clock-date {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 4px;
+}
+
+.calendar-header {
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+
+.calendar-cell:not(.empty):not(.day-name):hover {
+  background: rgba(255, 255, 255, 0.1);
+  cursor: default;
+}
+
+.calendar-cell.day-name {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.calendar-cell.today {
+  background: rgba(59, 130, 246, 0.8);
+  color: white;
+  font-weight: 600;
+}
+
+/* Context Menu */
+.context-menu {
+  position: absolute;
+  z-index: 9999;
+  background: rgba(30, 41, 59, 0.65);
+  backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 220px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  /* removed hardcoded */
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.context-menu-item {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 150ms ease;
+  user-select: none;
+}
+
+.context-menu-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.context-menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 4px 0;
+}
+
+/* System Tray Flyout */
+.system-tray-flyout {
+  position: absolute;
+  bottom: 60px;
+  right: 12px;
+  width: 320px;
+  background: rgba(30, 41, 59, 0.45);
+  backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  /* removed hardcoded */
+  padding: 16px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: flyoutSlide 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+@keyframes flyoutSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flyout-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.flyout-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.flyout-row.mt-2 {
+  margin-top: 12px;
+}
+
+.flyout-icon {
+  font-size: 1.25rem;
+  width: 24px;
+  text-align: center;
+}
+
+.flyout-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flyout-title {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.flyout-desc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+
+.flyout-slider-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.flyout-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  outline: none;
+}
+
+.flyout-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.flyout-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Markdown Reader */
+.markdown-reader-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.md-back-btn {
+  align-self: flex-start;
+  background: transparent;
+  color: #3b82f6;
+  border: none;
+  font-size: 0.95rem;
+  padding: 8px 0;
+  cursor: pointer;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.md-back-btn:hover {
+  text-decoration: underline;
+}
+
+.markdown-reader-content {
+  flex: 1;
+  overflow-y: auto;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.markdown-reader-content h1,
+.markdown-reader-content h2,
+.markdown-reader-content h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.markdown-reader-content h1 {
+  font-size: 1.75em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.3em;
+}
+
+.markdown-reader-content h2 {
+  font-size: 1.4em;
+}
+
+.markdown-reader-content h3 {
+  font-size: 1.2em;
+}
+
+.markdown-reader-content p,
+.markdown-reader-content ul,
+.markdown-reader-content ol {
+  margin-bottom: 1.25em;
+}
+
+.markdown-reader-content ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.markdown-reader-content pre {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 1.25em;
+}
+
+.markdown-reader-content code {
+  font-family: monospace;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.markdown-reader-content pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* Window Animations & Glassmorphism */
+.window {
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+  animation-fill-mode: forwards;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+}
+
+.window-enter {
+  animation-name: windowPopIn;
+}
+
+.window-exit {
+  animation-name: windowPopOut;
+}
+
+@keyframes windowPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes windowPopOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+/* Base Semi-Transparent Backgrounds for Light/Dark themes to support Mica/Glass */
+.w11.light .window {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.w11.aurora .window,
+.w11.matrix .window,
+.w11.retro .window,
+.w11.solar .window {
+  background: var(--bg-fallback,
+      color-mix(in srgb, currentColor 10%, transparent));
+}
+
+.taskbar,
+.start,
+.search-results-window {
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+}
+
+/* OS UI Features Theme Adaptations */
+.w11.light .clock-calendar-widget,
+.w11.light .context-menu,
+.w11.light .system-tray-flyout {
+  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.65);
+  color: rgba(17, 24, 39, 0.95);
+}
+
+.w11.aurora .clock-calendar-widget,
+.w11.aurora .context-menu,
+.w11.aurora .system-tray-flyout {
+  border-color: rgba(148, 138, 255, 0.36);
+  background: rgba(22, 40, 68, 0.48);
+}
+
+.w11.glass .clock-calendar-widget,
+.w11.glass .context-menu,
+.w11.glass .system-tray-flyout {
+  border-color: rgba(221, 236, 255, 0.24);
+  background: rgba(226, 238, 255, 0.14);
+}
+
+.w11.retro .clock-calendar-widget,
+.w11.retro .context-menu,
+.w11.retro .system-tray-flyout {
+  border-color: rgba(255, 187, 116, 0.24);
+  background: rgba(84, 44, 25, 0.5);
+}
+
+.w11.solar .clock-calendar-widget,
+.w11.solar .context-menu,
+.w11.solar .system-tray-flyout {
+  border-color: rgba(190, 133, 21, 0.26);
+  background: rgba(255, 239, 197, 0.64);
+}
+
+.w11.matrix .clock-calendar-widget,
+.w11.matrix .context-menu,
+.w11.matrix .system-tray-flyout {
+  border-color: rgba(89, 255, 89, 0.3);
+  background: rgba(0, 22, 0, 0.76);
+}
+
+.w11.neon .clock-calendar-widget,
+.w11.neon .context-menu,
+.w11.neon .system-tray-flyout {
+  border-color: rgba(255, 130, 246, 0.34);
+  background: rgba(28, 8, 52, 0.7);
+}
+
+.w11.sunset .clock-calendar-widget,
+.w11.sunset .context-menu,
+.w11.sunset .system-tray-flyout {
+  border-color: rgba(255, 186, 122, 0.24);
+  background: rgba(108, 40, 18, 0.52);
+}
+
+.w11.monochrome .clock-calendar-widget,
+.w11.monochrome .context-menu,
+.w11.monochrome .system-tray-flyout {
+  border-color: rgba(240, 240, 240, 0.2);
+  background: #1f1f1f;
+}
+
+.w11.dracula .clock-calendar-widget,
+.w11.dracula .context-menu,
+.w11.dracula .system-tray-flyout {
+  border-color: rgba(189, 147, 249, 0.3);
+  background: rgba(36, 38, 53, 0.76);
+}
+
+.w11.oceanic .clock-calendar-widget,
+.w11.oceanic .context-menu,
+.w11.oceanic .system-tray-flyout {
+  border-color: rgba(78, 208, 236, 0.3);
+  background: rgba(4, 46, 70, 0.76);
+}
+
+/* Adjust text color inheritances for new components so they obey theme */
+.clock-calendar-widget,
+.context-menu,
+.system-tray-flyout {
+  color: inherit;
+}
+
+.clock-date {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.calendar-cell.day-name {
+  color: inherit;
+  opacity: 0.6;
+}
+
+.flyout-desc {
+  color: inherit;
+  opacity: 0.6;
+}
+
+\n
+/* OS UI Features Accent Theme Adaptations */
+
+.w11.light .calendar-cell.today {
+  background: rgba(59, 130, 246, 0.8);
+
+  color: #fff;
+}
+
+.w11.light .flyout-slider::-webkit-slider-thumb {
+  background: rgba(59, 130, 246, 0.8);
+}
+
+.w11.light .flyout-slider::-moz-range-thumb {
+  background: rgba(59, 130, 246, 0.8);
+}
+
+.w11:not(.light):not(.aurora):not(.glass):not(.retro):not(.solar):not(.matrix):not(.neon):not(.sunset):not(.monochrome):not(.dracula):not(.oceanic) .calendar-cell.today {
+  background: rgba(59, 130, 246, 0.8);
+
+  color: #fff;
+}
+
+.w11:not(.light):not(.aurora):not(.glass):not(.retro):not(.solar):not(.matrix):not(.neon):not(.sunset):not(.monochrome):not(.dracula):not(.oceanic) .flyout-slider::-webkit-slider-thumb {
+  background: rgba(59, 130, 246, 0.8);
+}
+
+.w11:not(.light):not(.aurora):not(.glass):not(.retro):not(.solar):not(.matrix):not(.neon):not(.sunset):not(.monochrome):not(.dracula):not(.oceanic) .flyout-slider::-moz-range-thumb {
+  background: rgba(59, 130, 246, 0.8);
+}
+
+.w11.aurora .calendar-cell.today {
+  background: rgba(148, 138, 255, 0.52);
+
+  color: #fff;
+}
+
+.w11.aurora .flyout-slider::-webkit-slider-thumb {
+  background: rgba(148, 138, 255, 0.52);
+}
+
+.w11.aurora .flyout-slider::-moz-range-thumb {
+  background: rgba(148, 138, 255, 0.52);
+}
+
+.w11.glass .calendar-cell.today {
+  background: rgba(155, 205, 255, 0.48);
+
+  color: #fff;
+}
+
+.w11.glass .flyout-slider::-webkit-slider-thumb {
+  background: rgba(155, 205, 255, 0.48);
+}
+
+.w11.glass .flyout-slider::-moz-range-thumb {
+  background: rgba(155, 205, 255, 0.48);
+}
+
+.w11.retro .calendar-cell.today {
+  background: rgba(255, 123, 86, 0.5);
+
+  color: #fff;
+}
+
+.w11.retro .flyout-slider::-webkit-slider-thumb {
+  background: rgba(255, 123, 86, 0.5);
+}
+
+.w11.retro .flyout-slider::-moz-range-thumb {
+  background: rgba(255, 123, 86, 0.5);
+}
+
+.w11.solar .calendar-cell.today {
+  background: rgba(255, 200, 84, 0.5);
+
+  color: #fff;
+}
+
+.w11.solar .flyout-slider::-webkit-slider-thumb {
+  background: rgba(255, 200, 84, 0.5);
+}
+
+.w11.solar .flyout-slider::-moz-range-thumb {
+  background: rgba(255, 200, 84, 0.5);
+}
+
+.w11.matrix .calendar-cell.today {
+  background: rgba(55, 185, 55, 0.5);
+
+  color: #fff;
+}
+
+.w11.matrix .flyout-slider::-webkit-slider-thumb {
+  background: rgba(55, 185, 55, 0.5);
+}
+
+.w11.matrix .flyout-slider::-moz-range-thumb {
+  background: rgba(55, 185, 55, 0.5);
+}
+
+.w11.neon .calendar-cell.today {
+  background: rgba(255, 0, 224, 0.58);
+
+  color: #fff;
+}
+
+.w11.neon .flyout-slider::-webkit-slider-thumb {
+  background: rgba(255, 0, 224, 0.58);
+}
+
+.w11.neon .flyout-slider::-moz-range-thumb {
+  background: rgba(255, 0, 224, 0.58);
+}
+
+.w11.sunset .calendar-cell.today {
+  background: rgba(235, 102, 64, 0.54);
+
+  color: #fff;
+}
+
+.w11.sunset .flyout-slider::-webkit-slider-thumb {
+  background: rgba(235, 102, 64, 0.54);
+}
+
+.w11.sunset .flyout-slider::-moz-range-thumb {
+  background: rgba(235, 102, 64, 0.54);
+}
+
+.w11.monochrome .calendar-cell.today {
+  background: rgba(140, 140, 140, 0.46);
+
+  color: #fff;
+}
+
+.w11.monochrome .flyout-slider::-webkit-slider-thumb {
+  background: rgba(140, 140, 140, 0.46);
+}
+
+.w11.monochrome .flyout-slider::-moz-range-thumb {
+  background: rgba(140, 140, 140, 0.46);
+}
+
+.w11.dracula .calendar-cell.today {
+  background: rgba(255, 121, 198, 0.5);
+
+  color: #fff;
+}
+
+.w11.dracula .flyout-slider::-webkit-slider-thumb {
+  background: rgba(255, 121, 198, 0.5);
+}
+
+.w11.dracula .flyout-slider::-moz-range-thumb {
+  background: rgba(255, 121, 198, 0.5);
+}
+
+.w11.oceanic .calendar-cell.today {
+  background: rgba(0, 147, 191, 0.5);
+
+  color: #fff;
+}
+
+.w11.oceanic .flyout-slider::-webkit-slider-thumb {
+  background: rgba(0, 147, 191, 0.5);
+}
+
+.w11.oceanic .flyout-slider::-moz-range-thumb {
+  background: rgba(0, 147, 191, 0.5);
+}
+
+.clock-time,
+.clock-date {
+  color: inherit;
 }

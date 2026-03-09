@@ -66,21 +66,46 @@
       "ABV-IIITM Gwalior (2017 - 2022) — M.Tech (Dual Degree) in Information Technology, GPA 7.7",
       "ST. Mary College, Etawah (2016) — Intermediate in PCM with Computer, GPA 8.8/10"
     ],
-    "interests": ["Open Source", "Automation", "Data Engineering", "Cloud Computing", "NLP", "Music", "Coffee"],
+    "interests": [
+      "Open Source",
+      "Automation",
+      "Data Engineering",
+      "Cloud Computing",
+      "NLP",
+      "Music",
+      "Coffee"
+    ],
     "achievements": [
       "Published research in Springer NLP conference (2023): https://link.springer.com/chapter/10.1007/978-981-19-9225-4_37",
       "Kaggle Expert profile: https://www.kaggle.com/terminate9298"
     ]
   },
   "socialLinks": [
-    { "key": "instagram", "label": "Instagram", "href": "https://www.instagram.com/kaus98/" },
-    { "key": "github", "label": "GitHub", "href": "https://github.com/terminate9298" },
-    { "key": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/in/kaus98" },
-    { "key": "kaggle", "label": "Kaggle", "href": "https://www.kaggle.com/terminate9298" }
+    {
+      "key": "instagram",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/kaus98/"
+    },
+    {
+      "key": "github",
+      "label": "GitHub",
+      "href": "https://github.com/terminate9298"
+    },
+    {
+      "key": "linkedin",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/kaus98"
+    },
+    {
+      "key": "kaggle",
+      "label": "Kaggle",
+      "href": "https://www.kaggle.com/terminate9298"
+    }
   ],
   "contact": {
     "email": "kaus.pathak@gmail.com",
     "phone": "+91 91490 42316",
+    "githubUsername": "kaus98",
     "availability": {
       "status": "Open to Work",
       "from": "Available from March 2026",
@@ -88,19 +113,59 @@
       "updated": "Feb 2026"
     },
     "links": [
-      { "label": "Linktree", "href": "https://linktr.ee/kaus98" },
-      { "label": "Linkedin", "href": "https://www.linkedin.com/in/kaus98/" },
-      { "label": "Kaggle", "href": "https://kaggle.com/terminate9298" },
-      { "label": "Github New", "href": "https://github.com/kaus98" },
-      { "label": "Github", "href": "https://github.com/terminate9298" },
-      { "label": "Kaus Blog", "href": "https://kaus98.github.io" },
-      { "label": "Medium", "href": "https://medium.com/@kaus.pathak_30409" },
-      { "label": "Coding Ninjas Studio", "href": "https://www.codingninjas.com/studio/profile/kaus98" },
-      { "label": "LeetCode Profile", "href": "https://leetcode.com/terminate9298/" },
-      { "label": "Facebook", "href": "https://www.facebook.com/kaustubh.pathak.714" },
-      { "label": "Instagram", "href": "https://www.instagram.com/kaus98/" },
-      { "label": "Flickr", "href": "https://www.flickr.com/photos/160203994@N07/" },
-      { "label": "Resume PDF", "href": "./Kaustubh_Pathak_Resume.pdf", "download": true }
+      {
+        "label": "Linktree",
+        "href": "https://linktr.ee/kaus98"
+      },
+      {
+        "label": "Linkedin",
+        "href": "https://www.linkedin.com/in/kaus98/"
+      },
+      {
+        "label": "Kaggle",
+        "href": "https://kaggle.com/terminate9298"
+      },
+      {
+        "label": "Github New",
+        "href": "https://github.com/kaus98"
+      },
+      {
+        "label": "Github",
+        "href": "https://github.com/terminate9298"
+      },
+      {
+        "label": "Kaus Blog",
+        "href": "https://kaus98.github.io"
+      },
+      {
+        "label": "Medium",
+        "href": "https://medium.com/@kaus.pathak_30409"
+      },
+      {
+        "label": "Coding Ninjas Studio",
+        "href": "https://www.codingninjas.com/studio/profile/kaus98"
+      },
+      {
+        "label": "LeetCode Profile",
+        "href": "https://leetcode.com/terminate9298/"
+      },
+      {
+        "label": "Facebook",
+        "href": "https://www.facebook.com/kaustubh.pathak.714"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/kaus98/"
+      },
+      {
+        "label": "Flickr",
+        "href": "https://www.flickr.com/photos/160203994@N07/"
+      },
+      {
+        "label": "Resume PDF",
+        "href": "./Kaustubh_Pathak_Resume.pdf",
+        "download": true
+      }
     ],
     "responsibilities": [
       "Currently SDE-2 @ Dell India",
@@ -278,7 +343,8 @@
       "title": "Unified Interface for AI Api",
       "date": "Jan 31, 2026",
       "summary": "Unify interactions across OpenAI-compatible providers with one consistent API layer.",
-      "link": "https://kaus98.github.io/2026/01/31/unified-interface-for-ai-api/"
+      "link": "https://kaus98.github.io/2026/01/31/unified-interface-for-ai-api/",
+      "markdown": "# Unified Interface for AI Api\n\nRecently, I found myself juggling multiple LLM providers. Instead of maintaining separate integrations, I built **AI-UI**.\n\n## The Problem\n- OpenAI uses one format.\n- Anthropic uses another.\n- Local models use something else.\n\n## The Solution\nBy creating a unified API layer, we can seamlessly switch models without changing frontend code. Here is a code snippet:\n\n```javascript\nimport { unifiedClient } from 'ai-ui';\n\nconst response = await unifiedClient.chat({\n  model: 'gpt-4',\n  messages: [{ role: 'user', content: 'Hello' }]\n});\n```\n\nCheckout the full project on GitHub!"
     },
     {
       "title": "Nano Banana Gemini Viral Prompts",

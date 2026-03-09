@@ -18,8 +18,6 @@ export function TypewriterBackground() {
     const [typingDelay, setTypingDelay] = useState(TYPING_SPEED_MS)
 
     useEffect(() => {
-        let timeoutId: number
-
         const currentPhrase = phrases[loopIndex % phrases.length]
 
         const handleType = () => {
@@ -53,7 +51,7 @@ export function TypewriterBackground() {
             }
         }
 
-        timeoutId = window.setTimeout(handleType, typingDelay)
+        const timeoutId = window.setTimeout(handleType, typingDelay)
         return () => window.clearTimeout(timeoutId)
     }, [text, isDeleting, loopIndex, typingDelay])
 
