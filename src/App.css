@@ -4646,6 +4646,12 @@
   /* Below windows */
 }
 
+@media (max-width: 1000px) {
+  .desktop-widgets {
+    display: none !important;
+  }
+}
+
 .clock-calendar-widget {
   background: rgba(30, 41, 59, 0.45);
   backdrop-filter: blur(16px);
@@ -4745,7 +4751,8 @@
 }
 
 .w11-toggle:checked {
-  background: #3b82f6; /* Accent color */
+  background: #3b82f6;
+  /* Accent color */
   border-color: transparent;
 }
 
